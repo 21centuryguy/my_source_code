@@ -17,7 +17,7 @@ def show(s):
 
 	print '#'*200+'\n'
 
-	print hasattr(aaa,"method")
+	print hasattr(aaa,'method')
 
 #######################################################
 
