@@ -1,3 +1,5 @@
 from urllib.request import urlopen
-html = urlopen("http://www.pythonscraping.com/pages/page1.html")
+
+target_url = "https://www.yahoo.co.jp"
+html = urlopen(target_url)
 print(html.read())
