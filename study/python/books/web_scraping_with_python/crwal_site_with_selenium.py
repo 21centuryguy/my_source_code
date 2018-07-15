@@ -44,7 +44,7 @@ class Crawl_the_webo_with_selenium(unittest.TestCase):
 		def crawl_wep_page(current_url):
 			html = urlopen(current_url)
 			bsObj = BeautifulSoup(html.read(), "html.parser")
-			# print(bsObj)
+			print(bsObj)
 
 			crawled_html_file_full_path = "/Users/jack/Desktop/" + current_url.replace(':','').replace('//','/').replace('/','_') + strftime("%Y%m%d_%H%M%S", localtime()) + ".txt"
 			with open(crawled_html_file_full_path, 'w') as f:
@@ -91,7 +91,7 @@ class Crawl_the_webo_with_selenium(unittest.TestCase):
 
 
 		############### get current page html  ###############
-		crawl_wep_page(driver.current_url)
+		# crawl_wep_page(driver.current_url)
 
 
 
@@ -102,7 +102,7 @@ class Crawl_the_webo_with_selenium(unittest.TestCase):
 
 
 		############### get current page html  ###############
-		crawl_wep_page(driver.current_url)
+		# crawl_wep_page(driver.current_url)
 
 
 
@@ -113,7 +113,7 @@ class Crawl_the_webo_with_selenium(unittest.TestCase):
 
 
 		############### get current page html  ###############
-		crawl_wep_page(driver.current_url)
+		# crawl_wep_page(driver.current_url)
 
 
 

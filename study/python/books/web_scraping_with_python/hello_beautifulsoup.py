@@ -1,4 +1,5 @@
-from urllib.request import urlopen
+from urllib.request import urlopen ### python3
+# from urllib import urlopen ### python2
 from bs4 import BeautifulSoup
 
 target_url = "https://www.yahoo.co.jp"
