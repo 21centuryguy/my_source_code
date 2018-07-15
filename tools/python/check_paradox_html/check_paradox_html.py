@@ -21,7 +21,7 @@ import textract
 from time import localtime, strftime
 import sys
 import platform
-from get_current_html import check_current_page_html
+from get_current_url_html import check_current_page_html
 
 class Selenium_unittest_base_code(unittest.TestCase):
 
