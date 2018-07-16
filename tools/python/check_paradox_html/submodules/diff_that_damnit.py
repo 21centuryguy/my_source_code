@@ -80,10 +80,10 @@ def diff_that_damnit(current_data_time):
 			before_file_full_path = before_folder_path + "/" + file_list_in_before_folder[m]
 			after_file_full_path = last_folder_in_the_crawled_html_files_path + "/" + file_list_in_the_last_folder[m]
 
-			print "\n\n============ [ " + str(m+1) + "th before file ] ============\n"
+			print "\n\n============ [ before file ( " + str(m+1) + " ) ] ============\n"
 			print before_file_full_path
 
-			print "\n\n============ [ " + str(m+1) + "th after file ] ============\n"
+			print "\n\n============ [ after file ( " + str(m+1) + " ) ] ============\n"
 			print after_file_full_path
 
 			with open(before_file_full_path) as before, open(after_file_full_path) as after:
