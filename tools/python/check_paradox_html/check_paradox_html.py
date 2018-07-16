@@ -21,7 +21,9 @@ import textract
 from time import localtime, strftime
 import sys
 import platform
-from get_current_url_html import check_current_page_html
+from submodules import get_current_url_html
+from submodules import diff_that_damnit
+from submodules import config
 
 class Selenium_unittest_base_code(unittest.TestCase):
 
@@ -32,7 +34,8 @@ class Selenium_unittest_base_code(unittest.TestCase):
 		# self.driver=webdriver.Safari()
 		# self.driver=webdriver.Ie('C:\\webdriver\\IEDriverServer.exe') ### check your path
 		self.driver.implicitly_wait(15)
-		self.base_url = "https://miraitranslator.com"
+		# self.base_url = "https://miraitranslator.com"
+		self.base_url = "https://www.wikipedia.org"
 		self.verificationErrors = []
 		self.accept_next_alert = True
 
@@ -40,116 +43,124 @@ class Selenium_unittest_base_code(unittest.TestCase):
 
 	def test_selenium_unittest_base_code(self):
 
-		print "\n\n\n\n\nTest has Started :",strftime("%Y-%m-%d %H:%M:%S", localtime())
+		current_data_time = strftime("%Y%m%d_%H%M%S", localtime())
+
+		print "\n\n\n\n\nTest has Started :",current_data_time
 
 		driver = self.driver
 		driver.maximize_window()
 		# driver.set_window_position(0, 0)
 		# driver.set_window_size(1650, 1500)
 		# driver.maximize_window(); print driver.get_window_size()
-
-
-	################################
-
-		print "\n\n\n\n\n### [ signin pageのhtmlを読み込んでFileに保存します ] ### "
 		driver.get(self.base_url + " ")
-		current_url = driver.current_url
-		check_current_page_html(current_url)
-
 
 	################################
 
-		print "\n\n\n\n\n### [ fogot your passworのhtmlを読み込んでFileに保存します ] #### "
-		driver.find_element_by_xpath("/html/body/main/form/dl/dd[2]/div/a").click()
+		print "\n\n\n\n\n[[[[[[[[[[[[[[[[[[[[[[[[[[[[]]]]]]]]]]]]]]]]]]]]]]]]]]]]]\n"
+		print "      [[[[[[[  Current url page html crwaling  ]]]]]]]            \n"
+		print "[[[[[[[[[[[[[[[[[[[[[[[[[[[[]]]]]]]]]]]]]]]]]]]]]]]]]]]]]\n"
+
+	################################
+
+		print "\n\n\n\n\n### Getting and saving whole html of [ " + driver.current_url + " ] ### "
+		current_url = driver.current_url
+		get_current_url_html.get_current_url_html(current_url, current_data_time)
+
+
+		################################
+
+		driver.find_element_by_xpath("//*[@id='searchInput']").clear()
+		driver.find_element_by_xpath("//*[@id='searchInput']").send_keys("python")
+		driver.find_element_by_xpath("//*[@id='search-form']/fieldset/button/i").click()
+
+	################################
+
+		print "\n\n\n\n\n### Getting and saving whole html of [ " + driver.current_url + " ] ### "
 		time.sleep(2) ### It should be changed to waiting method 
 		current_url = driver.current_url
-		check_current_page_html(current_url)
+		get_current_url_html.get_current_url_html(current_url, current_data_time)
 
 
 	################################
 
-		'''print "\n\n\n\n\n#### [ xxxxxのhtmlを読み込んでFileに保存します ] ### "
+		'''print "\n\n\n\n\n### Getting and saving whole html of [ " + driver.current_url + " ] ### " "
 		# driver.find_element_by_xpath("/html/body/main/form/dl/dd[2]/div/a").click()
 		time.sleep(2) ### It should be changed to waiting method 
 		current_url = driver.current_url
-		check_current_page_html(current_url)
+		get_current_url_html(current_url)
 
 	################################
 
-		print "\n\n\n\n\n#### [ xxxxxのhtmlを読み込んでFileに保存します ] ### "
+		print "\n\n\n\n\n### Getting and saving whole html of [ " + driver.current_url + " ] ### "
 		# driver.find_element_by_xpath("/html/body/main/form/dl/dd[2]/div/a").click()
 		time.sleep(2) ### It should be changed to waiting method 
 		current_url = driver.current_url
-		check_current_page_html(current_url)
+		get_current_url_html(current_url)
 
 	################################
 
-		print "\n\n\n\n\n#### [ xxxxxのhtmlを読み込んでFileに保存します ] ### "
+		print "\n\n\n\n\n### Getting and saving whole html of [ " + driver.current_url + " ] ### "
 		# driver.find_element_by_xpath("/html/body/main/form/dl/dd[2]/div/a").click()
 		time.sleep(2) ### It should be changed to waiting method 
 		current_url = driver.current_url
-		check_current_page_html(current_url)
-
-
-	################################
-
-		print "\n\n\n\n\n#### [ xxxxxのhtmlを読み込んでFileに保存します ] ### "
-		# driver.find_element_by_xpath("/html/body/main/form/dl/dd[2]/div/a").click()
-		time.sleep(2) ### It should be changed to waiting method 
-		current_url = driver.current_url
-		check_current_page_html(current_url)
+		get_current_url_html(current_url)
 
 
 	################################
 
-		print "\n\n\n\n\n#### [ xxxxxのhtmlを読み込んでFileに保存します ] ### "
+		print "\n\n\n\n\n### Getting and saving whole html of [ " + driver.current_url + " ] ### "
 		# driver.find_element_by_xpath("/html/body/main/form/dl/dd[2]/div/a").click()
 		time.sleep(2) ### It should be changed to waiting method 
 		current_url = driver.current_url
-		check_current_page_html(current_url)
-
-	################################
-
-		print "\n\n\n\n\n#### [ xxxxxのhtmlを読み込んでFileに保存します ] ### "
-		# driver.find_element_by_xpath("/html/body/main/form/dl/dd[2]/div/a").click()
-		time.sleep(2) ### It should be changed to waiting method 
-		current_url = driver.current_url
-		check_current_page_html(current_url)
-
-	################################
-
-		print "\n\n\n\n\n#### [ xxxxxのhtmlを読み込んでFileに保存します ] ### "
-		# driver.find_element_by_xpath("/html/body/main/form/dl/dd[2]/div/a").click()
-		time.sleep(2) ### It should be changed to waiting method 
-		current_url = driver.current_url
-		check_current_page_html(current_url)'''
+		get_current_url_html(current_url)
 
 
 	################################
 
-		print "\n\n\n\n\n#### [ xxxxxのhtmlを読み込んでFileに保存します ] ### "
+		print "\n\n\n\n\n### Getting and saving whole html of [ " + driver.current_url + " ] ### "
 		# driver.find_element_by_xpath("/html/body/main/form/dl/dd[2]/div/a").click()
 		time.sleep(2) ### It should be changed to waiting method 
 		current_url = driver.current_url
-		check_current_page_html(current_url)
+		get_current_url_html(current_url)
 
 	################################
 
-		print "\n\n\n\n\n#### [ xxxxxのhtmlを読み込んでFileに保存します ] ### "
+		print "\n\n\n\n\n### Getting and saving whole html of [ " + driver.current_url + " ] ### "
 		# driver.find_element_by_xpath("/html/body/main/form/dl/dd[2]/div/a").click()
 		time.sleep(2) ### It should be changed to waiting method 
 		current_url = driver.current_url
-		check_current_page_html(current_url)
+		get_current_url_html(current_url)
+
+	################################
+
+		print "\n\n\n\n\n### Getting and saving whole html of [ " + driver.current_url + " ] ### "
+		# driver.find_element_by_xpath("/html/body/main/form/dl/dd[2]/div/a").click()
+		time.sleep(2) ### It should be changed to waiting method 
+		current_url = driver.current_url
+		get_current_url_html(current_url)
 
 
+	################################
 
+		print "\n\n\n\n\n### Getting and saving whole html of [ " + driver.current_url + " ] ### "
+		# driver.find_element_by_xpath("/html/body/main/form/dl/dd[2]/div/a").click()
+		time.sleep(2) ### It should be changed to waiting method 
+		current_url = driver.current_url
+		get_current_url_html(current_url)
 
+	################################
 
+		print "\n\n\n\n\n### Getting and saving whole html of [ " + driver.current_url + " ] ### "
+		# driver.find_element_by_xpath("/html/body/main/form/dl/dd[2]/div/a").click()
+		time.sleep(2) ### It should be changed to waiting method 
+		current_url = driver.current_url
+		get_current_url_html(current_url)'''
 
+		diff_that_damnit.diff_that_damnit(current_data_time)
 
 	################################################################################################
 
-		print "\n\n\n\n\nTest has Finished :",strftime("%Y-%m-%d %H:%M:%S", localtime())
+		print "\n\n\n\n\nTest has Finished :",current_data_time
 
 	################################################################################################
 
@@ -182,11 +193,10 @@ class Selenium_unittest_base_code(unittest.TestCase):
 
 if __name__ == "__main__":
 	unittest.main()
-
 	'''log_file = semi_log_path+'log.txt' ### check your path
 	f = open(log_file, 'w')
 	f.write("Test End :\n")
-	f.write(strftime("%Y-%m-%d %H:%M:%S", localtime()))
+	f.write(current_data_time))
 	runner = unittest.TextTestRunner(f)
 	unittest.main(testRunner=runner)
 	f.close()'''
