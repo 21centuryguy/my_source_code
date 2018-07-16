@@ -98,7 +98,7 @@ def diff_that_damnit(current_data_time):
 			before_file_name = file_list_in_before_folder[m].replace(folder_path_1, ' ')
 			after_file_name = file_list_in_the_last_folder[m].replace(folder_path_1, ' ')
 
-			diff_result_folder_path = folder_path_1 + "/diff_result/" +"diff"+ before_folder_name +"_"+ after_folder_name
+			diff_result_folder_path = folder_path_1 + "/diff_result/" +"diff"+ after_folder_name +"_"+ before_folder_name
 			distutils.dir_util.mkpath(diff_result_folder_path)
 			diff_result_fullpath = diff_result_folder_path +"/"+ before_folder_name+"-"+after_folder_name +"_"+ file_list_in_before_folder[m]+"_diff_resutl.txt"		
 			with open(diff_result_fullpath, 'w') as diff_result:
@@ -115,7 +115,12 @@ def diff_that_damnit(current_data_time):
 				print "==>>"
 				print "===>>>"
 				print "====>>>>"
-				print "=====>>>>>   [ Diff checking count : " + str(m+1)+" ] : [ "+ before_folder_name +"_"+ before_file_name +" ]"+ " and " + "[ "+ after_folder_name +"_"+ after_file_name + " ] is >>>>>>> SAME <<<<<<<.\n\n"
+				print "=====>>>>>   [ Diff checking count : " + str(m+1)+" ] : [ "+ before_folder_name +"_"+ before_file_name +" ]"+ " and " + "[ "+ after_folder_name +"_"+ after_file_name + " ] is\n"
+				print ">>>>>>>>>>>>><<<<<<<<<<<"
+				print ">>>>>>>>>>>>><<<<<<<<<<<"
+				print ">>>>>>>   SAME  <<<<<<<"
+				print ">>>>>>>>>>>>><<<<<<<<<<<"
+				print ">>>>>>>>>>>>><<<<<<<<<<<\n"
 
 			else:
 				print "\n>"
@@ -123,7 +128,13 @@ def diff_that_damnit(current_data_time):
 				print "==>>"
 				print "===>>>"
 				print "====>>>>"				
-				print "=====>>>>>   [ Diff checking count : " + str(m+1)+" ] : [ "+ before_folder_name +"_"+ before_file_name +" ]"+ " and " + "[ "+ after_folder_name +"_"+ after_file_name + " ] is >>>>>>> NOT SAME <<<<<<<.\n\n"
+				print "=====>>>>>   [ Diff checking count : " + str(m+1)+" ] : [ "+ before_folder_name +"_"+ before_file_name +" ]"+ " and " + "[ "+ after_folder_name +"_"+ after_file_name + " ] is\n"
+				print ">>>>>>>>>>>>><<<<<<<<<<<"
+				print ">>>>>>>>>>>>><<<<<<<<<<<"
+				print ">>>>>>> NOT SAME <<<<<<<"
+				print ">>>>>>>>>>>>><<<<<<<<<<<"
+				print ">>>>>>>>>>>>><<<<<<<<<<<\n"
+
 			m = m + 1
 
 ######################################################################
