@@ -1,0 +1,179 @@
+*** 
+--- 
+***************
+*** 55,124 ****
+  <div class="central-featured" data-el-section="primary links">
+  <!-- Rankings from http://stats.wikimedia.org/EN/Sitemap.htm -->
+  <!-- Article counts from http://meta.wikimedia.org/wiki/List_of_Wikipedias/Table -->
+! <!-- #1. en.wikipedia.org - 1 781 265 000 views/day -->
+  <div class="central-featured-lang lang1" dir="ltr" lang="en">
+  <a class="link-box" data-slogan="The Free Encyclopedia" href="//en.wikipedia.org/" id="js-link-box-en" title="English — Wikipedia — The Free Encyclopedia">
+  <strong>English</strong>
+! <small><bdi dir="ltr">5 682 000+</bdi> <span>articles</span></small>
+! </a>
+! </div>
+! <!-- #2. ja.wikipedia.org - 244 620 000 views/day -->
+  <div class="central-featured-lang lang2" dir="ltr" lang="ja">
+  <a class="link-box" data-slogan="フリー百科事典" href="//ja.wikipedia.org/" id="js-link-box-ja" title="Nihongo — ウィキペディア — フリー百科事典">
+  <strong>日本語</strong>
+  <small><bdi dir="ltr">1 113 000+</bdi> <span>記事</span></small>
+  </a>
+  </div>
+! <!-- #3. es.wikipedia.org - 213 138 000 views/day -->
+  <div class="central-featured-lang lang3" dir="ltr" lang="es">
+  <a class="link-box" data-slogan="La enciclopedia libre" href="//es.wikipedia.org/" id="js-link-box-es" title="Español — Wikipedia — La enciclopedia libre">
+  <strong>Español</strong>
+! <small><bdi dir="ltr">1 434 000+</bdi> <span>artículos</span></small>
+! </a>
+! </div>
+! <!-- #4. de.wikipedia.org - 209 894 000 views/day -->
+  <div class="central-featured-lang lang4" dir="ltr" lang="de">
+  <a class="link-box" data-slogan="Die freie Enzyklopädie" href="//de.wikipedia.org/" id="js-link-box-de" title="Deutsch — Wikipedia — Die freie Enzyklopädie">
+  <strong>Deutsch</strong>
+  <small><bdi dir="ltr">2 200 000+</bdi> <span>Artikel</span></small>
+  </a>
+  </div>
+! <!-- #5. ru.wikipedia.org - 181 749 000 views/day -->
+  <div class="central-featured-lang lang5" dir="ltr" lang="ru">
+  <a class="link-box" data-slogan="Свободная энциклопедия" href="//ru.wikipedia.org/" id="js-link-box-ru" title="Russkiy — Википедия — Свободная энциклопедия">
+  <strong>Русский</strong>
+  <small><bdi dir="ltr">1 484 000+</bdi> <span>статей</span></small>
+  </a>
+  </div>
+! <!-- #6. fr.wikipedia.org - 143 070 000 views/day -->
+  <div class="central-featured-lang lang6" dir="ltr" lang="fr">
+  <a class="link-box" data-slogan="L’encyclopédie libre" href="//fr.wikipedia.org/" id="js-link-box-fr" title="Français — Wikipédia — L’encyclopédie libre">
+  <strong>Français</strong>
+  <small><bdi dir="ltr">2 002 000+</bdi> <span>articles</span></small>
+  </a>
+  </div>
+! <!-- #7. zh.wikipedia.org - 108 654 000 views/day -->
+  <div class="central-featured-lang lang7" dir="ltr" lang="zh">
+  <a class="link-box" data-converttitle-hans="Zhōngwén — 维基百科 — 自由的百科全书" data-slogan="自由的百科全書" href="//zh.wikipedia.org/" id="js-link-box-zh" title="Zhōngwén — 維基百科 — 自由的百科全書">
+  <strong>中文</strong>
+  <small><bdi dir="ltr">1 014 000+</bdi> <span data-convert-hans="条目" id="zh_art">條目</span></small>
+  </a>
+  </div>
+! <!-- #8. it.wikipedia.org - 107 894 000 views/day -->
+  <div class="central-featured-lang lang8" dir="ltr" lang="it">
+  <a class="link-box" data-slogan="L'enciclopedia libera" href="//it.wikipedia.org/" id="js-link-box-it" title="Italiano — Wikipedia — L'enciclopedia libera">
+  <strong>Italiano</strong>
+  <small><bdi dir="ltr">1 448 000+</bdi> <span>voci</span></small>
+  </a>
+  </div>
+! <!-- #9. pt.wikipedia.org - 78 402 000 views/day -->
+  <div class="central-featured-lang lang9" dir="ltr" lang="pt">
+  <a class="link-box" data-slogan="A enciclopédia livre" href="//pt.wikipedia.org/" id="js-link-box-pt" title="Português — Wikipédia — A enciclopédia livre">
+  <strong>Português</strong>
+  <small><bdi dir="ltr">1 001 000+</bdi> <span>artigos</span></small>
+  </a>
+  </div>
+! <!-- #10. pl.wikipedia.org - 53 002 000 views/day -->
+  <div class="central-featured-lang lang10" dir="ltr" lang="pl">
+  <a class="link-box" data-slogan="Wolna encyklopedia" href="//pl.wikipedia.org/" id="js-link-box-pl" title="Polski — Wikipedia — Wolna encyklopedia">
+  <strong>Polski</strong>
+--- 55,124 ----
+  <div class="central-featured" data-el-section="primary links">
+  <!-- Rankings from http://stats.wikimedia.org/EN/Sitemap.htm -->
+  <!-- Article counts from http://meta.wikimedia.org/wiki/List_of_Wikipedias/Table -->
+! <!-- #1. en.wikipedia.org - 1 786 502 000 views/day -->
+  <div class="central-featured-lang lang1" dir="ltr" lang="en">
+  <a class="link-box" data-slogan="The Free Encyclopedia" href="//en.wikipedia.org/" id="js-link-box-en" title="English — Wikipedia — The Free Encyclopedia">
+  <strong>English</strong>
+! <small><bdi dir="ltr">5 683 000+</bdi> <span>articles</span></small>
+! </a>
+! </div>
+! <!-- #2. ja.wikipedia.org - 245 713 000 views/day -->
+  <div class="central-featured-lang lang2" dir="ltr" lang="ja">
+  <a class="link-box" data-slogan="フリー百科事典" href="//ja.wikipedia.org/" id="js-link-box-ja" title="Nihongo — ウィキペディア — フリー百科事典">
+  <strong>日本語</strong>
+  <small><bdi dir="ltr">1 113 000+</bdi> <span>記事</span></small>
+  </a>
+  </div>
+! <!-- #3. es.wikipedia.org - 215 896 000 views/day -->
+  <div class="central-featured-lang lang3" dir="ltr" lang="es">
+  <a class="link-box" data-slogan="La enciclopedia libre" href="//es.wikipedia.org/" id="js-link-box-es" title="Español — Wikipedia — La enciclopedia libre">
+  <strong>Español</strong>
+! <small><bdi dir="ltr">1 435 000+</bdi> <span>artículos</span></small>
+! </a>
+! </div>
+! <!-- #4. de.wikipedia.org - 209 927 000 views/day -->
+  <div class="central-featured-lang lang4" dir="ltr" lang="de">
+  <a class="link-box" data-slogan="Die freie Enzyklopädie" href="//de.wikipedia.org/" id="js-link-box-de" title="Deutsch — Wikipedia — Die freie Enzyklopädie">
+  <strong>Deutsch</strong>
+  <small><bdi dir="ltr">2 200 000+</bdi> <span>Artikel</span></small>
+  </a>
+  </div>
+! <!-- #5. ru.wikipedia.org - 181 594 000 views/day -->
+  <div class="central-featured-lang lang5" dir="ltr" lang="ru">
+  <a class="link-box" data-slogan="Свободная энциклопедия" href="//ru.wikipedia.org/" id="js-link-box-ru" title="Russkiy — Википедия — Свободная энциклопедия">
+  <strong>Русский</strong>
+  <small><bdi dir="ltr">1 484 000+</bdi> <span>статей</span></small>
+  </a>
+  </div>
+! <!-- #6. fr.wikipedia.org - 146 422 000 views/day -->
+  <div class="central-featured-lang lang6" dir="ltr" lang="fr">
+  <a class="link-box" data-slogan="L’encyclopédie libre" href="//fr.wikipedia.org/" id="js-link-box-fr" title="Français — Wikipédia — L’encyclopédie libre">
+  <strong>Français</strong>
+  <small><bdi dir="ltr">2 002 000+</bdi> <span>articles</span></small>
+  </a>
+  </div>
+! <!-- #7. zh.wikipedia.org - 116 001 000 views/day -->
+  <div class="central-featured-lang lang7" dir="ltr" lang="zh">
+  <a class="link-box" data-converttitle-hans="Zhōngwén — 维基百科 — 自由的百科全书" data-slogan="自由的百科全書" href="//zh.wikipedia.org/" id="js-link-box-zh" title="Zhōngwén — 維基百科 — 自由的百科全書">
+  <strong>中文</strong>
+  <small><bdi dir="ltr">1 014 000+</bdi> <span data-convert-hans="条目" id="zh_art">條目</span></small>
+  </a>
+  </div>
+! <!-- #8. it.wikipedia.org - 109 643 000 views/day -->
+  <div class="central-featured-lang lang8" dir="ltr" lang="it">
+  <a class="link-box" data-slogan="L'enciclopedia libera" href="//it.wikipedia.org/" id="js-link-box-it" title="Italiano — Wikipedia — L'enciclopedia libera">
+  <strong>Italiano</strong>
+  <small><bdi dir="ltr">1 448 000+</bdi> <span>voci</span></small>
+  </a>
+  </div>
+! <!-- #9. pt.wikipedia.org - 78 285 000 views/day -->
+  <div class="central-featured-lang lang9" dir="ltr" lang="pt">
+  <a class="link-box" data-slogan="A enciclopédia livre" href="//pt.wikipedia.org/" id="js-link-box-pt" title="Português — Wikipédia — A enciclopédia livre">
+  <strong>Português</strong>
+  <small><bdi dir="ltr">1 001 000+</bdi> <span>artigos</span></small>
+  </a>
+  </div>
+! <!-- #10. pl.wikipedia.org - 53 308 000 views/day -->
+  <div class="central-featured-lang lang10" dir="ltr" lang="pl">
+  <a class="link-box" data-slogan="Wolna encyklopedia" href="//pl.wikipedia.org/" id="js-link-box-pl" title="Polski — Wikipedia — Wolna encyklopedia">
+  <strong>Polski</strong>
+***************
+*** 616,622 ****
+  <div class="footer-sidebar-icon sprite svg-Wikimedia-logo_black">
+  </div>
+  <div class="footer-sidebar-text jsl10n" data-jsl10n="footer-description">
+! Wikipedia is hosted by the <a href="//wikimediafoundation.org/">Wikimedia Foundation</a>, a non-profit organization that also hosts a range of other projects.
+  </div>
+  </div>
+  </div>
+--- 616,622 ----
+  <div class="footer-sidebar-icon sprite svg-Wikimedia-logo_black">
+  </div>
+  <div class="footer-sidebar-text jsl10n" data-jsl10n="footer-description">
+! Wikipedia is hosted by the <a href="https://foundation.wikimedia.org/">Wikimedia Foundation</a>, a non-profit organization that also hosts a range of other projects.
+  </div>
+  </div>
+  </div>
+***************
+*** 782,788 ****
+  <?if gt IE 7?>
+  <script>
+  var rtlLangs = ['ar','arc','arz','bcc','bgn','bqi','ckb','dv','fa','glk','he','kk-cn','kk-arab','khw','ks','ku-arab','lki','lrc','luz','mzn','pnb','ps','sd','sdh','ug','ur','yi'],
+!     translationsHash = 'f69b4409',
+      /*
+       This object is used by l10n scripts (page-localized.js, topten-localized.js)
+       to reveal the page content after l10n json is loaded.
+--- 782,788 ----
+  <?if gt IE 7?>
+  <script>
+  var rtlLangs = ['ar','arc','arz','bcc','bgn','bqi','ckb','dv','fa','glk','he','kk-cn','kk-arab','khw','ks','ku-arab','lki','lrc','luz','mzn','pnb','ps','sd','sdh','ug','ur','yi'],
+!     translationsHash = 'e01b7a9b',
+      /*
+       This object is used by l10n scripts (page-localized.js, topten-localized.js)
+       to reveal the page content after l10n json is loaded.
