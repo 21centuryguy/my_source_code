@@ -3,7 +3,7 @@
 import math
 from bigfloat import *
 import matplotlib.pyplot as plt
-from vpython import *
+from vpython import * 
 # from visual import *
 
 
