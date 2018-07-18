@@ -25,5 +25,7 @@ def get_current_url_html(current_url, current_data_time):
 		f.close()
 		print "[ " + current_url + " ] page has been saved as [ " + file_full_path + " ] successfully.\n"
 
+	# import pdb;pdb.set_trace()
+
 if __name__ == "__main__":
 	pass
