@@ -6,7 +6,9 @@ from selenium.webdriver.support.ui import Select
 from selenium.common.exceptions import NoSuchElementException
 from selenium.common.exceptions import NoAlertPresentException
 from selenium.common.exceptions import TimeoutException
-import unittest, time, re
+import unittest
+import time
+import re
 import codecs
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
@@ -25,6 +27,7 @@ from submodules import get_current_url_html
 from submodules import diff_that_damnit
 from submodules import config
 import bug
+
 
 class Selenium_unittest_base_code(unittest.TestCase):
 
@@ -46,7 +49,7 @@ class Selenium_unittest_base_code(unittest.TestCase):
 
 		current_data_time = strftime("%Y%m%d_%H%M%S", localtime())
 
-		print "\n\n\n\n\nTest has Started :",current_data_time
+		print "\n\n\n\n\nTest has Started :", current_data_time
 
 		driver = self.driver
 		driver.maximize_window()
@@ -57,15 +60,15 @@ class Selenium_unittest_base_code(unittest.TestCase):
 
 	################################
 
-		print "\n\n\n\n\n[[[[[[[[[[[[[[[[[[[[[[[[[[[[]]]]]]]]]]]]]]]]]]]]]]]]]]]]]\n"
-		print "      [[[[[[[  Current url page html crwaling  ]]]]]]]            \n"
-		print "[[[[[[[[[[[[[[[[[[[[[[[[[[[[]]]]]]]]]]]]]]]]]]]]]]]]]]]]]\n"
+	print "\n\n\n\n\n[[[[[[[[[[[[[[[[[[[[[[[[[[[[]]]]]]]]]]]]]]]]]]]]]]]]]]]]]\n"
+	print "      [[[[[[[  Current url page html crwaling  ]]]]]]]            \n"
+	print "[[[[[[[[[[[[[[[[[[[[[[[[[[[[]]]]]]]]]]]]]]]]]]]]]]]]]]]]]\n"
 
 	################################
 
-		print "\n\n\n\n\n### Getting and saving whole html of [ " + driver.current_url + " ] ### "
-		current_url = driver.current_url
-		get_current_url_html.get_current_url_html(current_url, current_data_time)
+	print "\n\n\n\n\n### Getting and saving whole html of [ " + driver.current_url + " ] ### "
+	current_url = driver.current_url
+	get_current_url_html.get_current_url_html(current_url, current_data_time)
 
 
 		################################
@@ -76,8 +79,8 @@ class Selenium_unittest_base_code(unittest.TestCase):
 
 	################################
 
-		print "\n\n\n\n\n### Getting and saving whole html of [ " + driver.current_url + " ] ### "
-		time.sleep(2) ### It should be changed to waiting method 
+	print "\n\n\n\n\n### Getting and saving whole html of [ " + driver.current_url + " ] ### "
+		time.sleep(2)  ### It should be changed to waiting method 
 		current_url = driver.current_url
 		get_current_url_html.get_current_url_html(current_url, current_data_time)
 
@@ -161,20 +164,20 @@ class Selenium_unittest_base_code(unittest.TestCase):
 
 	################################################################################################
 
-		print "\n\n\n\n\nTest has Finished :",current_data_time
+	print "\n\n\n\n\nTest has Finished :", current_data_time
 
 		# import pdb;pdb.set_trace()
 	################################################################################################
 
 	def is_element_present(self, how, what):
 		try: self.driver.find_element(by=how, value=what)
-		except NoSuchElementException as e: return False
-		return Trueresult_data
+	except NoSuchElementException as e: return False
+	return Trueresult_data
 
 	def is_alert_present(self):
 		try: self.driver.switch_to_alert()
-		except NoAlertPresentException as e: return False
-		return True
+	except NoAlertPresentException as e: return False
+	return True
 
 	def close_alert_and_get_its_text(self):
 		try:
@@ -184,12 +187,12 @@ class Selenium_unittest_base_code(unittest.TestCase):
 				alert.accept()
 			else:
 				alert.dismiss()
-			return alert_text
-		finally: self.accept_next_alert = True
+				return alert_text
+			finally: self.accept_next_alert = True
 
-	def tearDown(self):
-		self.driver.quit()
-		self.assertEqual([], self.verificationErrors)
+			def tearDown(self):
+				self.driver.quit()
+				self.assertEqual([], self.verificationErrors)
 
 ################################################################################################
 
