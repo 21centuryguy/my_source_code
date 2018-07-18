@@ -143,6 +143,7 @@ def diff_that_damnit(current_data_time):
 
 			m = m + 1
 
+			# import pdb;pdb.set_trace()
 ######################################################################
 	xxx = select_folder_and_get_file_list()
 	xxx = list(xxx)

@@ -24,6 +24,7 @@ import platform
 from submodules import get_current_url_html
 from submodules import diff_that_damnit
 from submodules import config
+import bug
 
 class Selenium_unittest_base_code(unittest.TestCase):
 
@@ -162,6 +163,7 @@ class Selenium_unittest_base_code(unittest.TestCase):
 
 		print "\n\n\n\n\nTest has Finished :",current_data_time
 
+		# import pdb;pdb.set_trace()
 	################################################################################################
 
 	def is_element_present(self, how, what):
