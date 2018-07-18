@@ -45,8 +45,14 @@ def diff_that_damnit(current_data_time):
 		folder_path_1 = path_info[0]
 		folder_list_in_the_crawled_html_files = os.listdir(folder_path_1)
 		folder_list_in_the_crawled_html_files.sort()
-		folder_list_in_the_crawled_html_files.pop(0) ### delete '.DS_Store'
-		folder_list_in_the_crawled_html_files.pop(-1) ### delete 'diff_result'
+		if '.DS_Store' in folder_list_in_the_crawled_html_files:
+			folder_list_in_the_crawled_html_files.remove('.DS_Store') ### delete '.DS_Store'
+		else:
+			pass
+		if 'diff_result' in folder_list_in_the_crawled_html_files:
+			folder_list_in_the_crawled_html_files.remove('diff_result') ### delete 'diff_result'
+		else:
+			pass
 		# print folder_list_in_the_crawled_html_files
 
 		last_folder_in_the_crawled_html_files = folder_list_in_the_crawled_html_files[-1]
@@ -137,6 +143,7 @@ def diff_that_damnit(current_data_time):
 
 			m = m + 1
 
+			# import pdb;pdb.set_trace()
 ######################################################################
 	xxx = select_folder_and_get_file_list()
 	xxx = list(xxx)
