@@ -76,10 +76,3 @@ print(f'Number of Film Titles with Wikipedia Pages: {len(new_film_titles)}')
 
 #use this list to fetch from the API
 # title_links = list(zip(new_film_titles, new_film_links))
-
-#### save the list
-with open("/Users/jack/Documents/GitHub/my_source_code/just_try_it/python/medium/new_film_list.txt", "w+", encoding='utf-8') as f:
-    for xxx in new_film_titles[0:10]:
-        for yyy in new_film_links[0:10]:
-            # print(" xxx / yyy : " + str(type(xxx))+"/" + str(type(yyy)))
-            f.write(xxx+" : "+"https://www.wikipedia.org"+yyy+'\n')
