@@ -1,0 +1,8 @@
+while not found
+xxxxxxxxxxxxxxxxxxxxxxxxxxxx
+	if the piece you're looking at is blue
+		xxxxxxxxxxxxxxxxxxxxxxxxxxxx
+	else if the piece to the right is blue
+		move all the way to the right
+	else if the piece to the right is yellow
+		xxxxxxxxxxxxxxxxxxxxxxxxxxxx

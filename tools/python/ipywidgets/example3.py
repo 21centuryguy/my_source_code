@@ -1,4 +1,5 @@
 # example3.py
+""" ipywidgets """
 
 import matplotlib.pyplot as plt
 

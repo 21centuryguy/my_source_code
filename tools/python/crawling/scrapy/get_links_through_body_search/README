@@ -1,0 +1,4 @@
+### run web_crawler.py ###
+
+'scrapy runspider web_crawler.py'
+( python37 )
