@@ -1,13 +1,14 @@
 # -*- coding: utf-8 -*-
 import re
 import os
-import tkinter, tkinter.filedialog
+import sys
+import Tkinter, tkFileDialog
 
 def change_filename():
 
-	root = tkinter.Tk()
+	root = Tkinter.Tk()
 	root.withdraw()
-	dirname = tkinter.filedialog.askdirectory(parent=root,initialdir="/",title='Please select a directory')
+	dirname = tkFileDialog.askdirectory(parent=root,initialdir="/",title='Please select a directory')
 
 	for fileName in os.listdir(dirname):
 		# new_fileName = re.sub(r" ?\([^)]+\)", "", fileName)
