@@ -85,7 +85,6 @@ def filtering_links(links):
 def printing_n_saving_lists(new_film_links, new_film_titles):
     cf = currentframe()
 
-
     title_links = dict(zip(new_film_titles, new_film_links))
     BASE_PATH = abspath(dirname(__file__))
     file_full_path = BASE_PATH + "/links.txt"

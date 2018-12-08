@@ -1,0 +1,15 @@
+README.txt
+setup.py
+officedissector/__init__.py
+officedissector/core_properties.py
+officedissector/doc.py
+officedissector/features.py
+officedissector/part.py
+officedissector/rel.py
+officedissector/zip.py
+officedissector.egg-info/PKG-INFO
+officedissector.egg-info/SOURCES.txt
+officedissector.egg-info/dependency_links.txt
+officedissector.egg-info/requires.txt
+officedissector.egg-info/top_level.txt
+test/test_plugin_performance.py

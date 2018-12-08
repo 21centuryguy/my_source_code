@@ -7,7 +7,7 @@ from pygame import *
 import sys
 from os.path import abspath, dirname
 from random import randint, choice
-from inspect import currentframe, getframeinfo
+from inspect import currentframe
 
 BASE_PATH = abspath(dirname(__file__))
 FONT_PATH = BASE_PATH + '/fonts/'

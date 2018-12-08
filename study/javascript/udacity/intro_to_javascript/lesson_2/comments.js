@@ -6,4 +6,5 @@
  */
 
 // this expression equals 4, change it to equal 42
-console.log((1*10 + 5*100 - 2*45)/10);
+// console.log((1*10 + 5*100 - 2*45)/10);
+console.time()
