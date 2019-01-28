@@ -53,7 +53,7 @@ def get_channels_name(channels):
         channel_name_list.append(channel_name)
     # print(channel_name_list)
     # print("\n\n\n")
-    return channel_id_list
+    return channel_name_list
 
 def get_channel_id(channels):
     """
