@@ -215,8 +215,8 @@ if __name__ == "__main__":
     jack_api_test_channel_info = {
     'channels_history_get_url':'https://slack.com/api/channels.history',
     'channels_file_list_url':'https://slack.com/api/files.list',
-    # 'slack_token':'xoxp-xxx', # apizhongxin
-    'slack_token':'xoxp-xxx', # hamyeondoinda
+    # 'slack_token':'xoxp-472537903685-472337934962-518875974054-d98e72006ceb97137eb8eb7d02d08987', # apizhongxin
+    'slack_token':'xoxp-287218235745-287774869828-518883095414-41600c79bdd176b496c09d8d8aa7bf5b', # hamyeondoinda
     }
 
     #------------------------------------------------------------
