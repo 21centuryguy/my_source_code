@@ -6,6 +6,7 @@ from slackclient import SlackClient
 import requests
 import json
 import time
+from slack_info import *
 
 #------------------------------------------------------------
 # function definition
@@ -19,7 +20,7 @@ def test_slack(sc):
     print("\n\n" + 25 * "=" + "   Testing API ( response )  " + 25 * "=" + "\n")
     r = sc.api_call("api.test")
     r = json.dumps(dict(r), sort_keys=True, indent=3)
-    print(r)
+    # print(r)
     print("\n\n\n")
 
 
@@ -42,7 +43,7 @@ def get_all_channels_list_n_info(sc):
 
     channels = json.dumps(channels)
     channels = json.loads(str(channels))
-    print(channels)
+    # print(channels)
     print("\n\n\n")
     return channels
 
@@ -64,7 +65,7 @@ def get_channels_name(channels):
     for i in channels['channels']:
         channel_name = i['name']
         channel_name_list.append(channel_name)
-    print(channel_name_list)
+    # print(channel_name_list)
     print("\n\n\n")
     return channel_name_list
 
@@ -81,11 +82,19 @@ def get_channel_id(channels):
         channel_id_list.append(channel_id) ]
     """
 
+    myoption = 2
+
     channel_id_list = []
     print("\n\n" + 25 * "=" + "   Channels ID List ( handled )  " + 25 * "=" + "\n")
     for i in channels['channels']:
         channel_id = i['id']
-        channel_id_list.append(channel_id)
+
+        if myoption == 1:
+            if channel_id== 'CEJUP04C8':
+                channel_id_list.append(channel_id)
+        if myoption == 2:
+            channel_id_list.append(channel_id)
+
     print(channel_id_list)
     print("\n\n\n")
     return channel_id_list
@@ -107,7 +116,8 @@ def get_all_message(channels_history_get_url, slack_token, channel_id_list):
     print("\n" + 25 * "=" + "   get_all_message ( handled )  " + 25 * "=" + "\n")
     for channel_id in channel_id_list:
         time.sleep(0.7)
-        url_options = "?token=" + slack_token + "&channel=" + channel_id + "&pretty=1"
+        url_options = "?token=" + slack_token + "&channel=" + channel_id + "&count=2" + "&inclusive=0" + "&latest=1547868995.002700" + "&pretty=1"
+
         response = requests.get(channels_history_get_url + url_options)
 
         #-- response status code
@@ -187,18 +197,10 @@ def main(slack_token):
 if __name__ == "__main__":
 
     #------------------------------------------------------------
-    # dict : slack hook url, token, channles
-    target_api_test_channel_info = {
-    'channels_history_get_url':'https://slack.com/api/channels.history',
-    'channels_file_list_url':'https://slack.com/api/files.list',
-    'slack_token':{PUT YOUR SLACK TOKEN STRING HERE},
-    }
-
-    #------------------------------------------------------------
     # variables setting
-    channels_history_get_url = target_api_test_channel_info.get('channels_history_get_url')
-    channels_file_list_url = target_api_test_channel_info.get('channels_file_list_url')
-    slack_token = target_api_test_channel_info.get('slack_token')
+    channels_history_get_url = jack_api_test_channel_info.get('channels_history_get_url')
+    channels_file_list_url = jack_api_test_channel_info.get('channels_file_list_url')
+    slack_token = jack_api_test_channel_info.get('slack_token')
 
     #------------------------------------------------------------
     # function calling

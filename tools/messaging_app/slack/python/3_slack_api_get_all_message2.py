@@ -6,6 +6,7 @@ from slackclient import SlackClient
 import requests
 import json
 import time
+from slack_info import *
 
 #------------------------------------------------------------
 # function definition
@@ -156,10 +157,11 @@ def get_all_message(channels_history_get_url, slack_token, channel_id_list):
                         text = text.encode('utf-8')
                         text = text.decode('utf-8')
                         f = open("msg_ts_dict.py", mode="w+")
-                        channel_id_mark = "\n\n" + "="*50 + "\n" + "="*7 + " [     " + channel_id + "     ] ( " + str(x) + " ) " + "="*7 + "\n" + "="*50 + "\n\n"
+                        channel_id_mark = "\n\n" + "="*50 + "\n" + "="*7 + " [     " + channel_id + "     ] ( " + str(x) + " ) " + "="*7 + "\n" + "="*50
                         text_ts = text + "\n" + ts + "\n\n"
                         print(channel_id_mark)
-                        print(text_ts)
+                        print("while_loop_count : ", while_loop_count)
+                        print("\n\n" + text_ts)
                         f.write(channel_id_mark)
                         f.write(text_ts)
                         f.close()
@@ -209,15 +211,6 @@ def main(slack_token):
     print("-"*3 + " done " + "-"*3)
 
 if __name__ == "__main__":
-
-    #------------------------------------------------------------
-    # dict : slack hook url, token, channles
-    jack_api_test_channel_info = {
-    'channels_history_get_url':'https://slack.com/api/channels.history',
-    'channels_file_list_url':'https://slack.com/api/files.list',
-    # 'slack_token':'xoxp-472537903685-472337934962-518875974054-d98e72006ceb97137eb8eb7d02d08987', # apizhongxin
-    'slack_token':'xoxp-287218235745-287774869828-518883095414-41600c79bdd176b496c09d8d8aa7bf5b', # hamyeondoinda
-    }
 
     #------------------------------------------------------------
     # variables setting
