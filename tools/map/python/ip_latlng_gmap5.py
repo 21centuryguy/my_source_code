@@ -2,7 +2,7 @@ from gmplot import gmplot
 from geoip import geolite2
 
 # get valid ip address
-f = open("/Users/jack/Desktop/ip_list.txt", mode="r")
+f = open("./uniq_ip_list.txt", mode="r")
 ip_list = f.readlines()
 print("Total Ip address count : " + str(len(ip_list)))
 valid_latlng_list = []
@@ -31,4 +31,4 @@ golden_gate_park_lats, golden_gate_park_lons = zip(*valid_latlng_list)
 gmap.scatter(golden_gate_park_lats, golden_gate_park_lons, 'cornflowerblue', marker=10)
 
 # Draw
-gmap.draw("/Users/jack/Desktop/ip_latlng_gmap5.html")
+gmap.draw("./output/ip_latlng_gmap5.html")

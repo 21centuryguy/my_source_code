@@ -90,7 +90,7 @@ def get_channel_id(channels):
         channel_id = i['id']
 
         if myoption == 1:
-            if channel_id== 'CEJUP04C8':
+            if channel_id == 'CBD9F5ZT5': # 'CEJUP04C8':
                 channel_id_list.append(channel_id)
         if myoption == 2:
             channel_id_list.append(channel_id)

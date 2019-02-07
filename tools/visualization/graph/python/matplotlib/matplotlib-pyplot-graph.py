@@ -22,11 +22,11 @@ def draw_graph():
 
     plt.scatter(x, y)
     plt.plot(x, y)
-    plt.title('Hello pyplot !!', fontsize = 40)
+    plt.title('Hello pyplot', fontsize = 40)
     plt.xlabel('Set label here', fontsize = 30)
     plt.ylabel('Set label here', fontsize = 30)
     plt.savefig(image_file_full_path)
-    # plt.show()
+    plt.show()
 
 
 def main():

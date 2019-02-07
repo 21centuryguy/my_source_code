@@ -1,6 +1,6 @@
 import googlemaps, gmplot, webbrowser, os, json
 
-gmaps = googlemaps.Client(key='AIzaSyCIjvLJuxDaUzVa-nG7UH9P7nZFnO-PB-E') 
+gmaps = googlemaps.Client(key='XXX') 
 geocode_result = gmaps.geocode('100 Broadway Street, Missoula, MT')
 
 #######

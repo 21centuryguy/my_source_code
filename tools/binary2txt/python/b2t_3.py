@@ -1,8 +1,8 @@
 import codecs
 import re
 
-outputf = open("./ip_list.txt", mode="w+")
-inputf = open("./btmp", mode="rb")
+outputf = open("./output/ip_list.txt", mode="w+")
+inputf = open("./input/btmp", mode="rb")
 lines = inputf.readlines()
 for line in lines:
 	line = line.decode('ascii', "ignore")

@@ -1,8 +1,8 @@
 import codecs
 import re
 
-outputf = open("./ip_list.txt", mode="w+")
-inputf = open("./btmp", mode="rb")
+outputf = open("./output/btmp_output.txt", mode="w+")
+inputf = open("./input/btmp", mode="rb")
 lines = inputf.readlines()
 for line in lines:
 	line = line.decode('ascii', "ignore")
@@ -17,8 +17,8 @@ inputf.close()
 outputf.close()
 
 ip_list = []
-outputf = open("./uniq_ip_list.txt", mode="w+")
-inputf = open("./btmp_output.txt", mode="r")
+outputf = open("./output/uniq_ip_list.txt", mode="w+")
+inputf = open("./output/btmp_output.txt", mode="r")
 lines = inputf.readlines()
 for line in lines:
 	# print(line)
