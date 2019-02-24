@@ -6,7 +6,7 @@ from slackclient import SlackClient
 import requests
 import json
 import time
-from slack_info import *
+from mypackages.credential.slack_info import *
 
 #------------------------------------------------------------
 # function definition
@@ -17,10 +17,11 @@ def test_slack(sc):
     [ sc.api_call("api.test") ]
     """
 
-    print("\n\n" + 25 * "=" + "   Testing API ( response )  " + 25 * "=" + "\n")
+    # print("\n\n" + 25 * "=" + "   Testing API ( response )  " + 25 * "=" + "\n")
+    print(">>> uncommented <<<")
     r = sc.api_call("api.test")
     r = json.dumps(dict(r), sort_keys=True, indent=3)
-    print(r)
+    # print(r)
     print("\n\n\n")
 
 
@@ -36,6 +37,7 @@ def get_all_channels_list_n_info(sc):
     """
 
     print("\n\n" + 25 * "=" + "   All_channels_list_n_info ( raw )  " + 25 * "=" + "\n")
+    print(">>> uncommented <<<")
     channels = sc.api_call("channels.list")
     channels_json = json.dumps(channels, sort_keys=True, indent=3)
     # print("\n\n" + 25 * "=" + "   Channels List ( raw )  " + 25 * "=" + "\n")
@@ -43,8 +45,8 @@ def get_all_channels_list_n_info(sc):
 
     channels = json.dumps(channels)
     channels = json.loads(str(channels))
-    print(channels)
-    print("\n\n\n")
+    # print(channels)
+    # print("\n\n\n")
     return channels
 
 
@@ -62,11 +64,12 @@ def get_channels_name(channels):
 
     channel_name_list = []
     print("\n\n" + 25 * "=" + "   Channels Name List ( handled )  " + 25 * "=" + "\n")
+    print(">>> uncommented <<<")
     for i in channels['channels']:
         channel_name = i['name']
         channel_name_list.append(channel_name)
-    print(channel_name_list)
-    print("\n\n\n")
+    # print(channel_name_list)
+    # print("\n\n\n")
     return channel_name_list
 
 
@@ -84,11 +87,12 @@ def get_channel_id(channels):
 
     channel_id_list = []
     print("\n\n" + 25 * "=" + "   Channels ID List ( handled )  " + 25 * "=" + "\n")
+    print(">>> uncommented <<<")
     for i in channels['channels']:
         channel_id = i['id']
         channel_id_list.append(channel_id)
-    print(channel_id_list)
-    print("\n\n\n")
+    # print(channel_id_list)
+    # print("\n\n\n")
     return channel_id_list
 
 
@@ -147,10 +151,10 @@ if __name__ == "__main__":
 
     #------------------------------------------------------------
     # variables setting
-    channels_history_get_url = jack_api_test_channel_info.get('channels_history_get_url')
-    channels_file_list_url = jack_api_test_channel_info.get('channels_file_list_url')
-    slack_token = jack_api_test_channel_info.get('slack_token')
+    channels_history_get_url = 'https://slack.com/api/channels.history'
+    channels_file_list_url = 'https://slack.com/api/files.list'
 
-    #------------------------------------------------------------
-    # function calling
-    main(slack_token)
+    for slack_token in slack_token_list:
+        #------------------------------------------------------------
+        # function calling
+        main(slack_token)

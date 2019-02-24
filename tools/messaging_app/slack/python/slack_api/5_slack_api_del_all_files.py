@@ -6,7 +6,9 @@ from slackclient import SlackClient
 import requests
 import json
 import time
-from slack_info import *
+from mypackages.credential.slack_info import *
+
+
 #------------------------------------------------------------
 # function definition
 
@@ -190,11 +192,11 @@ if __name__ == "__main__":
 
     #------------------------------------------------------------
     # variables setting
-    channels_history_get_url = jack_api_test_channel_info.get('channels_history_get_url')
-    channels_file_list_url = jack_api_test_channel_info.get('channels_file_list_url')
-    channels_del_file_url = jack_api_test_channel_info.get('channels_del_file_url')
-    slack_token = jack_api_test_channel_info.get('slack_token')
+    channels_history_get_url = 'https://slack.com/api/channels.history'
+    channels_file_list_url = 'https://slack.com/api/files.list'
+    channels_del_file_url = 'https://slack.com/api/files.delete'
 
-    #------------------------------------------------------------
-    # function calling
-    main(slack_token)
+    for slack_token in slack_token_list:
+        #------------------------------------------------------------
+        # function calling
+        main(slack_token)
