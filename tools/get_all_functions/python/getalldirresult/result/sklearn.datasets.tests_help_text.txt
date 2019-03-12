@@ -1,0 +1,20 @@
+Help on package sklearn.datasets.tests in sklearn.datasets:
+
+NAME
+    sklearn.datasets.tests
+
+PACKAGE CONTENTS
+    test_20news
+    test_base
+    test_covtype
+    test_kddcup99
+    test_lfw
+    test_mldata
+    test_rcv1
+    test_samples_generator
+    test_svmlight_format
+
+FILE
+    /Users/jack/miniconda2/envs/py37/lib/python3.6/site-packages/sklearn/datasets/tests/__init__.py
+
+

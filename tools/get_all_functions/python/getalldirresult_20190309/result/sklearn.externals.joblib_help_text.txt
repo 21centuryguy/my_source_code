@@ -1,0 +1,792 @@
+Help on package sklearn.externals.joblib in sklearn.externals:
+
+NAME
+    sklearn.externals.joblib
+
+DESCRIPTION
+    Joblib is a set of tools to provide **lightweight pipelining in
+    Python**. In particular, joblib offers:
+    
+    1. transparent disk-caching of the output values and lazy re-evaluation
+       (memoize pattern)
+    
+    2. easy simple parallel computing
+    
+    3. logging and tracing of the execution
+    
+    Joblib is optimized to be **fast** and **robust** in particular on large
+    data and has specific optimizations for `numpy` arrays. It is
+    **BSD-licensed**.
+    
+    
+        ========================= ================================================
+        **User documentation:**        http://pythonhosted.org/joblib
+    
+        **Download packages:**         http://pypi.python.org/pypi/joblib#downloads
+    
+        **Source code:**               http://github.com/joblib/joblib
+    
+        **Report issues:**             http://github.com/joblib/joblib/issues
+        ========================= ================================================
+    
+    
+    Vision
+    --------
+    
+    The vision is to provide tools to easily achieve better performance and
+    reproducibility when working with long running jobs.
+    
+     *  **Avoid computing twice the same thing**: code is rerun over an
+        over, for instance when prototyping computational-heavy jobs (as in
+        scientific development), but hand-crafted solution to alleviate this
+        issue is error-prone and often leads to unreproducible results
+    
+     *  **Persist to disk transparently**: persisting in an efficient way
+        arbitrary objects containing large data is hard. Using
+        joblib's caching mechanism avoids hand-written persistence and
+        implicitly links the file on disk to the execution context of
+        the original Python object. As a result, joblib's persistence is
+        good for resuming an application status or computational job, eg
+        after a crash.
+    
+    Joblib strives to address these problems while **leaving your code and
+    your flow control as unmodified as possible** (no framework, no new
+    paradigms).
+    
+    Main features
+    ------------------
+    
+    1) **Transparent and fast disk-caching of output value:** a memoize or
+       make-like functionality for Python functions that works well for
+       arbitrary Python objects, including very large numpy arrays. Separate
+       persistence and flow-execution logic from domain logic or algorithmic
+       code by writing the operations as a set of steps with well-defined
+       inputs and  outputs: Python functions. Joblib can save their
+       computation to disk and rerun it only if necessary::
+    
+          >>> from sklearn.externals.joblib import Memory
+          >>> mem = Memory(cachedir='/tmp/joblib')
+          >>> import numpy as np
+          >>> a = np.vander(np.arange(3)).astype(np.float)
+          >>> square = mem.cache(np.square)
+          >>> b = square(a)                                   # doctest: +ELLIPSIS
+          ________________________________________________________________________________
+          [Memory] Calling square...
+          square(array([[ 0.,  0.,  1.],
+                 [ 1.,  1.,  1.],
+                 [ 4.,  2.,  1.]]))
+          ___________________________________________________________square - 0...s, 0.0min
+    
+          >>> c = square(a)
+          >>> # The above call did not trigger an evaluation
+    
+    2) **Embarrassingly parallel helper:** to make it easy to write readable
+       parallel code and debug it quickly::
+    
+          >>> from sklearn.externals.joblib import Parallel, delayed
+          >>> from math import sqrt
+          >>> Parallel(n_jobs=1)(delayed(sqrt)(i**2) for i in range(10))
+          [0.0, 1.0, 2.0, 3.0, 4.0, 5.0, 6.0, 7.0, 8.0, 9.0]
+    
+    
+    3) **Logging/tracing:** The different functionalities will
+       progressively acquire better logging mechanism to help track what
+       has been ran, and capture I/O easily. In addition, Joblib will
+       provide a few I/O primitives, to easily define logging and
+       display streams, and provide a way of compiling a report.
+       We want to be able to quickly inspect what has been run.
+    
+    4) **Fast compressed Persistence**: a replacement for pickle to work
+       efficiently on Python objects containing large data (
+       *joblib.dump* & *joblib.load* ).
+    
+    ..
+        >>> import shutil ; shutil.rmtree('/tmp/joblib/')
+
+PACKAGE CONTENTS
+    _compat
+    _memory_helpers
+    _multiprocessing_helpers
+    _parallel_backends
+    backports
+    disk
+    format_stack
+    func_inspect
+    hashing
+    logger
+    memory
+    my_exceptions
+    numpy_pickle
+    numpy_pickle_compat
+    numpy_pickle_utils
+    parallel
+    pool
+
+CLASSES
+    builtins.object
+        sklearn.externals.joblib.logger.Logger
+            sklearn.externals.joblib.memory.MemorizedResult
+            sklearn.externals.joblib.memory.Memory
+            sklearn.externals.joblib.parallel.Parallel
+        sklearn.externals.joblib.logger.PrintTime
+    
+    class Logger(builtins.object)
+     |  Base class for logging messages.
+     |  
+     |  Methods defined here:
+     |  
+     |  __init__(self, depth=3)
+     |      Parameters
+     |      ----------
+     |      depth: int, optional
+     |          The depth of objects printed.
+     |  
+     |  debug(self, msg)
+     |  
+     |  format(self, obj, indent=0)
+     |      Return the formatted representation of the object.
+     |  
+     |  warn(self, msg)
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data descriptors defined here:
+     |  
+     |  __dict__
+     |      dictionary for instance variables (if defined)
+     |  
+     |  __weakref__
+     |      list of weak references to the object (if defined)
+    
+    class MemorizedResult(sklearn.externals.joblib.logger.Logger)
+     |  Object representing a cached value.
+     |  
+     |  Attributes
+     |  ----------
+     |  cachedir: string
+     |      path to root of joblib cache
+     |  
+     |  func: function or string
+     |      function whose output is cached. The string case is intended only for
+     |      instanciation based on the output of repr() on another instance.
+     |      (namely eval(repr(memorized_instance)) works).
+     |  
+     |  argument_hash: string
+     |      hash of the function arguments
+     |  
+     |  mmap_mode: {None, 'r+', 'r', 'w+', 'c'}
+     |      The memmapping mode used when loading from cache numpy arrays. See
+     |      numpy.load for the meaning of the different values.
+     |  
+     |  verbose: int
+     |      verbosity level (0 means no message)
+     |  
+     |  timestamp, metadata: string
+     |      for internal use only
+     |  
+     |  Method resolution order:
+     |      MemorizedResult
+     |      sklearn.externals.joblib.logger.Logger
+     |      builtins.object
+     |  
+     |  Methods defined here:
+     |  
+     |  __init__(self, cachedir, func, argument_hash, mmap_mode=None, verbose=0, timestamp=None, metadata=None)
+     |      Parameters
+     |      ----------
+     |      depth: int, optional
+     |          The depth of objects printed.
+     |  
+     |  __reduce__(self)
+     |      helper for pickle
+     |  
+     |  __repr__(self)
+     |      Return repr(self).
+     |  
+     |  clear(self)
+     |      Clear value from cache
+     |  
+     |  get(self)
+     |      Read value from cache and return it.
+     |  
+     |  ----------------------------------------------------------------------
+     |  Methods inherited from sklearn.externals.joblib.logger.Logger:
+     |  
+     |  debug(self, msg)
+     |  
+     |  format(self, obj, indent=0)
+     |      Return the formatted representation of the object.
+     |  
+     |  warn(self, msg)
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data descriptors inherited from sklearn.externals.joblib.logger.Logger:
+     |  
+     |  __dict__
+     |      dictionary for instance variables (if defined)
+     |  
+     |  __weakref__
+     |      list of weak references to the object (if defined)
+    
+    class Memory(sklearn.externals.joblib.logger.Logger)
+     |  A context object for caching a function's return value each time it
+     |  is called with the same input arguments.
+     |  
+     |  All values are cached on the filesystem, in a deep directory
+     |  structure.
+     |  
+     |  see :ref:`memory_reference`
+     |  
+     |  Method resolution order:
+     |      Memory
+     |      sklearn.externals.joblib.logger.Logger
+     |      builtins.object
+     |  
+     |  Methods defined here:
+     |  
+     |  __init__(self, cachedir, mmap_mode=None, compress=False, verbose=1, bytes_limit=None)
+     |      Parameters
+     |      ----------
+     |      cachedir: string or None
+     |          The path of the base directory to use as a data store
+     |          or None. If None is given, no caching is done and
+     |          the Memory object is completely transparent.
+     |      mmap_mode: {None, 'r+', 'r', 'w+', 'c'}, optional
+     |          The memmapping mode used when loading from cache
+     |          numpy arrays. See numpy.load for the meaning of the
+     |          arguments.
+     |      compress: boolean, or integer
+     |          Whether to zip the stored data on disk. If an integer is
+     |          given, it should be between 1 and 9, and sets the amount
+     |          of compression. Note that compressed arrays cannot be
+     |          read by memmapping.
+     |      verbose: int, optional
+     |          Verbosity flag, controls the debug messages that are issued
+     |          as functions are evaluated.
+     |      bytes_limit: int, optional
+     |          Limit in bytes of the size of the cache
+     |  
+     |  __reduce__(self)
+     |      We don't store the timestamp when pickling, to avoid the hash
+     |      depending from it.
+     |      In addition, when unpickling, we run the __init__
+     |  
+     |  __repr__(self)
+     |      Return repr(self).
+     |  
+     |  cache(self, func=None, ignore=None, verbose=None, mmap_mode=False)
+     |      Decorates the given function func to only compute its return
+     |      value for input arguments not cached on disk.
+     |      
+     |      Parameters
+     |      ----------
+     |      func: callable, optional
+     |          The function to be decorated
+     |      ignore: list of strings
+     |          A list of arguments name to ignore in the hashing
+     |      verbose: integer, optional
+     |          The verbosity mode of the function. By default that
+     |          of the memory object is used.
+     |      mmap_mode: {None, 'r+', 'r', 'w+', 'c'}, optional
+     |          The memmapping mode used when loading from cache
+     |          numpy arrays. See numpy.load for the meaning of the
+     |          arguments. By default that of the memory object is used.
+     |      
+     |      Returns
+     |      -------
+     |      decorated_func: MemorizedFunc object
+     |          The returned object is a MemorizedFunc object, that is
+     |          callable (behaves like a function), but offers extra
+     |          methods for cache lookup and management. See the
+     |          documentation for :class:`joblib.memory.MemorizedFunc`.
+     |  
+     |  clear(self, warn=True)
+     |      Erase the complete cache directory.
+     |  
+     |  eval(self, func, *args, **kwargs)
+     |      Eval function func with arguments `*args` and `**kwargs`,
+     |      in the context of the memory.
+     |      
+     |      This method works similarly to the builtin `apply`, except
+     |      that the function is called only if the cache is not
+     |      up to date.
+     |  
+     |  reduce_size(self)
+     |      Remove cache folders to make cache size fit in ``bytes_limit``.
+     |  
+     |  ----------------------------------------------------------------------
+     |  Methods inherited from sklearn.externals.joblib.logger.Logger:
+     |  
+     |  debug(self, msg)
+     |  
+     |  format(self, obj, indent=0)
+     |      Return the formatted representation of the object.
+     |  
+     |  warn(self, msg)
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data descriptors inherited from sklearn.externals.joblib.logger.Logger:
+     |  
+     |  __dict__
+     |      dictionary for instance variables (if defined)
+     |  
+     |  __weakref__
+     |      list of weak references to the object (if defined)
+    
+    class Parallel(sklearn.externals.joblib.logger.Logger)
+     |  Helper class for readable parallel mapping.
+     |  
+     |  Parameters
+     |  -----------
+     |  n_jobs: int, default: 1
+     |      The maximum number of concurrently running jobs, such as the number
+     |      of Python worker processes when backend="multiprocessing"
+     |      or the size of the thread-pool when backend="threading".
+     |      If -1 all CPUs are used. If 1 is given, no parallel computing code
+     |      is used at all, which is useful for debugging. For n_jobs below -1,
+     |      (n_cpus + 1 + n_jobs) are used. Thus for n_jobs = -2, all
+     |      CPUs but one are used.
+     |  backend: str, ParallelBackendBase instance or None,                 default: 'multiprocessing'
+     |      Specify the parallelization backend implementation.
+     |      Supported backends are:
+     |  
+     |      - "multiprocessing" used by default, can induce some
+     |        communication and memory overhead when exchanging input and
+     |        output data with the worker Python processes.
+     |      - "threading" is a very low-overhead backend but it suffers
+     |        from the Python Global Interpreter Lock if the called function
+     |        relies a lot on Python objects. "threading" is mostly useful
+     |        when the execution bottleneck is a compiled extension that
+     |        explicitly releases the GIL (for instance a Cython loop wrapped
+     |        in a "with nogil" block or an expensive call to a library such
+     |        as NumPy).
+     |      - finally, you can register backends by calling
+     |        register_parallel_backend. This will allow you to implement
+     |        a backend of your liking.
+     |  verbose: int, optional
+     |      The verbosity level: if non zero, progress messages are
+     |      printed. Above 50, the output is sent to stdout.
+     |      The frequency of the messages increases with the verbosity level.
+     |      If it more than 10, all iterations are reported.
+     |  timeout: float, optional
+     |      Timeout limit for each task to complete.  If any task takes longer
+     |      a TimeOutError will be raised. Only applied when n_jobs != 1
+     |  pre_dispatch: {'all', integer, or expression, as in '3*n_jobs'}
+     |      The number of batches (of tasks) to be pre-dispatched.
+     |      Default is '2*n_jobs'. When batch_size="auto" this is reasonable
+     |      default and the multiprocessing workers should never starve.
+     |  batch_size: int or 'auto', default: 'auto'
+     |      The number of atomic tasks to dispatch at once to each
+     |      worker. When individual evaluations are very fast, multiprocessing
+     |      can be slower than sequential computation because of the overhead.
+     |      Batching fast computations together can mitigate this.
+     |      The ``'auto'`` strategy keeps track of the time it takes for a batch
+     |      to complete, and dynamically adjusts the batch size to keep the time
+     |      on the order of half a second, using a heuristic. The initial batch
+     |      size is 1.
+     |      ``batch_size="auto"`` with ``backend="threading"`` will dispatch
+     |      batches of a single task at a time as the threading backend has
+     |      very little overhead and using larger batch size has not proved to
+     |      bring any gain in that case.
+     |  temp_folder: str, optional
+     |      Folder to be used by the pool for memmaping large arrays
+     |      for sharing memory with worker processes. If None, this will try in
+     |      order:
+     |  
+     |      - a folder pointed by the JOBLIB_TEMP_FOLDER environment
+     |        variable,
+     |      - /dev/shm if the folder exists and is writable: this is a
+     |        RAMdisk filesystem available by default on modern Linux
+     |        distributions,
+     |      - the default system temporary folder that can be
+     |        overridden with TMP, TMPDIR or TEMP environment
+     |        variables, typically /tmp under Unix operating systems.
+     |  
+     |      Only active when backend="multiprocessing".
+     |  max_nbytes int, str, or None, optional, 1M by default
+     |      Threshold on the size of arrays passed to the workers that
+     |      triggers automated memory mapping in temp_folder. Can be an int
+     |      in Bytes, or a human-readable string, e.g., '1M' for 1 megabyte.
+     |      Use None to disable memmaping of large arrays.
+     |      Only active when backend="multiprocessing".
+     |  mmap_mode: {None, 'r+', 'r', 'w+', 'c'}
+     |      Memmapping mode for numpy arrays passed to workers.
+     |      See 'max_nbytes' parameter documentation for more details.
+     |  
+     |  Notes
+     |  -----
+     |  
+     |  This object uses the multiprocessing module to compute in
+     |  parallel the application of a function to many different
+     |  arguments. The main functionality it brings in addition to
+     |  using the raw multiprocessing API are (see examples for details):
+     |  
+     |  * More readable code, in particular since it avoids
+     |    constructing list of arguments.
+     |  
+     |  * Easier debugging:
+     |      - informative tracebacks even when the error happens on
+     |        the client side
+     |      - using 'n_jobs=1' enables to turn off parallel computing
+     |        for debugging without changing the codepath
+     |      - early capture of pickling errors
+     |  
+     |  * An optional progress meter.
+     |  
+     |  * Interruption of multiprocesses jobs with 'Ctrl-C'
+     |  
+     |  * Flexible pickling control for the communication to and from
+     |    the worker processes.
+     |  
+     |  * Ability to use shared memory efficiently with worker
+     |    processes for large numpy-based datastructures.
+     |  
+     |  Examples
+     |  --------
+     |  
+     |  A simple example:
+     |  
+     |  >>> from math import sqrt
+     |  >>> from sklearn.externals.joblib import Parallel, delayed
+     |  >>> Parallel(n_jobs=1)(delayed(sqrt)(i**2) for i in range(10))
+     |  [0.0, 1.0, 2.0, 3.0, 4.0, 5.0, 6.0, 7.0, 8.0, 9.0]
+     |  
+     |  Reshaping the output when the function has several return
+     |  values:
+     |  
+     |  >>> from math import modf
+     |  >>> from sklearn.externals.joblib import Parallel, delayed
+     |  >>> r = Parallel(n_jobs=1)(delayed(modf)(i/2.) for i in range(10))
+     |  >>> res, i = zip(*r)
+     |  >>> res
+     |  (0.0, 0.5, 0.0, 0.5, 0.0, 0.5, 0.0, 0.5, 0.0, 0.5)
+     |  >>> i
+     |  (0.0, 0.0, 1.0, 1.0, 2.0, 2.0, 3.0, 3.0, 4.0, 4.0)
+     |  
+     |  The progress meter: the higher the value of `verbose`, the more
+     |  messages:
+     |  
+     |  >>> from time import sleep
+     |  >>> from sklearn.externals.joblib import Parallel, delayed
+     |  >>> r = Parallel(n_jobs=2, verbose=5)(delayed(sleep)(.1) for _ in range(10)) #doctest: +SKIP
+     |  [Parallel(n_jobs=2)]: Done   1 out of  10 | elapsed:    0.1s remaining:    0.9s
+     |  [Parallel(n_jobs=2)]: Done   3 out of  10 | elapsed:    0.2s remaining:    0.5s
+     |  [Parallel(n_jobs=2)]: Done   6 out of  10 | elapsed:    0.3s remaining:    0.2s
+     |  [Parallel(n_jobs=2)]: Done   9 out of  10 | elapsed:    0.5s remaining:    0.1s
+     |  [Parallel(n_jobs=2)]: Done  10 out of  10 | elapsed:    0.5s finished
+     |  
+     |  Traceback example, note how the line of the error is indicated
+     |  as well as the values of the parameter passed to the function that
+     |  triggered the exception, even though the traceback happens in the
+     |  child process:
+     |  
+     |  >>> from heapq import nlargest
+     |  >>> from sklearn.externals.joblib import Parallel, delayed
+     |  >>> Parallel(n_jobs=2)(delayed(nlargest)(2, n) for n in (range(4), 'abcde', 3)) #doctest: +SKIP
+     |  #...
+     |  ---------------------------------------------------------------------------
+     |  Sub-process traceback:
+     |  ---------------------------------------------------------------------------
+     |  TypeError                                          Mon Nov 12 11:37:46 2012
+     |  PID: 12934                                    Python 2.7.3: /usr/bin/python
+     |  ...........................................................................
+     |  /usr/lib/python2.7/heapq.pyc in nlargest(n=2, iterable=3, key=None)
+     |      419         if n >= size:
+     |      420             return sorted(iterable, key=key, reverse=True)[:n]
+     |      421
+     |      422     # When key is none, use simpler decoration
+     |      423     if key is None:
+     |  --> 424         it = izip(iterable, count(0,-1))                    # decorate
+     |      425         result = _nlargest(n, it)
+     |      426         return map(itemgetter(0), result)                   # undecorate
+     |      427
+     |      428     # General case, slowest method
+     |   TypeError: izip argument #1 must support iteration
+     |  ___________________________________________________________________________
+     |  
+     |  
+     |  Using pre_dispatch in a producer/consumer situation, where the
+     |  data is generated on the fly. Note how the producer is first
+     |  called 3 times before the parallel loop is initiated, and then
+     |  called to generate new data on the fly. In this case the total
+     |  number of iterations cannot be reported in the progress messages:
+     |  
+     |  >>> from math import sqrt
+     |  >>> from sklearn.externals.joblib import Parallel, delayed
+     |  >>> def producer():
+     |  ...     for i in range(6):
+     |  ...         print('Produced %s' % i)
+     |  ...         yield i
+     |  >>> out = Parallel(n_jobs=2, verbose=100, pre_dispatch='1.5*n_jobs')(
+     |  ...                delayed(sqrt)(i) for i in producer()) #doctest: +SKIP
+     |  Produced 0
+     |  Produced 1
+     |  Produced 2
+     |  [Parallel(n_jobs=2)]: Done 1 jobs     | elapsed:  0.0s
+     |  Produced 3
+     |  [Parallel(n_jobs=2)]: Done 2 jobs     | elapsed:  0.0s
+     |  Produced 4
+     |  [Parallel(n_jobs=2)]: Done 3 jobs     | elapsed:  0.0s
+     |  Produced 5
+     |  [Parallel(n_jobs=2)]: Done 4 jobs     | elapsed:  0.0s
+     |  [Parallel(n_jobs=2)]: Done 5 out of 6 | elapsed:  0.0s remaining: 0.0s
+     |  [Parallel(n_jobs=2)]: Done 6 out of 6 | elapsed:  0.0s finished
+     |  
+     |  Method resolution order:
+     |      Parallel
+     |      sklearn.externals.joblib.logger.Logger
+     |      builtins.object
+     |  
+     |  Methods defined here:
+     |  
+     |  __call__(self, iterable)
+     |      Call self as a function.
+     |  
+     |  __enter__(self)
+     |  
+     |  __exit__(self, exc_type, exc_value, traceback)
+     |  
+     |  __init__(self, n_jobs=1, backend=None, verbose=0, timeout=None, pre_dispatch='2 * n_jobs', batch_size='auto', temp_folder=None, max_nbytes='1M', mmap_mode='r')
+     |      Parameters
+     |      ----------
+     |      depth: int, optional
+     |          The depth of objects printed.
+     |  
+     |  __repr__(self)
+     |      Return repr(self).
+     |  
+     |  dispatch_next(self)
+     |      Dispatch more data for parallel processing
+     |      
+     |      This method is meant to be called concurrently by the multiprocessing
+     |      callback. We rely on the thread-safety of dispatch_one_batch to protect
+     |      against concurrent consumption of the unprotected iterator.
+     |  
+     |  dispatch_one_batch(self, iterator)
+     |      Prefetch the tasks for the next batch and dispatch them.
+     |      
+     |      The effective size of the batch is computed here.
+     |      If there are no more jobs to dispatch, return False, else return True.
+     |      
+     |      The iterator consumption and dispatching is protected by the same
+     |      lock so calling this function should be thread safe.
+     |  
+     |  print_progress(self)
+     |      Display the process of the parallel execution only a fraction
+     |      of time, controlled by self.verbose.
+     |  
+     |  retrieve(self)
+     |  
+     |  ----------------------------------------------------------------------
+     |  Methods inherited from sklearn.externals.joblib.logger.Logger:
+     |  
+     |  debug(self, msg)
+     |  
+     |  format(self, obj, indent=0)
+     |      Return the formatted representation of the object.
+     |  
+     |  warn(self, msg)
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data descriptors inherited from sklearn.externals.joblib.logger.Logger:
+     |  
+     |  __dict__
+     |      dictionary for instance variables (if defined)
+     |  
+     |  __weakref__
+     |      list of weak references to the object (if defined)
+    
+    class PrintTime(builtins.object)
+     |  Print and log messages while keeping track of time.
+     |  
+     |  Methods defined here:
+     |  
+     |  __call__(self, msg='', total=False)
+     |      Print the time elapsed between the last call and the current
+     |      call, with an optional message.
+     |  
+     |  __init__(self, logfile=None, logdir=None)
+     |      Initialize self.  See help(type(self)) for accurate signature.
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data descriptors defined here:
+     |  
+     |  __dict__
+     |      dictionary for instance variables (if defined)
+     |  
+     |  __weakref__
+     |      list of weak references to the object (if defined)
+
+FUNCTIONS
+    cpu_count()
+        Return the number of CPUs.
+    
+    delayed(function, check_pickle=True)
+        Decorator used to capture the arguments of a function.
+        
+        Pass `check_pickle=False` when:
+        
+        - performing a possibly repeated check is too costly and has been done
+          already once outside of the call to delayed.
+        
+        - when used in conjunction `Parallel(backend='threading')`.
+    
+    dump(value, filename, compress=0, protocol=None, cache_size=None)
+        Persist an arbitrary Python object into one file.
+        
+        Parameters
+        -----------
+        value: any Python object
+            The object to store to disk.
+        filename: str or pathlib.Path
+            The path of the file in which it is to be stored. The compression
+            method corresponding to one of the supported filename extensions ('.z',
+            '.gz', '.bz2', '.xz' or '.lzma') will be used automatically.
+        compress: int from 0 to 9 or bool or 2-tuple, optional
+            Optional compression level for the data. 0 or False is no compression.
+            Higher value means more compression, but also slower read and
+            write times. Using a value of 3 is often a good compromise.
+            See the notes for more details.
+            If compress is True, the compression level used is 3.
+            If compress is a 2-tuple, the first element must correspond to a string
+            between supported compressors (e.g 'zlib', 'gzip', 'bz2', 'lzma'
+            'xz'), the second element must be an integer from 0 to 9, corresponding
+            to the compression level.
+        protocol: positive int
+            Pickle protocol, see pickle.dump documentation for more details.
+        cache_size: positive int, optional
+            This option is deprecated in 0.10 and has no effect.
+        
+        Returns
+        -------
+        filenames: list of strings
+            The list of file names in which the data is stored. If
+            compress is false, each array is stored in a different file.
+        
+        See Also
+        --------
+        joblib.load : corresponding loader
+        
+        Notes
+        -----
+        Memmapping on load cannot be used for compressed files. Thus
+        using compression can significantly slow down loading. In
+        addition, compressed files take extra extra memory during
+        dump and load.
+    
+    effective_n_jobs(n_jobs=-1)
+        Determine the number of jobs that can actually run in parallel
+        
+        n_jobs is the is the number of workers requested by the callers.
+        Passing n_jobs=-1 means requesting all available workers for instance
+        matching the number of CPU cores on the worker host(s).
+        
+        This method should return a guesstimate of the number of workers that can
+        actually perform work concurrently with the currently enabled default
+        backend. The primary use case is to make it possible for the caller to know
+        in how many chunks to slice the work.
+        
+        In general working on larger data chunks is more efficient (less
+        scheduling overhead and better use of CPU cache prefetching heuristics)
+        as long as all the workers have enough work to do.
+        
+        Warning: this function is experimental and subject to change in a future
+        version of joblib.
+        
+        .. versionadded:: 0.10
+    
+    hash(obj, hash_name='md5', coerce_mmap=False)
+        Quick calculation of a hash to identify uniquely Python objects
+        containing numpy arrays.
+        
+        
+        Parameters
+        -----------
+        hash_name: 'md5' or 'sha1'
+            Hashing algorithm used. sha1 is supposedly safer, but md5 is
+            faster.
+        coerce_mmap: boolean
+            Make no difference between np.memmap and np.ndarray
+    
+    load(filename, mmap_mode=None)
+        Reconstruct a Python object from a file persisted with joblib.dump.
+        
+        Parameters
+        -----------
+        filename: str or pathlib.Path
+            The path of the file from which to load the object
+        mmap_mode: {None, 'r+', 'r', 'w+', 'c'}, optional
+            If not None, the arrays are memory-mapped from the disk. This
+            mode has no effect for compressed files. Note that in this
+            case the reconstructed object might not longer match exactly
+            the originally pickled object.
+        
+        Returns
+        -------
+        result: any Python object
+            The object stored in the file.
+        
+        See Also
+        --------
+        joblib.dump : function to save an object
+        
+        Notes
+        -----
+        
+        This function can load numpy array files saved separately during the
+        dump. If the mmap_mode argument is given, it is passed to np.load and
+        arrays are loaded as memmaps. As a consequence, the reconstructed
+        object might not match the original pickled object. Note that if the
+        file was saved with compression, the arrays cannot be memmaped.
+    
+    parallel_backend(backend, n_jobs=-1, **backend_params)
+        Change the default backend used by Parallel inside a with block.
+        
+        If ``backend`` is a string it must match a previously registered
+        implementation using the ``register_parallel_backend`` function.
+        
+        Alternatively backend can be passed directly as an instance.
+        
+        By default all available workers will be used (``n_jobs=-1``) unless the
+        caller passes an explicit value for the ``n_jobs`` parameter.
+        
+        This is an alternative to passing a ``backend='backend_name'`` argument to
+        the ``Parallel`` class constructor. It is particularly useful when calling
+        into library code that uses joblib internally but does not expose the
+        backend argument in its own API.
+        
+        >>> from operator import neg
+        >>> with parallel_backend('threading'):
+        ...     print(Parallel()(delayed(neg)(i + 1) for i in range(5)))
+        ...
+        [-1, -2, -3, -4, -5]
+        
+        Warning: this function is experimental and subject to change in a future
+        version of joblib.
+        
+        .. versionadded:: 0.10
+    
+    register_parallel_backend(name, factory, make_default=False)
+        Register a new Parallel backend factory.
+        
+        The new backend can then be selected by passing its name as the backend
+        argument to the Parallel class. Moreover, the default backend can be
+        overwritten globally by setting make_default=True.
+        
+        The factory can be any callable that takes no argument and return an
+        instance of ``ParallelBackendBase``.
+        
+        Warning: this function is experimental and subject to change in a future
+        version of joblib.
+        
+        .. versionadded:: 0.10
+
+DATA
+    __all__ = ['Memory', 'MemorizedResult', 'PrintTime', 'Logger', 'hash',...
+
+VERSION
+    0.11
+
+FILE
+    /Users/jack/miniconda2/envs/py37/lib/python3.6/site-packages/sklearn/externals/joblib/__init__.py
+
+

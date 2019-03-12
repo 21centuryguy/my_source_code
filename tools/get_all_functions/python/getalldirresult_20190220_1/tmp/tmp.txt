@@ -1,0 +1,2 @@
+selenium.webdriver.support
+selenium.webdriver.webkitgtk
