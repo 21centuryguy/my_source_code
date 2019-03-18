@@ -1,0 +1,24 @@
+Help on package rope.contrib in rope:
+
+NAME
+    rope.contrib - rope IDE tools package
+
+DESCRIPTION
+    This package contains modules that can be used in IDEs
+    but do not depend on the UI.  So these modules will be used
+    by `rope.ui` modules.
+
+PACKAGE CONTENTS
+    autoimport
+    changestack
+    codeassist
+    finderrors
+    findit
+    fixmodnames
+    fixsyntax
+    generate
+
+FILE
+    /Users/jack/miniconda2/envs/py37/lib/python3.6/site-packages/rope/contrib/__init__.py
+
+

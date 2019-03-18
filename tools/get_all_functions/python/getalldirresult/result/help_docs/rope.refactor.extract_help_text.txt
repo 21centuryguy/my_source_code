@@ -1,0 +1,88 @@
+Help on module rope.refactor.extract in rope.refactor:
+
+NAME
+    rope.refactor.extract
+
+CLASSES
+    _ExtractRefactoring(builtins.object)
+        ExtractMethod
+        ExtractVariable
+    
+    class ExtractMethod(_ExtractRefactoring)
+     |  Method resolution order:
+     |      ExtractMethod
+     |      _ExtractRefactoring
+     |      builtins.object
+     |  
+     |  Methods defined here:
+     |  
+     |  __init__(self, *args, **kwds)
+     |      Initialize self.  See help(type(self)) for accurate signature.
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data and other attributes defined here:
+     |  
+     |  kind = 'method'
+     |  
+     |  ----------------------------------------------------------------------
+     |  Methods inherited from _ExtractRefactoring:
+     |  
+     |  get_changes(self, extracted_name, similar=False, global_=False)
+     |      Get the changes this refactoring makes
+     |      
+     |      :parameters:
+     |          - `similar`: if `True`, similar expressions/statements are also
+     |            replaced.
+     |          - `global_`: if `True`, the extracted method/variable will
+     |            be global.
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data descriptors inherited from _ExtractRefactoring:
+     |  
+     |  __dict__
+     |      dictionary for instance variables (if defined)
+     |  
+     |  __weakref__
+     |      list of weak references to the object (if defined)
+    
+    class ExtractVariable(_ExtractRefactoring)
+     |  Method resolution order:
+     |      ExtractVariable
+     |      _ExtractRefactoring
+     |      builtins.object
+     |  
+     |  Methods defined here:
+     |  
+     |  __init__(self, *args, **kwds)
+     |      Initialize self.  See help(type(self)) for accurate signature.
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data and other attributes defined here:
+     |  
+     |  kind = 'variable'
+     |  
+     |  ----------------------------------------------------------------------
+     |  Methods inherited from _ExtractRefactoring:
+     |  
+     |  get_changes(self, extracted_name, similar=False, global_=False)
+     |      Get the changes this refactoring makes
+     |      
+     |      :parameters:
+     |          - `similar`: if `True`, similar expressions/statements are also
+     |            replaced.
+     |          - `global_`: if `True`, the extracted method/variable will
+     |            be global.
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data descriptors inherited from _ExtractRefactoring:
+     |  
+     |  __dict__
+     |      dictionary for instance variables (if defined)
+     |  
+     |  __weakref__
+     |      list of weak references to the object (if defined)
+
+FILE
+    /Users/jack/miniconda2/envs/py37/lib/python3.6/site-packages/rope/refactor/extract.py
+
+

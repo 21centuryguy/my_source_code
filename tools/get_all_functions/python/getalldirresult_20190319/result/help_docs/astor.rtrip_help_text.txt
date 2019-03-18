@@ -1,0 +1,27 @@
+Help on module astor.rtrip in astor:
+
+NAME
+    astor.rtrip - Part of the astor library for Python AST manipulation.
+
+DESCRIPTION
+    License: 3-clause BSD
+    
+    Copyright (c) 2015 Patrick Maupin
+
+FUNCTIONS
+    convert(srctree, dsttree='tmp_rtrip', readonly=False, dumpall=False, ignore_exceptions=False, fullcomp=False)
+        Walk the srctree, and convert/copy all python files
+        into the dsttree
+    
+    out_prep(s, pre_encoded=False)
+    
+    usage(msg)
+
+DATA
+    code_to_ast = <astor.file_util.CodeToAst object>
+    dsttree = 'tmp_rtrip'
+
+FILE
+    /Users/jack/miniconda2/envs/py37/lib/python3.6/site-packages/astor/rtrip.py
+
+

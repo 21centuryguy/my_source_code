@@ -1,0 +1,16 @@
+Help on package scrapy.core in scrapy:
+
+NAME
+    scrapy.core - Scrapy core library classes and functions.
+
+PACKAGE CONTENTS
+    downloader (package)
+    engine
+    scheduler
+    scraper
+    spidermw
+
+FILE
+    /Users/jack/miniconda2/envs/py37/lib/python3.6/site-packages/scrapy/core/__init__.py
+
+

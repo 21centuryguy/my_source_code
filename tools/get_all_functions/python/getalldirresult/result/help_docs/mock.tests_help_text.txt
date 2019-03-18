@@ -1,0 +1,25 @@
+Help on package mock.tests in mock:
+
+NAME
+    mock.tests
+
+DESCRIPTION
+    # Copyright (C) 2007-2012 Michael Foord & the mock team
+    # E-mail: fuzzyman AT voidspace DOT org DOT uk
+    # http://www.voidspace.org.uk/python/mock/
+
+PACKAGE CONTENTS
+    __main__
+    support
+    testcallable
+    testhelpers
+    testmagicmethods
+    testmock
+    testpatch
+    testsentinel
+    testwith
+
+FILE
+    /Users/jack/.local/lib/python3.6/site-packages/mock/tests/__init__.py
+
+

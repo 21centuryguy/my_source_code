@@ -1,0 +1,41 @@
+Help on module wcwidth.tests.test_core in wcwidth.tests:
+
+NAME
+    wcwidth.tests.test_core - Core tests module for wcwidth.
+
+FUNCTIONS
+    test_combining_cafe()
+        Phrase cafe + COMBINING ACUTE ACCENT is café of length 4.
+    
+    test_combining_enclosing()
+        CYRILLIC CAPITAL LETTER A + COMBINING CYRILLIC HUNDRED THOUSANDS SIGN is А҈ of length 1.
+    
+    test_combining_spacing()
+        Balinese kapal (ship) is ᬓᬨᬮ᭄ of length 4.
+    
+    test_combining_width_negative_1()
+        Simple test combining reports total width of 4.
+    
+    test_control_c0_width_negative_1()
+        CSI (Control sequence initiate) reports width -1.
+    
+    test_hello_jp()
+        Width of Japanese phrase: コンニチハ, セカイ!
+        
+        Given a phrase of 5 and 3 Katakana ideographs, joined with
+        3 English-ASCII punctuation characters, totaling 11, this
+        phrase consumes 19 cells of a terminal emulator.
+    
+    test_null_width_0()
+        NULL (0) reports width 0.
+    
+    test_wcswidth_substr()
+        Test wcswidth() optional 2nd parameter, ``n``.
+        
+        ``n`` determines at which position of the string
+        to stop counting length.
+
+FILE
+    /Users/jack/miniconda2/envs/py37/lib/python3.6/site-packages/wcwidth/tests/test_core.py
+
+

@@ -1,0 +1,28 @@
+Help on package image:
+
+NAME
+    image
+
+PACKAGE CONTENTS
+    apps
+    fields
+    forms
+    misc
+    models
+    settings
+    storage
+    templatetags (package)
+    urls
+    utils
+    video_field
+    videothumbs
+    views
+
+DATA
+    VERSION = (1, 5, 24)
+    default_app_config = 'image.apps.ImageConfig'
+
+FILE
+    /Users/jack/miniconda2/envs/py37/lib/python3.6/site-packages/image/__init__.py
+
+

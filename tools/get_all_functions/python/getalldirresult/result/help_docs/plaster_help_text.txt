@@ -1,0 +1,21 @@
+Help on package plaster:
+
+NAME
+    plaster
+
+DESCRIPTION
+    # public api
+    # flake8: noqa
+
+PACKAGE CONTENTS
+    compat
+    exceptions
+    interfaces
+    loaders
+    protocols
+    uri
+
+FILE
+    /Users/jack/miniconda2/envs/py37/lib/python3.6/site-packages/plaster/__init__.py
+
+

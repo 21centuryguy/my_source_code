@@ -1,0 +1,807 @@
+Help on package bs4.builder in bs4:
+
+NAME
+    bs4.builder
+
+DESCRIPTION
+    # Use of this source code is governed by a BSD-style license that can be
+    # found in the LICENSE file.
+
+PACKAGE CONTENTS
+    _html5lib
+    _htmlparser
+    _lxml
+
+CLASSES
+    builtins.object
+        TreeBuilder
+            HTMLTreeBuilder
+                bs4.builder._html5lib.HTML5TreeBuilder
+                bs4.builder._htmlparser.HTMLParserTreeBuilder
+                bs4.builder._lxml.LXMLTreeBuilder(HTMLTreeBuilder, bs4.builder._lxml.LXMLTreeBuilderForXML)
+            SAXTreeBuilder
+            bs4.builder._lxml.LXMLTreeBuilderForXML
+        TreeBuilderRegistry
+    
+    class HTML5TreeBuilder(bs4.builder.HTMLTreeBuilder)
+     |  Use html5lib to build a tree.
+     |  
+     |  Method resolution order:
+     |      HTML5TreeBuilder
+     |      bs4.builder.HTMLTreeBuilder
+     |      bs4.builder.TreeBuilder
+     |      builtins.object
+     |  
+     |  Methods defined here:
+     |  
+     |  create_treebuilder(self, namespaceHTMLElements)
+     |  
+     |  feed(self, markup)
+     |      # These methods are defined by Beautiful Soup.
+     |  
+     |  prepare_markup(self, markup, user_specified_encoding, document_declared_encoding=None, exclude_encodings=None)
+     |  
+     |  test_fragment_to_document(self, fragment)
+     |      See `TreeBuilder`.
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data and other attributes defined here:
+     |  
+     |  NAME = 'html5lib'
+     |  
+     |  features = ['html5lib', 'permissive', 'html5', 'html']
+     |  
+     |  ----------------------------------------------------------------------
+     |  Methods inherited from bs4.builder.HTMLTreeBuilder:
+     |  
+     |  set_up_substitutions(self, tag)
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data and other attributes inherited from bs4.builder.HTMLTreeBuilder:
+     |  
+     |  cdata_list_attributes = {'*': ['class', 'accesskey', 'dropzone'], 'a':...
+     |  
+     |  empty_element_tags = {'area', 'base', 'br', 'col', 'embed', 'frame', ....
+     |  
+     |  preserve_whitespace_tags = {'pre', 'textarea'}
+     |  
+     |  ----------------------------------------------------------------------
+     |  Methods inherited from bs4.builder.TreeBuilder:
+     |  
+     |  __init__(self)
+     |      Initialize self.  See help(type(self)) for accurate signature.
+     |  
+     |  can_be_empty_element(self, tag_name)
+     |      Might a tag with this name be an empty-element tag?
+     |      
+     |      The final markup may or may not actually present this tag as
+     |      self-closing.
+     |      
+     |      For instance: an HTMLBuilder does not consider a <p> tag to be
+     |      an empty-element tag (it's not in
+     |      HTMLBuilder.empty_element_tags). This means an empty <p> tag
+     |      will be presented as "<p></p>", not "<p />".
+     |      
+     |      The default implementation has no opinion about which tags are
+     |      empty-element tags, so a tag will be presented as an
+     |      empty-element tag if and only if it has no contents.
+     |      "<foo></foo>" will become "<foo />", and "<foo>bar</foo>" will
+     |      be left alone.
+     |  
+     |  reset(self)
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data descriptors inherited from bs4.builder.TreeBuilder:
+     |  
+     |  __dict__
+     |      dictionary for instance variables (if defined)
+     |  
+     |  __weakref__
+     |      list of weak references to the object (if defined)
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data and other attributes inherited from bs4.builder.TreeBuilder:
+     |  
+     |  ALTERNATE_NAMES = []
+     |  
+     |  is_xml = False
+     |  
+     |  picklable = False
+    
+    class HTMLParserTreeBuilder(bs4.builder.HTMLTreeBuilder)
+     |  This TreeBuilder knows facts about HTML.
+     |  
+     |  Such as which tags are empty-element tags.
+     |  
+     |  Method resolution order:
+     |      HTMLParserTreeBuilder
+     |      bs4.builder.HTMLTreeBuilder
+     |      bs4.builder.TreeBuilder
+     |      builtins.object
+     |  
+     |  Methods defined here:
+     |  
+     |  __init__(self, *args, **kwargs)
+     |      Initialize self.  See help(type(self)) for accurate signature.
+     |  
+     |  feed(self, markup)
+     |  
+     |  prepare_markup(self, markup, user_specified_encoding=None, document_declared_encoding=None, exclude_encodings=None)
+     |      :return: A 4-tuple (markup, original encoding, encoding
+     |      declared within markup, whether any characters had to be
+     |      replaced with REPLACEMENT CHARACTER).
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data and other attributes defined here:
+     |  
+     |  NAME = 'html.parser'
+     |  
+     |  features = ['html.parser', 'html', 'strict']
+     |  
+     |  is_xml = False
+     |  
+     |  picklable = True
+     |  
+     |  ----------------------------------------------------------------------
+     |  Methods inherited from bs4.builder.HTMLTreeBuilder:
+     |  
+     |  set_up_substitutions(self, tag)
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data and other attributes inherited from bs4.builder.HTMLTreeBuilder:
+     |  
+     |  cdata_list_attributes = {'*': ['class', 'accesskey', 'dropzone'], 'a':...
+     |  
+     |  empty_element_tags = {'area', 'base', 'br', 'col', 'embed', 'frame', ....
+     |  
+     |  preserve_whitespace_tags = {'pre', 'textarea'}
+     |  
+     |  ----------------------------------------------------------------------
+     |  Methods inherited from bs4.builder.TreeBuilder:
+     |  
+     |  can_be_empty_element(self, tag_name)
+     |      Might a tag with this name be an empty-element tag?
+     |      
+     |      The final markup may or may not actually present this tag as
+     |      self-closing.
+     |      
+     |      For instance: an HTMLBuilder does not consider a <p> tag to be
+     |      an empty-element tag (it's not in
+     |      HTMLBuilder.empty_element_tags). This means an empty <p> tag
+     |      will be presented as "<p></p>", not "<p />".
+     |      
+     |      The default implementation has no opinion about which tags are
+     |      empty-element tags, so a tag will be presented as an
+     |      empty-element tag if and only if it has no contents.
+     |      "<foo></foo>" will become "<foo />", and "<foo>bar</foo>" will
+     |      be left alone.
+     |  
+     |  reset(self)
+     |  
+     |  test_fragment_to_document(self, fragment)
+     |      Wrap an HTML fragment to make it look like a document.
+     |      
+     |      Different parsers do this differently. For instance, lxml
+     |      introduces an empty <head> tag, and html5lib
+     |      doesn't. Abstracting this away lets us write simple tests
+     |      which run HTML fragments through the parser and compare the
+     |      results against other HTML fragments.
+     |      
+     |      This method should not be used outside of tests.
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data descriptors inherited from bs4.builder.TreeBuilder:
+     |  
+     |  __dict__
+     |      dictionary for instance variables (if defined)
+     |  
+     |  __weakref__
+     |      list of weak references to the object (if defined)
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data and other attributes inherited from bs4.builder.TreeBuilder:
+     |  
+     |  ALTERNATE_NAMES = []
+    
+    class HTMLTreeBuilder(TreeBuilder)
+     |  This TreeBuilder knows facts about HTML.
+     |  
+     |  Such as which tags are empty-element tags.
+     |  
+     |  Method resolution order:
+     |      HTMLTreeBuilder
+     |      TreeBuilder
+     |      builtins.object
+     |  
+     |  Methods defined here:
+     |  
+     |  set_up_substitutions(self, tag)
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data and other attributes defined here:
+     |  
+     |  cdata_list_attributes = {'*': ['class', 'accesskey', 'dropzone'], 'a':...
+     |  
+     |  empty_element_tags = {'area', 'base', 'br', 'col', 'embed', 'frame', ....
+     |  
+     |  preserve_whitespace_tags = {'pre', 'textarea'}
+     |  
+     |  ----------------------------------------------------------------------
+     |  Methods inherited from TreeBuilder:
+     |  
+     |  __init__(self)
+     |      Initialize self.  See help(type(self)) for accurate signature.
+     |  
+     |  can_be_empty_element(self, tag_name)
+     |      Might a tag with this name be an empty-element tag?
+     |      
+     |      The final markup may or may not actually present this tag as
+     |      self-closing.
+     |      
+     |      For instance: an HTMLBuilder does not consider a <p> tag to be
+     |      an empty-element tag (it's not in
+     |      HTMLBuilder.empty_element_tags). This means an empty <p> tag
+     |      will be presented as "<p></p>", not "<p />".
+     |      
+     |      The default implementation has no opinion about which tags are
+     |      empty-element tags, so a tag will be presented as an
+     |      empty-element tag if and only if it has no contents.
+     |      "<foo></foo>" will become "<foo />", and "<foo>bar</foo>" will
+     |      be left alone.
+     |  
+     |  feed(self, markup)
+     |  
+     |  prepare_markup(self, markup, user_specified_encoding=None, document_declared_encoding=None)
+     |  
+     |  reset(self)
+     |  
+     |  test_fragment_to_document(self, fragment)
+     |      Wrap an HTML fragment to make it look like a document.
+     |      
+     |      Different parsers do this differently. For instance, lxml
+     |      introduces an empty <head> tag, and html5lib
+     |      doesn't. Abstracting this away lets us write simple tests
+     |      which run HTML fragments through the parser and compare the
+     |      results against other HTML fragments.
+     |      
+     |      This method should not be used outside of tests.
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data descriptors inherited from TreeBuilder:
+     |  
+     |  __dict__
+     |      dictionary for instance variables (if defined)
+     |  
+     |  __weakref__
+     |      list of weak references to the object (if defined)
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data and other attributes inherited from TreeBuilder:
+     |  
+     |  ALTERNATE_NAMES = []
+     |  
+     |  NAME = '[Unknown tree builder]'
+     |  
+     |  features = []
+     |  
+     |  is_xml = False
+     |  
+     |  picklable = False
+    
+    class LXMLTreeBuilder(bs4.builder.HTMLTreeBuilder, LXMLTreeBuilderForXML)
+     |  This TreeBuilder knows facts about HTML.
+     |  
+     |  Such as which tags are empty-element tags.
+     |  
+     |  Method resolution order:
+     |      LXMLTreeBuilder
+     |      bs4.builder.HTMLTreeBuilder
+     |      LXMLTreeBuilderForXML
+     |      bs4.builder.TreeBuilder
+     |      builtins.object
+     |  
+     |  Methods defined here:
+     |  
+     |  default_parser(self, encoding)
+     |  
+     |  feed(self, markup)
+     |  
+     |  test_fragment_to_document(self, fragment)
+     |      See `TreeBuilder`.
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data and other attributes defined here:
+     |  
+     |  ALTERNATE_NAMES = ['lxml-html']
+     |  
+     |  NAME = 'lxml'
+     |  
+     |  features = ['lxml-html', 'lxml', 'html', 'fast', 'permissive']
+     |  
+     |  is_xml = False
+     |  
+     |  processing_instruction_class = <class 'bs4.element.ProcessingInstructi...
+     |      A SGML processing instruction.
+     |  
+     |  ----------------------------------------------------------------------
+     |  Methods inherited from bs4.builder.HTMLTreeBuilder:
+     |  
+     |  set_up_substitutions(self, tag)
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data and other attributes inherited from bs4.builder.HTMLTreeBuilder:
+     |  
+     |  cdata_list_attributes = {'*': ['class', 'accesskey', 'dropzone'], 'a':...
+     |  
+     |  empty_element_tags = {'area', 'base', 'br', 'col', 'embed', 'frame', ....
+     |  
+     |  preserve_whitespace_tags = {'pre', 'textarea'}
+     |  
+     |  ----------------------------------------------------------------------
+     |  Methods inherited from LXMLTreeBuilderForXML:
+     |  
+     |  __init__(self, parser=None, empty_element_tags=None)
+     |      Initialize self.  See help(type(self)) for accurate signature.
+     |  
+     |  close(self)
+     |  
+     |  comment(self, content)
+     |      Handle comments as Comment objects.
+     |  
+     |  data(self, content)
+     |  
+     |  doctype(self, name, pubid, system)
+     |  
+     |  end(self, name)
+     |  
+     |  parser_for(self, encoding)
+     |  
+     |  pi(self, target, data)
+     |  
+     |  prepare_markup(self, markup, user_specified_encoding=None, exclude_encodings=None, document_declared_encoding=None)
+     |      :yield: A series of 4-tuples.
+     |       (markup, encoding, declared encoding,
+     |        has undergone character replacement)
+     |      
+     |      Each 4-tuple represents a strategy for parsing the document.
+     |  
+     |  start(self, name, attrs, nsmap={})
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data and other attributes inherited from LXMLTreeBuilderForXML:
+     |  
+     |  CHUNK_SIZE = 512
+     |  
+     |  DEFAULT_NSMAPS = {'http://www.w3.org/XML/1998/namespace': 'xml'}
+     |  
+     |  DEFAULT_PARSER_CLASS = <class 'lxml.etree.XMLParser'>
+     |      XMLParser(self, encoding=None, attribute_defaults=False, dtd_validation=False, load_dtd=False, no_network=True, ns_clean=False, recover=False, schema: XMLSchema =None, huge_tree=False, remove_blank_text=False, resolve_entities=True, remove_comments=False, remove_pis=False, strip_cdata=True, collect_ids=True, target=None, compact=True)
+     |      
+     |      The XML parser.
+     |      
+     |      Parsers can be supplied as additional argument to various parse
+     |      functions of the lxml API.  A default parser is always available
+     |      and can be replaced by a call to the global function
+     |      'set_default_parser'.  New parsers can be created at any time
+     |      without a major run-time overhead.
+     |      
+     |      The keyword arguments in the constructor are mainly based on the
+     |      libxml2 parser configuration.  A DTD will also be loaded if DTD
+     |      validation or attribute default values are requested (unless you
+     |      additionally provide an XMLSchema from which the default
+     |      attributes can be read).
+     |      
+     |      Available boolean keyword arguments:
+     |      
+     |      - attribute_defaults - inject default attributes from DTD or XMLSchema
+     |      - dtd_validation     - validate against a DTD referenced by the document
+     |      - load_dtd           - use DTD for parsing
+     |      - no_network         - prevent network access for related files (default: True)
+     |      - ns_clean           - clean up redundant namespace declarations
+     |      - recover            - try hard to parse through broken XML
+     |      - remove_blank_text  - discard blank text nodes that appear ignorable
+     |      - remove_comments    - discard comments
+     |      - remove_pis         - discard processing instructions
+     |      - strip_cdata        - replace CDATA sections by normal text content (default: True)
+     |      - compact            - save memory for short text content (default: True)
+     |      - collect_ids        - use a hash table of XML IDs for fast access (default: True, always True with DTD validation)
+     |      - resolve_entities   - replace entities by their text value (default: True)
+     |      - huge_tree          - disable security restrictions and support very deep trees
+     |                             and very long text content (only affects libxml2 2.7+)
+     |      
+     |      Other keyword arguments:
+     |      
+     |      - encoding - override the document encoding
+     |      - target   - a parser target object that will receive the parse events
+     |      - schema   - an XMLSchema to validate against
+     |      
+     |      Note that you should avoid sharing parsers between threads.  While this is
+     |      not harmful, it is more efficient to use separate parsers.  This does not
+     |      apply to the default parser.
+     |  
+     |  ----------------------------------------------------------------------
+     |  Methods inherited from bs4.builder.TreeBuilder:
+     |  
+     |  can_be_empty_element(self, tag_name)
+     |      Might a tag with this name be an empty-element tag?
+     |      
+     |      The final markup may or may not actually present this tag as
+     |      self-closing.
+     |      
+     |      For instance: an HTMLBuilder does not consider a <p> tag to be
+     |      an empty-element tag (it's not in
+     |      HTMLBuilder.empty_element_tags). This means an empty <p> tag
+     |      will be presented as "<p></p>", not "<p />".
+     |      
+     |      The default implementation has no opinion about which tags are
+     |      empty-element tags, so a tag will be presented as an
+     |      empty-element tag if and only if it has no contents.
+     |      "<foo></foo>" will become "<foo />", and "<foo>bar</foo>" will
+     |      be left alone.
+     |  
+     |  reset(self)
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data descriptors inherited from bs4.builder.TreeBuilder:
+     |  
+     |  __dict__
+     |      dictionary for instance variables (if defined)
+     |  
+     |  __weakref__
+     |      list of weak references to the object (if defined)
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data and other attributes inherited from bs4.builder.TreeBuilder:
+     |  
+     |  picklable = False
+    
+    class LXMLTreeBuilderForXML(bs4.builder.TreeBuilder)
+     |  Turn a document into a Beautiful Soup object tree.
+     |  
+     |  Method resolution order:
+     |      LXMLTreeBuilderForXML
+     |      bs4.builder.TreeBuilder
+     |      builtins.object
+     |  
+     |  Methods defined here:
+     |  
+     |  __init__(self, parser=None, empty_element_tags=None)
+     |      Initialize self.  See help(type(self)) for accurate signature.
+     |  
+     |  close(self)
+     |  
+     |  comment(self, content)
+     |      Handle comments as Comment objects.
+     |  
+     |  data(self, content)
+     |  
+     |  default_parser(self, encoding)
+     |  
+     |  doctype(self, name, pubid, system)
+     |  
+     |  end(self, name)
+     |  
+     |  feed(self, markup)
+     |  
+     |  parser_for(self, encoding)
+     |  
+     |  pi(self, target, data)
+     |  
+     |  prepare_markup(self, markup, user_specified_encoding=None, exclude_encodings=None, document_declared_encoding=None)
+     |      :yield: A series of 4-tuples.
+     |       (markup, encoding, declared encoding,
+     |        has undergone character replacement)
+     |      
+     |      Each 4-tuple represents a strategy for parsing the document.
+     |  
+     |  start(self, name, attrs, nsmap={})
+     |  
+     |  test_fragment_to_document(self, fragment)
+     |      See `TreeBuilder`.
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data and other attributes defined here:
+     |  
+     |  ALTERNATE_NAMES = ['xml']
+     |  
+     |  CHUNK_SIZE = 512
+     |  
+     |  DEFAULT_NSMAPS = {'http://www.w3.org/XML/1998/namespace': 'xml'}
+     |  
+     |  DEFAULT_PARSER_CLASS = <class 'lxml.etree.XMLParser'>
+     |      XMLParser(self, encoding=None, attribute_defaults=False, dtd_validation=False, load_dtd=False, no_network=True, ns_clean=False, recover=False, schema: XMLSchema =None, huge_tree=False, remove_blank_text=False, resolve_entities=True, remove_comments=False, remove_pis=False, strip_cdata=True, collect_ids=True, target=None, compact=True)
+     |      
+     |      The XML parser.
+     |      
+     |      Parsers can be supplied as additional argument to various parse
+     |      functions of the lxml API.  A default parser is always available
+     |      and can be replaced by a call to the global function
+     |      'set_default_parser'.  New parsers can be created at any time
+     |      without a major run-time overhead.
+     |      
+     |      The keyword arguments in the constructor are mainly based on the
+     |      libxml2 parser configuration.  A DTD will also be loaded if DTD
+     |      validation or attribute default values are requested (unless you
+     |      additionally provide an XMLSchema from which the default
+     |      attributes can be read).
+     |      
+     |      Available boolean keyword arguments:
+     |      
+     |      - attribute_defaults - inject default attributes from DTD or XMLSchema
+     |      - dtd_validation     - validate against a DTD referenced by the document
+     |      - load_dtd           - use DTD for parsing
+     |      - no_network         - prevent network access for related files (default: True)
+     |      - ns_clean           - clean up redundant namespace declarations
+     |      - recover            - try hard to parse through broken XML
+     |      - remove_blank_text  - discard blank text nodes that appear ignorable
+     |      - remove_comments    - discard comments
+     |      - remove_pis         - discard processing instructions
+     |      - strip_cdata        - replace CDATA sections by normal text content (default: True)
+     |      - compact            - save memory for short text content (default: True)
+     |      - collect_ids        - use a hash table of XML IDs for fast access (default: True, always True with DTD validation)
+     |      - resolve_entities   - replace entities by their text value (default: True)
+     |      - huge_tree          - disable security restrictions and support very deep trees
+     |                             and very long text content (only affects libxml2 2.7+)
+     |      
+     |      Other keyword arguments:
+     |      
+     |      - encoding - override the document encoding
+     |      - target   - a parser target object that will receive the parse events
+     |      - schema   - an XMLSchema to validate against
+     |      
+     |      Note that you should avoid sharing parsers between threads.  While this is
+     |      not harmful, it is more efficient to use separate parsers.  This does not
+     |      apply to the default parser.
+     |  
+     |  NAME = 'lxml-xml'
+     |  
+     |  features = ['lxml-xml', 'lxml', 'xml', 'fast', 'permissive']
+     |  
+     |  is_xml = True
+     |  
+     |  processing_instruction_class = <class 'bs4.element.XMLProcessingInstru...
+     |      An XML processing instruction.
+     |  
+     |  ----------------------------------------------------------------------
+     |  Methods inherited from bs4.builder.TreeBuilder:
+     |  
+     |  can_be_empty_element(self, tag_name)
+     |      Might a tag with this name be an empty-element tag?
+     |      
+     |      The final markup may or may not actually present this tag as
+     |      self-closing.
+     |      
+     |      For instance: an HTMLBuilder does not consider a <p> tag to be
+     |      an empty-element tag (it's not in
+     |      HTMLBuilder.empty_element_tags). This means an empty <p> tag
+     |      will be presented as "<p></p>", not "<p />".
+     |      
+     |      The default implementation has no opinion about which tags are
+     |      empty-element tags, so a tag will be presented as an
+     |      empty-element tag if and only if it has no contents.
+     |      "<foo></foo>" will become "<foo />", and "<foo>bar</foo>" will
+     |      be left alone.
+     |  
+     |  reset(self)
+     |  
+     |  set_up_substitutions(self, tag)
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data descriptors inherited from bs4.builder.TreeBuilder:
+     |  
+     |  __dict__
+     |      dictionary for instance variables (if defined)
+     |  
+     |  __weakref__
+     |      list of weak references to the object (if defined)
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data and other attributes inherited from bs4.builder.TreeBuilder:
+     |  
+     |  cdata_list_attributes = {}
+     |  
+     |  empty_element_tags = None
+     |  
+     |  picklable = False
+     |  
+     |  preserve_whitespace_tags = set()
+    
+    class SAXTreeBuilder(TreeBuilder)
+     |  A Beautiful Soup treebuilder that listens for SAX events.
+     |  
+     |  Method resolution order:
+     |      SAXTreeBuilder
+     |      TreeBuilder
+     |      builtins.object
+     |  
+     |  Methods defined here:
+     |  
+     |  characters(self, content)
+     |  
+     |  close(self)
+     |  
+     |  endDocument(self)
+     |  
+     |  endElement(self, name)
+     |  
+     |  endElementNS(self, nsTuple, nodeName)
+     |  
+     |  endPrefixMapping(self, prefix)
+     |  
+     |  feed(self, markup)
+     |  
+     |  startDocument(self)
+     |  
+     |  startElement(self, name, attrs)
+     |  
+     |  startElementNS(self, nsTuple, nodeName, attrs)
+     |  
+     |  startPrefixMapping(self, prefix, nodeValue)
+     |  
+     |  ----------------------------------------------------------------------
+     |  Methods inherited from TreeBuilder:
+     |  
+     |  __init__(self)
+     |      Initialize self.  See help(type(self)) for accurate signature.
+     |  
+     |  can_be_empty_element(self, tag_name)
+     |      Might a tag with this name be an empty-element tag?
+     |      
+     |      The final markup may or may not actually present this tag as
+     |      self-closing.
+     |      
+     |      For instance: an HTMLBuilder does not consider a <p> tag to be
+     |      an empty-element tag (it's not in
+     |      HTMLBuilder.empty_element_tags). This means an empty <p> tag
+     |      will be presented as "<p></p>", not "<p />".
+     |      
+     |      The default implementation has no opinion about which tags are
+     |      empty-element tags, so a tag will be presented as an
+     |      empty-element tag if and only if it has no contents.
+     |      "<foo></foo>" will become "<foo />", and "<foo>bar</foo>" will
+     |      be left alone.
+     |  
+     |  prepare_markup(self, markup, user_specified_encoding=None, document_declared_encoding=None)
+     |  
+     |  reset(self)
+     |  
+     |  set_up_substitutions(self, tag)
+     |  
+     |  test_fragment_to_document(self, fragment)
+     |      Wrap an HTML fragment to make it look like a document.
+     |      
+     |      Different parsers do this differently. For instance, lxml
+     |      introduces an empty <head> tag, and html5lib
+     |      doesn't. Abstracting this away lets us write simple tests
+     |      which run HTML fragments through the parser and compare the
+     |      results against other HTML fragments.
+     |      
+     |      This method should not be used outside of tests.
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data descriptors inherited from TreeBuilder:
+     |  
+     |  __dict__
+     |      dictionary for instance variables (if defined)
+     |  
+     |  __weakref__
+     |      list of weak references to the object (if defined)
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data and other attributes inherited from TreeBuilder:
+     |  
+     |  ALTERNATE_NAMES = []
+     |  
+     |  NAME = '[Unknown tree builder]'
+     |  
+     |  cdata_list_attributes = {}
+     |  
+     |  empty_element_tags = None
+     |  
+     |  features = []
+     |  
+     |  is_xml = False
+     |  
+     |  picklable = False
+     |  
+     |  preserve_whitespace_tags = set()
+    
+    class TreeBuilder(builtins.object)
+     |  Turn a document into a Beautiful Soup object tree.
+     |  
+     |  Methods defined here:
+     |  
+     |  __init__(self)
+     |      Initialize self.  See help(type(self)) for accurate signature.
+     |  
+     |  can_be_empty_element(self, tag_name)
+     |      Might a tag with this name be an empty-element tag?
+     |      
+     |      The final markup may or may not actually present this tag as
+     |      self-closing.
+     |      
+     |      For instance: an HTMLBuilder does not consider a <p> tag to be
+     |      an empty-element tag (it's not in
+     |      HTMLBuilder.empty_element_tags). This means an empty <p> tag
+     |      will be presented as "<p></p>", not "<p />".
+     |      
+     |      The default implementation has no opinion about which tags are
+     |      empty-element tags, so a tag will be presented as an
+     |      empty-element tag if and only if it has no contents.
+     |      "<foo></foo>" will become "<foo />", and "<foo>bar</foo>" will
+     |      be left alone.
+     |  
+     |  feed(self, markup)
+     |  
+     |  prepare_markup(self, markup, user_specified_encoding=None, document_declared_encoding=None)
+     |  
+     |  reset(self)
+     |  
+     |  set_up_substitutions(self, tag)
+     |  
+     |  test_fragment_to_document(self, fragment)
+     |      Wrap an HTML fragment to make it look like a document.
+     |      
+     |      Different parsers do this differently. For instance, lxml
+     |      introduces an empty <head> tag, and html5lib
+     |      doesn't. Abstracting this away lets us write simple tests
+     |      which run HTML fragments through the parser and compare the
+     |      results against other HTML fragments.
+     |      
+     |      This method should not be used outside of tests.
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data descriptors defined here:
+     |  
+     |  __dict__
+     |      dictionary for instance variables (if defined)
+     |  
+     |  __weakref__
+     |      list of weak references to the object (if defined)
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data and other attributes defined here:
+     |  
+     |  ALTERNATE_NAMES = []
+     |  
+     |  NAME = '[Unknown tree builder]'
+     |  
+     |  cdata_list_attributes = {}
+     |  
+     |  empty_element_tags = None
+     |  
+     |  features = []
+     |  
+     |  is_xml = False
+     |  
+     |  picklable = False
+     |  
+     |  preserve_whitespace_tags = set()
+    
+    class TreeBuilderRegistry(builtins.object)
+     |  Methods defined here:
+     |  
+     |  __init__(self)
+     |      Initialize self.  See help(type(self)) for accurate signature.
+     |  
+     |  lookup(self, *features)
+     |  
+     |  register(self, treebuilder_class)
+     |      Register a treebuilder based on its advertised features.
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data descriptors defined here:
+     |  
+     |  __dict__
+     |      dictionary for instance variables (if defined)
+     |  
+     |  __weakref__
+     |      list of weak references to the object (if defined)
+
+DATA
+    __all__ = ['HTMLTreeBuilder', 'SAXTreeBuilder', 'TreeBuilder', 'TreeBu...
+
+FILE
+    /Users/jack/miniconda2/envs/py37/lib/python3.6/site-packages/bs4/builder/__init__.py
+
+

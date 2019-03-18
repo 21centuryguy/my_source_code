@@ -1,0 +1,73 @@
+Help on module dask.utils_test in dask:
+
+NAME
+    dask.utils_test
+
+CLASSES
+    builtins.object
+        GetFunctionTestMixin
+    
+    class GetFunctionTestMixin(builtins.object)
+     |  The GetFunctionTestCase class can be imported and used to test foreign
+     |  implementations of the `get` function specification. It aims to enforce all
+     |  known expectations of `get` functions.
+     |  
+     |  To use the class, inherit from it and override the `get` function. For
+     |  example:
+     |  
+     |  > from dask.utils_test import GetFunctionTestMixin
+     |  > class TestCustomGet(GetFunctionTestMixin):
+     |       get = staticmethod(myget)
+     |  
+     |  Note that the foreign `myget` function has to be explicitly decorated as a
+     |  staticmethod.
+     |  
+     |  Methods defined here:
+     |  
+     |  test_badkey(self)
+     |  
+     |  test_data_not_in_dict_is_ok(self)
+     |  
+     |  test_get(self)
+     |  
+     |  test_get_stack_limit(self)
+     |  
+     |  test_get_with_list(self)
+     |  
+     |  test_get_with_list_top_level(self)
+     |  
+     |  test_get_with_nested_list(self)
+     |  
+     |  test_get_works_with_unhashables_in_values(self)
+     |  
+     |  test_nested_badkey(self)
+     |  
+     |  test_nested_tasks(self)
+     |  
+     |  test_with_sharedict(self)
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data descriptors defined here:
+     |  
+     |  __dict__
+     |      dictionary for instance variables (if defined)
+     |  
+     |  __weakref__
+     |      list of weak references to the object (if defined)
+
+FUNCTIONS
+    add(x, y)
+    
+    dec(x)
+    
+    inc(x)
+
+DATA
+    absolute_import = _Feature((2, 5, 0, 'alpha', 1), (3, 0, 0, 'alpha', 0...
+    division = _Feature((2, 2, 0, 'alpha', 2), (3, 0, 0, 'alpha', 0), 8192...
+    print_function = _Feature((2, 6, 0, 'alpha', 2), (3, 0, 0, 'alpha', 0)...
+
+FILE
+    /Users/jack/miniconda2/envs/py37/lib/python3.6/site-packages/dask/utils_test.py
+
+

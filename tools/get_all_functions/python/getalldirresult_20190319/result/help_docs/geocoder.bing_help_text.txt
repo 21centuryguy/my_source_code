@@ -1,0 +1,12 @@
+Help on function bing in module geocoder.api:
+
+bing(location, **kwargs)
+    Bing Provider
+    
+    :param ``location``: Your search location you want geocoded.
+    :param ``key``: (optional) use your own API Key from Bing.
+    :param ``maxRows``: (default=1) Max number of results to fetch
+    :param ``method``: (default=geocode) Use the following:
+        > geocode
+        > reverse
+

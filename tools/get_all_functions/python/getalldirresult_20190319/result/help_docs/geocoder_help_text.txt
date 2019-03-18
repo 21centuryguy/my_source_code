@@ -1,0 +1,90 @@
+Help on package geocoder:
+
+NAME
+    geocoder - # coding: utf8
+
+PACKAGE CONTENTS
+    api
+    arcgis
+    arcgis_reverse
+    baidu
+    baidu_reverse
+    base
+    bing
+    bing_batch
+    bing_batch_forward
+    bing_batch_reverse
+    bing_reverse
+    canadapost
+    cli
+    distance
+    freegeoip
+    gaode
+    gaode_reverse
+    geocodefarm
+    geocodefarm_reverse
+    geolytica
+    geonames
+    geonames_children
+    geonames_details
+    geonames_hierarchy
+    gisgraphy
+    gisgraphy_reverse
+    google
+    google_elevation
+    google_places
+    google_reverse
+    google_timezone
+    here
+    here_reverse
+    ipinfo
+    keys
+    komoot
+    komoot_reverse
+    location
+    locationiq
+    locationiq_reverse
+    mapbox
+    mapbox_reverse
+    mapquest
+    mapquest_batch
+    mapquest_reverse
+    mapzen
+    mapzen_reverse
+    maxmind
+    opencage
+    opencage_reverse
+    osm
+    osm_reverse
+    ottawa
+    ottawa_parcel
+    tamu
+    tgos
+    tomtom
+    uscensus
+    uscensus_batch
+    uscensus_reverse
+    w3w
+    w3w_reverse
+    yahoo
+    yandex
+    yandex_reverse
+
+DATA
+    __author_email__ = 'carriere.denis@gmail.com'
+    __copyright__ = 'Copyright (c) 2013-2016 Denis Carriere'
+    __license__ = 'MIT'
+    __title__ = 'geocoder'
+    absolute_import = _Feature((2, 5, 0, 'alpha', 1), (3, 0, 0, 'alpha', 0...
+    cli = <click.core.Command object>
+
+VERSION
+    1.38.1
+
+AUTHOR
+    Denis Carriere
+
+FILE
+    /Users/jack/miniconda2/envs/py37/lib/python3.6/site-packages/geocoder/__init__.py
+
+

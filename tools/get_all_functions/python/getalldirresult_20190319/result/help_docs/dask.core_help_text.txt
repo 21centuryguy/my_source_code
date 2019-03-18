@@ -1,0 +1,209 @@
+Help on module dask.core in dask:
+
+NAME
+    dask.core
+
+CLASSES
+    builtins.object
+        literal
+    
+    class literal(builtins.object)
+     |  A small serializable object to wrap literal values without copying
+     |  
+     |  Methods defined here:
+     |  
+     |  __call__(self)
+     |      Call self as a function.
+     |  
+     |  __init__(self, data)
+     |      Initialize self.  See help(type(self)) for accurate signature.
+     |  
+     |  __reduce__(self)
+     |      helper for pickle
+     |  
+     |  __repr__(self)
+     |      Return repr(self).
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data descriptors defined here:
+     |  
+     |  data
+
+FUNCTIONS
+    flatten(seq, container=<class 'list'>)
+        >>> list(flatten([1]))
+        [1]
+        
+        >>> list(flatten([[1, 2], [1, 2]]))
+        [1, 2, 1, 2]
+        
+        >>> list(flatten([[[1], [2]], [[1], [2]]]))
+        [1, 2, 1, 2]
+        
+        >>> list(flatten(((1, 2), (1, 2)))) # Don't flatten tuples
+        [(1, 2), (1, 2)]
+        
+        >>> list(flatten((1, 2, [3, 4]))) # support heterogeneous
+        [1, 2, 3, 4]
+    
+    get(d, x, recursive=False)
+        Get value from Dask
+        
+        Examples
+        --------
+        
+        >>> inc = lambda x: x + 1
+        >>> d = {'x': 1, 'y': (inc, 'x')}
+        
+        >>> get(d, 'x')
+        1
+        >>> get(d, 'y')
+        2
+    
+    get_dependencies(dsk, key=None, task=None, as_list=False)
+        Get the immediate tasks on which this task depends
+        
+        Examples
+        --------
+        >>> dsk = {'x': 1,
+        ...        'y': (inc, 'x'),
+        ...        'z': (add, 'x', 'y'),
+        ...        'w': (inc, 'z'),
+        ...        'a': (add, (inc, 'x'), 1)}
+        
+        >>> get_dependencies(dsk, 'x')
+        set([])
+        
+        >>> get_dependencies(dsk, 'y')
+        set(['x'])
+        
+        >>> get_dependencies(dsk, 'z')  # doctest: +SKIP
+        set(['x', 'y'])
+        
+        >>> get_dependencies(dsk, 'w')  # Only direct dependencies
+        set(['z'])
+        
+        >>> get_dependencies(dsk, 'a')  # Ignore non-keys
+        set(['x'])
+        
+        >>> get_dependencies(dsk, task=(inc, 'x'))  # provide tasks directly
+        set(['x'])
+    
+    get_deps(dsk)
+        Get dependencies and dependents from dask dask graph
+        
+        >>> dsk = {'a': 1, 'b': (inc, 'a'), 'c': (inc, 'b')}
+        >>> dependencies, dependents = get_deps(dsk)
+        >>> dependencies
+        {'a': set([]), 'c': set(['b']), 'b': set(['a'])}
+        >>> dependents
+        {'a': set(['b']), 'c': set([]), 'b': set(['c'])}
+    
+    getcycle(d, keys)
+        Return a list of nodes that form a cycle if Dask is not a DAG.
+        
+        Returns an empty list if no cycle is found.
+        
+        ``keys`` may be a single key or list of keys.
+        
+        Examples
+        --------
+        
+        >>> d = {'x': (inc, 'z'), 'y': (inc, 'x'), 'z': (inc, 'y')}
+        >>> getcycle(d, 'x')
+        ['x', 'z', 'y', 'x']
+        
+        See Also
+        --------
+        isdag
+    
+    has_tasks(dsk, x)
+        Whether ``x`` has anything to compute.
+        
+        Returns True if:
+        - ``x`` is a task
+        - ``x`` is a key in ``dsk``
+        - ``x`` is a list that contains any tasks or keys
+    
+    isdag(d, keys)
+        Does Dask form a directed acyclic graph when calculating keys?
+        
+        ``keys`` may be a single key or list of keys.
+        
+        Examples
+        --------
+        
+        >>> inc = lambda x: x + 1
+        >>> isdag({'x': 0, 'y': (inc, 'x')}, 'y')
+        True
+        >>> isdag({'x': (inc, 'y'), 'y': (inc, 'x')}, 'y')
+        False
+        
+        See Also
+        --------
+        getcycle
+    
+    ishashable(x)
+        Is x hashable?
+        
+        Examples
+        --------
+        
+        >>> ishashable(1)
+        True
+        >>> ishashable([1])
+        False
+    
+    istask(x)
+        Is x a runnable task?
+        
+        A task is a tuple with a callable first argument
+        
+        Examples
+        --------
+        
+        >>> inc = lambda x: x + 1
+        >>> istask((inc, 1))
+        True
+        >>> istask(1)
+        False
+    
+    preorder_traversal(task)
+        A generator to preorder-traverse a task.
+    
+    quote(x)
+        Ensure that this value remains this value in a dask graph
+        
+        Some values in dask graph take on special meaning. Sometimes we want to
+        ensure that our data is not interpreted but remains literal.
+        
+        >>> quote((add, 1, 2))  # doctest: +SKIP
+        (literal<type=tuple>,)
+    
+    reverse_dict(d)
+        >>> a, b, c = 'abc'
+        >>> d = {a: [b, c], b: [c]}
+        >>> reverse_dict(d)  # doctest: +SKIP
+        {'a': set([]), 'b': set(['a']}, 'c': set(['a', 'b'])}
+    
+    subs(task, key, val)
+        Perform a substitution on a task
+        
+        Examples
+        --------
+        
+        >>> subs((inc, 'x'), 'x', 1)  # doctest: +SKIP
+        (inc, 1)
+    
+    toposort(dsk, dependencies=None)
+        Return a list of keys of dask sorted in topological order.
+
+DATA
+    absolute_import = _Feature((2, 5, 0, 'alpha', 1), (3, 0, 0, 'alpha', 0...
+    division = _Feature((2, 2, 0, 'alpha', 2), (3, 0, 0, 'alpha', 0), 8192...
+    print_function = _Feature((2, 6, 0, 'alpha', 2), (3, 0, 0, 'alpha', 0)...
+
+FILE
+    /Users/jack/miniconda2/envs/py37/lib/python3.6/site-packages/dask/core.py
+
+

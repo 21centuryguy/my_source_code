@@ -1,0 +1,50 @@
+Help on module rope.contrib.findit in rope.contrib:
+
+NAME
+    rope.contrib.findit
+
+CLASSES
+    builtins.object
+        Location
+    
+    class Location(builtins.object)
+     |  Methods defined here:
+     |  
+     |  __init__(self, occurrence)
+     |      Initialize self.  See help(type(self)) for accurate signature.
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data descriptors defined here:
+     |  
+     |  __dict__
+     |      dictionary for instance variables (if defined)
+     |  
+     |  __weakref__
+     |      list of weak references to the object (if defined)
+
+FUNCTIONS
+    find_definition(project, code, offset, resource=None, maxfixes=1)
+        Return the definition location of the python name at `offset`
+        
+        A `Location` object is returned if the definition location can be
+        determined, otherwise ``None`` is returned.
+    
+    find_implementations(project, resource, offset, resources=None, task_handle=<rope.base.taskhandle.NullTaskHandle object at 0x105bb92b0>)
+        Find the places a given method is overridden.
+        
+        Finds the places a method is implemented.  Returns a list of
+        `Location`\s.
+    
+    find_occurrences(project, resource, offset, unsure=False, resources=None, in_hierarchy=False, task_handle=<rope.base.taskhandle.NullTaskHandle object at 0x105bb9278>)
+        Return a list of `Location`\s
+        
+        If `unsure` is `True`, possible matches are returned, too.  You
+        can use `Location.unsure` to see which are unsure occurrences.
+        `resources` can be a list of `rope.base.resource.File`\s that
+        should be searched for occurrences; if `None` all python files
+        in the project are searched.
+
+FILE
+    /Users/jack/miniconda2/envs/py37/lib/python3.6/site-packages/rope/contrib/findit.py
+
+
