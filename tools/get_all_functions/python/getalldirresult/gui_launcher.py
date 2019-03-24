@@ -1,7 +1,8 @@
+import os
+import tkinter, tkinter.filedialog
 from tkinter import *
 from tkinter import ttk
 from subprocess import check_output
-
 
 # --------------------------------------------------------------------------
 # --- function definition
@@ -356,13 +357,61 @@ def call_depth_10():
 # --------------------------------------------------------------------------
 # --- generate item lsit
 
-# - item lsit 1
+# --- item lsit 1
+
+# - get pip list
 check_output("pip freeze > result/freeze_result.txt", shell=True)
 f = open("result/freeze_result.txt", "r")
 items = []
+items.append("="*40)
+items.append("="*15 + "  pip list  " +"="*15)
+items.append("="*40)
 for line in f:
 	items.append(line)
 f.close()
+
+# - get buitin lib list
+def get_buitin_lib_list(target_buitin_lib_path_list):
+	
+	# root = tkinter.Tk()
+	# root.withdraw()
+	# target_buitin_lib_path = tkinter.filedialog.askdirectory(parent=root,initialdir="/Users/jack/miniconda2/envs/",title='Please select a directory')
+	listdir_result_object = os.listdir(target_buitin_lib_path)
+
+	listdir_result_list = []
+	for listdir_result in listdir_result_object:
+		if "DS_Store" in listdir_result:
+			pass
+			# print(".DS_Store skipped")
+
+		elif ".txt" in listdir_result:
+			pass
+			# print("*.txt skipped")
+
+		else:
+			# print(listdir_result)
+			listdir_result = listdir_result.replace(".py", "")
+			listdir_result_list.append(listdir_result)
+
+	listdir_result_list.sort()
+
+	items.append("="*40)
+	items.append(target_buitin_lib_path)
+	items.append("="*40)
+	for builtin_lib_package_n_module in listdir_result_list:
+		items.append(builtin_lib_package_n_module)
+		# print(builtin_lib_package_n_module)
+
+
+target_buitin_lib_path_list = [
+								"/Users/jack/miniconda2/envs/py27/lib/python2.7/", 
+								"/Users/jack/miniconda2/envs/py36/lib/python3.6/", 
+								"/Users/jack/miniconda2/envs/py37/lib/python3.6/"
+							]
+
+for target_buitin_lib_path in target_buitin_lib_path_list:
+	get_buitin_lib_list(target_buitin_lib_path_list)
+
 # - debugging
 # print("="*50 + "debugging" + "="*50)
 # print("items type: ", type(items))
@@ -398,18 +447,71 @@ frame = ttk.Frame(root, padding=8)
 def new_widget():
     check_output("python gui_launcher.py", shell=True)
 
+
+
+
+def new_widget2():  
+	root2 = Tk()
+	root2.title("Python Library Help Viewer")
+	frame = ttk.Frame(root2, padding=8)
+
+	#
+	def new_widget():
+	    check_output("python gui_launcher.py", shell=True)
+
+	def edit_namepace_checker():
+	    check_output("open module_namespace_checker.py", shell=True)
+
+	def open_help_text_folder():
+	    check_output("open result/help_docs/", shell=True)
+
+	def close():
+	    quit()
+
+	b1 = Button(frame, text="New Wideget", command=lambda:[root2.iconify(), new_widget2()])
+	b2 = Button(frame, text="Namespace Checker", command=edit_namepace_checker)
+	b3 = Button(frame, text="Help Docs Folder", command=open_help_text_folder)
+	# b4 = Button(frame, text="Close Wideget", command=quit)
+	b4 = Button(frame, text="Close Wideget", command=lambda:[quit()])
+	b1.grid(row=0, sticky=E)
+	b2.grid(row=0, sticky=W)
+	b3.grid(row=1, sticky=W)
+	b4.grid(row=1, sticky=E)
+
+	#
+	cb_val = StringVar()
+	cb_val.set('Select target module')
+	cb = ttk.Combobox(frame, textvariable=cb_val, height=15, width=50)
+	cb['values'] = items
+	frame.grid()
+	cb.grid()
+	cb.bind('<<ComboboxSelected>>', lambda e:[call_check_target(int(cb.current())), call_mode1(), call_mode2(), call_depth_2()])
+	root2.mainloop()
+
+
+
+
+
+
+def edit_namepace_checker():
+    check_output("open module_namespace_checker.py", shell=True)
+
 def open_help_text_folder():
     check_output("open result/help_docs/", shell=True)
 
 def close():
     quit()
 
-b1 = Button(frame, text="New Wideget", command=lambda:[root.iconify(), new_widget()])
-b2 = Button(frame, text="Open Help Dods Folder", command=open_help_text_folder)
-b3 = Button(frame, text="Close Wideget", command=quit)
-b1.grid(row=0, sticky=W)
-b2.grid(row=0, sticky=N)
-b3.grid(row=0, sticky=E)
+# b1 = Button(frame, text="New Wideget", command=lambda:[root.iconify(), new_widget()])
+b1 = Button(frame, text="New Wideget", command=lambda:[root.iconify(), new_widget2()])
+b2 = Button(frame, text="Namespace Checker", command=edit_namepace_checker)
+b3 = Button(frame, text="Help Docs Folder", command=open_help_text_folder)
+# b4 = Button(frame, text="Close Wideget", command=quit)
+b4 = Button(frame, text="Close Wideget", command=lambda:[quit()])
+b1.grid(row=0, sticky=E)
+b2.grid(row=0, sticky=W)
+b3.grid(row=1, sticky=W)
+b4.grid(row=1, sticky=E)
 
 #
 cb_val = StringVar()
@@ -420,4 +522,4 @@ frame.grid()
 cb.grid()
 cb.bind('<<ComboboxSelected>>', lambda e:[call_check_target(int(cb.current())), call_mode1(), call_mode2(), call_depth_2()])
 root.mainloop()
-root.iconify()
+
