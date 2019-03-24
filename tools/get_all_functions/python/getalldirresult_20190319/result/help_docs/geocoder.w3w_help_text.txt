@@ -1,9 +1,0 @@
-Help on function w3w in module geocoder.api:
-
-w3w(location, **kwargs)
-    what3words Provider
-    
-    :param ``location``: Your search location you want geocoded.
-    :param ``key``: W3W API key.
-    :param ``method``: Chose a method (geocode, method)
-
