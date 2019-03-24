@@ -1,0 +1,12 @@
+*.egg-info
+.pyc
+.pyo
+.buildozer
+bin
+build
+dist
+venv
+*.komodoproject
+.project
+.pydevproject
+

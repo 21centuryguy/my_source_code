@@ -1,0 +1,3 @@
+title=My First Kivy app
+author=Jack Kim
+orientation=<portrait|landscape>

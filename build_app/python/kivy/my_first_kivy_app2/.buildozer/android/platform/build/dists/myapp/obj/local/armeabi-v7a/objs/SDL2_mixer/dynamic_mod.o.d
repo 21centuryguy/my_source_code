@@ -1,0 +1,2 @@
+/Users/jack/Documents/GitHub/local/app/python/kivy/my_first_kivy_app2/.buildozer/android/platform/build/build/bootstrap_builds/sdl2_gradle-python2/obj/local/armeabi-v7a/objs/SDL2_mixer/dynamic_mod.o: \
+ /Users/jack/Documents/GitHub/local/app/python/kivy/my_first_kivy_app2/.buildozer/android/platform/build/build/bootstrap_builds/sdl2_gradle-python2/jni/SDL2_mixer/dynamic_mod.c
