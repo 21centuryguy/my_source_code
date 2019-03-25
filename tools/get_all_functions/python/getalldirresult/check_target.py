@@ -1,5 +1,6 @@
 import os
 from tk_tools import tk_tools_main
+from module_namespace_checker import module_namespace_checker
 
 def read_target_import_line_draft_file():
 	i = open("target_import_line_draft.txt", mode="r")
@@ -13,7 +14,10 @@ def write_target_import_line_draft_file():
 		i = open("target_import_line_draft.txt", mode="w")
 		# target_from_cosole = input("Tyep your target >>> ")
 		target_from_tk_menu = open("tmp/tmp.txt", mode="r").readline()
-		target_from_tk_menu = target_from_tk_menu.lower()
+		
+		# --- check module namespace
+		target_from_tk_menu = module_namespace_checker(target_from_tk_menu)
+
 		i.write('import ' + target_from_tk_menu + '; target ="' + target_from_tk_menu + '"')
 	else:
 		current_target_import_line = read_target_import_line_draft_file()

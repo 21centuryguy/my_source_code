@@ -1,4 +1,4 @@
-import selenium.common.exceptions
+import pyperclip.__main__
 
 verified_member_list = []
 def module_handler():

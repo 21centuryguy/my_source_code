@@ -8,7 +8,7 @@ def init_ref_files():
 	i = open("result/result.txt", mode="w");i.close()
 
 try:
-	import selenium.common.exceptions; target ="selenium.common.exceptions"
+	import pyperclip.__main__; target ="pyperclip.__main__"
 except Exception as e:
 	print("\n")
 	print("="*50)
@@ -33,7 +33,7 @@ def help_target(target):
 
 	#---------------------------------------------
 	#--- get attr member list from target module
-	x = dir(selenium.common.exceptions)
+	x = dir(pyperclip.__main__)
 	# print(x)
 
 	attr_member_list = []
@@ -45,7 +45,7 @@ def help_target(target):
 	with open("result/result.txt", "w") as archi:
 		t = sys.stdout
 		sys.stdout = archi
-		help(selenium.common.exceptions)
+		help(pyperclip.__main__)
 		sys.stdout = t
 
 	#---------------------------------------------
