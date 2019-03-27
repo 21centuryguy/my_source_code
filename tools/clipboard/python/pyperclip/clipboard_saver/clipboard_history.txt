@@ -1,0 +1,25 @@
+remove_dup_in_copylist_ref_file
+check_new_copy_on_clipboard
+current_text_on_clipboard
+history
+clipboard_history_file_full_path
+copy
+pyperclip
+paste
+sleep
+definition
+__main__
+__name__
+root
+selected_item
+selected_item_num
+func
+padding
+ComboboxSelected
+cb_val
+copy_selected_item_no_linebreak
+mistyrose
+grid
+Label
+===  Clipboard History  ===
+open
