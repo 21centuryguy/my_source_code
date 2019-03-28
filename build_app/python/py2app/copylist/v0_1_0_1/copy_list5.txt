@@ -1,0 +1,21 @@
+
+===  Clipboard History  ===
+
+copy_list1.txt
+
+copy_list2.txt
+copy_list2.txt
+
+copy_list3.txt
+
+copy_list4.txt
+
+copy_list5.txt
+
+copylist.py
+
+pyperclip
+
+shutil
+
+v0_1_0
