@@ -1,0 +1,7 @@
+#!/usr/bin/python
+# -*- Coding: utf-8 -*-
+if __name__ == '__main__':
+listbox.delete(0, 'end')
+data = sorted(data, key=str.lower)
+for item in data:
+listbox.insert('end', item)

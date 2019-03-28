@@ -1,0 +1,191 @@
+
+
+
+        items2.append(line)
+
+        items3.append(line)
+
+        items5.append(line)
+
+        listbox.insert('end', item)
+
+    # cb2 = ttk.Combobox(frame2, textvariable=cb_val2, height=10, width=43)
+
+    # cb3 = ttk.Combobox(frame3, textvariable=cb_val3, height=10, width=43)
+
+    # cb5 = ttk.Combobox(frame5, textvariable=cb_val5, height=10, width=43)
+
+    # cb_val5 = StringVar()
+
+    # delete previous data
+
+    # load updated data again
+
+    # put new data
+
+    # sorting data 
+
+    cb2.bind('<<ComboboxSelected>>', lambda e:[copy_selected_item_no_linebreak(items2, int(cb2.current()))])
+
+    cb2.delete(0, 'end')
+
+    cb2.grid(row=1)
+
+    cb2['values'] = items2
+
+    cb3.bind('<<ComboboxSelected>>', lambda e:[copy_selected_item_no_linebreak(items3, int(cb3.current()))])
+
+    cb3.delete(0, 'end')
+
+    cb3.grid(row=1)
+
+    cb3['values'] = items3
+
+    cb5.bind('<<ComboboxSelected>>', lambda e:[copy_selected_item_no_linebreak(items5, int(cb5.current()))])
+
+    cb5.delete(0, 'end')
+
+    cb5.grid(row=1)
+
+    cb5['values'] = items5
+
+    cb_val2.set("Copyitmes without linebreak")
+
+    cb_val3.set("Snippet")
+
+    cb_val5.set("===  Clipboard History  ===")
+
+    data = sorted(data, key=str.lower)
+
+    f = open("copy_list2.txt", "r")
+
+    f = open("copy_list3.txt", "r")
+
+    f = open("copy_list5.txt", "r")
+
+    f.close()
+
+    for item in data:
+
+    for line in f:
+
+    frame2.grid()
+
+    frame3.grid()
+
+    frame5.grid()
+
+    items2 = []
+
+    items3 = []
+
+    items5 = []
+
+    listbox.delete(0, 'end')
+
+"===  Todo List  ==="
+
+"Copyitmes with linebreak"
+
+# -*- Coding: utf-8 -*-
+
+#!/usr/bin/python
+
+11
+
+111
+
+1111
+
+11111
+
+111111
+
+71323
+
+; b6 = Button(frame5, text="Update", command=lambda:[cmbbx_update()])
+
+; frame5.grid(); b10.grid(row=2, sticky=E)
+
+===  Clipboard History  ===
+
+======== [  ] ========
+
+======[ xxx ]======
+
+===[ xxx ]===
+
+@
+
+ClipboardSaver
+Copyitmes without linebreak
+
+Snippet
+
+Snippets
+
+W
+
+add
+
+adf
+
+adfaf
+
+adfasdfa
+
+adfdfsdfg
+
+adfdgghnf
+
+adfsdf
+
+adga
+
+clipboard_history
+
+copy_list1.txtcopy_list2.txtcopy_list3.txtcopy_list4.txtcopy_list5.txt
+
+copylist.icnssetup.py
+
+copylist.py
+
+copylist.pycopy_list4.txtcopy_list5.txtcopy_list1.txtcopy_list2.txtcopy_list3.txt
+
+dd
+
+def cmbbx_update1():
+
+def cmbbx_update2():
+
+def cmbbx_update3():
+
+def cmbbx_update5():
+
+eraf
+
+global
+
+if __name__ == '__main__':
+
+listbox.insert
+
+python setup.py py2app -A
+
+remove_dup_in_copylist_ref_file
+
+setup.py
+
+v0_1_0_3v0_1_0_2v0_1_0_1
+
+|
+
+~
+
+これは『おまじない
+
+はい。こちらはよくPythonプログラムに書かれていますね
+
+一言で言うと、
+
+少し長くなりますが回答いたします。
