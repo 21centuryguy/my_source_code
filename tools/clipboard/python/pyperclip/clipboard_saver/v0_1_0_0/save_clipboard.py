@@ -1,3 +1,5 @@
+# -*- Coding: utf-8 -*-
+
 import pyperclip
 import time
 import shutil
@@ -10,8 +12,9 @@ import os
 # -
 clipboard_history_file_full_path = "clipboard_history.txt"
 # -
-copylist_ref_file_full_path = "/Users/jack/Documents/GitHub/local/tools/copylist/python/v0_1_1/copy_list5.txt"
+copylist_ref_file_full_path = "/Users/jack/Documents/GitHub/local/tools/copylist/python/dev/copy_list5.txt"
 
+# copylist_ref_file_full_path = "/Users/jack/Documents/GitHub/local/build_app/python/py2app/copylist/v0_1_0/copy_list5.txt"
 
 # ------------------------------
 # ---------- function definition
@@ -56,7 +59,7 @@ def check_new_copy_on_clipboard(current_text_on_clipboard):
 
 	with open(clipboard_history_file_full_path, "a+") as f:
 		if os.path.getsize(clipboard_history_file_full_path) == 0: 
-			f.write("===  Clipboard History  ===")
+			f.write("======== [  ] ========")
 
 
 	# with open(clipboard_history_file_full_path, "r") as f:
