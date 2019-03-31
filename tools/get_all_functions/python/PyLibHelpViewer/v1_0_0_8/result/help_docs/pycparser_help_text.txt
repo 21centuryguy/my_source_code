@@ -1,0 +1,39 @@
+Help on package pycparser:
+
+NAME
+    pycparser
+
+DESCRIPTION
+    #-----------------------------------------------------------------
+    # pycparser: __init__.py
+    #
+    # This package file exports some convenience functions for
+    # interacting with pycparser
+    #
+    # Eli Bendersky [http://eli.thegreenplace.net]
+    # License: BSD
+    #-----------------------------------------------------------------
+
+PACKAGE CONTENTS
+    _ast_gen
+    _build_tables
+    ast_transforms
+    c_ast
+    c_generator
+    c_lexer
+    c_parser
+    lextab
+    ply (package)
+    plyparser
+    yacctab
+
+DATA
+    __all__ = ['c_lexer', 'c_parser', 'c_ast']
+
+VERSION
+    2.18
+
+FILE
+    /Users/jack/miniconda2/envs/py37/lib/python3.6/site-packages/pycparser/__init__.py
+
+

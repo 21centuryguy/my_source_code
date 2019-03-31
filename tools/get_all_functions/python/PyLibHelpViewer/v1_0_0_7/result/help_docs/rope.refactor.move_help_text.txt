@@ -1,0 +1,146 @@
+Help on module rope.refactor.move in rope.refactor:
+
+NAME
+    rope.refactor.move - A module containing classes for move refactoring
+
+DESCRIPTION
+    `create_move()` is a factory for creating move refactoring objects
+    based on inputs.
+
+CLASSES
+    builtins.object
+        ModuleSkipRenamer
+        ModuleSkipRenamerHandle
+        MoveGlobal
+        MoveMethod
+        MoveModule
+    
+    class ModuleSkipRenamer(builtins.object)
+     |  Rename occurrences in a module
+     |  
+     |  This class can be used when you want to treat a region in a file
+     |  separately from other parts when renaming.
+     |  
+     |  Methods defined here:
+     |  
+     |  __init__(self, occurrence_finder, resource, handle=None, skip_start=0, skip_end=0, replacement='')
+     |      Constructor
+     |      
+     |      if replacement is `None` the region is not changed.  Otherwise
+     |      it is replaced with `replacement`.
+     |  
+     |  get_changed_module(self)
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data descriptors defined here:
+     |  
+     |  __dict__
+     |      dictionary for instance variables (if defined)
+     |  
+     |  __weakref__
+     |      list of weak references to the object (if defined)
+    
+    class ModuleSkipRenamerHandle(builtins.object)
+     |  Methods defined here:
+     |  
+     |  occurred_inside_skip(self, change_collector, occurrence)
+     |  
+     |  occurred_outside_skip(self, change_collector, occurrence)
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data descriptors defined here:
+     |  
+     |  __dict__
+     |      dictionary for instance variables (if defined)
+     |  
+     |  __weakref__
+     |      list of weak references to the object (if defined)
+    
+    class MoveGlobal(builtins.object)
+     |  For moving global function and classes
+     |  
+     |  Methods defined here:
+     |  
+     |  __init__(self, project, resource, offset)
+     |      Initialize self.  See help(type(self)) for accurate signature.
+     |  
+     |  get_changes(self, dest, resources=None, task_handle=<rope.base.taskhandle.NullTaskHandle object at 0x10bfb4400>)
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data descriptors defined here:
+     |  
+     |  __dict__
+     |      dictionary for instance variables (if defined)
+     |  
+     |  __weakref__
+     |      list of weak references to the object (if defined)
+    
+    class MoveMethod(builtins.object)
+     |  For moving methods
+     |  
+     |  It makes a new method in the destination class and changes
+     |  the body of the old method to call the new method.  You can
+     |  inline the old method to change all of its occurrences.
+     |  
+     |  Methods defined here:
+     |  
+     |  __init__(self, project, resource, offset)
+     |      Initialize self.  See help(type(self)) for accurate signature.
+     |  
+     |  get_changes(self, dest_attr, new_name=None, resources=None, task_handle=<rope.base.taskhandle.NullTaskHandle object at 0x10bfb4390>)
+     |      Return the changes needed for this refactoring
+     |      
+     |      Parameters:
+     |      
+     |      - `dest_attr`: the name of the destination attribute
+     |      - `new_name`: the name of the new method; if `None` uses
+     |        the old name
+     |      - `resources` can be a list of `rope.base.resources.File`\s to
+     |        apply this refactoring on.  If `None`, the restructuring
+     |        will be applied to all python files.
+     |  
+     |  get_method_name(self)
+     |  
+     |  get_new_method(self, name)
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data descriptors defined here:
+     |  
+     |  __dict__
+     |      dictionary for instance variables (if defined)
+     |  
+     |  __weakref__
+     |      list of weak references to the object (if defined)
+    
+    class MoveModule(builtins.object)
+     |  For moving modules and packages
+     |  
+     |  Methods defined here:
+     |  
+     |  __init__(self, project, resource)
+     |      Initialize self.  See help(type(self)) for accurate signature.
+     |  
+     |  get_changes(self, dest, resources=None, task_handle=<rope.base.taskhandle.NullTaskHandle object at 0x10bfb4438>)
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data descriptors defined here:
+     |  
+     |  __dict__
+     |      dictionary for instance variables (if defined)
+     |  
+     |  __weakref__
+     |      list of weak references to the object (if defined)
+
+FUNCTIONS
+    create_move(project, resource, offset=None)
+        A factory for creating Move objects
+        
+        Based on `resource` and `offset`, return one of `MoveModule`,
+        `MoveGlobal` or `MoveMethod` for performing move refactoring.
+    
+    moving_code_with_imports(project, resource, source)
+
+FILE
+    /Users/jack/miniconda2/envs/py37/lib/python3.6/site-packages/rope/refactor/move.py
+
+

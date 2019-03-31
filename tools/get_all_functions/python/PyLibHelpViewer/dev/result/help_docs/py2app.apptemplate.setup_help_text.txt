@@ -1,0 +1,15 @@
+Help on module py2app.apptemplate.setup in py2app.apptemplate:
+
+NAME
+    py2app.apptemplate.setup
+
+FUNCTIONS
+    main(all=False, arch=None, secondary=False, redirect_asl=False)
+
+DATA
+    gPreBuildVariants = [{'cc': 'gcc-4.2', 'cflags': '-g -isysroot /Develo...
+
+FILE
+    /Users/jack/miniconda2/envs/py37/lib/python3.6/site-packages/py2app/apptemplate/setup.py
+
+

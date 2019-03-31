@@ -1,0 +1,388 @@
+Help on module rope.contrib.codeassist in rope.contrib:
+
+NAME
+    rope.contrib.codeassist
+
+CLASSES
+    builtins.object
+        CompletionProposal
+            NamedParamProposal
+            TemplateProposal
+        PyDocExtractor
+        Template
+    
+    CodeAssistProposal = class CompletionProposal(builtins.object)
+     |  A completion proposal
+     |  
+     |  The `scope` instance variable shows where proposed name came from
+     |  and can be 'global', 'local', 'builtin', 'attribute', 'keyword',
+     |  'imported', 'parameter_keyword'.
+     |  
+     |  The `type` instance variable shows the approximate type of the
+     |  proposed object and can be 'instance', 'class', 'function', 'module',
+     |  and `None`.
+     |  
+     |  All possible relations between proposal's `scope` and `type` are shown
+     |  in the table below (different scopes in rows and types in columns):
+     |  
+     |                    | instance | class | function | module | None
+     |              local |    +     |   +   |    +     |   +    |
+     |             global |    +     |   +   |    +     |   +    |
+     |            builtin |    +     |   +   |    +     |        |
+     |          attribute |    +     |   +   |    +     |   +    |
+     |           imported |    +     |   +   |    +     |   +    |
+     |            keyword |          |       |          |        |  +
+     |  parameter_keyword |          |       |          |        |  +
+     |  
+     |  Methods defined here:
+     |  
+     |  __init__(self, name, scope, pyname=None)
+     |      Initialize self.  See help(type(self)) for accurate signature.
+     |  
+     |  __repr__(self)
+     |      Return repr(self).
+     |  
+     |  __str__(self)
+     |      Return str(self).
+     |  
+     |  get_doc(self)
+     |      Get the proposed object's docstring.
+     |      
+     |      Returns None if it can not be get.
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data descriptors defined here:
+     |  
+     |  __dict__
+     |      dictionary for instance variables (if defined)
+     |  
+     |  __weakref__
+     |      list of weak references to the object (if defined)
+     |  
+     |  kind
+     |  
+     |  parameters
+     |      The names of the parameters the function takes.
+     |      
+     |      Returns None if this completion is not a function.
+     |  
+     |  type
+    
+    class CompletionProposal(builtins.object)
+     |  A completion proposal
+     |  
+     |  The `scope` instance variable shows where proposed name came from
+     |  and can be 'global', 'local', 'builtin', 'attribute', 'keyword',
+     |  'imported', 'parameter_keyword'.
+     |  
+     |  The `type` instance variable shows the approximate type of the
+     |  proposed object and can be 'instance', 'class', 'function', 'module',
+     |  and `None`.
+     |  
+     |  All possible relations between proposal's `scope` and `type` are shown
+     |  in the table below (different scopes in rows and types in columns):
+     |  
+     |                    | instance | class | function | module | None
+     |              local |    +     |   +   |    +     |   +    |
+     |             global |    +     |   +   |    +     |   +    |
+     |            builtin |    +     |   +   |    +     |        |
+     |          attribute |    +     |   +   |    +     |   +    |
+     |           imported |    +     |   +   |    +     |   +    |
+     |            keyword |          |       |          |        |  +
+     |  parameter_keyword |          |       |          |        |  +
+     |  
+     |  Methods defined here:
+     |  
+     |  __init__(self, name, scope, pyname=None)
+     |      Initialize self.  See help(type(self)) for accurate signature.
+     |  
+     |  __repr__(self)
+     |      Return repr(self).
+     |  
+     |  __str__(self)
+     |      Return str(self).
+     |  
+     |  get_doc(self)
+     |      Get the proposed object's docstring.
+     |      
+     |      Returns None if it can not be get.
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data descriptors defined here:
+     |  
+     |  __dict__
+     |      dictionary for instance variables (if defined)
+     |  
+     |  __weakref__
+     |      list of weak references to the object (if defined)
+     |  
+     |  kind
+     |  
+     |  parameters
+     |      The names of the parameters the function takes.
+     |      
+     |      Returns None if this completion is not a function.
+     |  
+     |  type
+    
+    class NamedParamProposal(CompletionProposal)
+     |  A parameter keyword completion proposal
+     |  
+     |  Holds reference to ``_function`` -- the function which
+     |  parameter ``name`` belongs to. This allows to determine
+     |  default value for this parameter.
+     |  
+     |  Method resolution order:
+     |      NamedParamProposal
+     |      CompletionProposal
+     |      builtins.object
+     |  
+     |  Methods defined here:
+     |  
+     |  __init__(self, name, function)
+     |      Initialize self.  See help(type(self)) for accurate signature.
+     |  
+     |  get_default(self)
+     |      Get a string representation of a param's default value.
+     |      
+     |      Returns None if there is no default value for this param.
+     |  
+     |  ----------------------------------------------------------------------
+     |  Methods inherited from CompletionProposal:
+     |  
+     |  __repr__(self)
+     |      Return repr(self).
+     |  
+     |  __str__(self)
+     |      Return str(self).
+     |  
+     |  get_doc(self)
+     |      Get the proposed object's docstring.
+     |      
+     |      Returns None if it can not be get.
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data descriptors inherited from CompletionProposal:
+     |  
+     |  __dict__
+     |      dictionary for instance variables (if defined)
+     |  
+     |  __weakref__
+     |      list of weak references to the object (if defined)
+     |  
+     |  kind
+     |  
+     |  parameters
+     |      The names of the parameters the function takes.
+     |      
+     |      Returns None if this completion is not a function.
+     |  
+     |  type
+    
+    class PyDocExtractor(builtins.object)
+     |  Methods defined here:
+     |  
+     |  get_calltip(self, pyobject, ignore_unknown=False, remove_self=False)
+     |  
+     |  get_doc(self, pyobject)
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data descriptors defined here:
+     |  
+     |  __dict__
+     |      dictionary for instance variables (if defined)
+     |  
+     |  __weakref__
+     |      list of weak references to the object (if defined)
+    
+    class Template(builtins.object)
+     |  Methods defined here:
+     |  
+     |  __init__(self, template)
+     |      Initialize self.  See help(type(self)) for accurate signature.
+     |  
+     |  get_cursor_location(self, mapping)
+     |  
+     |  substitute(self, mapping)
+     |  
+     |  variables(self)
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data descriptors defined here:
+     |  
+     |  __dict__
+     |      dictionary for instance variables (if defined)
+     |  
+     |  __weakref__
+     |      list of weak references to the object (if defined)
+    
+    class TemplateProposal(CompletionProposal)
+     |  A completion proposal
+     |  
+     |  The `scope` instance variable shows where proposed name came from
+     |  and can be 'global', 'local', 'builtin', 'attribute', 'keyword',
+     |  'imported', 'parameter_keyword'.
+     |  
+     |  The `type` instance variable shows the approximate type of the
+     |  proposed object and can be 'instance', 'class', 'function', 'module',
+     |  and `None`.
+     |  
+     |  All possible relations between proposal's `scope` and `type` are shown
+     |  in the table below (different scopes in rows and types in columns):
+     |  
+     |                    | instance | class | function | module | None
+     |              local |    +     |   +   |    +     |   +    |
+     |             global |    +     |   +   |    +     |   +    |
+     |            builtin |    +     |   +   |    +     |        |
+     |          attribute |    +     |   +   |    +     |   +    |
+     |           imported |    +     |   +   |    +     |   +    |
+     |            keyword |          |       |          |        |  +
+     |  parameter_keyword |          |       |          |        |  +
+     |  
+     |  Method resolution order:
+     |      TemplateProposal
+     |      CompletionProposal
+     |      builtins.object
+     |  
+     |  Methods defined here:
+     |  
+     |  __init__(self, name, template)
+     |      Initialize self.  See help(type(self)) for accurate signature.
+     |  
+     |  ----------------------------------------------------------------------
+     |  Methods inherited from CompletionProposal:
+     |  
+     |  __repr__(self)
+     |      Return repr(self).
+     |  
+     |  __str__(self)
+     |      Return str(self).
+     |  
+     |  get_doc(self)
+     |      Get the proposed object's docstring.
+     |      
+     |      Returns None if it can not be get.
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data descriptors inherited from CompletionProposal:
+     |  
+     |  __dict__
+     |      dictionary for instance variables (if defined)
+     |  
+     |  __weakref__
+     |      list of weak references to the object (if defined)
+     |  
+     |  kind
+     |  
+     |  parameters
+     |      The names of the parameters the function takes.
+     |      
+     |      Returns None if this completion is not a function.
+     |  
+     |  type
+
+FUNCTIONS
+    code_assist(project, source_code, offset, resource=None, templates=None, maxfixes=1, later_locals=True)
+        Return python code completions as a list of `CodeAssistProposal`\s
+        
+        `resource` is a `rope.base.resources.Resource` object.  If
+        provided, relative imports are handled.
+        
+        `maxfixes` is the maximum number of errors to fix if the code has
+        errors in it.
+        
+        If `later_locals` is `False` names defined in this scope and after
+        this line is ignored.
+    
+    default_templates()
+    
+    find_occurrences(*args, **kwds)
+    
+    get_calltip(project, source_code, offset, resource=None, maxfixes=1, ignore_unknown=False, remove_self=False)
+        Get the calltip of a function
+        
+        The format of the returned string is
+        ``module_name.holding_scope_names.function_name(arguments)``.  For
+        classes `__init__()` and for normal objects `__call__()` function
+        is used.
+        
+        Note that the offset is on the function itself *not* after the its
+        open parenthesis.  (Actually it used to be the other way but it
+        was easily confused when string literals were involved.  So I
+        decided it is better for it not to try to be too clever when it
+        cannot be clever enough).  You can use a simple search like::
+        
+            offset = source_code.rindex('(', 0, offset) - 1
+        
+        to handle simple situations.
+        
+        If `ignore_unknown` is `True`, `None` is returned for functions
+        without source-code like builtins and extensions.
+        
+        If `remove_self` is `True`, the first parameter whose name is self
+        will be removed for methods.
+    
+    get_canonical_path(project, resource, offset)
+        Get the canonical path to an object.
+        
+        Given the offset of the object, this returns a list of
+        (name, name_type) tuples representing the canonical path to the
+        object. For example, the 'x' in the following code:
+        
+            class Foo(object):
+                def bar(self):
+                    class Qux(object):
+                        def mux(self, x):
+                            pass
+        
+        we will return:
+        
+            [('Foo', 'CLASS'), ('bar', 'FUNCTION'), ('Qux', 'CLASS'),
+             ('mux', 'FUNCTION'), ('x', 'PARAMETER')]
+        
+        `resource` is a `rope.base.resources.Resource` object.
+        
+        `offset` is the offset of the pyname you want the path to.
+    
+    get_definition_location(project, source_code, offset, resource=None, maxfixes=1)
+        Return the definition location of the python name at `offset`
+        
+        Return a (`rope.base.resources.Resource`, lineno) tuple.  If no
+        `resource` is given and the definition is inside the same module,
+        the first element of the returned tuple would be `None`.  If the
+        location cannot be determined ``(None, None)`` is returned.
+    
+    get_doc(project, source_code, offset, resource=None, maxfixes=1)
+        Get the pydoc
+    
+    sorted_proposals(proposals, scopepref=None, typepref=None)
+        Sort a list of proposals
+        
+        Return a sorted list of the given `CodeAssistProposal`\s.
+        
+        `scopepref` can be a list of proposal scopes.  Defaults to
+        ``['parameter_keyword', 'local', 'global', 'imported',
+        'attribute', 'builtin', 'keyword']``.
+        
+        `typepref` can be a list of proposal types.  Defaults to
+        ``['class', 'function', 'instance', 'module', None]``.
+        (`None` stands for completions with no type like keywords.)
+    
+    starting_expression(source_code, offset)
+        Return the expression to complete
+    
+    starting_offset(source_code, offset)
+        Return the offset in which the completion should be inserted
+        
+        Usually code assist proposals should be inserted like::
+        
+            completion = proposal.name
+            result = (source_code[:starting_offset] +
+                      completion + source_code[offset:])
+        
+        Where starting_offset is the offset returned by this function.
+
+FILE
+    /Users/jack/miniconda2/envs/py37/lib/python3.6/site-packages/rope/contrib/codeassist.py
+
+

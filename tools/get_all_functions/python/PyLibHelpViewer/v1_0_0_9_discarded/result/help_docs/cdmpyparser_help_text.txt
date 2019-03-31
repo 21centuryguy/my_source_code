@@ -1,0 +1,575 @@
+Help on module cdmpyparser:
+
+NAME
+    cdmpyparser - The file holds types and a glue code between python and C python parser
+
+CLASSES
+    builtins.object
+        Argument
+        BriefModuleInfo
+        Docstring
+        ModuleInfoBase
+            Class
+            ClassAttribute
+            Decorator
+            Encoding
+            Function
+            Global
+            Import
+            ImportWhat
+            InstanceAttribute
+    
+    class Argument(builtins.object)
+     |  Holds an information about an argument
+     |  
+     |  Methods defined here:
+     |  
+     |  __init__(self, name, annotation)
+     |      Initialize self.  See help(type(self)) for accurate signature.
+     |  
+     |  __str__(self)
+     |      Return str(self).
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data descriptors defined here:
+     |  
+     |  annotation
+     |  
+     |  name
+     |  
+     |  value
+    
+    class BriefModuleInfo(builtins.object)
+     |  Holds a single module content information
+     |  
+     |  Methods defined here:
+     |  
+     |  __init__(self)
+     |      Initialize self.  See help(type(self)) for accurate signature.
+     |  
+     |  flush(self)
+     |      Flushes the collected information
+     |  
+     |  niceStringify(self)
+     |      Returns a string representation with new lines and shifts
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data descriptors defined here:
+     |  
+     |  classes
+     |  
+     |  docstring
+     |  
+     |  encoding
+     |  
+     |  errors
+     |  
+     |  functions
+     |  
+     |  globals
+     |  
+     |  imports
+     |  
+     |  isOK
+     |  
+     |  lexerErrors
+     |  
+     |  objectsStack
+    
+    class Class(ModuleInfoBase)
+     |  Holds information about a single class
+     |  
+     |  Method resolution order:
+     |      Class
+     |      ModuleInfoBase
+     |      builtins.object
+     |  
+     |  Methods defined here:
+     |  
+     |  __init__(self, className, line, pos, absPosition, keywordLine, keywordPos, colonLine, colonPos)
+     |      Initialize self.  See help(type(self)) for accurate signature.
+     |  
+     |  getDisplayName(self)
+     |      Provides a name for display purpose
+     |  
+     |  niceStringify(self, level)
+     |      Returns a string representation with new lines and shifts
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data descriptors defined here:
+     |  
+     |  base
+     |  
+     |  classAttributes
+     |  
+     |  classes
+     |  
+     |  colonLine
+     |  
+     |  colonPos
+     |  
+     |  decorators
+     |  
+     |  docstring
+     |  
+     |  functions
+     |  
+     |  instanceAttributes
+     |  
+     |  keywordLine
+     |  
+     |  keywordPos
+     |  
+     |  ----------------------------------------------------------------------
+     |  Methods inherited from ModuleInfoBase:
+     |  
+     |  isPrivate(self)
+     |      True if it is private
+     |  
+     |  isProtected(self)
+     |      True if it is protected
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data descriptors inherited from ModuleInfoBase:
+     |  
+     |  absPosition
+     |  
+     |  line
+     |  
+     |  name
+     |  
+     |  pos
+    
+    class ClassAttribute(ModuleInfoBase)
+     |  Holds information about a class attribute
+     |  
+     |  Method resolution order:
+     |      ClassAttribute
+     |      ModuleInfoBase
+     |      builtins.object
+     |  
+     |  Methods defined here:
+     |  
+     |  __init__(self, attrName, line, pos, absPosition)
+     |      Initialize self.  See help(type(self)) for accurate signature.
+     |  
+     |  __str__(self)
+     |      Return str(self).
+     |  
+     |  ----------------------------------------------------------------------
+     |  Methods inherited from ModuleInfoBase:
+     |  
+     |  getDisplayName(self)
+     |      Provides a name for display purpose.
+     |      
+     |      It is going to be overriden in deriving classes
+     |  
+     |  isPrivate(self)
+     |      True if it is private
+     |  
+     |  isProtected(self)
+     |      True if it is protected
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data descriptors inherited from ModuleInfoBase:
+     |  
+     |  absPosition
+     |  
+     |  line
+     |  
+     |  name
+     |  
+     |  pos
+    
+    class Decorator(ModuleInfoBase)
+     |  Holds information about a class/function decorator
+     |  
+     |  Method resolution order:
+     |      Decorator
+     |      ModuleInfoBase
+     |      builtins.object
+     |  
+     |  Methods defined here:
+     |  
+     |  __init__(self, decorName, line, pos, absPosition)
+     |      Initialize self.  See help(type(self)) for accurate signature.
+     |  
+     |  __str__(self)
+     |      Return str(self).
+     |  
+     |  getDisplayName(self)
+     |      Provides a name for display purpose
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data descriptors defined here:
+     |  
+     |  arguments
+     |  
+     |  ----------------------------------------------------------------------
+     |  Methods inherited from ModuleInfoBase:
+     |  
+     |  isPrivate(self)
+     |      True if it is private
+     |  
+     |  isProtected(self)
+     |      True if it is protected
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data descriptors inherited from ModuleInfoBase:
+     |  
+     |  absPosition
+     |  
+     |  line
+     |  
+     |  name
+     |  
+     |  pos
+    
+    class Docstring(builtins.object)
+     |  Holds a docstring information
+     |  
+     |  Methods defined here:
+     |  
+     |  __init__(self, text, line)
+     |      Initialize self.  See help(type(self)) for accurate signature.
+     |  
+     |  __str__(self)
+     |      Return str(self).
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data descriptors defined here:
+     |  
+     |  line
+     |  
+     |  text
+    
+    class Encoding(ModuleInfoBase)
+     |  Holds information about encoding string
+     |  
+     |  Method resolution order:
+     |      Encoding
+     |      ModuleInfoBase
+     |      builtins.object
+     |  
+     |  Methods defined here:
+     |  
+     |  __init__(self, encName, line, pos, absPosition)
+     |      Initialize self.  See help(type(self)) for accurate signature.
+     |  
+     |  __str__(self)
+     |      Return str(self).
+     |  
+     |  ----------------------------------------------------------------------
+     |  Methods inherited from ModuleInfoBase:
+     |  
+     |  getDisplayName(self)
+     |      Provides a name for display purpose.
+     |      
+     |      It is going to be overriden in deriving classes
+     |  
+     |  isPrivate(self)
+     |      True if it is private
+     |  
+     |  isProtected(self)
+     |      True if it is protected
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data descriptors inherited from ModuleInfoBase:
+     |  
+     |  absPosition
+     |  
+     |  line
+     |  
+     |  name
+     |  
+     |  pos
+    
+    class Function(ModuleInfoBase)
+     |  Holds information about a single function
+     |  
+     |  Method resolution order:
+     |      Function
+     |      ModuleInfoBase
+     |      builtins.object
+     |  
+     |  Methods defined here:
+     |  
+     |  __init__(self, funcName, line, pos, absPosition, keywordLine, keywordPos, colonLine, colonPos, isAsync, returnAnnotation)
+     |      Initialize self.  See help(type(self)) for accurate signature.
+     |  
+     |  getDisplayName(self)
+     |      Provides a name for display purpose
+     |  
+     |  isStaticMethod(self)
+     |      Returns True if it is a static method
+     |  
+     |  niceStringify(self, level)
+     |      Returns a string representation with new lines and shifts
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data descriptors defined here:
+     |  
+     |  arguments
+     |  
+     |  classes
+     |  
+     |  colonLine
+     |  
+     |  colonPos
+     |  
+     |  decorators
+     |  
+     |  docstring
+     |  
+     |  functions
+     |  
+     |  isAsync
+     |  
+     |  keywordLine
+     |  
+     |  keywordPos
+     |  
+     |  returnAnnotation
+     |  
+     |  ----------------------------------------------------------------------
+     |  Methods inherited from ModuleInfoBase:
+     |  
+     |  isPrivate(self)
+     |      True if it is private
+     |  
+     |  isProtected(self)
+     |      True if it is protected
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data descriptors inherited from ModuleInfoBase:
+     |  
+     |  absPosition
+     |  
+     |  line
+     |  
+     |  name
+     |  
+     |  pos
+    
+    class Global(ModuleInfoBase)
+     |  Holds information about a single global variable
+     |  
+     |  Method resolution order:
+     |      Global
+     |      ModuleInfoBase
+     |      builtins.object
+     |  
+     |  Methods defined here:
+     |  
+     |  __init__(self, globalName, line, pos, absPosition)
+     |      Initialize self.  See help(type(self)) for accurate signature.
+     |  
+     |  __str__(self)
+     |      Return str(self).
+     |  
+     |  ----------------------------------------------------------------------
+     |  Methods inherited from ModuleInfoBase:
+     |  
+     |  getDisplayName(self)
+     |      Provides a name for display purpose.
+     |      
+     |      It is going to be overriden in deriving classes
+     |  
+     |  isPrivate(self)
+     |      True if it is private
+     |  
+     |  isProtected(self)
+     |      True if it is protected
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data descriptors inherited from ModuleInfoBase:
+     |  
+     |  absPosition
+     |  
+     |  line
+     |  
+     |  name
+     |  
+     |  pos
+    
+    class Import(ModuleInfoBase)
+     |  Holds information about a single import name
+     |  
+     |  Method resolution order:
+     |      Import
+     |      ModuleInfoBase
+     |      builtins.object
+     |  
+     |  Methods defined here:
+     |  
+     |  __init__(self, importName, line, pos, absPosition)
+     |      Initialize self.  See help(type(self)) for accurate signature.
+     |  
+     |  __str__(self)
+     |      Return str(self).
+     |  
+     |  getDisplayName(self)
+     |      Provides a name for display purpose respecting the alias
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data descriptors defined here:
+     |  
+     |  alias
+     |  
+     |  what
+     |  
+     |  ----------------------------------------------------------------------
+     |  Methods inherited from ModuleInfoBase:
+     |  
+     |  isPrivate(self)
+     |      True if it is private
+     |  
+     |  isProtected(self)
+     |      True if it is protected
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data descriptors inherited from ModuleInfoBase:
+     |  
+     |  absPosition
+     |  
+     |  line
+     |  
+     |  name
+     |  
+     |  pos
+    
+    class ImportWhat(ModuleInfoBase)
+     |  Holds information about a single imported item
+     |  
+     |  Method resolution order:
+     |      ImportWhat
+     |      ModuleInfoBase
+     |      builtins.object
+     |  
+     |  Methods defined here:
+     |  
+     |  __init__(self, whatName, line, pos, absPosition)
+     |      Initialize self.  See help(type(self)) for accurate signature.
+     |  
+     |  __str__(self)
+     |      Return str(self).
+     |  
+     |  getDisplayName(self)
+     |      Provides a name for display purpose respecting the alias
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data descriptors defined here:
+     |  
+     |  alias
+     |  
+     |  ----------------------------------------------------------------------
+     |  Methods inherited from ModuleInfoBase:
+     |  
+     |  isPrivate(self)
+     |      True if it is private
+     |  
+     |  isProtected(self)
+     |      True if it is protected
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data descriptors inherited from ModuleInfoBase:
+     |  
+     |  absPosition
+     |  
+     |  line
+     |  
+     |  name
+     |  
+     |  pos
+    
+    class InstanceAttribute(ModuleInfoBase)
+     |  Holds information about a class instance attribute
+     |  
+     |  Method resolution order:
+     |      InstanceAttribute
+     |      ModuleInfoBase
+     |      builtins.object
+     |  
+     |  Methods defined here:
+     |  
+     |  __init__(self, attrName, line, pos, absPosition)
+     |      Initialize self.  See help(type(self)) for accurate signature.
+     |  
+     |  __str__(self)
+     |      Return str(self).
+     |  
+     |  ----------------------------------------------------------------------
+     |  Methods inherited from ModuleInfoBase:
+     |  
+     |  getDisplayName(self)
+     |      Provides a name for display purpose.
+     |      
+     |      It is going to be overriden in deriving classes
+     |  
+     |  isPrivate(self)
+     |      True if it is private
+     |  
+     |  isProtected(self)
+     |      True if it is protected
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data descriptors inherited from ModuleInfoBase:
+     |  
+     |  absPosition
+     |  
+     |  line
+     |  
+     |  name
+     |  
+     |  pos
+    
+    class ModuleInfoBase(builtins.object)
+     |  Common part for the module information
+     |  
+     |  Methods defined here:
+     |  
+     |  __init__(self, name, line, pos, absPosition)
+     |      Initialize self.  See help(type(self)) for accurate signature.
+     |  
+     |  getDisplayName(self)
+     |      Provides a name for display purpose.
+     |      
+     |      It is going to be overriden in deriving classes
+     |  
+     |  isPrivate(self)
+     |      True if it is private
+     |  
+     |  isProtected(self)
+     |      True if it is protected
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data descriptors defined here:
+     |  
+     |  absPosition
+     |  
+     |  line
+     |  
+     |  name
+     |  
+     |  pos
+
+FUNCTIONS
+    getBriefModuleInfoFromFile(fileName)
+        Builds the brief module info from file
+    
+    getBriefModuleInfoFromMemory(content)
+        Builds the brief module info from memory
+    
+    getVersion()
+        Provides the parser version
+    
+    trim_docstring(docstring)
+        Taken from http://www.python.org/dev/peps/pep-0257/
+
+DATA
+    maxsize = 9223372036854775807
+
+FILE
+    /Users/jack/miniconda2/envs/py37/lib/python3.6/site-packages/cdmpyparser.py
+
+

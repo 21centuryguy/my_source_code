@@ -1,0 +1,55 @@
+Help on module qtconsole.svg in qtconsole:
+
+NAME
+    qtconsole.svg - Defines utility functions for working with SVG documents in Qt.
+
+FUNCTIONS
+    save_svg(string, parent=None)
+        Prompts the user to save an SVG document to disk.
+        
+        Parameters
+        ----------
+        string : basestring
+            A Python string containing a SVG document.
+        
+        parent : QWidget, optional
+            The parent to use for the file dialog.
+        
+        Returns
+        -------
+        The name of the file to which the document was saved, or None if the save
+        was cancelled.
+    
+    svg_to_clipboard(string)
+        Copy a SVG document to the clipboard.
+        
+        Parameters
+        ----------
+        string : basestring
+            A Python string containing a SVG document.
+    
+    svg_to_image(string, size=None)
+        Convert a SVG document to a QImage.
+        
+        Parameters
+        ----------
+        string : basestring
+            A Python string containing a SVG document.
+        
+        size : QSize, optional
+            The size of the image that is produced. If not specified, the SVG
+            document's default size is used.
+        
+        Raises
+        ------
+        ValueError
+            If an invalid SVG string is provided.
+        
+        Returns
+        -------
+        A QImage of format QImage.Format_ARGB32.
+
+FILE
+    /Users/jack/miniconda2/envs/py37/lib/python3.6/site-packages/qtconsole/svg.py
+
+

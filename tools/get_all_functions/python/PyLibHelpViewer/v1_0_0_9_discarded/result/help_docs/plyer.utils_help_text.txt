@@ -1,0 +1,68 @@
+Help on module plyer.utils in plyer:
+
+NAME
+    plyer.utils
+
+DESCRIPTION
+    Utils
+    =====
+
+CLASSES
+    builtins.object
+        reify
+    
+    class reify(builtins.object)
+     |  Put the result of a method which uses this (non-data) descriptor decorator
+     |  in the instance dict after the first call, effectively replacing the
+     |  decorator with an instance variable.
+     |  
+     |  It acts like @property, except that the function is only ever called once;
+     |  after that, the value is cached as a regular attribute. This gives you lazy
+     |  attribute creation on objects that are meant to be immutable.
+     |  
+     |  Taken from the `Pyramid project <https://pypi.python.org/pypi/pyramid/>`_.
+     |  
+     |  To use this as a decorator::
+     |  
+     |       @reify
+     |       def lazy(self):
+     |            ...
+     |            return hard_to_compute_int
+     |       first_time = self.lazy   # lazy is reify obj, reify.__get__() runs
+     |       second_time = self.lazy  # lazy is hard_to_compute_int
+     |  
+     |  Methods defined here:
+     |  
+     |  __get__(self, inst, cls)
+     |  
+     |  __init__(self, func)
+     |      Initialize self.  See help(type(self)) for accurate signature.
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data descriptors defined here:
+     |  
+     |  __dict__
+     |      dictionary for instance variables (if defined)
+     |  
+     |  __weakref__
+     |      list of weak references to the object (if defined)
+
+FUNCTIONS
+    deprecated(obj)
+        This is a decorator which can be used to mark functions and classes as
+        deprecated. It will result in a warning being emitted when a deprecated
+        function is called or a new instance of a class created.
+        
+        In case of classes, the warning is emitted before the __new__ method
+        of the decorated class is called, therefore a way before the __init__
+        method itself.
+
+DATA
+    __all__ = ('platform', 'reify', 'deprecated')
+    platform = platform name: 'macosx' from: 
+    <plyer.utils.Platform object...
+
+FILE
+    /Users/jack/miniconda2/envs/py37/lib/python3.6/site-packages/plyer/utils.py
+
+

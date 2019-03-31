@@ -1,0 +1,634 @@
+Help on module sklearn.datasets.base in sklearn.datasets:
+
+NAME
+    sklearn.datasets.base - Base IO code for all datasets
+
+CLASSES
+    builtins.tuple(builtins.object)
+        RemoteFileMetadata
+    
+    class RemoteFileMetadata(builtins.tuple)
+     |  RemoteFileMetadata(filename, url, checksum)
+     |  
+     |  Method resolution order:
+     |      RemoteFileMetadata
+     |      builtins.tuple
+     |      builtins.object
+     |  
+     |  Methods defined here:
+     |  
+     |  __getnewargs__(self)
+     |      Return self as a plain tuple.  Used by copy and pickle.
+     |  
+     |  __repr__(self)
+     |      Return a nicely formatted representation string
+     |  
+     |  _asdict(self)
+     |      Return a new OrderedDict which maps field names to their values.
+     |  
+     |  _replace(_self, **kwds)
+     |      Return a new RemoteFileMetadata object replacing specified fields with new values
+     |  
+     |  ----------------------------------------------------------------------
+     |  Class methods defined here:
+     |  
+     |  _make(iterable, new=<built-in method __new__ of type object at 0x10b9a65a0>, len=<built-in function len>) from builtins.type
+     |      Make a new RemoteFileMetadata object from a sequence or iterable
+     |  
+     |  ----------------------------------------------------------------------
+     |  Static methods defined here:
+     |  
+     |  __new__(_cls, filename, url, checksum)
+     |      Create new instance of RemoteFileMetadata(filename, url, checksum)
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data descriptors defined here:
+     |  
+     |  filename
+     |      Alias for field number 0
+     |  
+     |  url
+     |      Alias for field number 1
+     |  
+     |  checksum
+     |      Alias for field number 2
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data and other attributes defined here:
+     |  
+     |  _fields = ('filename', 'url', 'checksum')
+     |  
+     |  _source = "from builtins import property as _property, tupl..._itemget...
+     |  
+     |  ----------------------------------------------------------------------
+     |  Methods inherited from builtins.tuple:
+     |  
+     |  __add__(self, value, /)
+     |      Return self+value.
+     |  
+     |  __contains__(self, key, /)
+     |      Return key in self.
+     |  
+     |  __eq__(self, value, /)
+     |      Return self==value.
+     |  
+     |  __ge__(self, value, /)
+     |      Return self>=value.
+     |  
+     |  __getattribute__(self, name, /)
+     |      Return getattr(self, name).
+     |  
+     |  __getitem__(self, key, /)
+     |      Return self[key].
+     |  
+     |  __gt__(self, value, /)
+     |      Return self>value.
+     |  
+     |  __hash__(self, /)
+     |      Return hash(self).
+     |  
+     |  __iter__(self, /)
+     |      Implement iter(self).
+     |  
+     |  __le__(self, value, /)
+     |      Return self<=value.
+     |  
+     |  __len__(self, /)
+     |      Return len(self).
+     |  
+     |  __lt__(self, value, /)
+     |      Return self<value.
+     |  
+     |  __mul__(self, value, /)
+     |      Return self*value.
+     |  
+     |  __ne__(self, value, /)
+     |      Return self!=value.
+     |  
+     |  __rmul__(self, value, /)
+     |      Return value*self.
+     |  
+     |  count(...)
+     |      T.count(value) -> integer -- return number of occurrences of value
+     |  
+     |  index(...)
+     |      T.index(value, [start, [stop]]) -> integer -- return first index of value.
+     |      Raises ValueError if the value is not present.
+
+FUNCTIONS
+    clear_data_home(data_home=None)
+        Delete all the content of the data home cache.
+        
+        Parameters
+        ----------
+        data_home : str | None
+            The path to scikit-learn data dir.
+    
+    get_data_home(data_home=None)
+        Return the path of the scikit-learn data dir.
+        
+        This folder is used by some large dataset loaders to avoid downloading the
+        data several times.
+        
+        By default the data dir is set to a folder named 'scikit_learn_data' in the
+        user home folder.
+        
+        Alternatively, it can be set by the 'SCIKIT_LEARN_DATA' environment
+        variable or programmatically by giving an explicit folder path. The '~'
+        symbol is expanded to the user home folder.
+        
+        If the folder does not already exist, it is automatically created.
+        
+        Parameters
+        ----------
+        data_home : str | None
+            The path to scikit-learn data dir.
+    
+    listdir(path=None)
+        Return a list containing the names of the files in the directory.
+        
+        path can be specified as either str, bytes, or a path-like object.  If path is bytes,
+          the filenames returned will also be bytes; in all other circumstances
+          the filenames returned will be str.
+        If path is None, uses the path='.'.
+        On some platforms, path may also be specified as an open file descriptor;\
+          the file descriptor must refer to a directory.
+          If this functionality is unavailable, using it raises NotImplementedError.
+        
+        The list is in arbitrary order.  It does not include the special
+        entries '.' and '..' even if they are present in the directory.
+    
+    load_boston(return_X_y=False)
+        Load and return the boston house-prices dataset (regression).
+        
+        ==============     ==============
+        Samples total                 506
+        Dimensionality                 13
+        Features           real, positive
+        Targets             real 5. - 50.
+        ==============     ==============
+        
+        Parameters
+        ----------
+        return_X_y : boolean, default=False.
+            If True, returns ``(data, target)`` instead of a Bunch object.
+            See below for more information about the `data` and `target` object.
+        
+            .. versionadded:: 0.18
+        
+        Returns
+        -------
+        data : Bunch
+            Dictionary-like object, the interesting attributes are:
+            'data', the data to learn, 'target', the regression targets,
+            and 'DESCR', the full description of the dataset.
+        
+        (data, target) : tuple if ``return_X_y`` is True
+        
+            .. versionadded:: 0.18
+        
+        Examples
+        --------
+        >>> from sklearn.datasets import load_boston
+        >>> boston = load_boston()
+        >>> print(boston.data.shape)
+        (506, 13)
+    
+    load_breast_cancer(return_X_y=False)
+        Load and return the breast cancer wisconsin dataset (classification).
+        
+        The breast cancer dataset is a classic and very easy binary classification
+        dataset.
+        
+        =================   ==============
+        Classes                          2
+        Samples per class    212(M),357(B)
+        Samples total                  569
+        Dimensionality                  30
+        Features            real, positive
+        =================   ==============
+        
+        Parameters
+        ----------
+        return_X_y : boolean, default=False
+            If True, returns ``(data, target)`` instead of a Bunch object.
+            See below for more information about the `data` and `target` object.
+        
+            .. versionadded:: 0.18
+        
+        Returns
+        -------
+        data : Bunch
+            Dictionary-like object, the interesting attributes are:
+            'data', the data to learn, 'target', the classification labels,
+            'target_names', the meaning of the labels, 'feature_names', the
+            meaning of the features, and 'DESCR', the
+            full description of the dataset.
+        
+        (data, target) : tuple if ``return_X_y`` is True
+        
+            .. versionadded:: 0.18
+        
+        The copy of UCI ML Breast Cancer Wisconsin (Diagnostic) dataset is
+        downloaded from:
+        https://goo.gl/U2Uwz2
+        
+        Examples
+        --------
+        Let's say you are interested in the samples 10, 50, and 85, and want to
+        know their class name.
+        
+        >>> from sklearn.datasets import load_breast_cancer
+        >>> data = load_breast_cancer()
+        >>> data.target[[10, 50, 85]]
+        array([0, 1, 0])
+        >>> list(data.target_names)
+        ['malignant', 'benign']
+    
+    load_data(module_path, data_file_name)
+        Loads data from module_path/data/data_file_name.
+        
+        Parameters
+        ----------
+        data_file_name : String. Name of csv file to be loaded from
+        module_path/data/data_file_name. For example 'wine_data.csv'.
+        
+        Returns
+        -------
+        data : Numpy Array
+            A 2D array with each row representing one sample and each column
+            representing the features of a given sample.
+        
+        target : Numpy Array
+            A 1D array holding target variables for all the samples in `data.
+            For example target[0] is the target varible for data[0].
+        
+        target_names : Numpy Array
+            A 1D array containing the names of the classifications. For example
+            target_names[0] is the name of the target[0] class.
+    
+    load_diabetes(return_X_y=False)
+        Load and return the diabetes dataset (regression).
+        
+        ==============      ==================
+        Samples total       442
+        Dimensionality      10
+        Features            real, -.2 < x < .2
+        Targets             integer 25 - 346
+        ==============      ==================
+        
+        Read more in the :ref:`User Guide <datasets>`.
+        
+        Parameters
+        ----------
+        return_X_y : boolean, default=False.
+            If True, returns ``(data, target)`` instead of a Bunch object.
+            See below for more information about the `data` and `target` object.
+        
+            .. versionadded:: 0.18
+        
+        Returns
+        -------
+        data : Bunch
+            Dictionary-like object, the interesting attributes are:
+            'data', the data to learn and 'target', the regression target for each
+            sample.
+        
+        (data, target) : tuple if ``return_X_y`` is True
+        
+            .. versionadded:: 0.18
+    
+    load_digits(n_class=10, return_X_y=False)
+        Load and return the digits dataset (classification).
+        
+        Each datapoint is a 8x8 image of a digit.
+        
+        =================   ==============
+        Classes                         10
+        Samples per class             ~180
+        Samples total                 1797
+        Dimensionality                  64
+        Features             integers 0-16
+        =================   ==============
+        
+        Read more in the :ref:`User Guide <datasets>`.
+        
+        Parameters
+        ----------
+        n_class : integer, between 0 and 10, optional (default=10)
+            The number of classes to return.
+        
+        return_X_y : boolean, default=False.
+            If True, returns ``(data, target)`` instead of a Bunch object.
+            See below for more information about the `data` and `target` object.
+        
+            .. versionadded:: 0.18
+        
+        Returns
+        -------
+        data : Bunch
+            Dictionary-like object, the interesting attributes are:
+            'data', the data to learn, 'images', the images corresponding
+            to each sample, 'target', the classification labels for each
+            sample, 'target_names', the meaning of the labels, and 'DESCR',
+            the full description of the dataset.
+        
+        (data, target) : tuple if ``return_X_y`` is True
+        
+            .. versionadded:: 0.18
+        
+        This is a copy of the test set of the UCI ML hand-written digits datasets
+        http://archive.ics.uci.edu/ml/datasets/Optical+Recognition+of+Handwritten+Digits
+        
+        Examples
+        --------
+        To load the data and visualize the images::
+        
+            >>> from sklearn.datasets import load_digits
+            >>> digits = load_digits()
+            >>> print(digits.data.shape)
+            (1797, 64)
+            >>> import matplotlib.pyplot as plt #doctest: +SKIP
+            >>> plt.gray() #doctest: +SKIP
+            >>> plt.matshow(digits.images[0]) #doctest: +SKIP
+            >>> plt.show() #doctest: +SKIP
+    
+    load_files(container_path, description=None, categories=None, load_content=True, shuffle=True, encoding=None, decode_error='strict', random_state=0)
+        Load text files with categories as subfolder names.
+        
+        Individual samples are assumed to be files stored a two levels folder
+        structure such as the following:
+        
+            container_folder/
+                category_1_folder/
+                    file_1.txt
+                    file_2.txt
+                    ...
+                    file_42.txt
+                category_2_folder/
+                    file_43.txt
+                    file_44.txt
+                    ...
+        
+        The folder names are used as supervised signal label names. The individual
+        file names are not important.
+        
+        This function does not try to extract features into a numpy array or scipy
+        sparse matrix. In addition, if load_content is false it does not try to
+        load the files in memory.
+        
+        To use text files in a scikit-learn classification or clustering algorithm,
+        you will need to use the `sklearn.feature_extraction.text` module to build
+        a feature extraction transformer that suits your problem.
+        
+        If you set load_content=True, you should also specify the encoding of the
+        text using the 'encoding' parameter. For many modern text files, 'utf-8'
+        will be the correct encoding. If you leave encoding equal to None, then the
+        content will be made of bytes instead of Unicode, and you will not be able
+        to use most functions in `sklearn.feature_extraction.text`.
+        
+        Similar feature extractors should be built for other kind of unstructured
+        data input such as images, audio, video, ...
+        
+        Read more in the :ref:`User Guide <datasets>`.
+        
+        Parameters
+        ----------
+        container_path : string or unicode
+            Path to the main folder holding one subfolder per category
+        
+        description : string or unicode, optional (default=None)
+            A paragraph describing the characteristic of the dataset: its source,
+            reference, etc.
+        
+        categories : A collection of strings or None, optional (default=None)
+            If None (default), load all the categories. If not None, list of
+            category names to load (other categories ignored).
+        
+        load_content : boolean, optional (default=True)
+            Whether to load or not the content of the different files. If true a
+            'data' attribute containing the text information is present in the data
+            structure returned. If not, a filenames attribute gives the path to the
+            files.
+        
+        shuffle : bool, optional (default=True)
+            Whether or not to shuffle the data: might be important for models that
+            make the assumption that the samples are independent and identically
+            distributed (i.i.d.), such as stochastic gradient descent.
+        
+        encoding : string or None (default is None)
+            If None, do not try to decode the content of the files (e.g. for images
+            or other non-text content). If not None, encoding to use to decode text
+            files to Unicode if load_content is True.
+        
+        decode_error : {'strict', 'ignore', 'replace'}, optional
+            Instruction on what to do if a byte sequence is given to analyze that
+            contains characters not of the given `encoding`. Passed as keyword
+            argument 'errors' to bytes.decode.
+        
+        random_state : int, RandomState instance or None, optional (default=0)
+            If int, random_state is the seed used by the random number generator;
+            If RandomState instance, random_state is the random number generator;
+            If None, the random number generator is the RandomState instance used
+            by `np.random`.
+        
+        Returns
+        -------
+        data : Bunch
+            Dictionary-like object, the interesting attributes are: either
+            data, the raw text data to learn, or 'filenames', the files
+            holding it, 'target', the classification labels (integer index),
+            'target_names', the meaning of the labels, and 'DESCR', the full
+            description of the dataset.
+    
+    load_iris(return_X_y=False)
+        Load and return the iris dataset (classification).
+        
+        The iris dataset is a classic and very easy multi-class classification
+        dataset.
+        
+        =================   ==============
+        Classes                          3
+        Samples per class               50
+        Samples total                  150
+        Dimensionality                   4
+        Features            real, positive
+        =================   ==============
+        
+        Read more in the :ref:`User Guide <datasets>`.
+        
+        Parameters
+        ----------
+        return_X_y : boolean, default=False.
+            If True, returns ``(data, target)`` instead of a Bunch object. See
+            below for more information about the `data` and `target` object.
+        
+            .. versionadded:: 0.18
+        
+        Returns
+        -------
+        data : Bunch
+            Dictionary-like object, the interesting attributes are:
+            'data', the data to learn, 'target', the classification labels,
+            'target_names', the meaning of the labels, 'feature_names', the
+            meaning of the features, and 'DESCR', the
+            full description of the dataset.
+        
+        (data, target) : tuple if ``return_X_y`` is True
+        
+            .. versionadded:: 0.18
+        
+        Examples
+        --------
+        Let's say you are interested in the samples 10, 25, and 50, and want to
+        know their class name.
+        
+        >>> from sklearn.datasets import load_iris
+        >>> data = load_iris()
+        >>> data.target[[10, 25, 50]]
+        array([0, 0, 1])
+        >>> list(data.target_names)
+        ['setosa', 'versicolor', 'virginica']
+    
+    load_linnerud(return_X_y=False)
+        Load and return the linnerud dataset (multivariate regression).
+        
+        ==============    ============================
+        Samples total     20
+        Dimensionality    3 (for both data and target)
+        Features          integer
+        Targets           integer
+        ==============    ============================
+        
+        Parameters
+        ----------
+        return_X_y : boolean, default=False.
+            If True, returns ``(data, target)`` instead of a Bunch object.
+            See below for more information about the `data` and `target` object.
+        
+            .. versionadded:: 0.18
+        
+        Returns
+        -------
+        data : Bunch
+            Dictionary-like object, the interesting attributes are: 'data' and
+            'targets', the two multivariate datasets, with 'data' corresponding to
+            the exercise and 'targets' corresponding to the physiological
+            measurements, as well as 'feature_names' and 'target_names'.
+        
+        (data, target) : tuple if ``return_X_y`` is True
+        
+            .. versionadded:: 0.18
+    
+    load_sample_image(image_name)
+        Load the numpy array of a single sample image
+        
+        Parameters
+        -----------
+        image_name : {`china.jpg`, `flower.jpg`}
+            The name of the sample image loaded
+        
+        Returns
+        -------
+        img : 3D array
+            The image as a numpy array: height x width x color
+        
+        Examples
+        ---------
+        
+        >>> from sklearn.datasets import load_sample_image
+        >>> china = load_sample_image('china.jpg')   # doctest: +SKIP
+        >>> china.dtype                              # doctest: +SKIP
+        dtype('uint8')
+        >>> china.shape                              # doctest: +SKIP
+        (427, 640, 3)
+        >>> flower = load_sample_image('flower.jpg') # doctest: +SKIP
+        >>> flower.dtype                             # doctest: +SKIP
+        dtype('uint8')
+        >>> flower.shape                             # doctest: +SKIP
+        (427, 640, 3)
+    
+    load_sample_images()
+        Load sample images for image manipulation.
+        
+        Loads both, ``china`` and ``flower``.
+        
+        Returns
+        -------
+        data : Bunch
+            Dictionary-like object with the following attributes : 'images', the
+            two sample images, 'filenames', the file names for the images, and
+            'DESCR' the full description of the dataset.
+        
+        Examples
+        --------
+        To load the data and visualize the images:
+        
+        >>> from sklearn.datasets import load_sample_images
+        >>> dataset = load_sample_images()     #doctest: +SKIP
+        >>> len(dataset.images)                #doctest: +SKIP
+        2
+        >>> first_img_data = dataset.images[0] #doctest: +SKIP
+        >>> first_img_data.shape               #doctest: +SKIP
+        (427, 640, 3)
+        >>> first_img_data.dtype               #doctest: +SKIP
+        dtype('uint8')
+    
+    load_wine(return_X_y=False)
+        Load and return the wine dataset (classification).
+        
+        .. versionadded:: 0.18
+        
+        The wine dataset is a classic and very easy multi-class classification
+        dataset.
+        
+        =================   ==============
+        Classes                          3
+        Samples per class        [59,71,48]
+        Samples total                  178
+        Dimensionality                  13
+        Features            real, positive
+        =================   ==============
+        
+        Read more in the :ref:`User Guide <datasets>`.
+        
+        Parameters
+        ----------
+        return_X_y : boolean, default=False.
+            If True, returns ``(data, target)`` instead of a Bunch object.
+            See below for more information about the `data` and `target` object.
+        
+        Returns
+        -------
+        data : Bunch
+            Dictionary-like object, the interesting attributes are: 'data', the
+            data to learn, 'target', the classification labels, 'target_names', the
+            meaning of the labels, 'feature_names', the meaning of the features,
+            and 'DESCR', the full description of the dataset.
+        
+        (data, target) : tuple if ``return_X_y`` is True
+        
+        The copy of UCI ML Wine Data Set dataset is downloaded and modified to fit
+        standard format from:
+        https://archive.ics.uci.edu/ml/machine-learning-databases/wine/wine.data
+        
+        Examples
+        --------
+        Let's say you are interested in the samples 10, 80, and 140, and want to
+        know their class name.
+        
+        >>> from sklearn.datasets import load_wine
+        >>> data = load_wine()
+        >>> data.target[[10, 80, 140]]
+        array([0, 1, 2])
+        >>> list(data.target_names)
+        ['class_0', 'class_1', 'class_2']
+
+DATA
+    environ = environ({'GIT_PS1_SHOWDIRTYSTATE': '1', 'AS': '/...ee-vector...
+    print_function = _Feature((2, 6, 0, 'alpha', 2), (3, 0, 0, 'alpha', 0)...
+
+FILE
+    /Users/jack/miniconda2/envs/py37/lib/python3.6/site-packages/sklearn/datasets/base.py
+
+

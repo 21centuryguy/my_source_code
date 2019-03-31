@@ -1,0 +1,44 @@
+Help on package babel:
+
+NAME
+    babel
+
+DESCRIPTION
+    babel
+    ~~~~~
+    
+    Integrated collection of utilities that assist in internationalizing and
+    localizing applications.
+    
+    This package is basically composed of two major parts:
+    
+     * tools to build and work with ``gettext`` message catalogs
+     * a Python interface to the CLDR (Common Locale Data Repository), providing
+       access to various locale display names, localized number and date
+       formatting, etc.
+    
+    :copyright: (c) 2013-2018 by the Babel Team.
+    :license: BSD, see LICENSE for more details.
+
+PACKAGE CONTENTS
+    _compat
+    core
+    dates
+    languages
+    lists
+    localedata
+    localtime (package)
+    messages (package)
+    numbers
+    plural
+    support
+    units
+    util
+
+VERSION
+    2.6.0
+
+FILE
+    /Users/jack/miniconda2/envs/py37/lib/python3.6/site-packages/babel/__init__.py
+
+

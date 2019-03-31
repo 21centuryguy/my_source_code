@@ -1,0 +1,21 @@
+Help on module _sysconfigdata_i686_conda_cos6_linux_gnu:
+
+NAME
+    _sysconfigdata_i686_conda_cos6_linux_gnu - # system configuration generated and used by the sysconfig module
+
+MODULE REFERENCE
+    https://docs.python.org/3.6/library/_sysconfigdata_i686_conda_cos6_linux_gnu
+    
+    The following documentation is automatically generated from the Python
+    source files.  It may be incomplete, incorrect or include features that
+    are considered implementation detail and may vary between Python
+    implementations.  When in doubt, consult the module reference at the
+    location listed above.
+
+DATA
+    build_time_vars = {'ABIFLAGS': 'm', 'AC_APPLE_UNIVERSAL_BUILD': 0, 'AI...
+
+FILE
+    /Users/jack/miniconda2/envs/py37/lib/python3.6/_sysconfigdata_i686_conda_cos6_linux_gnu.py
+
+

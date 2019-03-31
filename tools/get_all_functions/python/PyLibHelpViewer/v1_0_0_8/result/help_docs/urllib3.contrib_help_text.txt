@@ -1,0 +1,17 @@
+Help on package urllib3.contrib in urllib3:
+
+NAME
+    urllib3.contrib
+
+PACKAGE CONTENTS
+    _securetransport (package)
+    appengine
+    ntlmpool
+    pyopenssl
+    securetransport
+    socks
+
+FILE
+    /Users/jack/miniconda2/envs/py37/lib/python3.6/site-packages/urllib3/contrib/__init__.py
+
+

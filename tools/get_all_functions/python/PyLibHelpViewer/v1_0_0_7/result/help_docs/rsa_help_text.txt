@@ -1,0 +1,591 @@
+Help on package rsa:
+
+NAME
+    rsa - RSA module
+
+DESCRIPTION
+    Module for calculating large primes, and RSA encryption, decryption, signing
+    and verification. Includes generating public and private keys.
+    
+    WARNING: this implementation does not use random padding, compression of the
+    cleartext input to prevent repetitions, or other common security improvements.
+    Use with care.
+
+PACKAGE CONTENTS
+    _compat
+    _version133
+    _version200
+    asn1
+    bigfile
+    cli
+    common
+    core
+    key
+    parallel
+    pem
+    pkcs1
+    prime
+    randnum
+    transform
+    util
+    varblock
+
+CLASSES
+    rsa.key.AbstractKey(builtins.object)
+        rsa.key.PrivateKey
+        rsa.key.PublicKey
+    rsa.pkcs1.CryptoError(builtins.Exception)
+        rsa.pkcs1.DecryptionError
+        rsa.pkcs1.VerificationError
+    
+    class DecryptionError(CryptoError)
+     |  Raised when decryption fails.
+     |  
+     |  Method resolution order:
+     |      DecryptionError
+     |      CryptoError
+     |      builtins.Exception
+     |      builtins.BaseException
+     |      builtins.object
+     |  
+     |  Data descriptors inherited from CryptoError:
+     |  
+     |  __weakref__
+     |      list of weak references to the object (if defined)
+     |  
+     |  ----------------------------------------------------------------------
+     |  Methods inherited from builtins.Exception:
+     |  
+     |  __init__(self, /, *args, **kwargs)
+     |      Initialize self.  See help(type(self)) for accurate signature.
+     |  
+     |  __new__(*args, **kwargs) from builtins.type
+     |      Create and return a new object.  See help(type) for accurate signature.
+     |  
+     |  ----------------------------------------------------------------------
+     |  Methods inherited from builtins.BaseException:
+     |  
+     |  __delattr__(self, name, /)
+     |      Implement delattr(self, name).
+     |  
+     |  __getattribute__(self, name, /)
+     |      Return getattr(self, name).
+     |  
+     |  __reduce__(...)
+     |      helper for pickle
+     |  
+     |  __repr__(self, /)
+     |      Return repr(self).
+     |  
+     |  __setattr__(self, name, value, /)
+     |      Implement setattr(self, name, value).
+     |  
+     |  __setstate__(...)
+     |  
+     |  __str__(self, /)
+     |      Return str(self).
+     |  
+     |  with_traceback(...)
+     |      Exception.with_traceback(tb) --
+     |      set self.__traceback__ to tb and return self.
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data descriptors inherited from builtins.BaseException:
+     |  
+     |  __cause__
+     |      exception cause
+     |  
+     |  __context__
+     |      exception context
+     |  
+     |  __dict__
+     |  
+     |  __suppress_context__
+     |  
+     |  __traceback__
+     |  
+     |  args
+    
+    class PrivateKey(AbstractKey)
+     |  Represents a private RSA key.
+     |  
+     |  This key is also known as the 'decryption key'. It contains the 'n', 'e',
+     |  'd', 'p', 'q' and other values.
+     |  
+     |  Supports attributes as well as dictionary-like access. Attribute accesss is
+     |  faster, though.
+     |  
+     |  >>> PrivateKey(3247, 65537, 833, 191, 17)
+     |  PrivateKey(3247, 65537, 833, 191, 17)
+     |  
+     |  exp1, exp2 and coef can be given, but if None or omitted they will be calculated:
+     |  
+     |  >>> pk = PrivateKey(3727264081, 65537, 3349121513, 65063, 57287, exp2=4)
+     |  >>> pk.exp1
+     |  55063
+     |  >>> pk.exp2  # this is of course not a correct value, but it is the one we passed.
+     |  4
+     |  >>> pk.coef
+     |  50797
+     |  
+     |  If you give exp1, exp2 or coef, they will be used as-is:
+     |  
+     |  >>> pk = PrivateKey(1, 2, 3, 4, 5, 6, 7, 8)
+     |  >>> pk.exp1
+     |  6
+     |  >>> pk.exp2
+     |  7
+     |  >>> pk.coef
+     |  8
+     |  
+     |  Method resolution order:
+     |      PrivateKey
+     |      AbstractKey
+     |      builtins.object
+     |  
+     |  Methods defined here:
+     |  
+     |  __eq__(self, other)
+     |      Return self==value.
+     |  
+     |  __getitem__(self, key)
+     |  
+     |  __getstate__(self)
+     |      Returns the key as tuple for pickling.
+     |  
+     |  __init__(self, n, e, d, p, q, exp1=None, exp2=None, coef=None)
+     |      Initialize self.  See help(type(self)) for accurate signature.
+     |  
+     |  __ne__(self, other)
+     |      Return self!=value.
+     |  
+     |  __repr__(self)
+     |      Return repr(self).
+     |  
+     |  __setstate__(self, state)
+     |      Sets the key from tuple.
+     |  
+     |  blinded_decrypt(self, encrypted)
+     |      Decrypts the message using blinding to prevent side-channel attacks.
+     |      
+     |      :param encrypted: the encrypted message
+     |      :type encrypted: int
+     |      
+     |      :returns: the decrypted message
+     |      :rtype: int
+     |  
+     |  blinded_encrypt(self, message)
+     |      Encrypts the message using blinding to prevent side-channel attacks.
+     |      
+     |      :param message: the message to encrypt
+     |      :type message: int
+     |      
+     |      :returns: the encrypted message
+     |      :rtype: int
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data descriptors defined here:
+     |  
+     |  coef
+     |  
+     |  d
+     |  
+     |  e
+     |  
+     |  exp1
+     |  
+     |  exp2
+     |  
+     |  n
+     |  
+     |  p
+     |  
+     |  q
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data and other attributes defined here:
+     |  
+     |  __hash__ = None
+     |  
+     |  ----------------------------------------------------------------------
+     |  Methods inherited from AbstractKey:
+     |  
+     |  blind(self, message, r)
+     |      Performs blinding on the message using random number 'r'.
+     |      
+     |      :param message: the message, as integer, to blind.
+     |      :type message: int
+     |      :param r: the random number to blind with.
+     |      :type r: int
+     |      :return: the blinded message.
+     |      :rtype: int
+     |      
+     |      The blinding is such that message = unblind(decrypt(blind(encrypt(message))).
+     |      
+     |      See https://en.wikipedia.org/wiki/Blinding_%28cryptography%29
+     |  
+     |  save_pkcs1(self, format='PEM')
+     |      Saves the public key in PKCS#1 DER or PEM format.
+     |      
+     |      :param format: the format to save; 'PEM' or 'DER'
+     |      :returns: the DER- or PEM-encoded public key.
+     |  
+     |  unblind(self, blinded, r)
+     |      Performs blinding on the message using random number 'r'.
+     |      
+     |      :param blinded: the blinded message, as integer, to unblind.
+     |      :param r: the random number to unblind with.
+     |      :return: the original message.
+     |      
+     |      The blinding is such that message = unblind(decrypt(blind(encrypt(message))).
+     |      
+     |      See https://en.wikipedia.org/wiki/Blinding_%28cryptography%29
+     |  
+     |  ----------------------------------------------------------------------
+     |  Class methods inherited from AbstractKey:
+     |  
+     |  load_pkcs1(keyfile, format='PEM') from builtins.type
+     |      Loads a key in PKCS#1 DER or PEM format.
+     |      
+     |      :param keyfile: contents of a DER- or PEM-encoded file that contains
+     |          the public key.
+     |      :param format: the format of the file to load; 'PEM' or 'DER'
+     |      
+     |      :return: a PublicKey object
+    
+    class PublicKey(AbstractKey)
+     |  Represents a public RSA key.
+     |  
+     |  This key is also known as the 'encryption key'. It contains the 'n' and 'e'
+     |  values.
+     |  
+     |  Supports attributes as well as dictionary-like access. Attribute accesss is
+     |  faster, though.
+     |  
+     |  >>> PublicKey(5, 3)
+     |  PublicKey(5, 3)
+     |  
+     |  >>> key = PublicKey(5, 3)
+     |  >>> key.n
+     |  5
+     |  >>> key['n']
+     |  5
+     |  >>> key.e
+     |  3
+     |  >>> key['e']
+     |  3
+     |  
+     |  Method resolution order:
+     |      PublicKey
+     |      AbstractKey
+     |      builtins.object
+     |  
+     |  Methods defined here:
+     |  
+     |  __eq__(self, other)
+     |      Return self==value.
+     |  
+     |  __getitem__(self, key)
+     |  
+     |  __getstate__(self)
+     |      Returns the key as tuple for pickling.
+     |  
+     |  __ne__(self, other)
+     |      Return self!=value.
+     |  
+     |  __repr__(self)
+     |      Return repr(self).
+     |  
+     |  __setstate__(self, state)
+     |      Sets the key from tuple.
+     |  
+     |  ----------------------------------------------------------------------
+     |  Class methods defined here:
+     |  
+     |  load_pkcs1_openssl_der(keyfile) from builtins.type
+     |      Loads a PKCS#1 DER-encoded public key file from OpenSSL.
+     |      
+     |      :param keyfile: contents of a DER-encoded file that contains the public
+     |          key, from OpenSSL.
+     |      :return: a PublicKey object
+     |  
+     |  load_pkcs1_openssl_pem(keyfile) from builtins.type
+     |      Loads a PKCS#1.5 PEM-encoded public key file from OpenSSL.
+     |      
+     |      These files can be recognised in that they start with BEGIN PUBLIC KEY
+     |      rather than BEGIN RSA PUBLIC KEY.
+     |      
+     |      The contents of the file before the "-----BEGIN PUBLIC KEY-----" and
+     |      after the "-----END PUBLIC KEY-----" lines is ignored.
+     |      
+     |      :param keyfile: contents of a PEM-encoded file that contains the public
+     |          key, from OpenSSL.
+     |      :return: a PublicKey object
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data descriptors defined here:
+     |  
+     |  e
+     |  
+     |  n
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data and other attributes defined here:
+     |  
+     |  __hash__ = None
+     |  
+     |  ----------------------------------------------------------------------
+     |  Methods inherited from AbstractKey:
+     |  
+     |  __init__(self, n, e)
+     |      Initialize self.  See help(type(self)) for accurate signature.
+     |  
+     |  blind(self, message, r)
+     |      Performs blinding on the message using random number 'r'.
+     |      
+     |      :param message: the message, as integer, to blind.
+     |      :type message: int
+     |      :param r: the random number to blind with.
+     |      :type r: int
+     |      :return: the blinded message.
+     |      :rtype: int
+     |      
+     |      The blinding is such that message = unblind(decrypt(blind(encrypt(message))).
+     |      
+     |      See https://en.wikipedia.org/wiki/Blinding_%28cryptography%29
+     |  
+     |  save_pkcs1(self, format='PEM')
+     |      Saves the public key in PKCS#1 DER or PEM format.
+     |      
+     |      :param format: the format to save; 'PEM' or 'DER'
+     |      :returns: the DER- or PEM-encoded public key.
+     |  
+     |  unblind(self, blinded, r)
+     |      Performs blinding on the message using random number 'r'.
+     |      
+     |      :param blinded: the blinded message, as integer, to unblind.
+     |      :param r: the random number to unblind with.
+     |      :return: the original message.
+     |      
+     |      The blinding is such that message = unblind(decrypt(blind(encrypt(message))).
+     |      
+     |      See https://en.wikipedia.org/wiki/Blinding_%28cryptography%29
+     |  
+     |  ----------------------------------------------------------------------
+     |  Class methods inherited from AbstractKey:
+     |  
+     |  load_pkcs1(keyfile, format='PEM') from builtins.type
+     |      Loads a key in PKCS#1 DER or PEM format.
+     |      
+     |      :param keyfile: contents of a DER- or PEM-encoded file that contains
+     |          the public key.
+     |      :param format: the format of the file to load; 'PEM' or 'DER'
+     |      
+     |      :return: a PublicKey object
+    
+    class VerificationError(CryptoError)
+     |  Raised when verification fails.
+     |  
+     |  Method resolution order:
+     |      VerificationError
+     |      CryptoError
+     |      builtins.Exception
+     |      builtins.BaseException
+     |      builtins.object
+     |  
+     |  Data descriptors inherited from CryptoError:
+     |  
+     |  __weakref__
+     |      list of weak references to the object (if defined)
+     |  
+     |  ----------------------------------------------------------------------
+     |  Methods inherited from builtins.Exception:
+     |  
+     |  __init__(self, /, *args, **kwargs)
+     |      Initialize self.  See help(type(self)) for accurate signature.
+     |  
+     |  __new__(*args, **kwargs) from builtins.type
+     |      Create and return a new object.  See help(type) for accurate signature.
+     |  
+     |  ----------------------------------------------------------------------
+     |  Methods inherited from builtins.BaseException:
+     |  
+     |  __delattr__(self, name, /)
+     |      Implement delattr(self, name).
+     |  
+     |  __getattribute__(self, name, /)
+     |      Return getattr(self, name).
+     |  
+     |  __reduce__(...)
+     |      helper for pickle
+     |  
+     |  __repr__(self, /)
+     |      Return repr(self).
+     |  
+     |  __setattr__(self, name, value, /)
+     |      Implement setattr(self, name, value).
+     |  
+     |  __setstate__(...)
+     |  
+     |  __str__(self, /)
+     |      Return str(self).
+     |  
+     |  with_traceback(...)
+     |      Exception.with_traceback(tb) --
+     |      set self.__traceback__ to tb and return self.
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data descriptors inherited from builtins.BaseException:
+     |  
+     |  __cause__
+     |      exception cause
+     |  
+     |  __context__
+     |      exception context
+     |  
+     |  __dict__
+     |  
+     |  __suppress_context__
+     |  
+     |  __traceback__
+     |  
+     |  args
+
+FUNCTIONS
+    decrypt(crypto, priv_key)
+        Decrypts the given message using PKCS#1 v1.5
+        
+        The decryption is considered 'failed' when the resulting cleartext doesn't
+        start with the bytes 00 02, or when the 00 byte between the padding and
+        the message cannot be found.
+        
+        :param crypto: the crypto text as returned by :py:func:`rsa.encrypt`
+        :param priv_key: the :py:class:`rsa.PrivateKey` to decrypt with.
+        :raise DecryptionError: when the decryption fails. No details are given as
+            to why the code thinks the decryption fails, as this would leak
+            information about the private key.
+        
+        
+        >>> import rsa
+        >>> (pub_key, priv_key) = rsa.newkeys(256)
+        
+        It works with strings:
+        
+        >>> crypto = encrypt(b'hello', pub_key)
+        >>> decrypt(crypto, priv_key)
+        b'hello'
+        
+        And with binary data:
+        
+        >>> crypto = encrypt(b'\x00\x00\x00\x00\x01', pub_key)
+        >>> decrypt(crypto, priv_key)
+        b'\x00\x00\x00\x00\x01'
+        
+        Altering the encrypted information will *likely* cause a
+        :py:class:`rsa.pkcs1.DecryptionError`. If you want to be *sure*, use
+        :py:func:`rsa.sign`.
+        
+        
+        .. warning::
+        
+            Never display the stack trace of a
+            :py:class:`rsa.pkcs1.DecryptionError` exception. It shows where in the
+            code the exception occurred, and thus leaks information about the key.
+            It's only a tiny bit of information, but every bit makes cracking the
+            keys easier.
+        
+        >>> crypto = encrypt(b'hello', pub_key)
+        >>> crypto = crypto[0:5] + b'X' + crypto[6:] # change a byte
+        >>> decrypt(crypto, priv_key)
+        Traceback (most recent call last):
+        ...
+        rsa.pkcs1.DecryptionError: Decryption failed
+    
+    encrypt(message, pub_key)
+        Encrypts the given message using PKCS#1 v1.5
+        
+        :param message: the message to encrypt. Must be a byte string no longer than
+            ``k-11`` bytes, where ``k`` is the number of bytes needed to encode
+            the ``n`` component of the public key.
+        :param pub_key: the :py:class:`rsa.PublicKey` to encrypt with.
+        :raise OverflowError: when the message is too large to fit in the padded
+            block.
+        
+        >>> from rsa import key, common
+        >>> (pub_key, priv_key) = key.newkeys(256)
+        >>> message = b'hello'
+        >>> crypto = encrypt(message, pub_key)
+        
+        The crypto text should be just as long as the public key 'n' component:
+        
+        >>> len(crypto) == common.byte_size(pub_key.n)
+        True
+    
+    newkeys(nbits, accurate=True, poolsize=1, exponent=65537)
+        Generates public and private keys, and returns them as (pub, priv).
+        
+        The public key is also known as the 'encryption key', and is a
+        :py:class:`rsa.PublicKey` object. The private key is also known as the
+        'decryption key' and is a :py:class:`rsa.PrivateKey` object.
+        
+        :param nbits: the number of bits required to store ``n = p*q``.
+        :param accurate: when True, ``n`` will have exactly the number of bits you
+            asked for. However, this makes key generation much slower. When False,
+            `n`` may have slightly less bits.
+        :param poolsize: the number of processes to use to generate the prime
+            numbers. If set to a number > 1, a parallel algorithm will be used.
+            This requires Python 2.6 or newer.
+        :param exponent: the exponent for the key; only change this if you know
+            what you're doing, as the exponent influences how difficult your
+            private key can be cracked. A very common choice for e is 65537.
+        :type exponent: int
+        
+        :returns: a tuple (:py:class:`rsa.PublicKey`, :py:class:`rsa.PrivateKey`)
+        
+        The ``poolsize`` parameter was added in *Python-RSA 3.1* and requires
+        Python 2.6 or newer.
+    
+    sign(message, priv_key, hash)
+        Signs the message with the private key.
+        
+        Hashes the message, then signs the hash with the given key. This is known
+        as a "detached signature", because the message itself isn't altered.
+        
+        :param message: the message to sign. Can be an 8-bit string or a file-like
+            object. If ``message`` has a ``read()`` method, it is assumed to be a
+            file-like object.
+        :param priv_key: the :py:class:`rsa.PrivateKey` to sign with
+        :param hash: the hash method used on the message. Use 'MD5', 'SHA-1',
+            'SHA-256', 'SHA-384' or 'SHA-512'.
+        :return: a message signature block.
+        :raise OverflowError: if the private key is too small to contain the
+            requested hash.
+    
+    verify(message, signature, pub_key)
+        Verifies that the signature matches the message.
+        
+        The hash method is detected automatically from the signature.
+        
+        :param message: the signed message. Can be an 8-bit string or a file-like
+            object. If ``message`` has a ``read()`` method, it is assumed to be a
+            file-like object.
+        :param signature: the signature block, as created with :py:func:`rsa.sign`.
+        :param pub_key: the :py:class:`rsa.PublicKey` of the person signing the message.
+        :raise VerificationError: when the signature doesn't match the message.
+
+DATA
+    __all__ = ['newkeys', 'encrypt', 'decrypt', 'sign', 'verify', 'PublicK...
+
+VERSION
+    3.4.2
+
+DATE
+    2016-03-29
+
+AUTHOR
+    Sybren Stuvel, Barry Mead and Yesudeep Mangalapilly
+
+FILE
+    /Users/jack/miniconda2/envs/py37/lib/python3.6/site-packages/rsa/__init__.py
+
+

@@ -1,0 +1,24 @@
+Help on package alabaster:
+
+NAME
+    alabaster
+
+PACKAGE CONTENTS
+    _version
+    support
+
+SUBMODULES
+    version
+
+FUNCTIONS
+    get_path()
+        Shortcut for users whose theme is next to their conf.py.
+    
+    setup(app)
+    
+    update_context(app, pagename, templatename, context, doctree)
+
+FILE
+    /Users/jack/miniconda2/envs/py37/lib/python3.6/site-packages/alabaster/__init__.py
+
+

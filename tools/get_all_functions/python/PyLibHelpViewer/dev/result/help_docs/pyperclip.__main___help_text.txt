@@ -1,0 +1,9 @@
+Help on module pyperclip.__main__ in pyperclip:
+
+NAME
+    pyperclip.__main__
+
+FILE
+    /Users/jack/miniconda2/envs/py37/lib/python3.6/site-packages/pyperclip/__main__.py
+
+

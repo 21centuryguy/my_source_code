@@ -1,0 +1,21 @@
+Help on module sklearn.svm.liblinear in sklearn.svm:
+
+NAME
+    sklearn.svm.liblinear - Wrapper for liblinear
+
+DESCRIPTION
+    Author: fabian.pedregosa@inria.fr
+
+FUNCTIONS
+    set_verbosity_wrap(...)
+        Control verbosity of libsvm library
+    
+    train_wrap(...)
+
+DATA
+    __test__ = {}
+
+FILE
+    /Users/jack/miniconda2/envs/py37/lib/python3.6/site-packages/sklearn/svm/liblinear.cpython-36m-darwin.so
+
+

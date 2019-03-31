@@ -1,0 +1,57 @@
+Help on module alabaster.support in alabaster:
+
+NAME
+    alabaster.support - # flake8: noqa
+
+CLASSES
+    pygments.style.Style(builtins.object)
+        Alabaster
+    
+    class Alabaster(pygments.style.Style)
+     |  # Originally based on FlaskyStyle which was based on 'tango'.
+     |  
+     |  Method resolution order:
+     |      Alabaster
+     |      pygments.style.Style
+     |      builtins.object
+     |  
+     |  Data and other attributes defined here:
+     |  
+     |  background_color = '#f8f8f8'
+     |  
+     |  default_style = ''
+     |  
+     |  styles = {Token: '', Token.Comment: 'italic #8f5902', Token.Comment.Ha...
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data descriptors inherited from pygments.style.Style:
+     |  
+     |  __dict__
+     |      dictionary for instance variables (if defined)
+     |  
+     |  __weakref__
+     |      list of weak references to the object (if defined)
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data and other attributes inherited from pygments.style.Style:
+     |  
+     |  highlight_color = '#ffffcc'
+
+DATA
+    Comment = Token.Comment
+    Error = Token.Error
+    Generic = Token.Generic
+    Keyword = Token.Keyword
+    Literal = Token.Literal
+    Name = Token.Name
+    Number = Token.Literal.Number
+    Operator = Token.Operator
+    Other = Token.Other
+    Punctuation = Token.Punctuation
+    String = Token.Literal.String
+    Whitespace = Token.Text.Whitespace
+
+FILE
+    /Users/jack/miniconda2/envs/py37/lib/python3.6/site-packages/alabaster/support.py
+
+

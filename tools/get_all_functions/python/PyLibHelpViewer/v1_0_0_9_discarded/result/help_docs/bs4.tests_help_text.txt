@@ -1,0 +1,18 @@
+Help on package bs4.tests in bs4:
+
+NAME
+    bs4.tests - The beautifulsoup tests.
+
+PACKAGE CONTENTS
+    test_builder_registry
+    test_docs
+    test_html5lib
+    test_htmlparser
+    test_lxml
+    test_soup
+    test_tree
+
+FILE
+    /Users/jack/miniconda2/envs/py37/lib/python3.6/site-packages/bs4/tests/__init__.py
+
+

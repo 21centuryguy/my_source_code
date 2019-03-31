@@ -1,0 +1,156 @@
+Help on module rope.contrib.generate in rope.contrib:
+
+NAME
+    rope.contrib.generate
+
+CLASSES
+    _Generate(builtins.object)
+        GenerateClass
+        GenerateFunction
+        GenerateModule
+        GeneratePackage
+        GenerateVariable
+    
+    class GenerateClass(_Generate)
+     |  Method resolution order:
+     |      GenerateClass
+     |      _Generate
+     |      builtins.object
+     |  
+     |  Methods inherited from _Generate:
+     |  
+     |  __init__(self, project, resource, offset)
+     |      Initialize self.  See help(type(self)) for accurate signature.
+     |  
+     |  get_changes(self)
+     |  
+     |  get_location(self)
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data descriptors inherited from _Generate:
+     |  
+     |  __dict__
+     |      dictionary for instance variables (if defined)
+     |  
+     |  __weakref__
+     |      list of weak references to the object (if defined)
+    
+    class GenerateFunction(_Generate)
+     |  Method resolution order:
+     |      GenerateFunction
+     |      _Generate
+     |      builtins.object
+     |  
+     |  Methods inherited from _Generate:
+     |  
+     |  __init__(self, project, resource, offset)
+     |      Initialize self.  See help(type(self)) for accurate signature.
+     |  
+     |  get_changes(self)
+     |  
+     |  get_location(self)
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data descriptors inherited from _Generate:
+     |  
+     |  __dict__
+     |      dictionary for instance variables (if defined)
+     |  
+     |  __weakref__
+     |      list of weak references to the object (if defined)
+    
+    class GenerateModule(_Generate)
+     |  Method resolution order:
+     |      GenerateModule
+     |      _Generate
+     |      builtins.object
+     |  
+     |  Methods defined here:
+     |  
+     |  get_changes(self)
+     |  
+     |  get_location(self)
+     |  
+     |  ----------------------------------------------------------------------
+     |  Methods inherited from _Generate:
+     |  
+     |  __init__(self, project, resource, offset)
+     |      Initialize self.  See help(type(self)) for accurate signature.
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data descriptors inherited from _Generate:
+     |  
+     |  __dict__
+     |      dictionary for instance variables (if defined)
+     |  
+     |  __weakref__
+     |      list of weak references to the object (if defined)
+    
+    class GeneratePackage(_Generate)
+     |  Method resolution order:
+     |      GeneratePackage
+     |      _Generate
+     |      builtins.object
+     |  
+     |  Methods defined here:
+     |  
+     |  get_changes(self)
+     |  
+     |  get_location(self)
+     |  
+     |  ----------------------------------------------------------------------
+     |  Methods inherited from _Generate:
+     |  
+     |  __init__(self, project, resource, offset)
+     |      Initialize self.  See help(type(self)) for accurate signature.
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data descriptors inherited from _Generate:
+     |  
+     |  __dict__
+     |      dictionary for instance variables (if defined)
+     |  
+     |  __weakref__
+     |      list of weak references to the object (if defined)
+    
+    class GenerateVariable(_Generate)
+     |  Method resolution order:
+     |      GenerateVariable
+     |      _Generate
+     |      builtins.object
+     |  
+     |  Methods inherited from _Generate:
+     |  
+     |  __init__(self, project, resource, offset)
+     |      Initialize self.  See help(type(self)) for accurate signature.
+     |  
+     |  get_changes(self)
+     |  
+     |  get_location(self)
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data descriptors inherited from _Generate:
+     |  
+     |  __dict__
+     |      dictionary for instance variables (if defined)
+     |  
+     |  __weakref__
+     |      list of weak references to the object (if defined)
+
+FUNCTIONS
+    create_generate(kind, project, resource, offset)
+        A factory for creating `Generate` objects
+        
+        `kind` can be 'variable', 'function', 'class', 'module' or
+        'package'.
+    
+    create_module(project, name, sourcefolder=None)
+        Creates a module and returns a `rope.base.resources.File`
+    
+    create_package(project, name, sourcefolder=None)
+        Creates a package and returns a `rope.base.resources.Folder`
+
+FILE
+    /Users/jack/miniconda2/envs/py37/lib/python3.6/site-packages/rope/contrib/generate.py
+
+

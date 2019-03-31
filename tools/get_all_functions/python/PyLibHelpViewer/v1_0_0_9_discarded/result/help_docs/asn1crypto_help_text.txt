@@ -1,0 +1,43 @@
+Help on package asn1crypto:
+
+NAME
+    asn1crypto - # coding: utf-8
+
+PACKAGE CONTENTS
+    _elliptic_curve
+    _errors
+    _ffi
+    _inet
+    _int
+    _iri
+    _ordereddict
+    _perf (package)
+    _teletex_codec
+    _types
+    algos
+    cms
+    core
+    crl
+    csr
+    keys
+    ocsp
+    parser
+    pdf
+    pem
+    pkcs12
+    tsp
+    util
+    version
+    x509
+
+DATA
+    __all__ = ['__version__', '__version_info__']
+    __version_info__ = (0, 24, 0)
+
+VERSION
+    0.24.0
+
+FILE
+    /Users/jack/miniconda2/envs/py37/lib/python3.6/site-packages/asn1crypto/__init__.py
+
+

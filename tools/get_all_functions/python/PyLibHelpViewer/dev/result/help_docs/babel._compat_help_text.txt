@@ -1,0 +1,31 @@
+Help on module babel._compat in babel:
+
+NAME
+    babel._compat
+
+FUNCTIONS
+    cmp lambda a, b
+    
+    force_text(s, encoding='utf-8', errors='strict')
+    
+    iteritems lambda d
+    
+    iterkeys lambda d
+    
+    itervalues lambda d
+    
+    text_to_native lambda s, enc
+    
+    unichr = chr(i, /)
+        Return a Unicode string of one character with ordinal i; 0 <= i <= 0x10ffff.
+
+DATA
+    PY2 = False
+    integer_types = (<class 'int'>,)
+    number_types = (<class 'int'>, <class 'float'>)
+    string_types = (<class 'str'>,)
+
+FILE
+    /Users/jack/miniconda2/envs/py37/lib/python3.6/site-packages/babel/_compat.py
+
+

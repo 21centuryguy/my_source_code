@@ -1,0 +1,12 @@
+Help on module py2app.create_appbundle in py2app:
+
+NAME
+    py2app.create_appbundle
+
+FUNCTIONS
+    create_appbundle(destdir, name, extension='.app', module=<module 'py2app.apptemplate' from '/Users/jack/miniconda2/envs/py37/lib/python3.6/site-packages/py2app/apptemplate/__init__.py'>, platform='MacOS', copy=<function mergecopy at 0x10ff540d0>, mergetree=<function mergetree at 0x10ff54158>, condition=<function skipscm at 0x10ff548c8>, plist={}, arch=None, redirect_stdout=False)
+
+FILE
+    /Users/jack/miniconda2/envs/py37/lib/python3.6/site-packages/py2app/create_appbundle.py
+
+

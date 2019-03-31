@@ -1,0 +1,31 @@
+Help on module selenium.webdriver.common.actions.mouse_button in selenium.webdriver.common.actions:
+
+NAME
+    selenium.webdriver.common.actions.mouse_button
+
+CLASSES
+    builtins.object
+        MouseButton
+    
+    class MouseButton(builtins.object)
+     |  Data descriptors defined here:
+     |  
+     |  __dict__
+     |      dictionary for instance variables (if defined)
+     |  
+     |  __weakref__
+     |      list of weak references to the object (if defined)
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data and other attributes defined here:
+     |  
+     |  LEFT = 0
+     |  
+     |  MIDDLE = 1
+     |  
+     |  RIGHT = 2
+
+FILE
+    /Users/jack/miniconda2/envs/py37/lib/python3.6/site-packages/selenium/webdriver/common/actions/mouse_button.py
+
+

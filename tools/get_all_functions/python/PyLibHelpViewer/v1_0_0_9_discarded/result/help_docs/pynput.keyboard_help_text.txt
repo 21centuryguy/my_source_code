@@ -1,0 +1,18 @@
+Help on package pynput.keyboard in pynput:
+
+NAME
+    pynput.keyboard - The module containing keyboard classes.
+
+DESCRIPTION
+    See the documentation for more information.
+
+PACKAGE CONTENTS
+    _base
+    _darwin
+    _win32
+    _xorg
+
+FILE
+    /Users/jack/miniconda2/envs/py37/lib/python3.6/site-packages/pynput/keyboard/__init__.py
+
+

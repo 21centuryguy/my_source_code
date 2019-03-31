@@ -1,0 +1,78 @@
+Help on package wcwidth:
+
+NAME
+    wcwidth - wcwidth module, https://github.com/jquast/wcwidth.
+
+PACKAGE CONTENTS
+    table_wide
+    table_zero
+    tests (package)
+    wcwidth
+
+FUNCTIONS
+    wcswidth(pwcs, n=None)
+        Given a unicode string, return its printable length on a terminal.
+        
+        Return the width, in cells, necessary to display the first ``n``
+        characters of the unicode string ``pwcs``.  When ``n`` is None (default),
+        return the length of the entire string.
+        
+        Returns ``-1`` if a non-printable character is encountered.
+    
+    wcwidth(wc)
+        Given one unicode character, return its printable length on a terminal.
+        
+        The wcwidth() function returns 0 if the wc argument has no printable effect
+        on a terminal (such as NUL '\0'), -1 if wc is not printable, or has an
+        indeterminate effect on the terminal, such as a control character.
+        Otherwise, the number of column positions the character occupies on a
+        graphic terminal (1 or 2) is returned.
+        
+        The following have a column width of -1:
+        
+            - C0 control characters (U+001 through U+01F).
+        
+            - C1 control characters and DEL (U+07F through U+0A0).
+        
+        The following have a column width of 0:
+        
+            - Non-spacing and enclosing combining characters (general
+              category code Mn or Me in the Unicode database).
+        
+            - NULL (U+0000, 0).
+        
+            - COMBINING GRAPHEME JOINER (U+034F).
+        
+            - ZERO WIDTH SPACE (U+200B) through
+              RIGHT-TO-LEFT MARK (U+200F).
+        
+            - LINE SEPERATOR (U+2028) and
+              PARAGRAPH SEPERATOR (U+2029).
+        
+            - LEFT-TO-RIGHT EMBEDDING (U+202A) through
+              RIGHT-TO-LEFT OVERRIDE (U+202E).
+        
+            - WORD JOINER (U+2060) through
+              INVISIBLE SEPARATOR (U+2063).
+        
+        The following have a column width of 1:
+        
+            - SOFT HYPHEN (U+00AD) has a column width of 1.
+        
+            - All remaining characters (including all printable
+              ISO 8859-1 and WGL4 characters, Unicode control characters,
+              etc.) have a column width of 1.
+        
+        The following have a column width of 2:
+        
+            - Spacing characters in the East Asian Wide (W) or East Asian
+              Full-width (F) category as defined in Unicode Technical
+              Report #11 have a column width of 2.
+
+DATA
+    __all__ = ('wcwidth', 'wcswidth')
+
+FILE
+    /Users/jack/miniconda2/envs/py37/lib/python3.6/site-packages/wcwidth/__init__.py
+
+

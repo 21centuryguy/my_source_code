@@ -1,0 +1,16 @@
+Help on package request:
+
+NAME
+    request
+
+PACKAGE CONTENTS
+
+
+DATA
+    REQUEST = {}
+    __all__ = ['REQUEST']
+
+FILE
+    /Users/jack/miniconda2/envs/py37/lib/python3.6/site-packages/request/__init__.py
+
+

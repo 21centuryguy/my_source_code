@@ -1,0 +1,99 @@
+Help on module scrapy.core.engine in scrapy.core:
+
+NAME
+    scrapy.core.engine - This is the Scrapy engine which controls the Scheduler, Downloader and Spiders.
+
+DESCRIPTION
+    For more information see docs/topics/architecture.rst
+
+CLASSES
+    builtins.object
+        ExecutionEngine
+        Slot
+    
+    class ExecutionEngine(builtins.object)
+     |  Methods defined here:
+     |  
+     |  __init__(self, crawler, spider_closed_callback)
+     |      Initialize self.  See help(type(self)) for accurate signature.
+     |  
+     |  close(self)
+     |      Close the execution engine gracefully.
+     |      
+     |      If it has already been started, stop it. In all cases, close all spiders
+     |      and the downloader.
+     |  
+     |  close_spider(self, spider, reason='cancelled')
+     |      Close (cancel) spider and clear all its outstanding requests
+     |  
+     |  crawl(self, request, spider)
+     |  
+     |  download(self, request, spider)
+     |  
+     |  has_capacity(self)
+     |      Does the engine have capacity to handle more spiders
+     |  
+     |  open_spider(self, spider, start_requests=(), close_if_idle=True)
+     |  
+     |  pause(self)
+     |      Pause the execution engine
+     |  
+     |  schedule(self, request, spider)
+     |  
+     |  spider_is_idle(self, spider)
+     |  
+     |  start(self)
+     |      Start the execution engine
+     |  
+     |  stop(self)
+     |      Stop the execution engine gracefully
+     |  
+     |  unpause(self)
+     |      Resume the execution engine
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data descriptors defined here:
+     |  
+     |  __dict__
+     |      dictionary for instance variables (if defined)
+     |  
+     |  __weakref__
+     |      list of weak references to the object (if defined)
+     |  
+     |  open_spiders
+    
+    class Slot(builtins.object)
+     |  Methods defined here:
+     |  
+     |  __init__(self, start_requests, close_if_idle, nextcall, scheduler)
+     |      Initialize self.  See help(type(self)) for accurate signature.
+     |  
+     |  add_request(self, request)
+     |  
+     |  close(self)
+     |  
+     |  remove_request(self, request)
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data descriptors defined here:
+     |  
+     |  __dict__
+     |      dictionary for instance variables (if defined)
+     |  
+     |  __weakref__
+     |      list of weak references to the object (if defined)
+
+FUNCTIONS
+    time(...)
+        time() -> floating point number
+        
+        Return the current time in seconds since the Epoch.
+        Fractions of a second may be present if the system clock provides them.
+
+DATA
+    logger = <Logger scrapy.core.engine (WARNING)>
+
+FILE
+    /Users/jack/miniconda2/envs/py37/lib/python3.6/site-packages/scrapy/core/engine.py
+
+

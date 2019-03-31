@@ -1,0 +1,13 @@
+Help on module clipboard:
+
+NAME
+    clipboard - A croos platform clipboard read/write library.
+
+DESCRIPTION
+    ...well, as I were trying to implement this.
+    I realize that everything is already in the pyperclip module.
+
+FILE
+    /Users/jack/miniconda2/envs/py37/lib/python3.6/site-packages/clipboard.py
+
+

@@ -1,0 +1,12 @@
+Help on module mock.tests.__main__ in mock.tests:
+
+NAME
+    mock.tests.__main__
+
+FUNCTIONS
+    load_tests(loader, standard_tests, pattern)
+
+FILE
+    /Users/jack/.local/lib/python3.6/site-packages/mock/tests/__main__.py
+
+

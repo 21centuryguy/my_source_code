@@ -1,0 +1,12 @@
+Help on module py2app.recipes.os_module in py2app.recipes:
+
+NAME
+    py2app.recipes.os_module
+
+FUNCTIONS
+    check(cmd, mf)
+
+FILE
+    /Users/jack/miniconda2/envs/py37/lib/python3.6/site-packages/py2app/recipes/os_module.py
+
+

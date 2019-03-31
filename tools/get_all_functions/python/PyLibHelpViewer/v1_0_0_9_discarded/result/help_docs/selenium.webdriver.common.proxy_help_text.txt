@@ -1,0 +1,147 @@
+Help on module selenium.webdriver.common.proxy in selenium.webdriver.common:
+
+NAME
+    selenium.webdriver.common.proxy - The Proxy implementation.
+
+CLASSES
+    builtins.object
+        Proxy
+        ProxyType
+        ProxyTypeFactory
+    
+    class Proxy(builtins.object)
+     |  Proxy contains information about proxy type and necessary proxy settings.
+     |  
+     |  Methods defined here:
+     |  
+     |  __init__(self, raw=None)
+     |      Creates a new Proxy.
+     |      
+     |      :Args:
+     |       - raw: raw proxy data. If None, default class values are used.
+     |  
+     |  add_to_capabilities(self, capabilities)
+     |      Adds proxy information as capability in specified capabilities.
+     |      
+     |      :Args:
+     |       - capabilities: The capabilities to which proxy will be added.
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data descriptors defined here:
+     |  
+     |  __dict__
+     |      dictionary for instance variables (if defined)
+     |  
+     |  __weakref__
+     |      list of weak references to the object (if defined)
+     |  
+     |  auto_detect
+     |      Returns autodetect setting.
+     |  
+     |  ftp_proxy
+     |      Returns ftp proxy setting.
+     |  
+     |  http_proxy
+     |      Returns http proxy setting.
+     |  
+     |  no_proxy
+     |      Returns noproxy setting.
+     |  
+     |  proxy_autoconfig_url
+     |      Returns proxy autoconfig url setting.
+     |  
+     |  proxy_type
+     |      Returns proxy type as `ProxyType`.
+     |  
+     |  socks_password
+     |      Returns socks proxy password setting.
+     |  
+     |  socks_proxy
+     |      Returns socks proxy setting.
+     |  
+     |  socks_username
+     |      Returns socks proxy username setting.
+     |  
+     |  ssl_proxy
+     |      Returns https proxy setting.
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data and other attributes defined here:
+     |  
+     |  autodetect = False
+     |  
+     |  ftpProxy = ''
+     |  
+     |  httpProxy = ''
+     |  
+     |  noProxy = ''
+     |  
+     |  proxyAutoconfigUrl = ''
+     |  
+     |  proxyType = {'ff_value': 6, 'string': 'UNSPECIFIED'}
+     |  
+     |  socksPassword = ''
+     |  
+     |  socksProxy = ''
+     |  
+     |  socksUsername = ''
+     |  
+     |  sslProxy = ''
+    
+    class ProxyType(builtins.object)
+     |  Set of possible types of proxy.
+     |  
+     |  Each proxy type has 2 properties:
+     |     'ff_value' is value of Firefox profile preference,
+     |     'string' is id of proxy type.
+     |  
+     |  Class methods defined here:
+     |  
+     |  load(value) from builtins.type
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data descriptors defined here:
+     |  
+     |  __dict__
+     |      dictionary for instance variables (if defined)
+     |  
+     |  __weakref__
+     |      list of weak references to the object (if defined)
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data and other attributes defined here:
+     |  
+     |  AUTODETECT = {'ff_value': 4, 'string': 'AUTODETECT'}
+     |  
+     |  DIRECT = {'ff_value': 0, 'string': 'DIRECT'}
+     |  
+     |  MANUAL = {'ff_value': 1, 'string': 'MANUAL'}
+     |  
+     |  PAC = {'ff_value': 2, 'string': 'PAC'}
+     |  
+     |  RESERVED_1 = {'ff_value': 3, 'string': 'RESERVED1'}
+     |  
+     |  SYSTEM = {'ff_value': 5, 'string': 'SYSTEM'}
+     |  
+     |  UNSPECIFIED = {'ff_value': 6, 'string': 'UNSPECIFIED'}
+    
+    class ProxyTypeFactory(builtins.object)
+     |  Factory for proxy types.
+     |  
+     |  Static methods defined here:
+     |  
+     |  make(ff_value, string)
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data descriptors defined here:
+     |  
+     |  __dict__
+     |      dictionary for instance variables (if defined)
+     |  
+     |  __weakref__
+     |      list of weak references to the object (if defined)
+
+FILE
+    /Users/jack/miniconda2/envs/py37/lib/python3.6/site-packages/selenium/webdriver/common/proxy.py
+
+

@@ -1,0 +1,30 @@
+Help on package lxml:
+
+NAME
+    lxml - # this is a package
+
+PACKAGE CONTENTS
+    ElementInclude
+    _elementpath
+    builder
+    cssselect
+    doctestcompare
+    etree
+    html (package)
+    includes (package)
+    isoschematron (package)
+    objectify
+    pyclasslookup
+    sax
+    usedoctest
+
+FUNCTIONS
+    get_include()
+        Returns a list of header include paths (for lxml itself, libxml2
+        and libxslt) needed to compile C code against lxml if it was built
+        with statically linked libraries.
+
+FILE
+    /Users/jack/miniconda2/envs/py37/lib/python3.6/site-packages/lxml/__init__.py
+
+

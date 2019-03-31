@@ -1,0 +1,567 @@
+Help on module virtualenv:
+
+NAME
+    virtualenv - Create a "virtual" Python installation
+
+CLASSES
+    builtins.object
+        Logger
+        fileview
+    optparse.IndentedHelpFormatter(optparse.HelpFormatter)
+        UpdatingDefaultsHelpFormatter
+    optparse.OptionParser(optparse.OptionContainer)
+        ConfigOptionParser
+    
+    class ConfigOptionParser(optparse.OptionParser)
+     |  Custom option parser which updates its defaults by checking the
+     |  configuration files and environmental variables
+     |  
+     |  Method resolution order:
+     |      ConfigOptionParser
+     |      optparse.OptionParser
+     |      optparse.OptionContainer
+     |      builtins.object
+     |  
+     |  Methods defined here:
+     |  
+     |  __init__(self, *args, **kwargs)
+     |      Initialize self.  See help(type(self)) for accurate signature.
+     |  
+     |  get_config_files(self)
+     |  
+     |  get_config_section(self, name)
+     |      Get a section of a configuration
+     |  
+     |  get_default_values(self)
+     |      Overridding to make updating the defaults after instantiation of
+     |      the option parser possible, update_defaults() does the dirty work.
+     |  
+     |  get_environ_vars(self, prefix='VIRTUALENV_')
+     |      Returns a generator with all environmental vars with prefix VIRTUALENV
+     |  
+     |  update_defaults(self, defaults)
+     |      Updates the given defaults with values from the config files and
+     |      the environ. Does a little special handling for certain types of
+     |      options (lists).
+     |  
+     |  ----------------------------------------------------------------------
+     |  Methods inherited from optparse.OptionParser:
+     |  
+     |  add_option_group(self, *args, **kwargs)
+     |  
+     |  check_values(self, values, args)
+     |      check_values(values : Values, args : [string])
+     |      -> (values : Values, args : [string])
+     |      
+     |      Check that the supplied option values and leftover arguments are
+     |      valid.  Returns the option values and leftover arguments
+     |      (possibly adjusted, possibly completely new -- whatever you
+     |      like).  Default implementation just returns the passed-in
+     |      values; subclasses may override as desired.
+     |  
+     |  destroy(self)
+     |      Declare that you are done with this OptionParser.  This cleans up
+     |      reference cycles so the OptionParser (and all objects referenced by
+     |      it) can be garbage-collected promptly.  After calling destroy(), the
+     |      OptionParser is unusable.
+     |  
+     |  disable_interspersed_args(self)
+     |      Set parsing to stop on the first non-option. Use this if
+     |      you have a command processor which runs another command that
+     |      has options of its own and you want to make sure these options
+     |      don't get confused.
+     |  
+     |  enable_interspersed_args(self)
+     |      Set parsing to not stop on the first non-option, allowing
+     |      interspersing switches with command arguments. This is the
+     |      default behavior. See also disable_interspersed_args() and the
+     |      class documentation description of the attribute
+     |      allow_interspersed_args.
+     |  
+     |  error(self, msg)
+     |      error(msg : string)
+     |      
+     |      Print a usage message incorporating 'msg' to stderr and exit.
+     |      If you override this in a subclass, it should not return -- it
+     |      should either exit or raise an exception.
+     |  
+     |  exit(self, status=0, msg=None)
+     |  
+     |  expand_prog_name(self, s)
+     |  
+     |  format_epilog(self, formatter)
+     |  
+     |  format_help(self, formatter=None)
+     |  
+     |  format_option_help(self, formatter=None)
+     |  
+     |  get_description(self)
+     |  
+     |  get_option_group(self, opt_str)
+     |  
+     |  get_prog_name(self)
+     |  
+     |  get_usage(self)
+     |  
+     |  get_version(self)
+     |  
+     |  parse_args(self, args=None, values=None)
+     |      parse_args(args : [string] = sys.argv[1:],
+     |                 values : Values = None)
+     |      -> (values : Values, args : [string])
+     |      
+     |      Parse the command-line options found in 'args' (default:
+     |      sys.argv[1:]).  Any errors result in a call to 'error()', which
+     |      by default prints the usage message to stderr and calls
+     |      sys.exit() with an error message.  On success returns a pair
+     |      (values, args) where 'values' is a Values instance (with all
+     |      your option values) and 'args' is the list of arguments left
+     |      over after parsing options.
+     |  
+     |  print_help(self, file=None)
+     |      print_help(file : file = stdout)
+     |      
+     |      Print an extended help message, listing all options and any
+     |      help text provided with them, to 'file' (default stdout).
+     |  
+     |  print_usage(self, file=None)
+     |      print_usage(file : file = stdout)
+     |      
+     |      Print the usage message for the current program (self.usage) to
+     |      'file' (default stdout).  Any occurrence of the string "%prog" in
+     |      self.usage is replaced with the name of the current program
+     |      (basename of sys.argv[0]).  Does nothing if self.usage is empty
+     |      or not defined.
+     |  
+     |  print_version(self, file=None)
+     |      print_version(file : file = stdout)
+     |      
+     |      Print the version message for this program (self.version) to
+     |      'file' (default stdout).  As with print_usage(), any occurrence
+     |      of "%prog" in self.version is replaced by the current program's
+     |      name.  Does nothing if self.version is empty or undefined.
+     |  
+     |  set_default(self, dest, value)
+     |  
+     |  set_defaults(self, **kwargs)
+     |  
+     |  set_process_default_values(self, process)
+     |  
+     |  set_usage(self, usage)
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data and other attributes inherited from optparse.OptionParser:
+     |  
+     |  standard_option_list = []
+     |  
+     |  ----------------------------------------------------------------------
+     |  Methods inherited from optparse.OptionContainer:
+     |  
+     |  add_option(self, *args, **kwargs)
+     |      add_option(Option)
+     |      add_option(opt_str, ..., kwarg=val, ...)
+     |  
+     |  add_options(self, option_list)
+     |  
+     |  format_description(self, formatter)
+     |  
+     |  get_option(self, opt_str)
+     |  
+     |  has_option(self, opt_str)
+     |  
+     |  remove_option(self, opt_str)
+     |  
+     |  set_conflict_handler(self, handler)
+     |  
+     |  set_description(self, description)
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data descriptors inherited from optparse.OptionContainer:
+     |  
+     |  __dict__
+     |      dictionary for instance variables (if defined)
+     |  
+     |  __weakref__
+     |      list of weak references to the object (if defined)
+    
+    class Logger(builtins.object)
+     |  Logging object for use in command-line script.  Allows ranges of
+     |  levels, to avoid some redundancy of displayed information.
+     |  
+     |  Methods defined here:
+     |  
+     |  __init__(self, consumers)
+     |      Initialize self.  See help(type(self)) for accurate signature.
+     |  
+     |  debug(self, msg, *args, **kw)
+     |  
+     |  end_progress(self, msg='done.')
+     |  
+     |  error(self, msg, *args, **kw)
+     |  
+     |  fatal(self, msg, *args, **kw)
+     |  
+     |  info(self, msg, *args, **kw)
+     |  
+     |  level_matches(self, level, consumer_level)
+     |      >>> l = Logger([])
+     |      >>> l.level_matches(3, 4)
+     |      False
+     |      >>> l.level_matches(3, 2)
+     |      True
+     |      >>> l.level_matches(slice(None, 3), 3)
+     |      False
+     |      >>> l.level_matches(slice(None, 3), 2)
+     |      True
+     |      >>> l.level_matches(slice(1, 3), 1)
+     |      True
+     |      >>> l.level_matches(slice(2, 3), 1)
+     |      False
+     |  
+     |  log(self, level, msg, *args, **kw)
+     |  
+     |  notify(self, msg, *args, **kw)
+     |  
+     |  show_progress(self)
+     |      If we are in a progress scope, and no log messages have been
+     |      shown, write out another '.'
+     |  
+     |  start_progress(self, msg)
+     |  
+     |  stdout_level_matches(self, level)
+     |      Returns true if a message at this level will go to stdout
+     |  
+     |  warn(self, msg, *args, **kw)
+     |  
+     |  ----------------------------------------------------------------------
+     |  Class methods defined here:
+     |  
+     |  level_for_integer(level) from builtins.type
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data descriptors defined here:
+     |  
+     |  __dict__
+     |      dictionary for instance variables (if defined)
+     |  
+     |  __weakref__
+     |      list of weak references to the object (if defined)
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data and other attributes defined here:
+     |  
+     |  DEBUG = 10
+     |  
+     |  ERROR = 40
+     |  
+     |  FATAL = 50
+     |  
+     |  INFO = 20
+     |  
+     |  LEVELS = [10, 20, 25.0, 30, 40, 50]
+     |  
+     |  NOTIFY = 25.0
+     |  
+     |  WARN = 30
+     |  
+     |  WARNING = 30
+    
+    class UpdatingDefaultsHelpFormatter(optparse.IndentedHelpFormatter)
+     |  Custom help formatter for use in ConfigOptionParser that updates
+     |  the defaults before expanding them, allowing them to show up correctly
+     |  in the help listing
+     |  
+     |  Method resolution order:
+     |      UpdatingDefaultsHelpFormatter
+     |      optparse.IndentedHelpFormatter
+     |      optparse.HelpFormatter
+     |      builtins.object
+     |  
+     |  Methods defined here:
+     |  
+     |  expand_default(self, option)
+     |  
+     |  ----------------------------------------------------------------------
+     |  Methods inherited from optparse.IndentedHelpFormatter:
+     |  
+     |  __init__(self, indent_increment=2, max_help_position=24, width=None, short_first=1)
+     |      Initialize self.  See help(type(self)) for accurate signature.
+     |  
+     |  format_heading(self, heading)
+     |  
+     |  format_usage(self, usage)
+     |  
+     |  ----------------------------------------------------------------------
+     |  Methods inherited from optparse.HelpFormatter:
+     |  
+     |  dedent(self)
+     |  
+     |  format_description(self, description)
+     |  
+     |  format_epilog(self, epilog)
+     |  
+     |  format_option(self, option)
+     |  
+     |  format_option_strings(self, option)
+     |      Return a comma-separated list of option strings & metavariables.
+     |  
+     |  indent(self)
+     |  
+     |  set_long_opt_delimiter(self, delim)
+     |  
+     |  set_parser(self, parser)
+     |  
+     |  set_short_opt_delimiter(self, delim)
+     |  
+     |  store_option_strings(self, parser)
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data descriptors inherited from optparse.HelpFormatter:
+     |  
+     |  __dict__
+     |      dictionary for instance variables (if defined)
+     |  
+     |  __weakref__
+     |      list of weak references to the object (if defined)
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data and other attributes inherited from optparse.HelpFormatter:
+     |  
+     |  NO_DEFAULT_VALUE = 'none'
+    
+    class fileview(builtins.object)
+     |  A proxy for file-like objects that exposes a given view of a file.
+     |  Modified from macholib.
+     |  
+     |  Methods defined here:
+     |  
+     |  __init__(self, fileobj, start=0, size=9223372036854775807)
+     |      Initialize self.  See help(type(self)) for accurate signature.
+     |  
+     |  __repr__(self)
+     |      Return repr(self).
+     |  
+     |  read(self, size=9223372036854775807)
+     |  
+     |  seek(self, offset, whence=0)
+     |  
+     |  tell(self)
+     |  
+     |  write(self, bytes)
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data descriptors defined here:
+     |  
+     |  __dict__
+     |      dictionary for instance variables (if defined)
+     |  
+     |  __weakref__
+     |      list of weak references to the object (if defined)
+
+FUNCTIONS
+    call_subprocess(cmd, show_stdout=True, filter_stdout=None, cwd=None, raise_on_returncode=True, extra_env=None, remove_from_env=None, stdin=None)
+    
+    change_prefix(filename, dst_prefix)
+    
+    convert(s)
+    
+    copy_required_modules(dst_prefix, symlink)
+    
+    copy_tcltk(src, dest, symlink)
+        copy tcl/tk libraries on Windows (issue #93)
+    
+    copyfile(src, dest, symlink=True)
+    
+    copyfileordir(src, dest, symlink=True)
+    
+    create_bootstrap_script(extra_text, python_version='')
+        Creates a bootstrap script, which is like this script but with
+        extend_parser, adjust_options, and after_install hooks.
+        
+        This returns a string that (written to disk of course) can be used
+        as a bootstrap script with your own customizations.  The script
+        will be the standard virtualenv.py script, with your extra text
+        added (your extra text should be Python code).
+        
+        If you include these functions, they will be called:
+        
+        ``extend_parser(optparse_parser)``:
+            You can add or remove options from the parser here.
+        
+        ``adjust_options(options, args)``:
+            You can change options here, or change the args (if you accept
+            different kinds of arguments, be sure you modify ``args`` so it is
+            only ``[DEST_DIR]``).
+        
+        ``after_install(options, home_dir)``:
+        
+            After everything is installed, this function is called.  This
+            is probably the function you are most likely to use.  An
+            example would be::
+        
+                def after_install(options, home_dir):
+                    subprocess.call([join(home_dir, 'bin', 'easy_install'),
+                                     'MyPackage'])
+                    subprocess.call([join(home_dir, 'bin', 'my-package-script'),
+                                     'setup', home_dir])
+        
+            This example immediately installs a package, and runs a setup
+            script from that package.
+        
+        If you provide something like ``python_version='2.5'`` then the
+        script will start with ``#!/usr/bin/env python2.5`` instead of
+        ``#!/usr/bin/env python``.  You can use this when the script must
+        be run with a particular Python version.
+    
+    create_environment(home_dir, site_packages=False, clear=False, prompt=None, search_dirs=None, download=False, no_setuptools=False, no_pip=False, no_wheel=False, symlink=True)
+        Creates a new environment in ``home_dir``.
+        
+        If ``site_packages`` is true, then the global ``site-packages/``
+        directory will be on the path.
+        
+        If ``clear`` is true (default False) then the environment will
+        first be cleared.
+    
+    file_search_dirs()
+    
+    filter_install_output(line)
+    
+    find_wheels(projects, search_dirs)
+        Find wheels from which we can import PROJECTS.
+        
+        Scan through SEARCH_DIRS for a wheel for each PROJECT in turn. Return
+        a list of the first wheel found for each PROJECT
+    
+    fix_lib64(lib_dir, symlink=True)
+        Some platforms (particularly Gentoo on x64) put things in lib64/pythonX.Y
+        instead of lib/pythonX.Y.  If this is such a platform we'll just create a
+        symlink so lib64 points to lib
+    
+    fix_local_scheme(home_dir, symlink=True)
+        Platforms that use the "posix_local" install scheme (like Ubuntu with
+        Python 2.7) need to be given an additional "local" location, sigh.
+    
+    fixup_egg_link(filename)
+    
+    fixup_pth_and_egg_link(home_dir, sys_path=None)
+        Makes .pth and .egg-link files use relative paths
+    
+    fixup_pth_file(filename)
+    
+    fixup_scripts(home_dir, bin_dir)
+    
+    get_installed_pythons()
+    
+    install_activate(home_dir, bin_dir, prompt=None)
+    
+    install_distutils(home_dir)
+    
+    install_files(home_dir, bin_dir, prompt, files)
+    
+    install_python(home_dir, lib_dir, inc_dir, bin_dir, site_packages, clear, symlink=True)
+        Install just the base environment, no distutils patches etc
+    
+    install_python_config(home_dir, bin_dir, prompt=None)
+    
+    install_wheel(project_names, py_executable, search_dirs=None, download=False)
+    
+    is_executable(exe)
+        Checks a file is executable
+    
+    is_executable_file(fpath)
+    
+    mach_o_change(path, what, value)
+        Replace a given name (what) in any LC_LOAD_DYLIB command found in
+        the given binary with a new name (value), provided it's shorter.
+    
+    main()
+    
+    make_environment_relocatable(home_dir)
+        Makes the already-existing environment use relative paths, and takes out
+        the #!-based environment selection in scripts.
+    
+    make_exe(fn)
+    
+    make_relative_path(source, dest, dest_is_directory=True)
+        Make a filename relative, where the filename is dest, and it is
+        being referred to from the filename source.
+        
+            >>> make_relative_path('/usr/share/something/a-file.pth',
+            ...                    '/usr/share/another-place/src/Directory')
+            '../another-place/src/Directory'
+            >>> make_relative_path('/usr/share/something/a-file.pth',
+            ...                    '/home/user/src/Directory')
+            '../../../home/user/src/Directory'
+            >>> make_relative_path('/usr/share/a-file.pth', '/usr/share/')
+            './'
+    
+    mkdir(path)
+    
+    path_locations(home_dir)
+        Return the path locations for the environment (where libraries are,
+        where scripts go, etc)
+    
+    read_data(file, endian, num=1)
+        Read a given number of 32-bits unsigned integers from the given file
+        with the given endianness.
+    
+    relative_script(lines)
+        Return a script that'll work in a relocatable environment.
+    
+    resolve_interpreter(exe)
+        If the executable given isn't an absolute path, search $PATH for the interpreter
+    
+    rmtree(dir)
+    
+    subst_path(prefix_path, prefix, home_dir)
+    
+    writefile(dest, content, overwrite=True)
+
+DATA
+    ACTIVATE_BAT = '@echo off\r\nset "VIRTUAL_ENV=__VIRTUAL_ENV__"\r\n\r\n...
+    ACTIVATE_CSH = '# This file must be used with "source bin/activa...t e...
+    ACTIVATE_FISH = '# This file must be used using `. bin/activate.f...-g...
+    ACTIVATE_PS = '\ufeff# This file must be dot sourced from PoSh; you .....
+    ACTIVATE_SH = '# This file must be used with "source bin/activa...H_VE...
+    ACTIVATE_THIS = '"""By using execfile(this_file, dict(__file__=th...ys...
+    BIG_ENDIAN = '>'
+    DEACTIVATE_BAT = '@echo off\r\n\r\nset VIRTUAL_ENV=\r\n\r\nREM Don\'t ...
+    DISTUTILS_CFG = '# This is a config file local to this virtualenv...as...
+    DISTUTILS_INIT = 'import os\nimport sys\nimport warnings \nimport imp....
+    FAT_MAGIC = 3405691582
+    LC_LOAD_DYLIB = 12
+    LITTLE_ENDIAN = '<'
+    MH_CIGAM = 3472551422
+    MH_CIGAM_64 = 3489328638
+    MH_MAGIC = 4277009102
+    MH_MAGIC_64 = 4277009103
+    OK_ABS_SCRIPTS = ['python', 'python3.6', 'activate', 'activate.bat', '...
+    PYTHON_CONFIG = "#!__VIRTUAL_ENV__/__BIN_NAME__/python\n\nimport sy......
+    REQUIRED_FILES = ['lib-dynload', 'config-3', '']
+    REQUIRED_MODULES = ['os', 'posix', 'posixpath', 'nt', 'ntpath', 'gener...
+    SITE_PY = '"""Append module search paths for third-party pa...it(10)\n...
+    abiflags = 'm'
+    default_config_file = '/Users/jack/.virtualenv/virtualenv.ini'
+    default_storage_dir = '/Users/jack/.virtualenv'
+    expected_exe = 'python'
+    is_cygwin = False
+    is_darwin = True
+    is_jython = False
+    is_pypy = False
+    is_win = False
+    logger = <virtualenv.Logger object>
+    majver = 3
+    maxint = 9223372036854775807
+    minver = 6
+    platdir = ''
+    py_version = 'python3.6'
+    user_dir = '/Users/jack'
+    virtualenv_version = '16.0.0'
+
+VERSION
+    16.0.0
+
+FILE
+    /usr/local/lib/python3.6/site-packages/virtualenv.py
+
+

@@ -1,0 +1,12 @@
+Help on module py2app.create_pluginbundle in py2app:
+
+NAME
+    py2app.create_pluginbundle
+
+FUNCTIONS
+    create_pluginbundle(destdir, name, extension='.plugin', module=<module 'py2app.bundletemplate' from '/Users/jack/miniconda2/envs/py37/lib/python3.6/site-packages/py2app/bundletemplate/__init__.py'>, platform='MacOS', copy=<function mergecopy at 0x10a5f20d0>, mergetree=<function mergetree at 0x10a5f2158>, condition=<function skipscm at 0x10a5f28c8>, plist={}, arch=None)
+
+FILE
+    /Users/jack/miniconda2/envs/py37/lib/python3.6/site-packages/py2app/create_pluginbundle.py
+
+

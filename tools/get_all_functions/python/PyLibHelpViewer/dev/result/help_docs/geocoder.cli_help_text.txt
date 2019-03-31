@@ -1,0 +1,165 @@
+Help on Command in module click.core object:
+
+class Command(BaseCommand)
+ |  Commands are the basic building block of command line interfaces in
+ |  Click.  A basic command handles command line parsing and might dispatch
+ |  more parsing to commands nested below it.
+ |  
+ |  .. versionchanged:: 2.0
+ |     Added the `context_settings` parameter.
+ |  
+ |  :param name: the name of the command to use unless a group overrides it.
+ |  :param context_settings: an optional dictionary with defaults that are
+ |                           passed to the context object.
+ |  :param callback: the callback to invoke.  This is optional.
+ |  :param params: the parameters to register with this command.  This can
+ |                 be either :class:`Option` or :class:`Argument` objects.
+ |  :param help: the help string to use for this command.
+ |  :param epilog: like the help string but it's printed at the end of the
+ |                 help page after everything else.
+ |  :param short_help: the short help to use for this command.  This is
+ |                     shown on the command listing of the parent command.
+ |  :param add_help_option: by default each command registers a ``--help``
+ |                          option.  This can be disabled by this parameter.
+ |  :param hidden: hide this command from help outputs.
+ |  
+ |  :param deprecated: issues a message indicating that
+ |                           the command is deprecated.
+ |  
+ |  Method resolution order:
+ |      Command
+ |      BaseCommand
+ |      builtins.object
+ |  
+ |  Methods defined here:
+ |  
+ |  __init__(self, name, context_settings=None, callback=None, params=None, help=None, epilog=None, short_help=None, options_metavar='[OPTIONS]', add_help_option=True, hidden=False, deprecated=False)
+ |      Initialize self.  See help(type(self)) for accurate signature.
+ |  
+ |  collect_usage_pieces(self, ctx)
+ |      Returns all the pieces that go into the usage line and returns
+ |      it as a list of strings.
+ |  
+ |  format_epilog(self, ctx, formatter)
+ |      Writes the epilog into the formatter if it exists.
+ |  
+ |  format_help(self, ctx, formatter)
+ |      Writes the help into the formatter if it exists.
+ |      
+ |      This calls into the following methods:
+ |      
+ |      -   :meth:`format_usage`
+ |      -   :meth:`format_help_text`
+ |      -   :meth:`format_options`
+ |      -   :meth:`format_epilog`
+ |  
+ |  format_help_text(self, ctx, formatter)
+ |      Writes the help text to the formatter if it exists.
+ |  
+ |  format_options(self, ctx, formatter)
+ |      Writes all the options into the formatter if they exist.
+ |  
+ |  format_usage(self, ctx, formatter)
+ |      Writes the usage line into the formatter.
+ |  
+ |  get_help(self, ctx)
+ |      Formats the help into a string and returns it.  This creates a
+ |      formatter and will call into the following formatting methods:
+ |  
+ |  get_help_option(self, ctx)
+ |      Returns the help option object.
+ |  
+ |  get_help_option_names(self, ctx)
+ |      Returns the names for the help option.
+ |  
+ |  get_params(self, ctx)
+ |  
+ |  get_short_help_str(self, limit=45)
+ |      Gets short help for the command or makes it by shortening the long help string.
+ |  
+ |  get_usage(self, ctx)
+ |  
+ |  invoke(self, ctx)
+ |      Given a context, this invokes the attached callback (if it exists)
+ |      in the right way.
+ |  
+ |  make_parser(self, ctx)
+ |      Creates the underlying option parser for this command.
+ |  
+ |  parse_args(self, ctx, args)
+ |      Given a context and a list of arguments this creates the parser
+ |      and parses the arguments, then modifies the context as necessary.
+ |      This is automatically invoked by :meth:`make_context`.
+ |  
+ |  ----------------------------------------------------------------------
+ |  Methods inherited from BaseCommand:
+ |  
+ |  __call__(self, *args, **kwargs)
+ |      Alias for :meth:`main`.
+ |  
+ |  main(self, args=None, prog_name=None, complete_var=None, standalone_mode=True, **extra)
+ |      This is the way to invoke a script with all the bells and
+ |      whistles as a command line application.  This will always terminate
+ |      the application after a call.  If this is not wanted, ``SystemExit``
+ |      needs to be caught.
+ |      
+ |      This method is also available by directly calling the instance of
+ |      a :class:`Command`.
+ |      
+ |      .. versionadded:: 3.0
+ |         Added the `standalone_mode` flag to control the standalone mode.
+ |      
+ |      :param args: the arguments that should be used for parsing.  If not
+ |                   provided, ``sys.argv[1:]`` is used.
+ |      :param prog_name: the program name that should be used.  By default
+ |                        the program name is constructed by taking the file
+ |                        name from ``sys.argv[0]``.
+ |      :param complete_var: the environment variable that controls the
+ |                           bash completion support.  The default is
+ |                           ``"_<prog_name>_COMPLETE"`` with prog_name in
+ |                           uppercase.
+ |      :param standalone_mode: the default behavior is to invoke the script
+ |                              in standalone mode.  Click will then
+ |                              handle exceptions and convert them into
+ |                              error messages and the function will never
+ |                              return but shut down the interpreter.  If
+ |                              this is set to `False` they will be
+ |                              propagated to the caller and the return
+ |                              value of this function is the return value
+ |                              of :meth:`invoke`.
+ |      :param extra: extra keyword arguments are forwarded to the context
+ |                    constructor.  See :class:`Context` for more information.
+ |  
+ |  make_context(self, info_name, args, parent=None, **extra)
+ |      This function when given an info name and arguments will kick
+ |      off the parsing and create a new :class:`Context`.  It does not
+ |      invoke the actual command callback though.
+ |      
+ |      :param info_name: the info name for this invokation.  Generally this
+ |                        is the most descriptive name for the script or
+ |                        command.  For the toplevel script it's usually
+ |                        the name of the script, for commands below it it's
+ |                        the name of the script.
+ |      :param args: the arguments to parse as list of strings.
+ |      :param parent: the parent context if available.
+ |      :param extra: extra keyword arguments forwarded to the context
+ |                    constructor.
+ |  
+ |  ----------------------------------------------------------------------
+ |  Data descriptors inherited from BaseCommand:
+ |  
+ |  __dict__
+ |      dictionary for instance variables (if defined)
+ |  
+ |  __weakref__
+ |      list of weak references to the object (if defined)
+ |  
+ |  ----------------------------------------------------------------------
+ |  Data and other attributes inherited from BaseCommand:
+ |  
+ |  allow_extra_args = False
+ |  
+ |  allow_interspersed_args = True
+ |  
+ |  ignore_unknown_options = False
+

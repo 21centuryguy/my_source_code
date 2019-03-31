@@ -1,0 +1,24 @@
+Help on module combinatorics:
+
+NAME
+    combinatorics
+
+DESCRIPTION
+    # module associated with mastermind game
+    # import the modules we need, for creating a GUI...
+
+FUNCTIONS
+    all_colours(colours, positions)
+    
+    fac(n)
+    
+    k_permutations(items, n)
+    
+    permutations(items)
+    
+    random_permutation(list)
+
+FILE
+    /Users/jack/miniconda2/envs/py37/lib/python3.6/site-packages/combinatorics.py
+
+

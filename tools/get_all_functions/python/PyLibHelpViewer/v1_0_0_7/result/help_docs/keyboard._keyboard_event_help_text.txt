@@ -1,0 +1,67 @@
+Help on module keyboard._keyboard_event in keyboard:
+
+NAME
+    keyboard._keyboard_event - # -*- coding: utf-8 -*-
+
+CLASSES
+    builtins.object
+        KeyboardEvent
+    
+    class KeyboardEvent(builtins.object)
+     |  Methods defined here:
+     |  
+     |  __eq__(self, other)
+     |      Return self==value.
+     |  
+     |  __init__(self, event_type, scan_code, name=None, time=None, device=None, modifiers=None, is_keypad=None)
+     |      Initialize self.  See help(type(self)) for accurate signature.
+     |  
+     |  __repr__(self)
+     |      Return repr(self).
+     |  
+     |  to_json(self, ensure_ascii=False)
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data descriptors defined here:
+     |  
+     |  __dict__
+     |      dictionary for instance variables (if defined)
+     |  
+     |  __weakref__
+     |      list of weak references to the object (if defined)
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data and other attributes defined here:
+     |  
+     |  __hash__ = None
+     |  
+     |  device = None
+     |  
+     |  event_type = None
+     |  
+     |  is_keypad = None
+     |  
+     |  modifiers = None
+     |  
+     |  name = None
+     |  
+     |  scan_code = None
+     |  
+     |  time = None
+
+FUNCTIONS
+    now = time(...)
+        time() -> floating point number
+        
+        Return the current time in seconds since the Epoch.
+        Fractions of a second may be present if the system clock provides them.
+
+DATA
+    KEY_DOWN = 'down'
+    KEY_UP = 'up'
+    canonical_names = {'\x08': 'backspace', '\t': 'tab', '\n': 'enter', '\...
+
+FILE
+    /Users/jack/miniconda2/envs/py37/lib/python3.6/site-packages/keyboard/_keyboard_event.py
+
+

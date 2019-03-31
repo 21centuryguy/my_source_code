@@ -1,0 +1,12 @@
+Help on package wcwidth.tests in wcwidth:
+
+NAME
+    wcwidth.tests - This file intentionally left blank.
+
+PACKAGE CONTENTS
+    test_core
+
+FILE
+    /Users/jack/miniconda2/envs/py37/lib/python3.6/site-packages/wcwidth/tests/__init__.py
+
+

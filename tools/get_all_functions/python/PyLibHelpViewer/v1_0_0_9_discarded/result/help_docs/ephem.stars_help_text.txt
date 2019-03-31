@@ -1,0 +1,27 @@
+Help on module ephem.stars in ephem:
+
+NAME
+    ephem.stars - A Catalog of 94 Bright Stars
+
+DESCRIPTION
+    The function star() will create and return a PyEphem Body representing
+    the star whose name you provide.
+    
+    >>> star('Aldebaran')
+    
+    Data is adapted from the version of the Hipparcos star catalog at:
+    ftp://adc.gsfc.nasa.gov/pub/adc/archives/catalogs/1/1239/hip_main.dat.gz
+    Of the thousand brighest Hipparcos stars, those with proper names
+    registered at http://simbad.u-strasbg.fr/simbad/ were chosen.
+
+FUNCTIONS
+    star(name, *args, **kwargs)
+
+DATA
+    db = 'Sirrah,f|S|B9,0:08:23.2|135.68,29:05:27|-162.95,...S|B9,23:04:45...
+    stars = {'Achernar': <ephem.FixedBody 'Achernar'>, 'Adara': <ephem.Fix...
+
+FILE
+    /Users/jack/miniconda2/envs/py37/lib/python3.6/site-packages/ephem/stars.py
+
+

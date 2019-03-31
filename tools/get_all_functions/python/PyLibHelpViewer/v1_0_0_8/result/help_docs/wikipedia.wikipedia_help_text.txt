@@ -1,0 +1,169 @@
+Help on module wikipedia.wikipedia in wikipedia:
+
+NAME
+    wikipedia.wikipedia
+
+CLASSES
+    builtins.object
+        WikipediaPage
+    
+    class WikipediaPage(builtins.object)
+     |  Contains data from a Wikipedia page.
+     |  Uses property methods to filter data from the raw HTML.
+     |  
+     |  Methods defined here:
+     |  
+     |  __eq__(self, other)
+     |      Return self==value.
+     |  
+     |  __init__(self, title=None, pageid=None, redirect=True, preload=False, original_title='')
+     |      Initialize self.  See help(type(self)) for accurate signature.
+     |  
+     |  __repr__(self)
+     |      Return repr(self).
+     |  
+     |  html(self)
+     |      Get full page HTML.
+     |      
+     |      .. warning:: This can get pretty slow on long pages.
+     |  
+     |  section(self, section_title)
+     |      Get the plain text content of a section from `self.sections`.
+     |      Returns None if `section_title` isn't found, otherwise returns a whitespace stripped string.
+     |      
+     |      This is a convenience method that wraps self.content.
+     |      
+     |      .. warning:: Calling `section` on a section that has subheadings will NOT return
+     |             the full text of all of the subsections. It only gets the text between
+     |             `section_title` and the next subheading, which is often empty.
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data descriptors defined here:
+     |  
+     |  __dict__
+     |      dictionary for instance variables (if defined)
+     |  
+     |  __weakref__
+     |      list of weak references to the object (if defined)
+     |  
+     |  categories
+     |      List of categories of a page.
+     |  
+     |  content
+     |      Plain text content of the page, excluding images, tables, and other data.
+     |  
+     |  coordinates
+     |      Tuple of Decimals in the form of (lat, lon) or None
+     |  
+     |  images
+     |      List of URLs of images on the page.
+     |  
+     |  links
+     |      List of titles of Wikipedia page links on a page.
+     |      
+     |      .. note:: Only includes articles from namespace 0, meaning no Category, User talk, or other meta-Wikipedia pages.
+     |  
+     |  parent_id
+     |      Revision ID of the parent version of the current revision of this
+     |      page. See ``revision_id`` for more information.
+     |  
+     |  references
+     |      List of URLs of external links on a page.
+     |      May include external links within page that aren't technically cited anywhere.
+     |  
+     |  revision_id
+     |      Revision ID of the page.
+     |      
+     |      The revision ID is a number that uniquely identifies the current
+     |      version of the page. It can be used to create the permalink or for
+     |      other direct API calls. See `Help:Page history
+     |      <http://en.wikipedia.org/wiki/Wikipedia:Revision>`_ for more
+     |      information.
+     |  
+     |  sections
+     |      List of section titles from the table of contents on the page.
+     |  
+     |  summary
+     |      Plain text summary of the page.
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data and other attributes defined here:
+     |  
+     |  __hash__ = None
+
+FUNCTIONS
+    donate()
+        Open up the Wikimedia donate page in your favorite browser.
+    
+    page(title=None, pageid=None, auto_suggest=True, redirect=True, preload=False)
+        Get a WikipediaPage object for the page with title `title` or the pageid
+        `pageid` (mutually exclusive).
+        
+        Keyword arguments:
+        
+        * title - the title of the page to load
+        * pageid - the numeric pageid of the page to load
+        * auto_suggest - let Wikipedia find a valid page title for the query
+        * redirect - allow redirection without raising RedirectError
+        * preload - load content, summary, images, references, and links during initialization
+    
+    random(pages=1)
+        Get a list of random Wikipedia article titles.
+        
+        .. note:: Random only gets articles from namespace 0, meaning no Category, User talk, or other meta-Wikipedia pages.
+        
+        Keyword arguments:
+        
+        * pages - the number of random pages returned (max of 10)
+    
+    set_lang(prefix)
+        Change the language of the API being requested.
+        Set `prefix` to one of the two letter prefixes found on the `list of all Wikipedias <http://meta.wikimedia.org/wiki/List_of_Wikipedias>`_.
+        
+        After setting the language, the cache for ``search``, ``suggest``, and ``summary`` will be cleared.
+        
+        .. note:: Make sure you search for page titles in the language that you have set.
+    
+    set_rate_limiting(rate_limit, min_wait=datetime.timedelta(0, 0, 50000))
+        Enable or disable rate limiting on requests to the Mediawiki servers.
+        If rate limiting is not enabled, under some circumstances (depending on
+        load on Wikipedia, the number of requests you and other `wikipedia` users
+        are making, and other factors), Wikipedia may return an HTTP timeout error.
+        
+        Enabling rate limiting generally prevents that issue, but please note that
+        HTTPTimeoutError still might be raised.
+        
+        Arguments:
+        
+        * rate_limit - (Boolean) whether to enable rate limiting or not
+        
+        Keyword arguments:
+        
+        * min_wait - if rate limiting is enabled, `min_wait` is a timedelta describing the minimum time to wait before requests.
+               Defaults to timedelta(milliseconds=50)
+    
+    set_user_agent(user_agent_string)
+        Set the User-Agent string to be used for all requests.
+        
+        Arguments:
+        
+        * user_agent_string - (string) a string specifying the User-Agent header
+
+DATA
+    API_URL = 'http://en.wikipedia.org/w/api.php'
+    ODD_ERROR_MESSAGE = "This shouldn't happen. Please report on GitHub: g...
+    RATE_LIMIT = False
+    RATE_LIMIT_LAST_CALL = None
+    RATE_LIMIT_MIN_WAIT = None
+    USER_AGENT = 'wikipedia (https://github.com/goldsmith/Wikipedia/)'
+    geosearch = <wikipedia.util.cache object>
+    languages = <wikipedia.util.cache object>
+    search = <wikipedia.util.cache object>
+    suggest = <wikipedia.util.cache object>
+    summary = <wikipedia.util.cache object>
+    unicode_literals = _Feature((2, 6, 0, 'alpha', 2), (3, 0, 0, 'alpha', ...
+
+FILE
+    /Users/jack/miniconda2/envs/py37/lib/python3.6/site-packages/wikipedia/wikipedia.py
+
+

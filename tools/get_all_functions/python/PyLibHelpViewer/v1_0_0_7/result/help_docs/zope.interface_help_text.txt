@@ -1,0 +1,488 @@
+Help on package zope.interface in zope:
+
+NAME
+    zope.interface - Interfaces
+
+DESCRIPTION
+    This package implements the Python "scarecrow" proposal.
+    
+    The package exports two objects, `Interface` and `Attribute` directly. It also
+    exports several helper methods. Interface is used to create an interface with
+    a class statement, as in:
+    
+      class IMyInterface(Interface):
+        '''Interface documentation
+        '''
+    
+        def meth(arg1, arg2):
+            '''Documentation for meth
+            '''
+    
+        # Note that there is no self argument
+    
+    To find out what you can do with interfaces, see the interface
+    interface, `IInterface` in the `interfaces` module.
+    
+    The package has several public modules:
+    
+      o `declarations` provides utilities to declare interfaces on objects. It
+        also provides a wide range of helpful utilities that aid in managing
+        declared interfaces. Most of its public names are however imported here.
+    
+      o `document` has a utility for documenting an interface as structured text.
+    
+      o `exceptions` has the interface-defined exceptions
+    
+      o `interfaces` contains a list of all public interfaces for this package.
+    
+      o `verify` has utilities for verifying implementations of interfaces.
+    
+    See the module doc strings for more information.
+
+PACKAGE CONTENTS
+    _compat
+    _flatten
+    _zope_interface_coptimizations
+    adapter
+    advice
+    common (package)
+    declarations
+    document
+    exceptions
+    interface
+    interfaces
+    registry
+    ro
+    tests (package)
+    verify
+
+CLASSES
+    builtins.object
+        zope.interface.declarations.implementer
+        zope.interface.declarations.implementer_only
+        zope.interface.declarations.provider
+    zope.interface.interface.Element(builtins.object)
+        zope.interface.interface.Attribute
+    zope.interface.interface.Specification(_interface_coptimizations.SpecificationBase)
+        zope.interface.declarations.Declaration
+    
+    class Attribute(Element)
+     |  Attribute descriptions
+     |  
+     |  Method resolution order:
+     |      Attribute
+     |      Element
+     |      builtins.object
+     |  
+     |  Methods defined here:
+     |  
+     |  __provides__ = <zope.interface.declarations.ClassProvides object>
+     |  ----------------------------------------------------------------------
+     |  Data and other attributes defined here:
+     |  
+     |  __implemented__ = <implementedBy zope.interface.interface.Attribute>
+     |  
+     |  
+     |  interface = None
+     |  
+     |  ----------------------------------------------------------------------
+     |  Methods inherited from Element:
+     |  
+     |  __init__(self, __name__, __doc__='')
+     |      Create an 'attribute' description
+     |  
+     |  __providedBy__ = <zope.interface.declarations.ClassProvides object>
+     |  getDoc(self)
+     |      Returns the documentation for the object.
+     |  
+     |  getName(self)
+     |      Returns the name of the object.
+     |  
+     |  getTaggedValue(self, tag)
+     |      Returns the value associated with 'tag'.
+     |  
+     |  getTaggedValueTags(self)
+     |      Returns a list of all tags.
+     |  
+     |  queryTaggedValue(self, tag, default=None)
+     |      Returns the value associated with 'tag'.
+     |  
+     |  setTaggedValue(self, tag, value)
+     |      Associates 'value' with 'key'.
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data descriptors inherited from Element:
+     |  
+     |  __dict__
+     |      dictionary for instance variables (if defined)
+     |  
+     |  __weakref__
+     |      list of weak references to the object (if defined)
+    
+    class Declaration(zope.interface.interface.Specification)
+     |  Interface declarations
+     |  
+     |  Method resolution order:
+     |      Declaration
+     |      zope.interface.interface.Specification
+     |      _interface_coptimizations.SpecificationBase
+     |      builtins.object
+     |  
+     |  Methods defined here:
+     |  
+     |  __add__(self, other)
+     |      Add two specifications or a specification and an interface
+     |  
+     |  __contains__(self, interface)
+     |      Test whether an interface is in the specification
+     |  
+     |  __init__(self, *interfaces)
+     |      Initialize self.  See help(type(self)) for accurate signature.
+     |  
+     |  __iter__(self)
+     |      Return an iterator for the interfaces in the specification
+     |  
+     |  __radd__ = __add__(self, other)
+     |  
+     |  __sub__(self, other)
+     |      Remove interfaces from a specification
+     |  
+     |  changed(self, originally_changed)
+     |      We, or something we depend on, have changed
+     |  
+     |  flattened(self)
+     |      Return an iterator of all included and extended interfaces
+     |  
+     |  ----------------------------------------------------------------------
+     |  Methods inherited from zope.interface.interface.Specification:
+     |  
+     |  __provides__
+     |      Special descriptor for class __provides__
+     |      
+     |      The descriptor caches the implementedBy info, so that
+     |      we can get declarations for objects without instance-specific
+     |      interfaces a bit quicker.
+     |  
+     |  extends(self, interface, strict=True)
+     |      Does the specification extend the given interface?
+     |      
+     |      Test whether an interface in the specification extends the
+     |      given interface
+     |  
+     |  get(self, name, default=None)
+     |      Query for an attribute description
+     |  
+     |  interfaces(self)
+     |      Return an iterator for the interfaces in the specification.
+     |  
+     |  isOrExtends(...)
+     |      Test whether a specification is or extends another
+     |  
+     |  providedBy(...)
+     |      Test whether an interface is implemented by the specification
+     |  
+     |  subscribe(self, dependent)
+     |  
+     |  unsubscribe(self, dependent)
+     |  
+     |  weakref(self, callback=None)
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data descriptors inherited from zope.interface.interface.Specification:
+     |  
+     |  __bases__
+     |  
+     |  __dict__
+     |      dictionary for instance variables (if defined)
+     |  
+     |  __weakref__
+     |      list of weak references to the object (if defined)
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data and other attributes inherited from zope.interface.interface.Specification:
+     |  
+     |  __implemented__ = <implementedBy zope.interface.interface.Specificatio...
+     |  
+     |  
+     |  __providedBy__ = <implementedBy builtins.type>
+     |  
+     |  
+     |  ----------------------------------------------------------------------
+     |  Methods inherited from _interface_coptimizations.SpecificationBase:
+     |  
+     |  __call__(self, /, *args, **kwargs)
+     |      Call self as a function.
+     |  
+     |  __new__(*args, **kwargs) from builtins.type
+     |      Create and return a new object.  See help(type) for accurate signature.
+     |  
+     |  implementedBy(...)
+     |      Test whether the specification is implemented by a class or factory.
+     |      Raise TypeError if argument is neither a class nor a callable.
+    
+    class implementer(builtins.object)
+     |  Declare the interfaces implemented by instances of a class.
+     |  
+     |  This function is called as a class decorator.
+     |  
+     |  The arguments are one or more interfaces or interface
+     |  specifications (IDeclaration objects).
+     |  
+     |  The interfaces given (including the interfaces in the
+     |  specifications) are added to any interfaces previously
+     |  declared.
+     |  
+     |  Previous declarations include declarations for base classes
+     |  unless implementsOnly was used.
+     |  
+     |  This function is provided for convenience. It provides a more
+     |  convenient way to call classImplements. For example::
+     |  
+     |    @implementer(I1)
+     |    class C(object):
+     |        pass
+     |  
+     |  is equivalent to calling::
+     |  
+     |    classImplements(C, I1)
+     |  
+     |  after the class has been created.
+     |  
+     |  Methods defined here:
+     |  
+     |  __call__(self, ob)
+     |      Call self as a function.
+     |  
+     |  __init__(self, *interfaces)
+     |      Initialize self.  See help(type(self)) for accurate signature.
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data descriptors defined here:
+     |  
+     |  __dict__
+     |      dictionary for instance variables (if defined)
+     |  
+     |  __weakref__
+     |      list of weak references to the object (if defined)
+    
+    class implementer_only(builtins.object)
+     |  Declare the only interfaces implemented by instances of a class
+     |  
+     |  This function is called as a class decorator.
+     |  
+     |  The arguments are one or more interfaces or interface
+     |  specifications (IDeclaration objects).
+     |  
+     |  Previous declarations including declarations for base classes
+     |  are overridden.
+     |  
+     |  This function is provided for convenience. It provides a more
+     |  convenient way to call classImplementsOnly. For example::
+     |  
+     |    @implementer_only(I1)
+     |    class C(object): pass
+     |  
+     |  is equivalent to calling::
+     |  
+     |    classImplementsOnly(I1)
+     |  
+     |  after the class has been created.
+     |  
+     |  Methods defined here:
+     |  
+     |  __call__(self, ob)
+     |      Call self as a function.
+     |  
+     |  __init__(self, *interfaces)
+     |      Initialize self.  See help(type(self)) for accurate signature.
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data descriptors defined here:
+     |  
+     |  __dict__
+     |      dictionary for instance variables (if defined)
+     |  
+     |  __weakref__
+     |      list of weak references to the object (if defined)
+    
+    class provider(builtins.object)
+     |  Class decorator version of classProvides
+     |  
+     |  Methods defined here:
+     |  
+     |  __call__(self, ob)
+     |      Call self as a function.
+     |  
+     |  __init__(self, *interfaces)
+     |      Initialize self.  See help(type(self)) for accurate signature.
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data descriptors defined here:
+     |  
+     |  __dict__
+     |      dictionary for instance variables (if defined)
+     |  
+     |  __weakref__
+     |      list of weak references to the object (if defined)
+
+FUNCTIONS
+    __provides__ = <zope.interface.Provides object>
+    alsoProvides(object, *interfaces)
+        Declare interfaces declared directly for an object
+        
+        The arguments after the object are one or more interfaces or interface
+        specifications (``IDeclaration`` objects).
+        
+        The interfaces given (including the interfaces in the specifications) are
+        added to the interfaces previously declared for the object.
+    
+    classImplements(cls, *interfaces)
+        Declare additional interfaces implemented for instances of a class
+        
+        The arguments after the class are one or more interfaces or
+        interface specifications (``IDeclaration`` objects).
+        
+        The interfaces given (including the interfaces in the specifications)
+        are added to any interfaces previously declared.
+    
+    classImplementsOnly(cls, *interfaces)
+        Declare the only interfaces implemented by instances of a class
+        
+        The arguments after the class are one or more interfaces or interface
+        specifications (``IDeclaration`` objects).
+        
+        The interfaces given (including the interfaces in the specifications)
+        replace any previous declarations.
+    
+    classProvides(*interfaces)
+        Declare interfaces provided directly by a class
+        
+        This function is called in a class definition.
+        
+        The arguments are one or more interfaces or interface specifications
+        (``IDeclaration`` objects).
+        
+        The given interfaces (including the interfaces in the specifications)
+        are used to create the class's direct-object interface specification.
+        An error will be raised if the module class has an direct interface
+        specification. In other words, it is an error to call this function more
+        than once in a class definition.
+        
+        Note that the given interfaces have nothing to do with the interfaces
+        implemented by instances of the class.
+        
+        This function is provided for convenience. It provides a more convenient
+        way to call directlyProvides for a class. For example::
+        
+          classProvides(I1)
+        
+        is equivalent to calling::
+        
+          directlyProvides(theclass, I1)
+        
+        after the class has been created.
+    
+    directlyProvidedBy(object)
+        Return the interfaces directly provided by the given object
+        
+        The value returned is an ``IDeclaration``.
+    
+    directlyProvides(object, *interfaces)
+        Declare interfaces declared directly for an object
+        
+        The arguments after the object are one or more interfaces or interface
+        specifications (``IDeclaration`` objects).
+        
+        The interfaces given (including the interfaces in the specifications)
+        replace interfaces previously declared for the object.
+    
+    implementedBy(...)
+        Interfaces implemented by a class or factory.
+        Raises TypeError if argument is neither a class nor a callable.
+    
+    implements(*interfaces)
+        Declare interfaces implemented by instances of a class
+        
+        This function is called in a class definition.
+        
+        The arguments are one or more interfaces or interface
+        specifications (IDeclaration objects).
+        
+        The interfaces given (including the interfaces in the
+        specifications) are added to any interfaces previously
+        declared.
+        
+        Previous declarations include declarations for base classes
+        unless implementsOnly was used.
+        
+        This function is provided for convenience. It provides a more
+        convenient way to call classImplements. For example::
+        
+          implements(I1)
+        
+        is equivalent to calling::
+        
+          classImplements(C, I1)
+        
+        after the class has been created.
+    
+    implementsOnly(*interfaces)
+        Declare the only interfaces implemented by instances of a class
+        
+        This function is called in a class definition.
+        
+        The arguments are one or more interfaces or interface
+        specifications (IDeclaration objects).
+        
+        Previous declarations including declarations for base classes
+        are overridden.
+        
+        This function is provided for convenience. It provides a more
+        convenient way to call classImplementsOnly. For example::
+        
+          implementsOnly(I1)
+        
+        is equivalent to calling::
+        
+          classImplementsOnly(I1)
+        
+        after the class has been created.
+    
+    moduleProvides(*interfaces)
+        Declare interfaces provided by a module
+        
+        This function is used in a module definition.
+        
+        The arguments are one or more interfaces or interface specifications
+        (``IDeclaration`` objects).
+        
+        The given interfaces (including the interfaces in the specifications) are
+        used to create the module's direct-object interface specification.  An
+        error will be raised if the module already has an interface specification.
+        In other words, it is an error to call this function more than once in a
+        module definition.
+        
+        This function is provided for convenience. It provides a more convenient
+        way to call directlyProvides. For example::
+        
+          moduleImplements(I1)
+        
+        is equivalent to::
+        
+          directlyProvides(sys.modules[__name__], I1)
+    
+    noLongerProvides(object, interface)
+        Removes a directly provided interface from an object.
+    
+    providedBy(...)
+        Get an object's interfaces
+
+DATA
+    Interface = <InterfaceClass zope.interface.Interface>
+    __all__ = ('Interface', 'Attribute', 'providedBy', 'implementedBy', 'c...
+    __docformat__ = 'restructuredtext'
+
+FILE
+    /Users/jack/miniconda2/envs/py37/lib/python3.6/site-packages/zope/interface/__init__.py
+
+

@@ -1,0 +1,13 @@
+Help on package urllib3.contrib._securetransport in urllib3.contrib:
+
+NAME
+    urllib3.contrib._securetransport
+
+PACKAGE CONTENTS
+    bindings
+    low_level
+
+FILE
+    /Users/jack/miniconda2/envs/py37/lib/python3.6/site-packages/urllib3/contrib/_securetransport/__init__.py
+
+

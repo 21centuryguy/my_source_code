@@ -1,0 +1,2200 @@
+Help on module asn1crypto.pdf in asn1crypto:
+
+NAME
+    asn1crypto.pdf
+
+DESCRIPTION
+    ASN.1 type classes for PDF signature structures. Adds extra oid mapping and
+    value parsing to asn1crypto.x509.Extension() and asn1crypto.xms.CMSAttribute().
+
+CLASSES
+    asn1crypto.core.Sequence(asn1crypto.core.Asn1Value)
+        AdobeArchiveRevInfo
+        AdobeTimestamp
+        OtherRevInfo
+        RevocationInfoArchival
+    asn1crypto.core.SequenceOf(asn1crypto.core.Asn1Value)
+        SequenceOfCertificateList
+        SequenceOfOCSPResponse
+        SequenceOfOtherRevInfo
+    asn1crypto.core.SetOf(asn1crypto.core.SequenceOf)
+        SetOfRevocationInfoArchival
+    
+    class AdobeArchiveRevInfo(asn1crypto.core.Sequence)
+     |  Represents a sequence of fields from ASN.1 as a Python object with a
+     |  dict-like interface
+     |  
+     |  Method resolution order:
+     |      AdobeArchiveRevInfo
+     |      asn1crypto.core.Sequence
+     |      asn1crypto.core.Asn1Value
+     |      builtins.object
+     |  
+     |  Data and other attributes defined here:
+     |  
+     |  _fields = [('version', <class 'asn1crypto.core.Integer'>)]
+     |  
+     |  ----------------------------------------------------------------------
+     |  Methods inherited from asn1crypto.core.Sequence:
+     |  
+     |  __delitem__(self, key)
+     |      Allows deleting optional or default fields by name or index
+     |      
+     |      :param key:
+     |          A unicode string of the field name, or an integer of the field index
+     |      
+     |      :raises:
+     |          ValueError - when a field name or index is invalid, or the field is not optional or defaulted
+     |  
+     |  __getitem__(self, key)
+     |      Allows accessing fields by name or index
+     |      
+     |      :param key:
+     |          A unicode string of the field name, or an integer of the field index
+     |      
+     |      :raises:
+     |          KeyError - when a field name or index is invalid
+     |      
+     |      :return:
+     |          The Asn1Value object of the field specified
+     |  
+     |  __init__(self, value=None, default=None, **kwargs)
+     |      Allows setting field values before passing everything else along to
+     |      Asn1Value.__init__()
+     |      
+     |      :param value:
+     |          A native Python datatype to initialize the object value with
+     |      
+     |      :param default:
+     |          The default value if no value is specified
+     |  
+     |  __iter__(self)
+     |      :return:
+     |          An iterator of field key names
+     |  
+     |  __len__(self)
+     |      :return:
+     |          Integer
+     |  
+     |  __setitem__(self, key, value)
+     |      Allows settings fields by name or index
+     |      
+     |      :param key:
+     |          A unicode string of the field name, or an integer of the field index
+     |      
+     |      :param value:
+     |          A native Python datatype to set the field value to. This method will
+     |          construct the appropriate Asn1Value object from _fields.
+     |      
+     |      :raises:
+     |          ValueError - when a field name or index is invalid
+     |  
+     |  _copy(self, other, copy_func)
+     |      Copies the contents of another Sequence object to itself
+     |      
+     |      :param object:
+     |          Another instance of the same class
+     |      
+     |      :param copy_func:
+     |          An reference of copy.copy() or copy.deepcopy() to use when copying
+     |          lists, dicts and objects
+     |  
+     |  _determine_spec(self, index)
+     |      Determine how a value for a field should be constructed
+     |      
+     |      :param index:
+     |          The field number
+     |      
+     |      :return:
+     |          A tuple containing the following elements:
+     |           - unicode string of the field name
+     |           - Asn1Value class of the field spec
+     |           - Asn1Value class of the value spec
+     |           - None or dict of params to pass to the field spec
+     |           - None or Asn1Value class indicating the value spec was derived from an OID or a spec callback
+     |  
+     |  _is_mutated(self)
+     |      :return:
+     |          A boolean - if the sequence or any children (recursively) have been
+     |          mutated
+     |  
+     |  _lazy_child(self, index)
+     |      Builds a child object if the child has only been parsed into a tuple so far
+     |  
+     |  _make_value(self, field_name, field_spec, value_spec, field_params, value)
+     |      Contructs an appropriate Asn1Value object for a field
+     |      
+     |      :param field_name:
+     |          A unicode string of the field name
+     |      
+     |      :param field_spec:
+     |          An Asn1Value class that is the field spec
+     |      
+     |      :param value_spec:
+     |          An Asn1Value class that is the vaue spec
+     |      
+     |      :param field_params:
+     |          None or a dict of params for the field spec
+     |      
+     |      :param value:
+     |          The value to construct an Asn1Value object from
+     |      
+     |      :return:
+     |          An instance of a child class of Asn1Value
+     |  
+     |  _parse_children(self, recurse=False)
+     |      Parses the contents and generates Asn1Value objects based on the
+     |      definitions from _fields.
+     |      
+     |      :param recurse:
+     |          If child objects that are Sequence or SequenceOf objects should
+     |          be recursively parsed
+     |      
+     |      :raises:
+     |          ValueError - when an error occurs parsing child objects
+     |  
+     |  _set_contents(self, force=False)
+     |      Updates the .contents attribute of the value with the encoded value of
+     |      all of the child objects
+     |      
+     |      :param force:
+     |          Ensure all contents are in DER format instead of possibly using
+     |          cached BER-encoded data
+     |  
+     |  _setup(self)
+     |      Generates _field_map, _field_ids and _oid_nums for use in parsing
+     |  
+     |  debug(self, nest_level=1)
+     |      Show the binary data and parsed data in a tree structure
+     |  
+     |  dump(self, force=False)
+     |      Encodes the value using DER
+     |      
+     |      :param force:
+     |          If the encoded contents already exist, clear them and regenerate
+     |          to ensure they are in DER format instead of BER format
+     |      
+     |      :return:
+     |          A byte string of the DER-encoded value
+     |  
+     |  spec(self, field_name)
+     |      Determines the spec to use for the field specified. Depending on how
+     |      the spec is determined (_oid_pair or _spec_callbacks), it may be
+     |      necessary to set preceding field values before calling this. Usually
+     |      specs, if dynamic, are controlled by a preceding ObjectIdentifier
+     |      field.
+     |      
+     |      :param field_name:
+     |          A unicode string of the field name to get the spec for
+     |      
+     |      :return:
+     |          A child class of asn1crypto.core.Asn1Value that the field must be
+     |          encoded using
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data descriptors inherited from asn1crypto.core.Sequence:
+     |  
+     |  contents
+     |      :return:
+     |          A byte string of the DER-encoded contents of the sequence
+     |  
+     |  native
+     |      The a native Python datatype representation of this value
+     |      
+     |      :return:
+     |          An OrderedDict or None. If an OrderedDict, all child values are
+     |          recursively converted to native representation also.
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data and other attributes inherited from asn1crypto.core.Sequence:
+     |  
+     |  _contents = None
+     |  
+     |  _field_ids = None
+     |  
+     |  _field_map = None
+     |  
+     |  _mutated = False
+     |  
+     |  _oid_nums = None
+     |  
+     |  _oid_pair = None
+     |  
+     |  _oid_specs = None
+     |  
+     |  _precomputed_specs = None
+     |  
+     |  _spec_callbacks = None
+     |  
+     |  children = None
+     |  
+     |  class_ = 0
+     |  
+     |  method = 1
+     |  
+     |  tag = 16
+     |  
+     |  ----------------------------------------------------------------------
+     |  Methods inherited from asn1crypto.core.Asn1Value:
+     |  
+     |  __bytes__(self)
+     |      A fall-back method for print() in Python 2
+     |      
+     |      :return:
+     |          A byte string of the output of repr()
+     |  
+     |  __copy__(self)
+     |      Implements the copy.copy() interface
+     |      
+     |      :return:
+     |          A new shallow copy of the current Asn1Value object
+     |  
+     |  __deepcopy__(self, memo)
+     |      Implements the copy.deepcopy() interface
+     |      
+     |      :param memo:
+     |          A dict for memoization
+     |      
+     |      :return:
+     |          A new deep copy of the current Asn1Value object
+     |  
+     |  __repr__(self)
+     |      :return:
+     |          A unicode string
+     |  
+     |  __str__(self)
+     |      Since str is different in Python 2 and 3, this calls the appropriate
+     |      method, __unicode__() or __bytes__()
+     |      
+     |      :return:
+     |          A unicode string
+     |  
+     |  __unicode__(self)
+     |      A fall-back method for print() in Python 3
+     |      
+     |      :return:
+     |          A unicode string of the output of repr()
+     |  
+     |  _new_instance(self)
+     |      Constructs a new copy of the current object, preserving any tagging
+     |      
+     |      :return:
+     |          An Asn1Value object
+     |  
+     |  copy(self)
+     |      Copies the object, preserving any special tagging from it
+     |      
+     |      :return:
+     |          An Asn1Value object
+     |  
+     |  retag(self, tagging, tag=None)
+     |      Copies the object, applying a new tagging to it
+     |      
+     |      :param tagging:
+     |          A dict containing the keys "explicit" and "implicit". Legacy
+     |          API allows a unicode string of "implicit" or "explicit".
+     |      
+     |      :param tag:
+     |          A integer tag number. Only used when tagging is a unicode string.
+     |      
+     |      :return:
+     |          An Asn1Value object
+     |  
+     |  untag(self)
+     |      Copies the object, removing any special tagging from it
+     |      
+     |      :return:
+     |          An Asn1Value object
+     |  
+     |  ----------------------------------------------------------------------
+     |  Class methods inherited from asn1crypto.core.Asn1Value:
+     |  
+     |  load(encoded_data, strict=False, **kwargs) from builtins.type
+     |      Loads a BER/DER-encoded byte string using the current class as the spec
+     |      
+     |      :param encoded_data:
+     |          A byte string of BER or DER-encoded data
+     |      
+     |      :param strict:
+     |          A boolean indicating if trailing data should be forbidden - if so, a
+     |          ValueError will be raised when trailing data exists
+     |      
+     |      :return:
+     |          An instance of the current class
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data descriptors inherited from asn1crypto.core.Asn1Value:
+     |  
+     |  __dict__
+     |      dictionary for instance variables (if defined)
+     |  
+     |  __weakref__
+     |      list of weak references to the object (if defined)
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data and other attributes inherited from asn1crypto.core.Asn1Value:
+     |  
+     |  _bad_tag = None
+     |  
+     |  _header = None
+     |  
+     |  _native = None
+     |  
+     |  _trailer = b''
+     |  
+     |  explicit = None
+     |  
+     |  implicit = False
+    
+    class AdobeTimestamp(asn1crypto.core.Sequence)
+     |  Represents a sequence of fields from ASN.1 as a Python object with a
+     |  dict-like interface
+     |  
+     |  Method resolution order:
+     |      AdobeTimestamp
+     |      asn1crypto.core.Sequence
+     |      asn1crypto.core.Asn1Value
+     |      builtins.object
+     |  
+     |  Data and other attributes defined here:
+     |  
+     |  _fields = [('version', <class 'asn1crypto.core.Integer'>), ('location'...
+     |  
+     |  ----------------------------------------------------------------------
+     |  Methods inherited from asn1crypto.core.Sequence:
+     |  
+     |  __delitem__(self, key)
+     |      Allows deleting optional or default fields by name or index
+     |      
+     |      :param key:
+     |          A unicode string of the field name, or an integer of the field index
+     |      
+     |      :raises:
+     |          ValueError - when a field name or index is invalid, or the field is not optional or defaulted
+     |  
+     |  __getitem__(self, key)
+     |      Allows accessing fields by name or index
+     |      
+     |      :param key:
+     |          A unicode string of the field name, or an integer of the field index
+     |      
+     |      :raises:
+     |          KeyError - when a field name or index is invalid
+     |      
+     |      :return:
+     |          The Asn1Value object of the field specified
+     |  
+     |  __init__(self, value=None, default=None, **kwargs)
+     |      Allows setting field values before passing everything else along to
+     |      Asn1Value.__init__()
+     |      
+     |      :param value:
+     |          A native Python datatype to initialize the object value with
+     |      
+     |      :param default:
+     |          The default value if no value is specified
+     |  
+     |  __iter__(self)
+     |      :return:
+     |          An iterator of field key names
+     |  
+     |  __len__(self)
+     |      :return:
+     |          Integer
+     |  
+     |  __setitem__(self, key, value)
+     |      Allows settings fields by name or index
+     |      
+     |      :param key:
+     |          A unicode string of the field name, or an integer of the field index
+     |      
+     |      :param value:
+     |          A native Python datatype to set the field value to. This method will
+     |          construct the appropriate Asn1Value object from _fields.
+     |      
+     |      :raises:
+     |          ValueError - when a field name or index is invalid
+     |  
+     |  _copy(self, other, copy_func)
+     |      Copies the contents of another Sequence object to itself
+     |      
+     |      :param object:
+     |          Another instance of the same class
+     |      
+     |      :param copy_func:
+     |          An reference of copy.copy() or copy.deepcopy() to use when copying
+     |          lists, dicts and objects
+     |  
+     |  _determine_spec(self, index)
+     |      Determine how a value for a field should be constructed
+     |      
+     |      :param index:
+     |          The field number
+     |      
+     |      :return:
+     |          A tuple containing the following elements:
+     |           - unicode string of the field name
+     |           - Asn1Value class of the field spec
+     |           - Asn1Value class of the value spec
+     |           - None or dict of params to pass to the field spec
+     |           - None or Asn1Value class indicating the value spec was derived from an OID or a spec callback
+     |  
+     |  _is_mutated(self)
+     |      :return:
+     |          A boolean - if the sequence or any children (recursively) have been
+     |          mutated
+     |  
+     |  _lazy_child(self, index)
+     |      Builds a child object if the child has only been parsed into a tuple so far
+     |  
+     |  _make_value(self, field_name, field_spec, value_spec, field_params, value)
+     |      Contructs an appropriate Asn1Value object for a field
+     |      
+     |      :param field_name:
+     |          A unicode string of the field name
+     |      
+     |      :param field_spec:
+     |          An Asn1Value class that is the field spec
+     |      
+     |      :param value_spec:
+     |          An Asn1Value class that is the vaue spec
+     |      
+     |      :param field_params:
+     |          None or a dict of params for the field spec
+     |      
+     |      :param value:
+     |          The value to construct an Asn1Value object from
+     |      
+     |      :return:
+     |          An instance of a child class of Asn1Value
+     |  
+     |  _parse_children(self, recurse=False)
+     |      Parses the contents and generates Asn1Value objects based on the
+     |      definitions from _fields.
+     |      
+     |      :param recurse:
+     |          If child objects that are Sequence or SequenceOf objects should
+     |          be recursively parsed
+     |      
+     |      :raises:
+     |          ValueError - when an error occurs parsing child objects
+     |  
+     |  _set_contents(self, force=False)
+     |      Updates the .contents attribute of the value with the encoded value of
+     |      all of the child objects
+     |      
+     |      :param force:
+     |          Ensure all contents are in DER format instead of possibly using
+     |          cached BER-encoded data
+     |  
+     |  _setup(self)
+     |      Generates _field_map, _field_ids and _oid_nums for use in parsing
+     |  
+     |  debug(self, nest_level=1)
+     |      Show the binary data and parsed data in a tree structure
+     |  
+     |  dump(self, force=False)
+     |      Encodes the value using DER
+     |      
+     |      :param force:
+     |          If the encoded contents already exist, clear them and regenerate
+     |          to ensure they are in DER format instead of BER format
+     |      
+     |      :return:
+     |          A byte string of the DER-encoded value
+     |  
+     |  spec(self, field_name)
+     |      Determines the spec to use for the field specified. Depending on how
+     |      the spec is determined (_oid_pair or _spec_callbacks), it may be
+     |      necessary to set preceding field values before calling this. Usually
+     |      specs, if dynamic, are controlled by a preceding ObjectIdentifier
+     |      field.
+     |      
+     |      :param field_name:
+     |          A unicode string of the field name to get the spec for
+     |      
+     |      :return:
+     |          A child class of asn1crypto.core.Asn1Value that the field must be
+     |          encoded using
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data descriptors inherited from asn1crypto.core.Sequence:
+     |  
+     |  contents
+     |      :return:
+     |          A byte string of the DER-encoded contents of the sequence
+     |  
+     |  native
+     |      The a native Python datatype representation of this value
+     |      
+     |      :return:
+     |          An OrderedDict or None. If an OrderedDict, all child values are
+     |          recursively converted to native representation also.
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data and other attributes inherited from asn1crypto.core.Sequence:
+     |  
+     |  _contents = None
+     |  
+     |  _field_ids = None
+     |  
+     |  _field_map = None
+     |  
+     |  _mutated = False
+     |  
+     |  _oid_nums = None
+     |  
+     |  _oid_pair = None
+     |  
+     |  _oid_specs = None
+     |  
+     |  _precomputed_specs = None
+     |  
+     |  _spec_callbacks = None
+     |  
+     |  children = None
+     |  
+     |  class_ = 0
+     |  
+     |  method = 1
+     |  
+     |  tag = 16
+     |  
+     |  ----------------------------------------------------------------------
+     |  Methods inherited from asn1crypto.core.Asn1Value:
+     |  
+     |  __bytes__(self)
+     |      A fall-back method for print() in Python 2
+     |      
+     |      :return:
+     |          A byte string of the output of repr()
+     |  
+     |  __copy__(self)
+     |      Implements the copy.copy() interface
+     |      
+     |      :return:
+     |          A new shallow copy of the current Asn1Value object
+     |  
+     |  __deepcopy__(self, memo)
+     |      Implements the copy.deepcopy() interface
+     |      
+     |      :param memo:
+     |          A dict for memoization
+     |      
+     |      :return:
+     |          A new deep copy of the current Asn1Value object
+     |  
+     |  __repr__(self)
+     |      :return:
+     |          A unicode string
+     |  
+     |  __str__(self)
+     |      Since str is different in Python 2 and 3, this calls the appropriate
+     |      method, __unicode__() or __bytes__()
+     |      
+     |      :return:
+     |          A unicode string
+     |  
+     |  __unicode__(self)
+     |      A fall-back method for print() in Python 3
+     |      
+     |      :return:
+     |          A unicode string of the output of repr()
+     |  
+     |  _new_instance(self)
+     |      Constructs a new copy of the current object, preserving any tagging
+     |      
+     |      :return:
+     |          An Asn1Value object
+     |  
+     |  copy(self)
+     |      Copies the object, preserving any special tagging from it
+     |      
+     |      :return:
+     |          An Asn1Value object
+     |  
+     |  retag(self, tagging, tag=None)
+     |      Copies the object, applying a new tagging to it
+     |      
+     |      :param tagging:
+     |          A dict containing the keys "explicit" and "implicit". Legacy
+     |          API allows a unicode string of "implicit" or "explicit".
+     |      
+     |      :param tag:
+     |          A integer tag number. Only used when tagging is a unicode string.
+     |      
+     |      :return:
+     |          An Asn1Value object
+     |  
+     |  untag(self)
+     |      Copies the object, removing any special tagging from it
+     |      
+     |      :return:
+     |          An Asn1Value object
+     |  
+     |  ----------------------------------------------------------------------
+     |  Class methods inherited from asn1crypto.core.Asn1Value:
+     |  
+     |  load(encoded_data, strict=False, **kwargs) from builtins.type
+     |      Loads a BER/DER-encoded byte string using the current class as the spec
+     |      
+     |      :param encoded_data:
+     |          A byte string of BER or DER-encoded data
+     |      
+     |      :param strict:
+     |          A boolean indicating if trailing data should be forbidden - if so, a
+     |          ValueError will be raised when trailing data exists
+     |      
+     |      :return:
+     |          An instance of the current class
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data descriptors inherited from asn1crypto.core.Asn1Value:
+     |  
+     |  __dict__
+     |      dictionary for instance variables (if defined)
+     |  
+     |  __weakref__
+     |      list of weak references to the object (if defined)
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data and other attributes inherited from asn1crypto.core.Asn1Value:
+     |  
+     |  _bad_tag = None
+     |  
+     |  _header = None
+     |  
+     |  _native = None
+     |  
+     |  _trailer = b''
+     |  
+     |  explicit = None
+     |  
+     |  implicit = False
+    
+    class OtherRevInfo(asn1crypto.core.Sequence)
+     |  Represents a sequence of fields from ASN.1 as a Python object with a
+     |  dict-like interface
+     |  
+     |  Method resolution order:
+     |      OtherRevInfo
+     |      asn1crypto.core.Sequence
+     |      asn1crypto.core.Asn1Value
+     |      builtins.object
+     |  
+     |  Data and other attributes defined here:
+     |  
+     |  _fields = [('type', <class 'asn1crypto.core.ObjectIdentifier'>), ('val...
+     |  
+     |  ----------------------------------------------------------------------
+     |  Methods inherited from asn1crypto.core.Sequence:
+     |  
+     |  __delitem__(self, key)
+     |      Allows deleting optional or default fields by name or index
+     |      
+     |      :param key:
+     |          A unicode string of the field name, or an integer of the field index
+     |      
+     |      :raises:
+     |          ValueError - when a field name or index is invalid, or the field is not optional or defaulted
+     |  
+     |  __getitem__(self, key)
+     |      Allows accessing fields by name or index
+     |      
+     |      :param key:
+     |          A unicode string of the field name, or an integer of the field index
+     |      
+     |      :raises:
+     |          KeyError - when a field name or index is invalid
+     |      
+     |      :return:
+     |          The Asn1Value object of the field specified
+     |  
+     |  __init__(self, value=None, default=None, **kwargs)
+     |      Allows setting field values before passing everything else along to
+     |      Asn1Value.__init__()
+     |      
+     |      :param value:
+     |          A native Python datatype to initialize the object value with
+     |      
+     |      :param default:
+     |          The default value if no value is specified
+     |  
+     |  __iter__(self)
+     |      :return:
+     |          An iterator of field key names
+     |  
+     |  __len__(self)
+     |      :return:
+     |          Integer
+     |  
+     |  __setitem__(self, key, value)
+     |      Allows settings fields by name or index
+     |      
+     |      :param key:
+     |          A unicode string of the field name, or an integer of the field index
+     |      
+     |      :param value:
+     |          A native Python datatype to set the field value to. This method will
+     |          construct the appropriate Asn1Value object from _fields.
+     |      
+     |      :raises:
+     |          ValueError - when a field name or index is invalid
+     |  
+     |  _copy(self, other, copy_func)
+     |      Copies the contents of another Sequence object to itself
+     |      
+     |      :param object:
+     |          Another instance of the same class
+     |      
+     |      :param copy_func:
+     |          An reference of copy.copy() or copy.deepcopy() to use when copying
+     |          lists, dicts and objects
+     |  
+     |  _determine_spec(self, index)
+     |      Determine how a value for a field should be constructed
+     |      
+     |      :param index:
+     |          The field number
+     |      
+     |      :return:
+     |          A tuple containing the following elements:
+     |           - unicode string of the field name
+     |           - Asn1Value class of the field spec
+     |           - Asn1Value class of the value spec
+     |           - None or dict of params to pass to the field spec
+     |           - None or Asn1Value class indicating the value spec was derived from an OID or a spec callback
+     |  
+     |  _is_mutated(self)
+     |      :return:
+     |          A boolean - if the sequence or any children (recursively) have been
+     |          mutated
+     |  
+     |  _lazy_child(self, index)
+     |      Builds a child object if the child has only been parsed into a tuple so far
+     |  
+     |  _make_value(self, field_name, field_spec, value_spec, field_params, value)
+     |      Contructs an appropriate Asn1Value object for a field
+     |      
+     |      :param field_name:
+     |          A unicode string of the field name
+     |      
+     |      :param field_spec:
+     |          An Asn1Value class that is the field spec
+     |      
+     |      :param value_spec:
+     |          An Asn1Value class that is the vaue spec
+     |      
+     |      :param field_params:
+     |          None or a dict of params for the field spec
+     |      
+     |      :param value:
+     |          The value to construct an Asn1Value object from
+     |      
+     |      :return:
+     |          An instance of a child class of Asn1Value
+     |  
+     |  _parse_children(self, recurse=False)
+     |      Parses the contents and generates Asn1Value objects based on the
+     |      definitions from _fields.
+     |      
+     |      :param recurse:
+     |          If child objects that are Sequence or SequenceOf objects should
+     |          be recursively parsed
+     |      
+     |      :raises:
+     |          ValueError - when an error occurs parsing child objects
+     |  
+     |  _set_contents(self, force=False)
+     |      Updates the .contents attribute of the value with the encoded value of
+     |      all of the child objects
+     |      
+     |      :param force:
+     |          Ensure all contents are in DER format instead of possibly using
+     |          cached BER-encoded data
+     |  
+     |  _setup(self)
+     |      Generates _field_map, _field_ids and _oid_nums for use in parsing
+     |  
+     |  debug(self, nest_level=1)
+     |      Show the binary data and parsed data in a tree structure
+     |  
+     |  dump(self, force=False)
+     |      Encodes the value using DER
+     |      
+     |      :param force:
+     |          If the encoded contents already exist, clear them and regenerate
+     |          to ensure they are in DER format instead of BER format
+     |      
+     |      :return:
+     |          A byte string of the DER-encoded value
+     |  
+     |  spec(self, field_name)
+     |      Determines the spec to use for the field specified. Depending on how
+     |      the spec is determined (_oid_pair or _spec_callbacks), it may be
+     |      necessary to set preceding field values before calling this. Usually
+     |      specs, if dynamic, are controlled by a preceding ObjectIdentifier
+     |      field.
+     |      
+     |      :param field_name:
+     |          A unicode string of the field name to get the spec for
+     |      
+     |      :return:
+     |          A child class of asn1crypto.core.Asn1Value that the field must be
+     |          encoded using
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data descriptors inherited from asn1crypto.core.Sequence:
+     |  
+     |  contents
+     |      :return:
+     |          A byte string of the DER-encoded contents of the sequence
+     |  
+     |  native
+     |      The a native Python datatype representation of this value
+     |      
+     |      :return:
+     |          An OrderedDict or None. If an OrderedDict, all child values are
+     |          recursively converted to native representation also.
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data and other attributes inherited from asn1crypto.core.Sequence:
+     |  
+     |  _contents = None
+     |  
+     |  _field_ids = None
+     |  
+     |  _field_map = None
+     |  
+     |  _mutated = False
+     |  
+     |  _oid_nums = None
+     |  
+     |  _oid_pair = None
+     |  
+     |  _oid_specs = None
+     |  
+     |  _precomputed_specs = None
+     |  
+     |  _spec_callbacks = None
+     |  
+     |  children = None
+     |  
+     |  class_ = 0
+     |  
+     |  method = 1
+     |  
+     |  tag = 16
+     |  
+     |  ----------------------------------------------------------------------
+     |  Methods inherited from asn1crypto.core.Asn1Value:
+     |  
+     |  __bytes__(self)
+     |      A fall-back method for print() in Python 2
+     |      
+     |      :return:
+     |          A byte string of the output of repr()
+     |  
+     |  __copy__(self)
+     |      Implements the copy.copy() interface
+     |      
+     |      :return:
+     |          A new shallow copy of the current Asn1Value object
+     |  
+     |  __deepcopy__(self, memo)
+     |      Implements the copy.deepcopy() interface
+     |      
+     |      :param memo:
+     |          A dict for memoization
+     |      
+     |      :return:
+     |          A new deep copy of the current Asn1Value object
+     |  
+     |  __repr__(self)
+     |      :return:
+     |          A unicode string
+     |  
+     |  __str__(self)
+     |      Since str is different in Python 2 and 3, this calls the appropriate
+     |      method, __unicode__() or __bytes__()
+     |      
+     |      :return:
+     |          A unicode string
+     |  
+     |  __unicode__(self)
+     |      A fall-back method for print() in Python 3
+     |      
+     |      :return:
+     |          A unicode string of the output of repr()
+     |  
+     |  _new_instance(self)
+     |      Constructs a new copy of the current object, preserving any tagging
+     |      
+     |      :return:
+     |          An Asn1Value object
+     |  
+     |  copy(self)
+     |      Copies the object, preserving any special tagging from it
+     |      
+     |      :return:
+     |          An Asn1Value object
+     |  
+     |  retag(self, tagging, tag=None)
+     |      Copies the object, applying a new tagging to it
+     |      
+     |      :param tagging:
+     |          A dict containing the keys "explicit" and "implicit". Legacy
+     |          API allows a unicode string of "implicit" or "explicit".
+     |      
+     |      :param tag:
+     |          A integer tag number. Only used when tagging is a unicode string.
+     |      
+     |      :return:
+     |          An Asn1Value object
+     |  
+     |  untag(self)
+     |      Copies the object, removing any special tagging from it
+     |      
+     |      :return:
+     |          An Asn1Value object
+     |  
+     |  ----------------------------------------------------------------------
+     |  Class methods inherited from asn1crypto.core.Asn1Value:
+     |  
+     |  load(encoded_data, strict=False, **kwargs) from builtins.type
+     |      Loads a BER/DER-encoded byte string using the current class as the spec
+     |      
+     |      :param encoded_data:
+     |          A byte string of BER or DER-encoded data
+     |      
+     |      :param strict:
+     |          A boolean indicating if trailing data should be forbidden - if so, a
+     |          ValueError will be raised when trailing data exists
+     |      
+     |      :return:
+     |          An instance of the current class
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data descriptors inherited from asn1crypto.core.Asn1Value:
+     |  
+     |  __dict__
+     |      dictionary for instance variables (if defined)
+     |  
+     |  __weakref__
+     |      list of weak references to the object (if defined)
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data and other attributes inherited from asn1crypto.core.Asn1Value:
+     |  
+     |  _bad_tag = None
+     |  
+     |  _header = None
+     |  
+     |  _native = None
+     |  
+     |  _trailer = b''
+     |  
+     |  explicit = None
+     |  
+     |  implicit = False
+    
+    class RevocationInfoArchival(asn1crypto.core.Sequence)
+     |  Represents a sequence of fields from ASN.1 as a Python object with a
+     |  dict-like interface
+     |  
+     |  Method resolution order:
+     |      RevocationInfoArchival
+     |      asn1crypto.core.Sequence
+     |      asn1crypto.core.Asn1Value
+     |      builtins.object
+     |  
+     |  Data and other attributes defined here:
+     |  
+     |  _fields = [('crl', <class 'asn1crypto.pdf.SequenceOfCertificateList'>,...
+     |  
+     |  ----------------------------------------------------------------------
+     |  Methods inherited from asn1crypto.core.Sequence:
+     |  
+     |  __delitem__(self, key)
+     |      Allows deleting optional or default fields by name or index
+     |      
+     |      :param key:
+     |          A unicode string of the field name, or an integer of the field index
+     |      
+     |      :raises:
+     |          ValueError - when a field name or index is invalid, or the field is not optional or defaulted
+     |  
+     |  __getitem__(self, key)
+     |      Allows accessing fields by name or index
+     |      
+     |      :param key:
+     |          A unicode string of the field name, or an integer of the field index
+     |      
+     |      :raises:
+     |          KeyError - when a field name or index is invalid
+     |      
+     |      :return:
+     |          The Asn1Value object of the field specified
+     |  
+     |  __init__(self, value=None, default=None, **kwargs)
+     |      Allows setting field values before passing everything else along to
+     |      Asn1Value.__init__()
+     |      
+     |      :param value:
+     |          A native Python datatype to initialize the object value with
+     |      
+     |      :param default:
+     |          The default value if no value is specified
+     |  
+     |  __iter__(self)
+     |      :return:
+     |          An iterator of field key names
+     |  
+     |  __len__(self)
+     |      :return:
+     |          Integer
+     |  
+     |  __setitem__(self, key, value)
+     |      Allows settings fields by name or index
+     |      
+     |      :param key:
+     |          A unicode string of the field name, or an integer of the field index
+     |      
+     |      :param value:
+     |          A native Python datatype to set the field value to. This method will
+     |          construct the appropriate Asn1Value object from _fields.
+     |      
+     |      :raises:
+     |          ValueError - when a field name or index is invalid
+     |  
+     |  _copy(self, other, copy_func)
+     |      Copies the contents of another Sequence object to itself
+     |      
+     |      :param object:
+     |          Another instance of the same class
+     |      
+     |      :param copy_func:
+     |          An reference of copy.copy() or copy.deepcopy() to use when copying
+     |          lists, dicts and objects
+     |  
+     |  _determine_spec(self, index)
+     |      Determine how a value for a field should be constructed
+     |      
+     |      :param index:
+     |          The field number
+     |      
+     |      :return:
+     |          A tuple containing the following elements:
+     |           - unicode string of the field name
+     |           - Asn1Value class of the field spec
+     |           - Asn1Value class of the value spec
+     |           - None or dict of params to pass to the field spec
+     |           - None or Asn1Value class indicating the value spec was derived from an OID or a spec callback
+     |  
+     |  _is_mutated(self)
+     |      :return:
+     |          A boolean - if the sequence or any children (recursively) have been
+     |          mutated
+     |  
+     |  _lazy_child(self, index)
+     |      Builds a child object if the child has only been parsed into a tuple so far
+     |  
+     |  _make_value(self, field_name, field_spec, value_spec, field_params, value)
+     |      Contructs an appropriate Asn1Value object for a field
+     |      
+     |      :param field_name:
+     |          A unicode string of the field name
+     |      
+     |      :param field_spec:
+     |          An Asn1Value class that is the field spec
+     |      
+     |      :param value_spec:
+     |          An Asn1Value class that is the vaue spec
+     |      
+     |      :param field_params:
+     |          None or a dict of params for the field spec
+     |      
+     |      :param value:
+     |          The value to construct an Asn1Value object from
+     |      
+     |      :return:
+     |          An instance of a child class of Asn1Value
+     |  
+     |  _parse_children(self, recurse=False)
+     |      Parses the contents and generates Asn1Value objects based on the
+     |      definitions from _fields.
+     |      
+     |      :param recurse:
+     |          If child objects that are Sequence or SequenceOf objects should
+     |          be recursively parsed
+     |      
+     |      :raises:
+     |          ValueError - when an error occurs parsing child objects
+     |  
+     |  _set_contents(self, force=False)
+     |      Updates the .contents attribute of the value with the encoded value of
+     |      all of the child objects
+     |      
+     |      :param force:
+     |          Ensure all contents are in DER format instead of possibly using
+     |          cached BER-encoded data
+     |  
+     |  _setup(self)
+     |      Generates _field_map, _field_ids and _oid_nums for use in parsing
+     |  
+     |  debug(self, nest_level=1)
+     |      Show the binary data and parsed data in a tree structure
+     |  
+     |  dump(self, force=False)
+     |      Encodes the value using DER
+     |      
+     |      :param force:
+     |          If the encoded contents already exist, clear them and regenerate
+     |          to ensure they are in DER format instead of BER format
+     |      
+     |      :return:
+     |          A byte string of the DER-encoded value
+     |  
+     |  spec(self, field_name)
+     |      Determines the spec to use for the field specified. Depending on how
+     |      the spec is determined (_oid_pair or _spec_callbacks), it may be
+     |      necessary to set preceding field values before calling this. Usually
+     |      specs, if dynamic, are controlled by a preceding ObjectIdentifier
+     |      field.
+     |      
+     |      :param field_name:
+     |          A unicode string of the field name to get the spec for
+     |      
+     |      :return:
+     |          A child class of asn1crypto.core.Asn1Value that the field must be
+     |          encoded using
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data descriptors inherited from asn1crypto.core.Sequence:
+     |  
+     |  contents
+     |      :return:
+     |          A byte string of the DER-encoded contents of the sequence
+     |  
+     |  native
+     |      The a native Python datatype representation of this value
+     |      
+     |      :return:
+     |          An OrderedDict or None. If an OrderedDict, all child values are
+     |          recursively converted to native representation also.
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data and other attributes inherited from asn1crypto.core.Sequence:
+     |  
+     |  _contents = None
+     |  
+     |  _field_ids = None
+     |  
+     |  _field_map = None
+     |  
+     |  _mutated = False
+     |  
+     |  _oid_nums = None
+     |  
+     |  _oid_pair = None
+     |  
+     |  _oid_specs = None
+     |  
+     |  _precomputed_specs = None
+     |  
+     |  _spec_callbacks = None
+     |  
+     |  children = None
+     |  
+     |  class_ = 0
+     |  
+     |  method = 1
+     |  
+     |  tag = 16
+     |  
+     |  ----------------------------------------------------------------------
+     |  Methods inherited from asn1crypto.core.Asn1Value:
+     |  
+     |  __bytes__(self)
+     |      A fall-back method for print() in Python 2
+     |      
+     |      :return:
+     |          A byte string of the output of repr()
+     |  
+     |  __copy__(self)
+     |      Implements the copy.copy() interface
+     |      
+     |      :return:
+     |          A new shallow copy of the current Asn1Value object
+     |  
+     |  __deepcopy__(self, memo)
+     |      Implements the copy.deepcopy() interface
+     |      
+     |      :param memo:
+     |          A dict for memoization
+     |      
+     |      :return:
+     |          A new deep copy of the current Asn1Value object
+     |  
+     |  __repr__(self)
+     |      :return:
+     |          A unicode string
+     |  
+     |  __str__(self)
+     |      Since str is different in Python 2 and 3, this calls the appropriate
+     |      method, __unicode__() or __bytes__()
+     |      
+     |      :return:
+     |          A unicode string
+     |  
+     |  __unicode__(self)
+     |      A fall-back method for print() in Python 3
+     |      
+     |      :return:
+     |          A unicode string of the output of repr()
+     |  
+     |  _new_instance(self)
+     |      Constructs a new copy of the current object, preserving any tagging
+     |      
+     |      :return:
+     |          An Asn1Value object
+     |  
+     |  copy(self)
+     |      Copies the object, preserving any special tagging from it
+     |      
+     |      :return:
+     |          An Asn1Value object
+     |  
+     |  retag(self, tagging, tag=None)
+     |      Copies the object, applying a new tagging to it
+     |      
+     |      :param tagging:
+     |          A dict containing the keys "explicit" and "implicit". Legacy
+     |          API allows a unicode string of "implicit" or "explicit".
+     |      
+     |      :param tag:
+     |          A integer tag number. Only used when tagging is a unicode string.
+     |      
+     |      :return:
+     |          An Asn1Value object
+     |  
+     |  untag(self)
+     |      Copies the object, removing any special tagging from it
+     |      
+     |      :return:
+     |          An Asn1Value object
+     |  
+     |  ----------------------------------------------------------------------
+     |  Class methods inherited from asn1crypto.core.Asn1Value:
+     |  
+     |  load(encoded_data, strict=False, **kwargs) from builtins.type
+     |      Loads a BER/DER-encoded byte string using the current class as the spec
+     |      
+     |      :param encoded_data:
+     |          A byte string of BER or DER-encoded data
+     |      
+     |      :param strict:
+     |          A boolean indicating if trailing data should be forbidden - if so, a
+     |          ValueError will be raised when trailing data exists
+     |      
+     |      :return:
+     |          An instance of the current class
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data descriptors inherited from asn1crypto.core.Asn1Value:
+     |  
+     |  __dict__
+     |      dictionary for instance variables (if defined)
+     |  
+     |  __weakref__
+     |      list of weak references to the object (if defined)
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data and other attributes inherited from asn1crypto.core.Asn1Value:
+     |  
+     |  _bad_tag = None
+     |  
+     |  _header = None
+     |  
+     |  _native = None
+     |  
+     |  _trailer = b''
+     |  
+     |  explicit = None
+     |  
+     |  implicit = False
+    
+    class SequenceOfCertificateList(asn1crypto.core.SequenceOf)
+     |  Represents a sequence (ordered) of a single type of values from ASN.1 as a
+     |  Python object with a list-like interface
+     |  
+     |  Method resolution order:
+     |      SequenceOfCertificateList
+     |      asn1crypto.core.SequenceOf
+     |      asn1crypto.core.Asn1Value
+     |      builtins.object
+     |  
+     |  Methods inherited from asn1crypto.core.SequenceOf:
+     |  
+     |  __contains__(self, item)
+     |      :param item:
+     |          An object of the type cls._child_spec
+     |      
+     |      :return:
+     |          A boolean if the item is contained in this SequenceOf
+     |  
+     |  __delitem__(self, key)
+     |      Allows removing a child via index
+     |      
+     |      :param key:
+     |          Integer index of child
+     |  
+     |  __getitem__(self, key)
+     |      Allows accessing children via index
+     |      
+     |      :param key:
+     |          Integer index of child
+     |  
+     |  __init__(self, value=None, default=None, contents=None, spec=None, **kwargs)
+     |      Allows setting child objects and the _child_spec via the spec parameter
+     |      before passing everything else along to Asn1Value.__init__()
+     |      
+     |      :param value:
+     |          A native Python datatype to initialize the object value with
+     |      
+     |      :param default:
+     |          The default value if no value is specified
+     |      
+     |      :param contents:
+     |          A byte string of the encoded contents of the value
+     |      
+     |      :param spec:
+     |          A class derived from Asn1Value to use to parse children
+     |  
+     |  __iter__(self)
+     |      :return:
+     |          An iter() of child objects
+     |  
+     |  __len__(self)
+     |      :return:
+     |          An integer
+     |  
+     |  __setitem__(self, key, value)
+     |      Allows overriding a child via index
+     |      
+     |      :param key:
+     |          Integer index of child
+     |      
+     |      :param value:
+     |          Native python datatype that will be passed to _child_spec to create
+     |          new child object
+     |  
+     |  append(self, value)
+     |      Allows adding a child to the end of the sequence
+     |      
+     |      :param value:
+     |          Native python datatype that will be passed to _child_spec to create
+     |          new child object
+     |  
+     |  debug(self, nest_level=1)
+     |      Show the binary data and parsed data in a tree structure
+     |  
+     |  dump(self, force=False)
+     |      Encodes the value using DER
+     |      
+     |      :param force:
+     |          If the encoded contents already exist, clear them and regenerate
+     |          to ensure they are in DER format instead of BER format
+     |      
+     |      :return:
+     |          A byte string of the DER-encoded value
+     |  
+     |  spec(self)
+     |      Determines the spec to use for child values.
+     |      
+     |      :return:
+     |          A child class of asn1crypto.core.Asn1Value that child values must be
+     |          encoded using
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data descriptors inherited from asn1crypto.core.SequenceOf:
+     |  
+     |  contents
+     |      :return:
+     |          A byte string of the DER-encoded contents of the sequence
+     |  
+     |  native
+     |      The a native Python datatype representation of this value
+     |      
+     |      :return:
+     |          A list or None. If a list, all child values are recursively
+     |          converted to native representation also.
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data and other attributes inherited from asn1crypto.core.SequenceOf:
+     |  
+     |  children = None
+     |  
+     |  class_ = 0
+     |  
+     |  method = 1
+     |  
+     |  tag = 16
+     |  
+     |  ----------------------------------------------------------------------
+     |  Methods inherited from asn1crypto.core.Asn1Value:
+     |  
+     |  __bytes__(self)
+     |      A fall-back method for print() in Python 2
+     |      
+     |      :return:
+     |          A byte string of the output of repr()
+     |  
+     |  __copy__(self)
+     |      Implements the copy.copy() interface
+     |      
+     |      :return:
+     |          A new shallow copy of the current Asn1Value object
+     |  
+     |  __deepcopy__(self, memo)
+     |      Implements the copy.deepcopy() interface
+     |      
+     |      :param memo:
+     |          A dict for memoization
+     |      
+     |      :return:
+     |          A new deep copy of the current Asn1Value object
+     |  
+     |  __repr__(self)
+     |      :return:
+     |          A unicode string
+     |  
+     |  __str__(self)
+     |      Since str is different in Python 2 and 3, this calls the appropriate
+     |      method, __unicode__() or __bytes__()
+     |      
+     |      :return:
+     |          A unicode string
+     |  
+     |  __unicode__(self)
+     |      A fall-back method for print() in Python 3
+     |      
+     |      :return:
+     |          A unicode string of the output of repr()
+     |  
+     |  copy(self)
+     |      Copies the object, preserving any special tagging from it
+     |      
+     |      :return:
+     |          An Asn1Value object
+     |  
+     |  retag(self, tagging, tag=None)
+     |      Copies the object, applying a new tagging to it
+     |      
+     |      :param tagging:
+     |          A dict containing the keys "explicit" and "implicit". Legacy
+     |          API allows a unicode string of "implicit" or "explicit".
+     |      
+     |      :param tag:
+     |          A integer tag number. Only used when tagging is a unicode string.
+     |      
+     |      :return:
+     |          An Asn1Value object
+     |  
+     |  untag(self)
+     |      Copies the object, removing any special tagging from it
+     |      
+     |      :return:
+     |          An Asn1Value object
+     |  
+     |  ----------------------------------------------------------------------
+     |  Class methods inherited from asn1crypto.core.Asn1Value:
+     |  
+     |  load(encoded_data, strict=False, **kwargs) from builtins.type
+     |      Loads a BER/DER-encoded byte string using the current class as the spec
+     |      
+     |      :param encoded_data:
+     |          A byte string of BER or DER-encoded data
+     |      
+     |      :param strict:
+     |          A boolean indicating if trailing data should be forbidden - if so, a
+     |          ValueError will be raised when trailing data exists
+     |      
+     |      :return:
+     |          An instance of the current class
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data descriptors inherited from asn1crypto.core.Asn1Value:
+     |  
+     |  __dict__
+     |      dictionary for instance variables (if defined)
+     |  
+     |  __weakref__
+     |      list of weak references to the object (if defined)
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data and other attributes inherited from asn1crypto.core.Asn1Value:
+     |  
+     |  explicit = None
+     |  
+     |  implicit = False
+    
+    class SequenceOfOCSPResponse(asn1crypto.core.SequenceOf)
+     |  Represents a sequence (ordered) of a single type of values from ASN.1 as a
+     |  Python object with a list-like interface
+     |  
+     |  Method resolution order:
+     |      SequenceOfOCSPResponse
+     |      asn1crypto.core.SequenceOf
+     |      asn1crypto.core.Asn1Value
+     |      builtins.object
+     |  
+     |  Methods inherited from asn1crypto.core.SequenceOf:
+     |  
+     |  __contains__(self, item)
+     |      :param item:
+     |          An object of the type cls._child_spec
+     |      
+     |      :return:
+     |          A boolean if the item is contained in this SequenceOf
+     |  
+     |  __delitem__(self, key)
+     |      Allows removing a child via index
+     |      
+     |      :param key:
+     |          Integer index of child
+     |  
+     |  __getitem__(self, key)
+     |      Allows accessing children via index
+     |      
+     |      :param key:
+     |          Integer index of child
+     |  
+     |  __init__(self, value=None, default=None, contents=None, spec=None, **kwargs)
+     |      Allows setting child objects and the _child_spec via the spec parameter
+     |      before passing everything else along to Asn1Value.__init__()
+     |      
+     |      :param value:
+     |          A native Python datatype to initialize the object value with
+     |      
+     |      :param default:
+     |          The default value if no value is specified
+     |      
+     |      :param contents:
+     |          A byte string of the encoded contents of the value
+     |      
+     |      :param spec:
+     |          A class derived from Asn1Value to use to parse children
+     |  
+     |  __iter__(self)
+     |      :return:
+     |          An iter() of child objects
+     |  
+     |  __len__(self)
+     |      :return:
+     |          An integer
+     |  
+     |  __setitem__(self, key, value)
+     |      Allows overriding a child via index
+     |      
+     |      :param key:
+     |          Integer index of child
+     |      
+     |      :param value:
+     |          Native python datatype that will be passed to _child_spec to create
+     |          new child object
+     |  
+     |  append(self, value)
+     |      Allows adding a child to the end of the sequence
+     |      
+     |      :param value:
+     |          Native python datatype that will be passed to _child_spec to create
+     |          new child object
+     |  
+     |  debug(self, nest_level=1)
+     |      Show the binary data and parsed data in a tree structure
+     |  
+     |  dump(self, force=False)
+     |      Encodes the value using DER
+     |      
+     |      :param force:
+     |          If the encoded contents already exist, clear them and regenerate
+     |          to ensure they are in DER format instead of BER format
+     |      
+     |      :return:
+     |          A byte string of the DER-encoded value
+     |  
+     |  spec(self)
+     |      Determines the spec to use for child values.
+     |      
+     |      :return:
+     |          A child class of asn1crypto.core.Asn1Value that child values must be
+     |          encoded using
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data descriptors inherited from asn1crypto.core.SequenceOf:
+     |  
+     |  contents
+     |      :return:
+     |          A byte string of the DER-encoded contents of the sequence
+     |  
+     |  native
+     |      The a native Python datatype representation of this value
+     |      
+     |      :return:
+     |          A list or None. If a list, all child values are recursively
+     |          converted to native representation also.
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data and other attributes inherited from asn1crypto.core.SequenceOf:
+     |  
+     |  children = None
+     |  
+     |  class_ = 0
+     |  
+     |  method = 1
+     |  
+     |  tag = 16
+     |  
+     |  ----------------------------------------------------------------------
+     |  Methods inherited from asn1crypto.core.Asn1Value:
+     |  
+     |  __bytes__(self)
+     |      A fall-back method for print() in Python 2
+     |      
+     |      :return:
+     |          A byte string of the output of repr()
+     |  
+     |  __copy__(self)
+     |      Implements the copy.copy() interface
+     |      
+     |      :return:
+     |          A new shallow copy of the current Asn1Value object
+     |  
+     |  __deepcopy__(self, memo)
+     |      Implements the copy.deepcopy() interface
+     |      
+     |      :param memo:
+     |          A dict for memoization
+     |      
+     |      :return:
+     |          A new deep copy of the current Asn1Value object
+     |  
+     |  __repr__(self)
+     |      :return:
+     |          A unicode string
+     |  
+     |  __str__(self)
+     |      Since str is different in Python 2 and 3, this calls the appropriate
+     |      method, __unicode__() or __bytes__()
+     |      
+     |      :return:
+     |          A unicode string
+     |  
+     |  __unicode__(self)
+     |      A fall-back method for print() in Python 3
+     |      
+     |      :return:
+     |          A unicode string of the output of repr()
+     |  
+     |  copy(self)
+     |      Copies the object, preserving any special tagging from it
+     |      
+     |      :return:
+     |          An Asn1Value object
+     |  
+     |  retag(self, tagging, tag=None)
+     |      Copies the object, applying a new tagging to it
+     |      
+     |      :param tagging:
+     |          A dict containing the keys "explicit" and "implicit". Legacy
+     |          API allows a unicode string of "implicit" or "explicit".
+     |      
+     |      :param tag:
+     |          A integer tag number. Only used when tagging is a unicode string.
+     |      
+     |      :return:
+     |          An Asn1Value object
+     |  
+     |  untag(self)
+     |      Copies the object, removing any special tagging from it
+     |      
+     |      :return:
+     |          An Asn1Value object
+     |  
+     |  ----------------------------------------------------------------------
+     |  Class methods inherited from asn1crypto.core.Asn1Value:
+     |  
+     |  load(encoded_data, strict=False, **kwargs) from builtins.type
+     |      Loads a BER/DER-encoded byte string using the current class as the spec
+     |      
+     |      :param encoded_data:
+     |          A byte string of BER or DER-encoded data
+     |      
+     |      :param strict:
+     |          A boolean indicating if trailing data should be forbidden - if so, a
+     |          ValueError will be raised when trailing data exists
+     |      
+     |      :return:
+     |          An instance of the current class
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data descriptors inherited from asn1crypto.core.Asn1Value:
+     |  
+     |  __dict__
+     |      dictionary for instance variables (if defined)
+     |  
+     |  __weakref__
+     |      list of weak references to the object (if defined)
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data and other attributes inherited from asn1crypto.core.Asn1Value:
+     |  
+     |  explicit = None
+     |  
+     |  implicit = False
+    
+    class SequenceOfOtherRevInfo(asn1crypto.core.SequenceOf)
+     |  Represents a sequence (ordered) of a single type of values from ASN.1 as a
+     |  Python object with a list-like interface
+     |  
+     |  Method resolution order:
+     |      SequenceOfOtherRevInfo
+     |      asn1crypto.core.SequenceOf
+     |      asn1crypto.core.Asn1Value
+     |      builtins.object
+     |  
+     |  Methods inherited from asn1crypto.core.SequenceOf:
+     |  
+     |  __contains__(self, item)
+     |      :param item:
+     |          An object of the type cls._child_spec
+     |      
+     |      :return:
+     |          A boolean if the item is contained in this SequenceOf
+     |  
+     |  __delitem__(self, key)
+     |      Allows removing a child via index
+     |      
+     |      :param key:
+     |          Integer index of child
+     |  
+     |  __getitem__(self, key)
+     |      Allows accessing children via index
+     |      
+     |      :param key:
+     |          Integer index of child
+     |  
+     |  __init__(self, value=None, default=None, contents=None, spec=None, **kwargs)
+     |      Allows setting child objects and the _child_spec via the spec parameter
+     |      before passing everything else along to Asn1Value.__init__()
+     |      
+     |      :param value:
+     |          A native Python datatype to initialize the object value with
+     |      
+     |      :param default:
+     |          The default value if no value is specified
+     |      
+     |      :param contents:
+     |          A byte string of the encoded contents of the value
+     |      
+     |      :param spec:
+     |          A class derived from Asn1Value to use to parse children
+     |  
+     |  __iter__(self)
+     |      :return:
+     |          An iter() of child objects
+     |  
+     |  __len__(self)
+     |      :return:
+     |          An integer
+     |  
+     |  __setitem__(self, key, value)
+     |      Allows overriding a child via index
+     |      
+     |      :param key:
+     |          Integer index of child
+     |      
+     |      :param value:
+     |          Native python datatype that will be passed to _child_spec to create
+     |          new child object
+     |  
+     |  append(self, value)
+     |      Allows adding a child to the end of the sequence
+     |      
+     |      :param value:
+     |          Native python datatype that will be passed to _child_spec to create
+     |          new child object
+     |  
+     |  debug(self, nest_level=1)
+     |      Show the binary data and parsed data in a tree structure
+     |  
+     |  dump(self, force=False)
+     |      Encodes the value using DER
+     |      
+     |      :param force:
+     |          If the encoded contents already exist, clear them and regenerate
+     |          to ensure they are in DER format instead of BER format
+     |      
+     |      :return:
+     |          A byte string of the DER-encoded value
+     |  
+     |  spec(self)
+     |      Determines the spec to use for child values.
+     |      
+     |      :return:
+     |          A child class of asn1crypto.core.Asn1Value that child values must be
+     |          encoded using
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data descriptors inherited from asn1crypto.core.SequenceOf:
+     |  
+     |  contents
+     |      :return:
+     |          A byte string of the DER-encoded contents of the sequence
+     |  
+     |  native
+     |      The a native Python datatype representation of this value
+     |      
+     |      :return:
+     |          A list or None. If a list, all child values are recursively
+     |          converted to native representation also.
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data and other attributes inherited from asn1crypto.core.SequenceOf:
+     |  
+     |  children = None
+     |  
+     |  class_ = 0
+     |  
+     |  method = 1
+     |  
+     |  tag = 16
+     |  
+     |  ----------------------------------------------------------------------
+     |  Methods inherited from asn1crypto.core.Asn1Value:
+     |  
+     |  __bytes__(self)
+     |      A fall-back method for print() in Python 2
+     |      
+     |      :return:
+     |          A byte string of the output of repr()
+     |  
+     |  __copy__(self)
+     |      Implements the copy.copy() interface
+     |      
+     |      :return:
+     |          A new shallow copy of the current Asn1Value object
+     |  
+     |  __deepcopy__(self, memo)
+     |      Implements the copy.deepcopy() interface
+     |      
+     |      :param memo:
+     |          A dict for memoization
+     |      
+     |      :return:
+     |          A new deep copy of the current Asn1Value object
+     |  
+     |  __repr__(self)
+     |      :return:
+     |          A unicode string
+     |  
+     |  __str__(self)
+     |      Since str is different in Python 2 and 3, this calls the appropriate
+     |      method, __unicode__() or __bytes__()
+     |      
+     |      :return:
+     |          A unicode string
+     |  
+     |  __unicode__(self)
+     |      A fall-back method for print() in Python 3
+     |      
+     |      :return:
+     |          A unicode string of the output of repr()
+     |  
+     |  copy(self)
+     |      Copies the object, preserving any special tagging from it
+     |      
+     |      :return:
+     |          An Asn1Value object
+     |  
+     |  retag(self, tagging, tag=None)
+     |      Copies the object, applying a new tagging to it
+     |      
+     |      :param tagging:
+     |          A dict containing the keys "explicit" and "implicit". Legacy
+     |          API allows a unicode string of "implicit" or "explicit".
+     |      
+     |      :param tag:
+     |          A integer tag number. Only used when tagging is a unicode string.
+     |      
+     |      :return:
+     |          An Asn1Value object
+     |  
+     |  untag(self)
+     |      Copies the object, removing any special tagging from it
+     |      
+     |      :return:
+     |          An Asn1Value object
+     |  
+     |  ----------------------------------------------------------------------
+     |  Class methods inherited from asn1crypto.core.Asn1Value:
+     |  
+     |  load(encoded_data, strict=False, **kwargs) from builtins.type
+     |      Loads a BER/DER-encoded byte string using the current class as the spec
+     |      
+     |      :param encoded_data:
+     |          A byte string of BER or DER-encoded data
+     |      
+     |      :param strict:
+     |          A boolean indicating if trailing data should be forbidden - if so, a
+     |          ValueError will be raised when trailing data exists
+     |      
+     |      :return:
+     |          An instance of the current class
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data descriptors inherited from asn1crypto.core.Asn1Value:
+     |  
+     |  __dict__
+     |      dictionary for instance variables (if defined)
+     |  
+     |  __weakref__
+     |      list of weak references to the object (if defined)
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data and other attributes inherited from asn1crypto.core.Asn1Value:
+     |  
+     |  explicit = None
+     |  
+     |  implicit = False
+    
+    class SetOfRevocationInfoArchival(asn1crypto.core.SetOf)
+     |  Represents a set (unordered) of a single type of values from ASN.1 as a
+     |  Python object with a list-like interface
+     |  
+     |  Method resolution order:
+     |      SetOfRevocationInfoArchival
+     |      asn1crypto.core.SetOf
+     |      asn1crypto.core.SequenceOf
+     |      asn1crypto.core.Asn1Value
+     |      builtins.object
+     |  
+     |  Data and other attributes inherited from asn1crypto.core.SetOf:
+     |  
+     |  tag = 17
+     |  
+     |  ----------------------------------------------------------------------
+     |  Methods inherited from asn1crypto.core.SequenceOf:
+     |  
+     |  __contains__(self, item)
+     |      :param item:
+     |          An object of the type cls._child_spec
+     |      
+     |      :return:
+     |          A boolean if the item is contained in this SequenceOf
+     |  
+     |  __delitem__(self, key)
+     |      Allows removing a child via index
+     |      
+     |      :param key:
+     |          Integer index of child
+     |  
+     |  __getitem__(self, key)
+     |      Allows accessing children via index
+     |      
+     |      :param key:
+     |          Integer index of child
+     |  
+     |  __init__(self, value=None, default=None, contents=None, spec=None, **kwargs)
+     |      Allows setting child objects and the _child_spec via the spec parameter
+     |      before passing everything else along to Asn1Value.__init__()
+     |      
+     |      :param value:
+     |          A native Python datatype to initialize the object value with
+     |      
+     |      :param default:
+     |          The default value if no value is specified
+     |      
+     |      :param contents:
+     |          A byte string of the encoded contents of the value
+     |      
+     |      :param spec:
+     |          A class derived from Asn1Value to use to parse children
+     |  
+     |  __iter__(self)
+     |      :return:
+     |          An iter() of child objects
+     |  
+     |  __len__(self)
+     |      :return:
+     |          An integer
+     |  
+     |  __setitem__(self, key, value)
+     |      Allows overriding a child via index
+     |      
+     |      :param key:
+     |          Integer index of child
+     |      
+     |      :param value:
+     |          Native python datatype that will be passed to _child_spec to create
+     |          new child object
+     |  
+     |  append(self, value)
+     |      Allows adding a child to the end of the sequence
+     |      
+     |      :param value:
+     |          Native python datatype that will be passed to _child_spec to create
+     |          new child object
+     |  
+     |  debug(self, nest_level=1)
+     |      Show the binary data and parsed data in a tree structure
+     |  
+     |  dump(self, force=False)
+     |      Encodes the value using DER
+     |      
+     |      :param force:
+     |          If the encoded contents already exist, clear them and regenerate
+     |          to ensure they are in DER format instead of BER format
+     |      
+     |      :return:
+     |          A byte string of the DER-encoded value
+     |  
+     |  spec(self)
+     |      Determines the spec to use for child values.
+     |      
+     |      :return:
+     |          A child class of asn1crypto.core.Asn1Value that child values must be
+     |          encoded using
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data descriptors inherited from asn1crypto.core.SequenceOf:
+     |  
+     |  contents
+     |      :return:
+     |          A byte string of the DER-encoded contents of the sequence
+     |  
+     |  native
+     |      The a native Python datatype representation of this value
+     |      
+     |      :return:
+     |          A list or None. If a list, all child values are recursively
+     |          converted to native representation also.
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data and other attributes inherited from asn1crypto.core.SequenceOf:
+     |  
+     |  children = None
+     |  
+     |  class_ = 0
+     |  
+     |  method = 1
+     |  
+     |  ----------------------------------------------------------------------
+     |  Methods inherited from asn1crypto.core.Asn1Value:
+     |  
+     |  __bytes__(self)
+     |      A fall-back method for print() in Python 2
+     |      
+     |      :return:
+     |          A byte string of the output of repr()
+     |  
+     |  __copy__(self)
+     |      Implements the copy.copy() interface
+     |      
+     |      :return:
+     |          A new shallow copy of the current Asn1Value object
+     |  
+     |  __deepcopy__(self, memo)
+     |      Implements the copy.deepcopy() interface
+     |      
+     |      :param memo:
+     |          A dict for memoization
+     |      
+     |      :return:
+     |          A new deep copy of the current Asn1Value object
+     |  
+     |  __repr__(self)
+     |      :return:
+     |          A unicode string
+     |  
+     |  __str__(self)
+     |      Since str is different in Python 2 and 3, this calls the appropriate
+     |      method, __unicode__() or __bytes__()
+     |      
+     |      :return:
+     |          A unicode string
+     |  
+     |  __unicode__(self)
+     |      A fall-back method for print() in Python 3
+     |      
+     |      :return:
+     |          A unicode string of the output of repr()
+     |  
+     |  copy(self)
+     |      Copies the object, preserving any special tagging from it
+     |      
+     |      :return:
+     |          An Asn1Value object
+     |  
+     |  retag(self, tagging, tag=None)
+     |      Copies the object, applying a new tagging to it
+     |      
+     |      :param tagging:
+     |          A dict containing the keys "explicit" and "implicit". Legacy
+     |          API allows a unicode string of "implicit" or "explicit".
+     |      
+     |      :param tag:
+     |          A integer tag number. Only used when tagging is a unicode string.
+     |      
+     |      :return:
+     |          An Asn1Value object
+     |  
+     |  untag(self)
+     |      Copies the object, removing any special tagging from it
+     |      
+     |      :return:
+     |          An Asn1Value object
+     |  
+     |  ----------------------------------------------------------------------
+     |  Class methods inherited from asn1crypto.core.Asn1Value:
+     |  
+     |  load(encoded_data, strict=False, **kwargs) from builtins.type
+     |      Loads a BER/DER-encoded byte string using the current class as the spec
+     |      
+     |      :param encoded_data:
+     |          A byte string of BER or DER-encoded data
+     |      
+     |      :param strict:
+     |          A boolean indicating if trailing data should be forbidden - if so, a
+     |          ValueError will be raised when trailing data exists
+     |      
+     |      :return:
+     |          An instance of the current class
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data descriptors inherited from asn1crypto.core.Asn1Value:
+     |  
+     |  __dict__
+     |      dictionary for instance variables (if defined)
+     |  
+     |  __weakref__
+     |      list of weak references to the object (if defined)
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data and other attributes inherited from asn1crypto.core.Asn1Value:
+     |  
+     |  explicit = None
+     |  
+     |  implicit = False
+
+DATA
+    absolute_import = _Feature((2, 5, 0, 'alpha', 1), (3, 0, 0, 'alpha', 0...
+    division = _Feature((2, 2, 0, 'alpha', 2), (3, 0, 0, 'alpha', 0), 8192...
+    print_function = _Feature((2, 6, 0, 'alpha', 2), (3, 0, 0, 'alpha', 0)...
+    unicode_literals = _Feature((2, 6, 0, 'alpha', 2), (3, 0, 0, 'alpha', ...
+
+FILE
+    /Users/jack/miniconda2/envs/py37/lib/python3.6/site-packages/asn1crypto/pdf.py
+
+

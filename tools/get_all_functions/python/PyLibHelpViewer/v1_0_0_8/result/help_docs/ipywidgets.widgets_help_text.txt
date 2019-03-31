@@ -1,0 +1,45 @@
+Help on package ipywidgets.widgets in ipywidgets:
+
+NAME
+    ipywidgets.widgets
+
+DESCRIPTION
+    # Copyright (c) Jupyter Development Team.
+    # Distributed under the terms of the Modified BSD License.
+
+PACKAGE CONTENTS
+    docutils
+    domwidget
+    interaction
+    tests (package)
+    trait_types
+    valuewidget
+    widget
+    widget_bool
+    widget_box
+    widget_button
+    widget_color
+    widget_controller
+    widget_core
+    widget_date
+    widget_description
+    widget_float
+    widget_image
+    widget_int
+    widget_layout
+    widget_link
+    widget_output
+    widget_selection
+    widget_selectioncontainer
+    widget_string
+    widget_style
+
+DATA
+    interact = <ipywidgets.widgets.interaction._InteractFactory object>
+    interact_manual = <ipywidgets.widgets.interaction._InteractFactory obj...
+    widget_serialization = {'from_json': <function _json_to_widget>, 'to_j...
+
+FILE
+    /Users/jack/miniconda2/envs/py37/lib/python3.6/site-packages/ipywidgets/widgets/__init__.py
+
+

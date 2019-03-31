@@ -1,0 +1,15 @@
+Help on module py2app.apptemplate.plist_template in py2app.apptemplate:
+
+NAME
+    py2app.apptemplate.plist_template
+
+FUNCTIONS
+    infoPlistDict(CFBundleExecutable, plist={})
+
+DATA
+    __all__ = ['infoPlistDict']
+
+FILE
+    /Users/jack/miniconda2/envs/py37/lib/python3.6/site-packages/py2app/apptemplate/plist_template.py
+
+

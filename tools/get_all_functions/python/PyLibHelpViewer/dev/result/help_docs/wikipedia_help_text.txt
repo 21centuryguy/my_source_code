@@ -1,0 +1,31 @@
+Help on package wikipedia:
+
+NAME
+    wikipedia
+
+PACKAGE CONTENTS
+    exceptions
+    util
+    wikipedia
+
+DATA
+    API_URL = 'http://en.wikipedia.org/w/api.php'
+    ODD_ERROR_MESSAGE = "This shouldn't happen. Please report on GitHub: g...
+    RATE_LIMIT = False
+    RATE_LIMIT_LAST_CALL = None
+    RATE_LIMIT_MIN_WAIT = None
+    USER_AGENT = 'wikipedia (https://github.com/goldsmith/Wikipedia/)'
+    geosearch = <wikipedia.util.cache object>
+    languages = <wikipedia.util.cache object>
+    search = <wikipedia.util.cache object>
+    suggest = <wikipedia.util.cache object>
+    summary = <wikipedia.util.cache object>
+    unicode_literals = _Feature((2, 6, 0, 'alpha', 2), (3, 0, 0, 'alpha', ...
+
+VERSION
+    (1, 4, 0)
+
+FILE
+    /Users/jack/miniconda2/envs/py37/lib/python3.6/site-packages/wikipedia/__init__.py
+
+

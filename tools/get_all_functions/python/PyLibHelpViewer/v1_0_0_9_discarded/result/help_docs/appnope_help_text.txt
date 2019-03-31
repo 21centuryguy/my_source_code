@@ -1,0 +1,26 @@
+Help on package appnope:
+
+NAME
+    appnope
+
+PACKAGE CONTENTS
+    _dummy
+    _nope
+
+DATA
+    NSActivityAutomaticTerminationDisabled = 32768
+    NSActivityBackground = 255
+    NSActivityIdleDisplaySleepDisabled = 1099511627776
+    NSActivityIdleSystemSleepDisabled = 1048576
+    NSActivityLatencyCritical = 1095216660480
+    NSActivitySuddenTerminationDisabled = 16384
+    NSActivityUserInitiated = 16777215
+    NSActivityUserInitiatedAllowingIdleSystemSleep = 15728639
+
+VERSION
+    0.1.0
+
+FILE
+    /Users/jack/miniconda2/envs/py37/lib/python3.6/site-packages/appnope/__init__.py
+
+

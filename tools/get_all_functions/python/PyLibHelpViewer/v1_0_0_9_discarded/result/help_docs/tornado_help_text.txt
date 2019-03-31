@@ -1,0 +1,52 @@
+Help on package tornado:
+
+NAME
+    tornado - The Tornado web server and tools.
+
+PACKAGE CONTENTS
+    _locale_data
+    auth
+    autoreload
+    concurrent
+    curl_httpclient
+    escape
+    gen
+    http1connection
+    httpclient
+    httpserver
+    httputil
+    ioloop
+    iostream
+    locale
+    locks
+    log
+    netutil
+    options
+    platform (package)
+    process
+    queues
+    routing
+    simple_httpclient
+    speedups
+    stack_context
+    tcpclient
+    tcpserver
+    template
+    test (package)
+    testing
+    util
+    web
+    websocket
+    wsgi
+
+DATA
+    absolute_import = _Feature((2, 5, 0, 'alpha', 1), (3, 0, 0, 'alpha', 0...
+    division = _Feature((2, 2, 0, 'alpha', 2), (3, 0, 0, 'alpha', 0), 8192...
+    print_function = _Feature((2, 6, 0, 'alpha', 2), (3, 0, 0, 'alpha', 0)...
+    version = '5.0.2'
+    version_info = (5, 0, 2, 0)
+
+FILE
+    /usr/local/lib/python3.6/site-packages/tornado/__init__.py
+
+

@@ -1,0 +1,49 @@
+Help on package qtconsole:
+
+NAME
+    qtconsole
+
+PACKAGE CONTENTS
+    __main__
+    _version
+    ansi_code_processor
+    base_frontend_mixin
+    bracket_matcher
+    call_tip_widget
+    client
+    completion_html
+    completion_plain
+    completion_widget
+    console_widget
+    frontend_widget
+    history_console_widget
+    inprocess
+    ipython_widget
+    jupyter_widget
+    kernel_mixins
+    kill_ring
+    mainwindow
+    manager
+    pygments_highlighter
+    qt
+    qt_loaders
+    qtconsoleapp
+    rich_ipython_widget
+    rich_jupyter_widget
+    rich_text
+    styles
+    svg
+    tests (package)
+    usage
+    util
+
+DATA
+    version_info = (4, 3, 1)
+
+VERSION
+    4.3.1
+
+FILE
+    /Users/jack/miniconda2/envs/py37/lib/python3.6/site-packages/qtconsole/__init__.py
+
+

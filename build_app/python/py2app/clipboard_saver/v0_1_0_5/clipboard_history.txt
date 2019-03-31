@@ -1,0 +1,92 @@
+2019-04-01 06:10:23.556101 Start
+2019-04-01 06:10:23.560432 [ 30 ] >>> All copy list has been delete.
+2019-04-01 06:19:59.090619 [ 22 ] >>> 	# root = tkinter.Tk()
+2019-04-01 06:19:59.196237 [ 18 ] >>> 	# root.withdraw()
+2019-04-01 06:19:59.298110 [ 148 ] >>> 	# target_buitin_lib_path = tkinter.filedialog.askdirectory(parent=root,initialdir="/Users/jack/miniconda2/envs/",title='Please select a directory')
+2019-04-01 06:20:42.562447 [ 19 ] >>> [ gui file select ]
+2019-04-01 06:21:01.422949 [ 19 ] >>> [ update combobox ]
+2019-04-01 06:22:03.556963 [ 21 ] >>> set encoding as utf-8
+2019-04-01 06:22:08.127085 [ 25 ] >>> [ set encoding as utf-8 ]
+2019-04-01 06:22:20.520996 [ 21 ] >>>  ( for source code ) 
+2019-04-01 06:23:01.761354 [ 45 ] >>> [ set encoding as utf-8 ( for source code ) ]
+2019-04-01 06:23:01.867038 [ 23 ] >>> # -*- Coding: utf-8 -*-
+2019-04-01 06:25:37.380934 [ 31 ] >>> target_buitin_lib_path_list = [
+2019-04-01 06:34:22.762951 [ 32 ] >>> target_buitin_lib_path_list = []
+2019-04-01 06:34:22.870381 [ 0 ] >>> 
+2019-04-01 06:34:22.972329 [ 19 ] >>> root = tkinter.Tk()
+2019-04-01 06:34:23.074076 [ 15 ] >>> root.withdraw()
+2019-04-01 06:34:23.175391 [ 145 ] >>> target_buitin_lib_path = tkinter.filedialog.askdirectory(parent=root,initialdir="/Users/jack/miniconda2/envs/",title='Please select a directory')
+2019-04-01 06:34:23.480236 [ 59 ] >>> 								"/Users/jack/miniconda2/envs/py27/lib/python2.7/", 
+2019-04-01 06:34:23.583305 [ 59 ] >>> 								"/Users/jack/miniconda2/envs/py36/lib/python3.6/", 
+2019-04-01 06:34:23.686617 [ 57 ] >>> 								"/Users/jack/miniconda2/envs/py37/lib/python3.6/"
+2019-04-01 06:34:23.789955 [ 8 ] >>> 							]
+2019-04-01 06:34:56.306696 [ 3 ] >>> ---
+2019-04-01 06:35:47.983336 [ 19 ] >>> get_buitin_lib_list
+2019-04-01 06:44:10.861405 [ 22 ] >>> target_buitin_lib_path
+2019-04-01 06:44:35.062032 [ 27 ] >>> target_buitin_lib_path_list
+2019-04-01 06:47:17.822146 [ 26 ] >>> get_target_buitin_lib_path
+2019-04-01 06:47:33.774730 [ 34 ] >>> import tkinter, tkinter.filedialog
+2019-04-01 06:48:15.666271 [ 4 ] >>> ----
+2019-04-01 06:48:25.933485 [ 16 ] >>> ----------------
+2019-04-01 06:48:31.319273 [ 34 ] >>> # --------------------------------
+2019-04-01 06:48:31.422553 [ 21 ] >>> # --- func definition
+2019-04-01 06:50:30.544302 [ 3 ] >>> """
+2019-04-01 06:50:30.752235 [ 33 ] >>> # --- target_buitin_lib_path_list
+2019-04-01 06:50:59.814085 [ 47 ] >>> /Users/jack/miniconda2/envs/py27/lib/python2.7/
+2019-04-01 06:52:18.733058 [ 81 ] >>> target_buitin_lib_path_list = ["/Users/jack/miniconda2/envs/py27/lib/python2.7/"]
+2019-04-01 06:53:39.215513 [ 59 ] >>> 	for target_buitin_lib_path in target_buitin_lib_path_list:
+2019-04-01 06:53:39.322032 [ 50 ] >>> 		get_buitin_lib_list(target_buitin_lib_path_list)
+2019-04-01 06:53:51.386211 [ 28 ] >>> get_target_buitin_lib_path()
+2019-04-01 07:02:17.668543 [ 146 ] >>> 	target_buitin_lib_path = tkinter.filedialog.askdirectory(parent=root,initialdir="/Users/jack/miniconda2/envs/",title='Please select a directory')
+2019-04-01 07:02:17.876148 [ 59 ] >>> 	target_buitin_lib_path_list.append(target_buitin_lib_path)
+2019-04-01 07:02:18.078987 [ 35 ] >>> 	return target_buitin_lib_path_list
+2019-04-01 07:03:31.979915 [ 60 ] >>> 	for target_buitin_lib_path in get_target_buitin_lib_path():
+2019-04-01 07:03:45.814268 [ 41 ] >>> print("directory selection is canceled.")
+2019-04-01 07:03:56.788988 [ 9 ] >>> Exception
+2019-04-01 07:04:11.355045 [ 32 ] >>> print("Exception Message : ", e)
+2019-04-01 07:06:51.053386 [ 11 ] >>> root = Tk()
+2019-04-01 07:09:30.342935 [ 35 ] >>> check_if_you_want_to_add_lib_path()
+2019-04-01 07:10:47.559617 [ 15 ] >>> 		if mode == 1:
+2019-04-01 07:11:09.121050 [ 40 ] >>> root.title("Python Library Help Viewer")
+2019-04-01 07:11:09.227461 [ 34 ] >>> frame = ttk.Frame(root, padding=8)
+2019-04-01 07:12:34.610350 [ 36 ] >>> 	check_if_you_want_to_add_lib_path()
+2019-04-01 07:15:50.751777 [ 88 ] >>> 	b1 = Button(frame, text="New Wideget", command=lambda:[root2.iconify(), new_widget2()])
+2019-04-01 07:15:50.859099 [ 76 ] >>> 	b2 = Button(frame, text="Namespace Checker", command=edit_namepace_checker)
+2019-04-01 07:15:50.962020 [ 75 ] >>> 	b3 = Button(frame, text="Help Docs Folder", command=open_help_text_folder)
+2019-04-01 07:15:51.063544 [ 57 ] >>> 	# b4 = Button(frame, text="Close Wideget", command=quit)
+2019-04-01 07:15:51.166307 [ 66 ] >>> 	b4 = Button(frame, text="Close Wideget", command=lambda:[quit()])
+2019-04-01 07:15:51.270025 [ 25 ] >>> 	b1.grid(row=0, sticky=E)
+2019-04-01 07:15:51.373447 [ 25 ] >>> 	b2.grid(row=0, sticky=W)
+2019-04-01 07:15:51.477268 [ 25 ] >>> 	b3.grid(row=1, sticky=W)
+2019-04-01 07:15:51.581163 [ 25 ] >>> 	b4.grid(row=1, sticky=E)
+2019-04-01 07:17:22.421854 [ 13 ] >>> new_widget2()
+2019-04-01 07:17:47.783706 [ 14 ] >>> root.iconify()
+2019-04-01 07:18:32.079931 [ 50 ] >>> , command=lambda:[cancel_add_path(), root.quit()])
+2019-04-01 07:19:28.978912 [ 84 ] >>> 		b1 = Button(frame, text="Cancel", command=lambda:[cancel_add_path(), root.quit()])
+2019-04-01 07:20:39.129718 [ 77 ] >>> lb1 = Label(frame, text="Copylist 1", bg="mistyrose", font=("Helvetica 14" ))
+2019-04-01 07:20:47.885640 [ 2 ] >>> 		
+2019-04-01 07:20:55.816217 [ 39 ] >>> frame.grid(); lb1.grid(row=0, sticky=W)
+2019-04-01 07:21:20.562748 [ 14 ] >>> frame.grid(); 
+2019-04-01 07:21:55.711026 [ 14 ] >>> 		frame.grid()
+2019-04-01 07:23:19.236369 [ 8 ] >>> add_path
+2019-04-01 07:23:25.851569 [ 17 ] >>> 		def add_path():
+2019-04-01 07:23:25.958328 [ 6 ] >>> 			xxx
+2019-04-01 07:23:26.060040 [ 13 ] >>> 			return xxx
+2019-04-01 07:23:34.088971 [ 15 ] >>> cancel_add_path
+2019-04-01 07:28:40.716843 [ 1 ] >>> 	
+2019-04-01 07:29:06.100281 [ 62 ] >>> 			for target_buitin_lib_path in get_target_buitin_lib_path():
+2019-04-01 07:29:06.208279 [ 52 ] >>> 				get_buitin_lib_list(target_buitin_lib_path_list)
+2019-04-01 07:29:37.024031 [ 44 ] >>> 			print("directory selection is canceled.")
+2019-04-01 07:29:37.130442 [ 35 ] >>> 			print("Exception Message : ", e)
+2019-04-01 07:32:08.889051 [ 24 ] >>> 		def cancel_add_path():
+2019-04-01 07:35:11.909967 [ 6 ] >>> buitin
+2019-04-01 07:36:49.954973 [ 23 ] >>> target_builtin_lib_path
+2019-04-01 07:38:27.799853 [ 27 ] >>> get_target_builtin_lib_path
+2019-04-01 07:41:24.341439 [ 28 ] >>> target_builtin_lib_path_list
+2019-04-01 07:41:55.239187 [ 26 ] >>> if __name__ == '__main__':
+2019-04-01 07:42:06.541473 [ 29 ] >>> get_target_builtin_lib_path()
+2019-04-01 07:42:18.048950 [ 33 ] >>> target_builtin_lib_path_list = []
+2019-04-01 07:44:38.129173 [ 57 ] >>> get_target_builtin_lib_path(target_builtin_lib_path_list)
+2019-04-01 07:57:20.811357 [ 5 ] >>> # ---
+2019-04-01 07:59:25.502729 [ 27 ] >>> from config.config import *
+2019-04-01 07:59:33.451205 [ 36 ] >>> # import tkinter, tkinter.filedialog

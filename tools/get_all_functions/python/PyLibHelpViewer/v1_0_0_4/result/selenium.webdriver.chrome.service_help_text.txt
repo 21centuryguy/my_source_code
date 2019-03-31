@@ -1,0 +1,85 @@
+Help on module selenium.webdriver.chrome.service in selenium.webdriver.chrome:
+
+NAME
+    selenium.webdriver.chrome.service
+
+DESCRIPTION
+    # Licensed to the Software Freedom Conservancy (SFC) under one
+    # or more contributor license agreements.  See the NOTICE file
+    # distributed with this work for additional information
+    # regarding copyright ownership.  The SFC licenses this file
+    # to you under the Apache License, Version 2.0 (the
+    # "License"); you may not use this file except in compliance
+    # with the License.  You may obtain a copy of the License at
+    #
+    #   http://www.apache.org/licenses/LICENSE-2.0
+    #
+    # Unless required by applicable law or agreed to in writing,
+    # software distributed under the License is distributed on an
+    # "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+    # KIND, either express or implied.  See the License for the
+    # specific language governing permissions and limitations
+    # under the License.
+
+CLASSES
+    selenium.webdriver.common.service.Service(builtins.object)
+        Service
+    
+    class Service(selenium.webdriver.common.service.Service)
+     |  Object that manages the starting and stopping of the ChromeDriver
+     |  
+     |  Method resolution order:
+     |      Service
+     |      selenium.webdriver.common.service.Service
+     |      builtins.object
+     |  
+     |  Methods defined here:
+     |  
+     |  __init__(self, executable_path, port=0, service_args=None, log_path=None, env=None)
+     |      Creates a new instance of the Service
+     |      
+     |      :Args:
+     |       - executable_path : Path to the ChromeDriver
+     |       - port : Port the service is running on
+     |       - service_args : List of args to pass to the chromedriver service
+     |       - log_path : Path for the chromedriver service to log to
+     |  
+     |  command_line_args(self)
+     |  
+     |  ----------------------------------------------------------------------
+     |  Methods inherited from selenium.webdriver.common.service.Service:
+     |  
+     |  __del__(self)
+     |  
+     |  assert_process_still_running(self)
+     |  
+     |  is_connectable(self)
+     |  
+     |  send_remote_shutdown_command(self)
+     |  
+     |  start(self)
+     |      Starts the Service.
+     |      
+     |      :Exceptions:
+     |       - WebDriverException : Raised either when it can't start the service
+     |         or when it can't connect to the service
+     |  
+     |  stop(self)
+     |      Stops the service.
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data descriptors inherited from selenium.webdriver.common.service.Service:
+     |  
+     |  __dict__
+     |      dictionary for instance variables (if defined)
+     |  
+     |  __weakref__
+     |      list of weak references to the object (if defined)
+     |  
+     |  service_url
+     |      Gets the url of the Service
+
+FILE
+    /Users/jack/miniconda2/envs/py37/lib/python3.6/site-packages/selenium/webdriver/chrome/service.py
+
+

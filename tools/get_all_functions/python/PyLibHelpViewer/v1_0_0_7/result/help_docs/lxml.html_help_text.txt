@@ -1,0 +1,169 @@
+Help on package lxml.html in lxml:
+
+NAME
+    lxml.html - The ``lxml.html`` tool set for HTML handling.
+
+PACKAGE CONTENTS
+    ElementSoup
+    _diffcommand
+    _html5builder
+    _setmixin
+    builder
+    clean
+    defs
+    diff
+    formfill
+    html5parser
+    soupparser
+    usedoctest
+
+FUNCTIONS
+    Element(*args, **kw)
+        Create a new HTML Element.
+        
+        This can also be used for XHTML documents.
+    
+    document_fromstring(html, parser=None, ensure_head_body=False, **kw)
+    
+    fragment_fromstring(html, create_parent=False, base_url=None, parser=None, **kw)
+        Parses a single HTML element; it is an error if there is more than
+        one element, or if anything but whitespace precedes or follows the
+        element.
+        
+        If ``create_parent`` is true (or is a tag name) then a parent node
+        will be created to encapsulate the HTML in a single element.  In this
+        case, leading or trailing text is also allowed, as are multiple elements
+        as result of the parsing.
+        
+        Passing a ``base_url`` will set the document's ``base_url`` attribute
+        (and the tree's docinfo.URL).
+    
+    fragments_fromstring(html, no_leading_text=False, base_url=None, parser=None, **kw)
+        Parses several HTML elements, returning a list of elements.
+        
+        The first item in the list may be a string.
+        If no_leading_text is true, then it will be an error if there is
+        leading text, and it will always be a list of only elements.
+        
+        base_url will set the document's base_url attribute
+        (and the tree's docinfo.URL).
+    
+    fromstring(html, base_url=None, parser=None, **kw)
+        Parse the html, returning a single element/document.
+        
+        This tries to minimally parse the chunk of text, without knowing if it
+        is a fragment or a document.
+        
+        base_url will set the document's base_url attribute (and the tree's docinfo.URL)
+    
+    open_in_browser(doc, encoding=None)
+        Open the HTML document in a web browser, saving it to a temporary
+        file to open it.  Note that this does not delete the file after
+        use.  This is mainly meant for debugging.
+    
+    parse(filename_or_url, parser=None, base_url=None, **kw)
+        Parse a filename, URL, or file-like object into an HTML document
+        tree.  Note: this returns a tree, not an element.  Use
+        ``parse(...).getroot()`` to get the document root.
+        
+        You can override the base URL with the ``base_url`` keyword.  This
+        is most useful when parsing from a file-like object.
+    
+    submit_form(form, extra_values=None, open_http=None)
+        Helper function to submit a form.  Returns a file-like object, as from
+        ``urllib.urlopen()``.  This object also has a ``.geturl()`` function,
+        which shows the URL if there were any redirects.
+        
+        You can use this like::
+        
+            form = doc.forms[0]
+            form.inputs['foo'].value = 'bar' # etc
+            response = form.submit()
+            doc = parse(response)
+            doc.make_links_absolute(response.geturl())
+        
+        To change the HTTP requester, pass a function as ``open_http`` keyword
+        argument that opens the URL for you.  The function must have the following
+        signature::
+        
+            open_http(method, URL, values)
+        
+        The action is one of 'GET' or 'POST', the URL is the target URL as a
+        string, and the values are a sequence of ``(name, value)`` tuples with the
+        form data.
+    
+    tostring(doc, pretty_print=False, include_meta_content_type=False, encoding=None, method='html', with_tail=True, doctype=None)
+        Return an HTML string representation of the document.
+        
+        Note: if include_meta_content_type is true this will create a
+        ``<meta http-equiv="Content-Type" ...>`` tag in the head;
+        regardless of the value of include_meta_content_type any existing
+        ``<meta http-equiv="Content-Type" ...>`` tag will be removed
+        
+        The ``encoding`` argument controls the output encoding (defauts to
+        ASCII, with &#...; character references for any characters outside
+        of ASCII).  Note that you can pass the name ``'unicode'`` as
+        ``encoding`` argument to serialise to a Unicode string.
+        
+        The ``method`` argument defines the output method.  It defaults to
+        'html', but can also be 'xml' for xhtml output, or 'text' to
+        serialise to plain text without markup.
+        
+        To leave out the tail text of the top-level element that is being
+        serialised, pass ``with_tail=False``.
+        
+        The ``doctype`` option allows passing in a plain string that will
+        be serialised before the XML tree.  Note that passing in non
+        well-formed content here will make the XML output non well-formed.
+        Also, an existing doctype in the document tree will not be removed
+        when serialising an ElementTree instance.
+        
+        Example::
+        
+            >>> from lxml import html
+            >>> root = html.fragment_fromstring('<p>Hello<br>world!</p>')
+        
+            >>> html.tostring(root)
+            b'<p>Hello<br>world!</p>'
+            >>> html.tostring(root, method='html')
+            b'<p>Hello<br>world!</p>'
+        
+            >>> html.tostring(root, method='xml')
+            b'<p>Hello<br/>world!</p>'
+        
+            >>> html.tostring(root, method='text')
+            b'Helloworld!'
+        
+            >>> html.tostring(root, method='text', encoding='unicode')
+            'Helloworld!'
+        
+            >>> root = html.fragment_fromstring('<div><p>Hello<br>world!</p>TAIL</div>')
+            >>> html.tostring(root[0], method='text', encoding='unicode')
+            'Helloworld!TAIL'
+        
+            >>> html.tostring(root[0], method='text', encoding='unicode', with_tail=False)
+            'Helloworld!'
+        
+            >>> doc = html.document_fromstring('<p>Hello<br>world!</p>')
+            >>> html.tostring(doc, method='html', encoding='unicode')
+            '<html><body><p>Hello<br>world!</p></body></html>'
+        
+            >>> print(html.tostring(doc, method='html', encoding='unicode',
+            ...          doctype='<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"'
+            ...                  ' "http://www.w3.org/TR/html4/strict.dtd">'))
+            <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+            <html><body><p>Hello<br>world!</p></body></html>
+
+DATA
+    __all__ = ['document_fromstring', 'fragment_fromstring', 'fragments_fr...
+    find_class = <lxml.html._MethodFunc object>
+    find_rel_links = <lxml.html._MethodFunc object>
+    iterlinks = <lxml.html._MethodFunc object>
+    make_links_absolute = <lxml.html._MethodFunc object>
+    resolve_base_href = <lxml.html._MethodFunc object>
+    rewrite_links = <lxml.html._MethodFunc object>
+
+FILE
+    /Users/jack/miniconda2/envs/py37/lib/python3.6/site-packages/lxml/html/__init__.py
+
+

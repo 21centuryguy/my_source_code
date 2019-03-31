@@ -1,0 +1,5685 @@
+Help on package dbf:
+
+NAME
+    dbf
+
+DESCRIPTION
+    =========
+    Copyright
+    =========
+    
+        - Portions copyright: 2008-2012 Ad-Mail, Inc -- All rights reserved.
+        - Portions copyright: 2012-2017 Ethan Furman -- All rights reserved.
+        - Author: Ethan Furman
+        - Contact: ethan@stoneleaf.us
+    
+    Redistribution and use in source and binary forms, with or without
+    modification, are permitted provided that the following conditions are met:
+        - Redistributions of source code must retain the above copyright
+          notice, this list of conditions and the following disclaimer.
+        - Redistributions in binary form must reproduce the above copyright
+          notice, this list of conditions and the following disclaimer in the
+          documentation and/or other materials provided with the distribution.
+        - Neither the name of Ad-Mail, Inc nor the
+          names of its contributors may be used to endorse or promote products
+          derived from this software without specific prior written permission.
+    
+    THIS SOFTWARE IS PROVIDED ''AS IS'' AND ANY EXPRESS OR IMPLIED WARRANTIES,
+    INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY
+    AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL
+    ITS CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL,
+    EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO,
+    PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS;
+    OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY,
+    WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR
+    OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF
+    ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+
+PACKAGE CONTENTS
+    _index
+    test
+
+CLASSES
+    aenum.Enum(enum.Enum)
+        RelativeDay
+        RelativeMonth
+    aenum.IntEnum(builtins.int, aenum.Enum)
+        AutoEnum
+            DbfLocation
+            DbfStatus
+            Field
+        FieldFlag
+        FieldType
+        HexEnum
+            LatinByte
+        IsoDay
+        IsoMonth
+    builtins.Exception(builtins.BaseException)
+        DbfError
+            BadDataError
+            DataOverflowError
+            FieldMissingError(builtins.KeyError, DbfError)
+            FieldSpecError(DbfError, builtins.ValueError)
+            NonUnicodeError
+            NotFoundError(DbfError, builtins.ValueError, builtins.KeyError, builtins.IndexError)
+        DbfWarning
+            Bof(DbfWarning, builtins.StopIteration)
+            DoNotIndex
+            Eof(DbfWarning, builtins.StopIteration)
+    builtins.KeyError(builtins.LookupError)
+        FieldMissingError(builtins.KeyError, DbfError)
+    builtins.int(builtins.object)
+        IndexLocation
+    builtins.object
+        BytesType
+            Bytes
+            IntBytesType
+                Int16
+                Int32
+                Int8
+        DataBlock
+        Date
+        DateTime
+        ExitStack
+        Idx
+        LazyAttr
+        Logical
+        LruCache
+        MutableDefault
+        NullType
+        Period
+        Quantum
+        Record
+        RecordTemplate
+        RecordVaporWare
+        Relation
+        Tables
+        Time
+        fake_module
+    builtins.str(builtins.object)
+        Char
+    builtins.tuple(builtins.object)
+        CodePage
+        FieldInfo
+    csv.Dialect(builtins.object)
+        DbfCsv
+    _Navigation(builtins.object)
+        Index
+        IndexFile
+        Iter
+        List
+        Table
+            Db3Table
+                ClpTable
+            FpTable
+                VfpTable
+    
+    class AutoEnum(aenum.IntEnum)
+     |  Automatically numbers enum members starting from __number__ (defaults to 0).
+     |  
+     |  Includes support for a custom docstring per member.
+     |  
+     |  Method resolution order:
+     |      AutoEnum
+     |      aenum.IntEnum
+     |      builtins.int
+     |      aenum.Enum
+     |      enum.Enum
+     |      builtins.object
+     |  
+     |  Data descriptors inherited from aenum.Enum:
+     |  
+     |  name
+     |      Route attribute access on a class to __getattr__.
+     |      
+     |      This is a descriptor, used to define attributes that act differently when
+     |      accessed through an instance and through a class.  Instance access remains
+     |      normal, but access to an attribute through a class will be routed to the
+     |      class's __getattr__ method; this is done by raising AttributeError.
+     |  
+     |  value
+     |      Route attribute access on a class to __getattr__.
+     |      
+     |      This is a descriptor, used to define attributes that act differently when
+     |      accessed through an instance and through a class.  Instance access remains
+     |      normal, but access to an attribute through a class will be routed to the
+     |      class's __getattr__ method; this is done by raising AttributeError.
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data descriptors inherited from aenum.EnumMeta:
+     |  
+     |  __members__
+     |      Returns a mapping of member name->value.
+     |      
+     |      This mapping lists all enum members, including aliases. Note that this
+     |      is a copy of the internal mapping.
+    
+    class BadDataError(DbfError)
+     |  bad data in table
+     |  
+     |  Method resolution order:
+     |      BadDataError
+     |      DbfError
+     |      builtins.Exception
+     |      builtins.BaseException
+     |      builtins.object
+     |  
+     |  Methods defined here:
+     |  
+     |  __init__(self, message, data=None)
+     |      Initialize self.  See help(type(self)) for accurate signature.
+     |  
+     |  ----------------------------------------------------------------------
+     |  Methods inherited from DbfError:
+     |  
+     |  from_None(self)
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data descriptors inherited from DbfError:
+     |  
+     |  __weakref__
+     |      list of weak references to the object (if defined)
+     |  
+     |  ----------------------------------------------------------------------
+     |  Methods inherited from builtins.Exception:
+     |  
+     |  __new__(*args, **kwargs) from builtins.type
+     |      Create and return a new object.  See help(type) for accurate signature.
+     |  
+     |  ----------------------------------------------------------------------
+     |  Methods inherited from builtins.BaseException:
+     |  
+     |  __delattr__(self, name, /)
+     |      Implement delattr(self, name).
+     |  
+     |  __getattribute__(self, name, /)
+     |      Return getattr(self, name).
+     |  
+     |  __reduce__(...)
+     |      helper for pickle
+     |  
+     |  __repr__(self, /)
+     |      Return repr(self).
+     |  
+     |  __setattr__(self, name, value, /)
+     |      Implement setattr(self, name, value).
+     |  
+     |  __setstate__(...)
+     |  
+     |  __str__(self, /)
+     |      Return str(self).
+     |  
+     |  with_traceback(...)
+     |      Exception.with_traceback(tb) --
+     |      set self.__traceback__ to tb and return self.
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data descriptors inherited from builtins.BaseException:
+     |  
+     |  __cause__
+     |      exception cause
+     |  
+     |  __context__
+     |      exception context
+     |  
+     |  __dict__
+     |  
+     |  __suppress_context__
+     |  
+     |  __traceback__
+     |  
+     |  args
+    
+    class Bof(DbfWarning, builtins.StopIteration)
+     |  Beginning of file reached
+     |  
+     |  Method resolution order:
+     |      Bof
+     |      DbfWarning
+     |      builtins.StopIteration
+     |      builtins.Exception
+     |      builtins.BaseException
+     |      builtins.object
+     |  
+     |  Methods defined here:
+     |  
+     |  __init__(self)
+     |      Initialize self.  See help(type(self)) for accurate signature.
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data descriptors defined here:
+     |  
+     |  __weakref__
+     |      list of weak references to the object (if defined)
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data and other attributes defined here:
+     |  
+     |  message = 'Beginning of file reached'
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data descriptors inherited from builtins.StopIteration:
+     |  
+     |  value
+     |      generator return value
+     |  
+     |  ----------------------------------------------------------------------
+     |  Methods inherited from builtins.Exception:
+     |  
+     |  __new__(*args, **kwargs) from builtins.type
+     |      Create and return a new object.  See help(type) for accurate signature.
+     |  
+     |  ----------------------------------------------------------------------
+     |  Methods inherited from builtins.BaseException:
+     |  
+     |  __delattr__(self, name, /)
+     |      Implement delattr(self, name).
+     |  
+     |  __getattribute__(self, name, /)
+     |      Return getattr(self, name).
+     |  
+     |  __reduce__(...)
+     |      helper for pickle
+     |  
+     |  __repr__(self, /)
+     |      Return repr(self).
+     |  
+     |  __setattr__(self, name, value, /)
+     |      Implement setattr(self, name, value).
+     |  
+     |  __setstate__(...)
+     |  
+     |  __str__(self, /)
+     |      Return str(self).
+     |  
+     |  with_traceback(...)
+     |      Exception.with_traceback(tb) --
+     |      set self.__traceback__ to tb and return self.
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data descriptors inherited from builtins.BaseException:
+     |  
+     |  __cause__
+     |      exception cause
+     |  
+     |  __context__
+     |      exception context
+     |  
+     |  __dict__
+     |  
+     |  __suppress_context__
+     |  
+     |  __traceback__
+     |  
+     |  args
+    
+    class Bytes(BytesType)
+     |  Method resolution order:
+     |      Bytes
+     |      BytesType
+     |      builtins.object
+     |  
+     |  Methods defined here:
+     |  
+     |  __init__(self, offset, size=0, fill_to=0, strip_null=False)
+     |      Initialize self.  See help(type(self)) for accurate signature.
+     |  
+     |  from_bytes(self, byte_data)
+     |  
+     |  to_bytes(self, value)
+     |  
+     |  ----------------------------------------------------------------------
+     |  Methods inherited from BytesType:
+     |  
+     |  __get__(self, inst, cls=None)
+     |  
+     |  __set__(self, inst, value)
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data descriptors inherited from BytesType:
+     |  
+     |  __dict__
+     |      dictionary for instance variables (if defined)
+     |  
+     |  __weakref__
+     |      list of weak references to the object (if defined)
+    
+    class BytesType(builtins.object)
+     |  Methods defined here:
+     |  
+     |  __get__(self, inst, cls=None)
+     |  
+     |  __init__(self, offset)
+     |      Initialize self.  See help(type(self)) for accurate signature.
+     |  
+     |  __set__(self, inst, value)
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data descriptors defined here:
+     |  
+     |  __dict__
+     |      dictionary for instance variables (if defined)
+     |  
+     |  __weakref__
+     |      list of weak references to the object (if defined)
+    
+    class Char(builtins.str)
+     |  Strips trailing whitespace, and ignores trailing whitespace for comparisons
+     |  
+     |  Method resolution order:
+     |      Char
+     |      builtins.str
+     |      builtins.object
+     |  
+     |  Methods defined here:
+     |  
+     |  __add__(self, other)
+     |      Return self+value.
+     |  
+     |  __bool__(self)
+     |      ignores trailing whitespace
+     |  
+     |  __eq__(self, other)
+     |      ignores trailing whitespace
+     |  
+     |  __ge__(self, other)
+     |      ignores trailing whitespace
+     |  
+     |  __gt__(self, other)
+     |      ignores trailing whitespace
+     |  
+     |  __hash__(self, /)
+     |      Return hash(self).
+     |  
+     |  __le__(self, other)
+     |      ignores trailing whitespace
+     |  
+     |  __lt__(self, other)
+     |      ignores trailing whitespace
+     |  
+     |  __ne__(self, other)
+     |      ignores trailing whitespace
+     |  
+     |  ----------------------------------------------------------------------
+     |  Static methods defined here:
+     |  
+     |  __new__(cls, text='')
+     |      Create and return a new object.  See help(type) for accurate signature.
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data descriptors defined here:
+     |  
+     |  __dict__
+     |      dictionary for instance variables (if defined)
+     |  
+     |  __weakref__
+     |      list of weak references to the object (if defined)
+     |  
+     |  ----------------------------------------------------------------------
+     |  Methods inherited from builtins.str:
+     |  
+     |  __contains__(self, key, /)
+     |      Return key in self.
+     |  
+     |  __format__(...)
+     |      S.__format__(format_spec) -> str
+     |      
+     |      Return a formatted version of S as described by format_spec.
+     |  
+     |  __getattribute__(self, name, /)
+     |      Return getattr(self, name).
+     |  
+     |  __getitem__(self, key, /)
+     |      Return self[key].
+     |  
+     |  __getnewargs__(...)
+     |  
+     |  __iter__(self, /)
+     |      Implement iter(self).
+     |  
+     |  __len__(self, /)
+     |      Return len(self).
+     |  
+     |  __mod__(self, value, /)
+     |      Return self%value.
+     |  
+     |  __mul__(self, value, /)
+     |      Return self*value.
+     |  
+     |  __repr__(self, /)
+     |      Return repr(self).
+     |  
+     |  __rmod__(self, value, /)
+     |      Return value%self.
+     |  
+     |  __rmul__(self, value, /)
+     |      Return value*self.
+     |  
+     |  __sizeof__(...)
+     |      S.__sizeof__() -> size of S in memory, in bytes
+     |  
+     |  __str__(self, /)
+     |      Return str(self).
+     |  
+     |  capitalize(...)
+     |      S.capitalize() -> str
+     |      
+     |      Return a capitalized version of S, i.e. make the first character
+     |      have upper case and the rest lower case.
+     |  
+     |  casefold(...)
+     |      S.casefold() -> str
+     |      
+     |      Return a version of S suitable for caseless comparisons.
+     |  
+     |  center(...)
+     |      S.center(width[, fillchar]) -> str
+     |      
+     |      Return S centered in a string of length width. Padding is
+     |      done using the specified fill character (default is a space)
+     |  
+     |  count(...)
+     |      S.count(sub[, start[, end]]) -> int
+     |      
+     |      Return the number of non-overlapping occurrences of substring sub in
+     |      string S[start:end].  Optional arguments start and end are
+     |      interpreted as in slice notation.
+     |  
+     |  encode(...)
+     |      S.encode(encoding='utf-8', errors='strict') -> bytes
+     |      
+     |      Encode S using the codec registered for encoding. Default encoding
+     |      is 'utf-8'. errors may be given to set a different error
+     |      handling scheme. Default is 'strict' meaning that encoding errors raise
+     |      a UnicodeEncodeError. Other possible values are 'ignore', 'replace' and
+     |      'xmlcharrefreplace' as well as any other name registered with
+     |      codecs.register_error that can handle UnicodeEncodeErrors.
+     |  
+     |  endswith(...)
+     |      S.endswith(suffix[, start[, end]]) -> bool
+     |      
+     |      Return True if S ends with the specified suffix, False otherwise.
+     |      With optional start, test S beginning at that position.
+     |      With optional end, stop comparing S at that position.
+     |      suffix can also be a tuple of strings to try.
+     |  
+     |  expandtabs(...)
+     |      S.expandtabs(tabsize=8) -> str
+     |      
+     |      Return a copy of S where all tab characters are expanded using spaces.
+     |      If tabsize is not given, a tab size of 8 characters is assumed.
+     |  
+     |  find(...)
+     |      S.find(sub[, start[, end]]) -> int
+     |      
+     |      Return the lowest index in S where substring sub is found,
+     |      such that sub is contained within S[start:end].  Optional
+     |      arguments start and end are interpreted as in slice notation.
+     |      
+     |      Return -1 on failure.
+     |  
+     |  format(...)
+     |      S.format(*args, **kwargs) -> str
+     |      
+     |      Return a formatted version of S, using substitutions from args and kwargs.
+     |      The substitutions are identified by braces ('{' and '}').
+     |  
+     |  format_map(...)
+     |      S.format_map(mapping) -> str
+     |      
+     |      Return a formatted version of S, using substitutions from mapping.
+     |      The substitutions are identified by braces ('{' and '}').
+     |  
+     |  index(...)
+     |      S.index(sub[, start[, end]]) -> int
+     |      
+     |      Return the lowest index in S where substring sub is found, 
+     |      such that sub is contained within S[start:end].  Optional
+     |      arguments start and end are interpreted as in slice notation.
+     |      
+     |      Raises ValueError when the substring is not found.
+     |  
+     |  isalnum(...)
+     |      S.isalnum() -> bool
+     |      
+     |      Return True if all characters in S are alphanumeric
+     |      and there is at least one character in S, False otherwise.
+     |  
+     |  isalpha(...)
+     |      S.isalpha() -> bool
+     |      
+     |      Return True if all characters in S are alphabetic
+     |      and there is at least one character in S, False otherwise.
+     |  
+     |  isdecimal(...)
+     |      S.isdecimal() -> bool
+     |      
+     |      Return True if there are only decimal characters in S,
+     |      False otherwise.
+     |  
+     |  isdigit(...)
+     |      S.isdigit() -> bool
+     |      
+     |      Return True if all characters in S are digits
+     |      and there is at least one character in S, False otherwise.
+     |  
+     |  isidentifier(...)
+     |      S.isidentifier() -> bool
+     |      
+     |      Return True if S is a valid identifier according
+     |      to the language definition.
+     |      
+     |      Use keyword.iskeyword() to test for reserved identifiers
+     |      such as "def" and "class".
+     |  
+     |  islower(...)
+     |      S.islower() -> bool
+     |      
+     |      Return True if all cased characters in S are lowercase and there is
+     |      at least one cased character in S, False otherwise.
+     |  
+     |  isnumeric(...)
+     |      S.isnumeric() -> bool
+     |      
+     |      Return True if there are only numeric characters in S,
+     |      False otherwise.
+     |  
+     |  isprintable(...)
+     |      S.isprintable() -> bool
+     |      
+     |      Return True if all characters in S are considered
+     |      printable in repr() or S is empty, False otherwise.
+     |  
+     |  isspace(...)
+     |      S.isspace() -> bool
+     |      
+     |      Return True if all characters in S are whitespace
+     |      and there is at least one character in S, False otherwise.
+     |  
+     |  istitle(...)
+     |      S.istitle() -> bool
+     |      
+     |      Return True if S is a titlecased string and there is at least one
+     |      character in S, i.e. upper- and titlecase characters may only
+     |      follow uncased characters and lowercase characters only cased ones.
+     |      Return False otherwise.
+     |  
+     |  isupper(...)
+     |      S.isupper() -> bool
+     |      
+     |      Return True if all cased characters in S are uppercase and there is
+     |      at least one cased character in S, False otherwise.
+     |  
+     |  join(...)
+     |      S.join(iterable) -> str
+     |      
+     |      Return a string which is the concatenation of the strings in the
+     |      iterable.  The separator between elements is S.
+     |  
+     |  ljust(...)
+     |      S.ljust(width[, fillchar]) -> str
+     |      
+     |      Return S left-justified in a Unicode string of length width. Padding is
+     |      done using the specified fill character (default is a space).
+     |  
+     |  lower(...)
+     |      S.lower() -> str
+     |      
+     |      Return a copy of the string S converted to lowercase.
+     |  
+     |  lstrip(...)
+     |      S.lstrip([chars]) -> str
+     |      
+     |      Return a copy of the string S with leading whitespace removed.
+     |      If chars is given and not None, remove characters in chars instead.
+     |  
+     |  partition(...)
+     |      S.partition(sep) -> (head, sep, tail)
+     |      
+     |      Search for the separator sep in S, and return the part before it,
+     |      the separator itself, and the part after it.  If the separator is not
+     |      found, return S and two empty strings.
+     |  
+     |  replace(...)
+     |      S.replace(old, new[, count]) -> str
+     |      
+     |      Return a copy of S with all occurrences of substring
+     |      old replaced by new.  If the optional argument count is
+     |      given, only the first count occurrences are replaced.
+     |  
+     |  rfind(...)
+     |      S.rfind(sub[, start[, end]]) -> int
+     |      
+     |      Return the highest index in S where substring sub is found,
+     |      such that sub is contained within S[start:end].  Optional
+     |      arguments start and end are interpreted as in slice notation.
+     |      
+     |      Return -1 on failure.
+     |  
+     |  rindex(...)
+     |      S.rindex(sub[, start[, end]]) -> int
+     |      
+     |      Return the highest index in S where substring sub is found,
+     |      such that sub is contained within S[start:end].  Optional
+     |      arguments start and end are interpreted as in slice notation.
+     |      
+     |      Raises ValueError when the substring is not found.
+     |  
+     |  rjust(...)
+     |      S.rjust(width[, fillchar]) -> str
+     |      
+     |      Return S right-justified in a string of length width. Padding is
+     |      done using the specified fill character (default is a space).
+     |  
+     |  rpartition(...)
+     |      S.rpartition(sep) -> (head, sep, tail)
+     |      
+     |      Search for the separator sep in S, starting at the end of S, and return
+     |      the part before it, the separator itself, and the part after it.  If the
+     |      separator is not found, return two empty strings and S.
+     |  
+     |  rsplit(...)
+     |      S.rsplit(sep=None, maxsplit=-1) -> list of strings
+     |      
+     |      Return a list of the words in S, using sep as the
+     |      delimiter string, starting at the end of the string and
+     |      working to the front.  If maxsplit is given, at most maxsplit
+     |      splits are done. If sep is not specified, any whitespace string
+     |      is a separator.
+     |  
+     |  rstrip(...)
+     |      S.rstrip([chars]) -> str
+     |      
+     |      Return a copy of the string S with trailing whitespace removed.
+     |      If chars is given and not None, remove characters in chars instead.
+     |  
+     |  split(...)
+     |      S.split(sep=None, maxsplit=-1) -> list of strings
+     |      
+     |      Return a list of the words in S, using sep as the
+     |      delimiter string.  If maxsplit is given, at most maxsplit
+     |      splits are done. If sep is not specified or is None, any
+     |      whitespace string is a separator and empty strings are
+     |      removed from the result.
+     |  
+     |  splitlines(...)
+     |      S.splitlines([keepends]) -> list of strings
+     |      
+     |      Return a list of the lines in S, breaking at line boundaries.
+     |      Line breaks are not included in the resulting list unless keepends
+     |      is given and true.
+     |  
+     |  startswith(...)
+     |      S.startswith(prefix[, start[, end]]) -> bool
+     |      
+     |      Return True if S starts with the specified prefix, False otherwise.
+     |      With optional start, test S beginning at that position.
+     |      With optional end, stop comparing S at that position.
+     |      prefix can also be a tuple of strings to try.
+     |  
+     |  strip(...)
+     |      S.strip([chars]) -> str
+     |      
+     |      Return a copy of the string S with leading and trailing
+     |      whitespace removed.
+     |      If chars is given and not None, remove characters in chars instead.
+     |  
+     |  swapcase(...)
+     |      S.swapcase() -> str
+     |      
+     |      Return a copy of S with uppercase characters converted to lowercase
+     |      and vice versa.
+     |  
+     |  title(...)
+     |      S.title() -> str
+     |      
+     |      Return a titlecased version of S, i.e. words start with title case
+     |      characters, all remaining cased characters have lower case.
+     |  
+     |  translate(...)
+     |      S.translate(table) -> str
+     |      
+     |      Return a copy of the string S in which each character has been mapped
+     |      through the given translation table. The table must implement
+     |      lookup/indexing via __getitem__, for instance a dictionary or list,
+     |      mapping Unicode ordinals to Unicode ordinals, strings, or None. If
+     |      this operation raises LookupError, the character is left untouched.
+     |      Characters mapped to None are deleted.
+     |  
+     |  upper(...)
+     |      S.upper() -> str
+     |      
+     |      Return a copy of S converted to uppercase.
+     |  
+     |  zfill(...)
+     |      S.zfill(width) -> str
+     |      
+     |      Pad a numeric string S with zeros on the left, to fill a field
+     |      of the specified width. The string S is never truncated.
+     |  
+     |  ----------------------------------------------------------------------
+     |  Static methods inherited from builtins.str:
+     |  
+     |  maketrans(x, y=None, z=None, /)
+     |      Return a translation table usable for str.translate().
+     |      
+     |      If there is only one argument, it must be a dictionary mapping Unicode
+     |      ordinals (integers) or characters to Unicode ordinals, strings or None.
+     |      Character keys will be then converted to ordinals.
+     |      If there are two arguments, they must be strings of equal length, and
+     |      in the resulting dictionary, each character in x will be mapped to the
+     |      character at the same position in y. If there is a third argument, it
+     |      must be a string, whose characters will be mapped to None in the result.
+    
+    class ClpTable(Db3Table)
+     |  Provides an interface for working with Clipper tables.
+     |  
+     |  Method resolution order:
+     |      ClpTable
+     |      Db3Table
+     |      Table
+     |      _Navigation
+     |      builtins.object
+     |  
+     |  Methods inherited from Table:
+     |  
+     |  __bool__(self)
+     |      True if table has any records
+     |  
+     |  __contains__(self, data)
+     |      data can be a record, template, dict, or tuple
+     |  
+     |  __enter__(self)
+     |  
+     |  __exit__(self, *exc_info)
+     |  
+     |  __getattr__(self, name)
+     |  
+     |  __getitem__(self, value)
+     |  
+     |  __init__(self, filename, field_specs=None, memo_size=128, ignore_memos=False, codepage=None, default_data_types=None, field_data_types=None, dbf_type=None, on_disk=True, unicode_errors='strict')
+     |      open/create dbf file
+     |      filename should include path if needed
+     |      field_specs can be either a ;-delimited string or a list of strings
+     |      memo_size is always 512 for db3 memos
+     |      ignore_memos is useful if the memo file is missing or corrupt
+     |      read_only will load records into memory, then close the disk file
+     |      keep_memos will also load any memo fields into memory
+     |      meta_only will ignore all records, keeping only basic table information
+     |      codepage will override whatever is set in the table itself
+     |  
+     |  __iter__(self)
+     |      iterates over the table's records
+     |  
+     |  __len__(self)
+     |      returns number of records in table
+     |  
+     |  __repr__(self)
+     |      Return repr(self).
+     |  
+     |  __str__(self)
+     |      Return str(self).
+     |  
+     |  add_fields(self, field_specs)
+     |      adds field(s) to the table layout; format is Name Type(Length,Decimals)[; Name Type(Length,Decimals)[...]]
+     |      backup table is created with _backup appended to name
+     |      then zaps table, recreates current structure, and copies records back from the backup
+     |  
+     |  allow_nulls(self, fields)
+     |      set fields to allow null values -- NO LONGER ALLOWED, MUST BE SET AT TABLE CREATION
+     |  
+     |  append(self, data=b'', drop=False, multiple=1)
+     |      adds <multiple> blank records, and fills fields with dict/tuple values if present
+     |  
+     |  close(self)
+     |      closes disk files, flushing record data to disk
+     |      ensures table data is available if keep_table
+     |      ensures memo data is available if keep_memos
+     |  
+     |  create_backup(self, new_name=None, on_disk=None)
+     |      creates a backup table
+     |  
+     |  create_index(self, key)
+     |      creates an in-memory index using the function key
+     |  
+     |  create_template(self, record=None, defaults=None)
+     |      returns a record template that can be used like a record
+     |  
+     |  delete_fields(self, doomed)
+     |      removes field(s) from the table
+     |      creates backup files with _backup appended to the file name,
+     |      then modifies current structure
+     |  
+     |  disallow_nulls(self, fields)
+     |      set fields to not allow null values
+     |  
+     |  field_info(self, field)
+     |      returns (field type, size, dec, class) of field
+     |  
+     |  index(self, record, start=None, stop=None)
+     |      returns the index of record between start and stop
+     |      start and stop default to the first and last record
+     |  
+     |  new(self, filename, field_specs=None, memo_size=None, ignore_memos=None, codepage=None, default_data_types=None, field_data_types=None, on_disk=True)
+     |      returns a new table of the same type
+     |  
+     |  nullable_field(self, field)
+     |      returns True if field allows Nulls
+     |  
+     |  open(self, mode=<DbfStatus.READ_ONLY: 1>)
+     |      (re)opens disk table, (re)initializes data structures
+     |  
+     |  pack(self)
+     |      physically removes all deleted records
+     |  
+     |  query(self, criteria)
+     |      criteria is a string that will be converted into a function that returns
+     |      a List of all matching records
+     |  
+     |  reindex(self)
+     |      reprocess all indices for this table
+     |  
+     |  rename_field(self, oldname, newname)
+     |      renames an existing field
+     |  
+     |  resize_field(self, chosen, new_size)
+     |      resizes field (C only at this time)
+     |      creates backup file, then modifies current structure
+     |  
+     |  structure(self, fields=None)
+     |      return field specification list suitable for creating same table layout
+     |      fields should be a list of fields or None for all fields in table
+     |  
+     |  zap(self)
+     |      removes all records from table -- this cannot be undone!
+     |  
+     |  ----------------------------------------------------------------------
+     |  Static methods inherited from Table:
+     |  
+     |  __new__(cls, filename, field_specs=None, memo_size=128, ignore_memos=False, codepage=None, default_data_types=None, field_data_types=None, dbf_type=None, on_disk=True, unicode_errors='strict')
+     |      Create and return a new object.  See help(type) for accurate signature.
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data descriptors inherited from Table:
+     |  
+     |  codepage
+     |      code page used for text translation
+     |  
+     |  field_count
+     |      the number of user fields in the table
+     |  
+     |  field_names
+     |      a list of the user fields in the table
+     |  
+     |  filename
+     |      table's file name, including path (if specified on open)
+     |  
+     |  last_update
+     |      date of last update
+     |  
+     |  memoname
+     |      table's memo name (if path included in filename on open)
+     |  
+     |  record_length
+     |      number of bytes in a record (including deleted flag and null field size
+     |  
+     |  status
+     |      CLOSED, READ_ONLY, or READ_WRITE
+     |  
+     |  supported_tables
+     |      allowable table types
+     |  
+     |  version
+     |      returns the dbf type of the table
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data and other attributes inherited from Table:
+     |  
+     |  backup = None
+     |  
+     |  ----------------------------------------------------------------------
+     |  Methods inherited from _Navigation:
+     |  
+     |  bottom(self)
+     |      sets record index to bottom of table (end of table)
+     |  
+     |  goto(self, where)
+     |      changes the record pointer to the first matching (deleted) record
+     |      where should be either an integer, or 'top' or 'bottom'.
+     |      top    -> before first record
+     |      bottom -> after last record
+     |  
+     |  skip(self, n=1)
+     |      move index to the next nth available record
+     |  
+     |  top(self)
+     |      sets record index to top of table (beginning of table)
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data descriptors inherited from _Navigation:
+     |  
+     |  __dict__
+     |      dictionary for instance variables (if defined)
+     |  
+     |  __weakref__
+     |      list of weak references to the object (if defined)
+     |  
+     |  bof
+     |      returns True if no more usable records towards the beginning of the table
+     |  
+     |  current
+     |      returns current index
+     |  
+     |  current_record
+     |      returns current record (deleted or not)
+     |  
+     |  eof
+     |      returns True if no more usable records towards the end of the table
+     |  
+     |  first_record
+     |      returns first available record (does not move index)
+     |  
+     |  last_record
+     |      returns last available record (does not move index)
+     |  
+     |  next_record
+     |      returns next available record (does not move index)
+     |  
+     |  prev_record
+     |      returns previous available record (does not move index)
+    
+    class CodePage(builtins.tuple)
+     |  tuple with named attributes for representing a tables codepage
+     |  
+     |  Method resolution order:
+     |      CodePage
+     |      builtins.tuple
+     |      builtins.object
+     |  
+     |  Methods defined here:
+     |  
+     |  __repr__(self)
+     |      Return repr(self).
+     |  
+     |  __str__(self)
+     |      Return str(self).
+     |  
+     |  ----------------------------------------------------------------------
+     |  Static methods defined here:
+     |  
+     |  __new__(cls, name)
+     |      call with name of codepage (e.g. 'cp1252')
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data descriptors defined here:
+     |  
+     |  code
+     |  
+     |  desc
+     |  
+     |  name
+     |  
+     |  ----------------------------------------------------------------------
+     |  Methods inherited from builtins.tuple:
+     |  
+     |  __add__(self, value, /)
+     |      Return self+value.
+     |  
+     |  __contains__(self, key, /)
+     |      Return key in self.
+     |  
+     |  __eq__(self, value, /)
+     |      Return self==value.
+     |  
+     |  __ge__(self, value, /)
+     |      Return self>=value.
+     |  
+     |  __getattribute__(self, name, /)
+     |      Return getattr(self, name).
+     |  
+     |  __getitem__(self, key, /)
+     |      Return self[key].
+     |  
+     |  __getnewargs__(...)
+     |  
+     |  __gt__(self, value, /)
+     |      Return self>value.
+     |  
+     |  __hash__(self, /)
+     |      Return hash(self).
+     |  
+     |  __iter__(self, /)
+     |      Implement iter(self).
+     |  
+     |  __le__(self, value, /)
+     |      Return self<=value.
+     |  
+     |  __len__(self, /)
+     |      Return len(self).
+     |  
+     |  __lt__(self, value, /)
+     |      Return self<value.
+     |  
+     |  __mul__(self, value, /)
+     |      Return self*value.
+     |  
+     |  __ne__(self, value, /)
+     |      Return self!=value.
+     |  
+     |  __rmul__(self, value, /)
+     |      Return value*self.
+     |  
+     |  count(...)
+     |      T.count(value) -> integer -- return number of occurrences of value
+     |  
+     |  index(...)
+     |      T.index(value, [start, [stop]]) -> integer -- return first index of value.
+     |      Raises ValueError if the value is not present.
+    
+    class DataBlock(builtins.object)
+     |  adds _data as a str to class
+     |  binds variable name to BytesType descriptor
+     |  
+     |  Methods defined here:
+     |  
+     |  __call__(self, cls)
+     |      Call self as a function.
+     |  
+     |  __init__(self, size)
+     |      Initialize self.  See help(type(self)) for accurate signature.
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data descriptors defined here:
+     |  
+     |  __dict__
+     |      dictionary for instance variables (if defined)
+     |  
+     |  __weakref__
+     |      list of weak references to the object (if defined)
+    
+    class DataOverflowError(DbfError)
+     |  Data too large for field
+     |  
+     |  Method resolution order:
+     |      DataOverflowError
+     |      DbfError
+     |      builtins.Exception
+     |      builtins.BaseException
+     |      builtins.object
+     |  
+     |  Methods defined here:
+     |  
+     |  __init__(self, message, data=None)
+     |      Initialize self.  See help(type(self)) for accurate signature.
+     |  
+     |  ----------------------------------------------------------------------
+     |  Methods inherited from DbfError:
+     |  
+     |  from_None(self)
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data descriptors inherited from DbfError:
+     |  
+     |  __weakref__
+     |      list of weak references to the object (if defined)
+     |  
+     |  ----------------------------------------------------------------------
+     |  Methods inherited from builtins.Exception:
+     |  
+     |  __new__(*args, **kwargs) from builtins.type
+     |      Create and return a new object.  See help(type) for accurate signature.
+     |  
+     |  ----------------------------------------------------------------------
+     |  Methods inherited from builtins.BaseException:
+     |  
+     |  __delattr__(self, name, /)
+     |      Implement delattr(self, name).
+     |  
+     |  __getattribute__(self, name, /)
+     |      Return getattr(self, name).
+     |  
+     |  __reduce__(...)
+     |      helper for pickle
+     |  
+     |  __repr__(self, /)
+     |      Return repr(self).
+     |  
+     |  __setattr__(self, name, value, /)
+     |      Implement setattr(self, name, value).
+     |  
+     |  __setstate__(...)
+     |  
+     |  __str__(self, /)
+     |      Return str(self).
+     |  
+     |  with_traceback(...)
+     |      Exception.with_traceback(tb) --
+     |      set self.__traceback__ to tb and return self.
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data descriptors inherited from builtins.BaseException:
+     |  
+     |  __cause__
+     |      exception cause
+     |  
+     |  __context__
+     |      exception context
+     |  
+     |  __dict__
+     |  
+     |  __suppress_context__
+     |  
+     |  __traceback__
+     |  
+     |  args
+    
+    class Date(builtins.object)
+     |  adds null capable datetime.date constructs
+     |  
+     |  Methods defined here:
+     |  
+     |  __add__(self, other)
+     |  
+     |  __bool__(self)
+     |  
+     |  __eq__(self, other)
+     |      Return self==value.
+     |  
+     |  __format__(self, spec)
+     |      default object formatter
+     |  
+     |  __ge__(self, other)
+     |      Return self>=value.
+     |  
+     |  __getattr__(self, name)
+     |  
+     |  __gt__(self, other)
+     |      Return self>value.
+     |  
+     |  __hash__(self)
+     |      Return hash(self).
+     |  
+     |  __le__(self, other)
+     |      Return self<=value.
+     |  
+     |  __lt__(self, other)
+     |      Return self<value.
+     |  
+     |  __ne__(self, other)
+     |      Return self!=value.
+     |  
+     |  __radd__ = __add__(self, other)
+     |  
+     |  __repr__(self)
+     |      Return repr(self).
+     |  
+     |  __rsub__(self, other)
+     |  
+     |  __str__(self)
+     |      Return str(self).
+     |  
+     |  __sub__(self, other)
+     |  
+     |  date(self)
+     |  
+     |  replace(self, year=None, month=None, day=None, delta_year=0, delta_month=0, delta_day=0)
+     |  
+     |  strftime(self, format)
+     |  
+     |  timetuple(self)
+     |  
+     |  ymd(self)
+     |  
+     |  ----------------------------------------------------------------------
+     |  Class methods defined here:
+     |  
+     |  fromordinal(number) from builtins.type
+     |  
+     |  fromtimestamp(timestamp) from builtins.type
+     |  
+     |  fromymd(yyyymmdd) from builtins.type
+     |  
+     |  strptime(date_string, format=None) from builtins.type
+     |  
+     |  today() from builtins.type
+     |  
+     |  ----------------------------------------------------------------------
+     |  Static methods defined here:
+     |  
+     |  __new__(cls, year=None, month=0, day=0)
+     |      date should be either a datetime.date or date/month/day should
+     |      all be appropriate integers
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data and other attributes defined here:
+     |  
+     |  max = Date(9999, 12, 31)
+     |  
+     |  min = Date(1, 1, 1)
+    
+    class DateTime(builtins.object)
+     |  adds null capable datetime.datetime constructs
+     |  
+     |  Methods defined here:
+     |  
+     |  __add__(self, other)
+     |  
+     |  __bool__(self)
+     |  
+     |  __eq__(self, other)
+     |      Return self==value.
+     |  
+     |  __format__(self, spec)
+     |      default object formatter
+     |  
+     |  __ge__(self, other)
+     |      Return self>=value.
+     |  
+     |  __getattr__(self, name)
+     |  
+     |  __gt__(self, other)
+     |      Return self>value.
+     |  
+     |  __hash__(self)
+     |      Return hash(self).
+     |  
+     |  __le__(self, other)
+     |      Return self<=value.
+     |  
+     |  __lt__(self, other)
+     |      Return self<value.
+     |  
+     |  __ne__(self, other)
+     |      Return self!=value.
+     |  
+     |  __radd__ = __add__(self, other)
+     |  
+     |  __repr__(self)
+     |      Return repr(self).
+     |  
+     |  __rsub__(self, other)
+     |  
+     |  __str__(self)
+     |      Return str(self).
+     |  
+     |  __sub__(self, other)
+     |  
+     |  date(self)
+     |  
+     |  datetime(self)
+     |  
+     |  replace(self, year=None, month=None, day=None, hour=None, minute=None, second=None, microsecond=None, tzinfo=<null>, delta_year=0, delta_month=0, delta_day=0, delta_hour=0, delta_minute=0, delta_second=0)
+     |  
+     |  strftime(self, format)
+     |  
+     |  time(self)
+     |  
+     |  timetuple(self)
+     |  
+     |  timetz(self)
+     |  
+     |  ----------------------------------------------------------------------
+     |  Class methods defined here:
+     |  
+     |  combine(date, time, tzinfo=<null>) from builtins.type
+     |  
+     |  fromordinal(number) from builtins.type
+     |  
+     |  fromtimestamp(timestamp) from builtins.type
+     |  
+     |  now(tzinfo=None) from builtins.type
+     |      only accurate to milliseconds
+     |  
+     |  strptime(datetime_string, format=None) from builtins.type
+     |  
+     |  today() from builtins.type
+     |  
+     |  utcnow() from builtins.type
+     |  
+     |  ----------------------------------------------------------------------
+     |  Static methods defined here:
+     |  
+     |  __new__(cls, year=None, month=0, day=0, hour=0, minute=0, second=0, microsecond=0, tzinfo=<null>)
+     |      year may be a datetime.datetime
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data and other attributes defined here:
+     |  
+     |  max = DateTime(9999, 12, 31, 23, 59, 59, 999000)
+     |  
+     |  min = DateTime(1, 1, 1, 0, 0, 0, 0)
+    
+    class Db3Table(Table)
+     |  Provides an interface for working with dBase III tables.
+     |  
+     |  Method resolution order:
+     |      Db3Table
+     |      Table
+     |      _Navigation
+     |      builtins.object
+     |  
+     |  Methods inherited from Table:
+     |  
+     |  __bool__(self)
+     |      True if table has any records
+     |  
+     |  __contains__(self, data)
+     |      data can be a record, template, dict, or tuple
+     |  
+     |  __enter__(self)
+     |  
+     |  __exit__(self, *exc_info)
+     |  
+     |  __getattr__(self, name)
+     |  
+     |  __getitem__(self, value)
+     |  
+     |  __init__(self, filename, field_specs=None, memo_size=128, ignore_memos=False, codepage=None, default_data_types=None, field_data_types=None, dbf_type=None, on_disk=True, unicode_errors='strict')
+     |      open/create dbf file
+     |      filename should include path if needed
+     |      field_specs can be either a ;-delimited string or a list of strings
+     |      memo_size is always 512 for db3 memos
+     |      ignore_memos is useful if the memo file is missing or corrupt
+     |      read_only will load records into memory, then close the disk file
+     |      keep_memos will also load any memo fields into memory
+     |      meta_only will ignore all records, keeping only basic table information
+     |      codepage will override whatever is set in the table itself
+     |  
+     |  __iter__(self)
+     |      iterates over the table's records
+     |  
+     |  __len__(self)
+     |      returns number of records in table
+     |  
+     |  __repr__(self)
+     |      Return repr(self).
+     |  
+     |  __str__(self)
+     |      Return str(self).
+     |  
+     |  add_fields(self, field_specs)
+     |      adds field(s) to the table layout; format is Name Type(Length,Decimals)[; Name Type(Length,Decimals)[...]]
+     |      backup table is created with _backup appended to name
+     |      then zaps table, recreates current structure, and copies records back from the backup
+     |  
+     |  allow_nulls(self, fields)
+     |      set fields to allow null values -- NO LONGER ALLOWED, MUST BE SET AT TABLE CREATION
+     |  
+     |  append(self, data=b'', drop=False, multiple=1)
+     |      adds <multiple> blank records, and fills fields with dict/tuple values if present
+     |  
+     |  close(self)
+     |      closes disk files, flushing record data to disk
+     |      ensures table data is available if keep_table
+     |      ensures memo data is available if keep_memos
+     |  
+     |  create_backup(self, new_name=None, on_disk=None)
+     |      creates a backup table
+     |  
+     |  create_index(self, key)
+     |      creates an in-memory index using the function key
+     |  
+     |  create_template(self, record=None, defaults=None)
+     |      returns a record template that can be used like a record
+     |  
+     |  delete_fields(self, doomed)
+     |      removes field(s) from the table
+     |      creates backup files with _backup appended to the file name,
+     |      then modifies current structure
+     |  
+     |  disallow_nulls(self, fields)
+     |      set fields to not allow null values
+     |  
+     |  field_info(self, field)
+     |      returns (field type, size, dec, class) of field
+     |  
+     |  index(self, record, start=None, stop=None)
+     |      returns the index of record between start and stop
+     |      start and stop default to the first and last record
+     |  
+     |  new(self, filename, field_specs=None, memo_size=None, ignore_memos=None, codepage=None, default_data_types=None, field_data_types=None, on_disk=True)
+     |      returns a new table of the same type
+     |  
+     |  nullable_field(self, field)
+     |      returns True if field allows Nulls
+     |  
+     |  open(self, mode=<DbfStatus.READ_ONLY: 1>)
+     |      (re)opens disk table, (re)initializes data structures
+     |  
+     |  pack(self)
+     |      physically removes all deleted records
+     |  
+     |  query(self, criteria)
+     |      criteria is a string that will be converted into a function that returns
+     |      a List of all matching records
+     |  
+     |  reindex(self)
+     |      reprocess all indices for this table
+     |  
+     |  rename_field(self, oldname, newname)
+     |      renames an existing field
+     |  
+     |  resize_field(self, chosen, new_size)
+     |      resizes field (C only at this time)
+     |      creates backup file, then modifies current structure
+     |  
+     |  structure(self, fields=None)
+     |      return field specification list suitable for creating same table layout
+     |      fields should be a list of fields or None for all fields in table
+     |  
+     |  zap(self)
+     |      removes all records from table -- this cannot be undone!
+     |  
+     |  ----------------------------------------------------------------------
+     |  Static methods inherited from Table:
+     |  
+     |  __new__(cls, filename, field_specs=None, memo_size=128, ignore_memos=False, codepage=None, default_data_types=None, field_data_types=None, dbf_type=None, on_disk=True, unicode_errors='strict')
+     |      Create and return a new object.  See help(type) for accurate signature.
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data descriptors inherited from Table:
+     |  
+     |  codepage
+     |      code page used for text translation
+     |  
+     |  field_count
+     |      the number of user fields in the table
+     |  
+     |  field_names
+     |      a list of the user fields in the table
+     |  
+     |  filename
+     |      table's file name, including path (if specified on open)
+     |  
+     |  last_update
+     |      date of last update
+     |  
+     |  memoname
+     |      table's memo name (if path included in filename on open)
+     |  
+     |  record_length
+     |      number of bytes in a record (including deleted flag and null field size
+     |  
+     |  status
+     |      CLOSED, READ_ONLY, or READ_WRITE
+     |  
+     |  supported_tables
+     |      allowable table types
+     |  
+     |  version
+     |      returns the dbf type of the table
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data and other attributes inherited from Table:
+     |  
+     |  backup = None
+     |  
+     |  ----------------------------------------------------------------------
+     |  Methods inherited from _Navigation:
+     |  
+     |  bottom(self)
+     |      sets record index to bottom of table (end of table)
+     |  
+     |  goto(self, where)
+     |      changes the record pointer to the first matching (deleted) record
+     |      where should be either an integer, or 'top' or 'bottom'.
+     |      top    -> before first record
+     |      bottom -> after last record
+     |  
+     |  skip(self, n=1)
+     |      move index to the next nth available record
+     |  
+     |  top(self)
+     |      sets record index to top of table (beginning of table)
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data descriptors inherited from _Navigation:
+     |  
+     |  __dict__
+     |      dictionary for instance variables (if defined)
+     |  
+     |  __weakref__
+     |      list of weak references to the object (if defined)
+     |  
+     |  bof
+     |      returns True if no more usable records towards the beginning of the table
+     |  
+     |  current
+     |      returns current index
+     |  
+     |  current_record
+     |      returns current record (deleted or not)
+     |  
+     |  eof
+     |      returns True if no more usable records towards the end of the table
+     |  
+     |  first_record
+     |      returns first available record (does not move index)
+     |  
+     |  last_record
+     |      returns last available record (does not move index)
+     |  
+     |  next_record
+     |      returns next available record (does not move index)
+     |  
+     |  prev_record
+     |      returns previous available record (does not move index)
+    
+    class DbfCsv(csv.Dialect)
+     |  csv format for exporting tables
+     |  
+     |  Method resolution order:
+     |      DbfCsv
+     |      csv.Dialect
+     |      builtins.object
+     |  
+     |  Data and other attributes defined here:
+     |  
+     |  delimiter = ','
+     |  
+     |  doublequote = True
+     |  
+     |  escapechar = None
+     |  
+     |  lineterminator = '\n'
+     |  
+     |  quotechar = '"'
+     |  
+     |  quoting = 2
+     |  
+     |  skipinitialspace = True
+     |  
+     |  ----------------------------------------------------------------------
+     |  Methods inherited from csv.Dialect:
+     |  
+     |  __init__(self)
+     |      Initialize self.  See help(type(self)) for accurate signature.
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data descriptors inherited from csv.Dialect:
+     |  
+     |  __dict__
+     |      dictionary for instance variables (if defined)
+     |  
+     |  __weakref__
+     |      list of weak references to the object (if defined)
+    
+    class DbfError(builtins.Exception)
+     |  Fatal errors elicit this response.
+     |  
+     |  Method resolution order:
+     |      DbfError
+     |      builtins.Exception
+     |      builtins.BaseException
+     |      builtins.object
+     |  
+     |  Methods defined here:
+     |  
+     |  __init__(self, message, *args)
+     |      Initialize self.  See help(type(self)) for accurate signature.
+     |  
+     |  from_None(self)
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data descriptors defined here:
+     |  
+     |  __weakref__
+     |      list of weak references to the object (if defined)
+     |  
+     |  ----------------------------------------------------------------------
+     |  Methods inherited from builtins.Exception:
+     |  
+     |  __new__(*args, **kwargs) from builtins.type
+     |      Create and return a new object.  See help(type) for accurate signature.
+     |  
+     |  ----------------------------------------------------------------------
+     |  Methods inherited from builtins.BaseException:
+     |  
+     |  __delattr__(self, name, /)
+     |      Implement delattr(self, name).
+     |  
+     |  __getattribute__(self, name, /)
+     |      Return getattr(self, name).
+     |  
+     |  __reduce__(...)
+     |      helper for pickle
+     |  
+     |  __repr__(self, /)
+     |      Return repr(self).
+     |  
+     |  __setattr__(self, name, value, /)
+     |      Implement setattr(self, name, value).
+     |  
+     |  __setstate__(...)
+     |  
+     |  __str__(self, /)
+     |      Return str(self).
+     |  
+     |  with_traceback(...)
+     |      Exception.with_traceback(tb) --
+     |      set self.__traceback__ to tb and return self.
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data descriptors inherited from builtins.BaseException:
+     |  
+     |  __cause__
+     |      exception cause
+     |  
+     |  __context__
+     |      exception context
+     |  
+     |  __dict__
+     |  
+     |  __suppress_context__
+     |  
+     |  __traceback__
+     |  
+     |  args
+    
+    class DbfLocation(AutoEnum)
+     |  Automatically numbers enum members starting from __number__ (defaults to 0).
+     |  
+     |  Includes support for a custom docstring per member.
+     |  
+     |  Method resolution order:
+     |      DbfLocation
+     |      AutoEnum
+     |      aenum.IntEnum
+     |      builtins.int
+     |      aenum.Enum
+     |      enum.Enum
+     |      builtins.object
+     |  
+     |  Data and other attributes defined here:
+     |  
+     |  IN_MEMORY = <DbfLocation.IN_MEMORY: 0>
+     |  
+     |  ON_DISK = <DbfLocation.ON_DISK: 1>
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data descriptors inherited from aenum.Enum:
+     |  
+     |  name
+     |      Route attribute access on a class to __getattr__.
+     |      
+     |      This is a descriptor, used to define attributes that act differently when
+     |      accessed through an instance and through a class.  Instance access remains
+     |      normal, but access to an attribute through a class will be routed to the
+     |      class's __getattr__ method; this is done by raising AttributeError.
+     |  
+     |  value
+     |      Route attribute access on a class to __getattr__.
+     |      
+     |      This is a descriptor, used to define attributes that act differently when
+     |      accessed through an instance and through a class.  Instance access remains
+     |      normal, but access to an attribute through a class will be routed to the
+     |      class's __getattr__ method; this is done by raising AttributeError.
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data descriptors inherited from aenum.EnumMeta:
+     |  
+     |  __members__
+     |      Returns a mapping of member name->value.
+     |      
+     |      This mapping lists all enum members, including aliases. Note that this
+     |      is a copy of the internal mapping.
+    
+    class DbfStatus(AutoEnum)
+     |  Automatically numbers enum members starting from __number__ (defaults to 0).
+     |  
+     |  Includes support for a custom docstring per member.
+     |  
+     |  Method resolution order:
+     |      DbfStatus
+     |      AutoEnum
+     |      aenum.IntEnum
+     |      builtins.int
+     |      aenum.Enum
+     |      enum.Enum
+     |      builtins.object
+     |  
+     |  Data and other attributes defined here:
+     |  
+     |  CLOSED = <DbfStatus.CLOSED: 0>
+     |  
+     |  READ_ONLY = <DbfStatus.READ_ONLY: 1>
+     |  
+     |  READ_WRITE = <DbfStatus.READ_WRITE: 2>
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data descriptors inherited from aenum.Enum:
+     |  
+     |  name
+     |      Route attribute access on a class to __getattr__.
+     |      
+     |      This is a descriptor, used to define attributes that act differently when
+     |      accessed through an instance and through a class.  Instance access remains
+     |      normal, but access to an attribute through a class will be routed to the
+     |      class's __getattr__ method; this is done by raising AttributeError.
+     |  
+     |  value
+     |      Route attribute access on a class to __getattr__.
+     |      
+     |      This is a descriptor, used to define attributes that act differently when
+     |      accessed through an instance and through a class.  Instance access remains
+     |      normal, but access to an attribute through a class will be routed to the
+     |      class's __getattr__ method; this is done by raising AttributeError.
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data descriptors inherited from aenum.EnumMeta:
+     |  
+     |  __members__
+     |      Returns a mapping of member name->value.
+     |      
+     |      This mapping lists all enum members, including aliases. Note that this
+     |      is a copy of the internal mapping.
+    
+    class DbfWarning(builtins.Exception)
+     |  Normal operations elicit this response
+     |  
+     |  Method resolution order:
+     |      DbfWarning
+     |      builtins.Exception
+     |      builtins.BaseException
+     |      builtins.object
+     |  
+     |  Data descriptors defined here:
+     |  
+     |  __weakref__
+     |      list of weak references to the object (if defined)
+     |  
+     |  ----------------------------------------------------------------------
+     |  Methods inherited from builtins.Exception:
+     |  
+     |  __init__(self, /, *args, **kwargs)
+     |      Initialize self.  See help(type(self)) for accurate signature.
+     |  
+     |  __new__(*args, **kwargs) from builtins.type
+     |      Create and return a new object.  See help(type) for accurate signature.
+     |  
+     |  ----------------------------------------------------------------------
+     |  Methods inherited from builtins.BaseException:
+     |  
+     |  __delattr__(self, name, /)
+     |      Implement delattr(self, name).
+     |  
+     |  __getattribute__(self, name, /)
+     |      Return getattr(self, name).
+     |  
+     |  __reduce__(...)
+     |      helper for pickle
+     |  
+     |  __repr__(self, /)
+     |      Return repr(self).
+     |  
+     |  __setattr__(self, name, value, /)
+     |      Implement setattr(self, name, value).
+     |  
+     |  __setstate__(...)
+     |  
+     |  __str__(self, /)
+     |      Return str(self).
+     |  
+     |  with_traceback(...)
+     |      Exception.with_traceback(tb) --
+     |      set self.__traceback__ to tb and return self.
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data descriptors inherited from builtins.BaseException:
+     |  
+     |  __cause__
+     |      exception cause
+     |  
+     |  __context__
+     |      exception context
+     |  
+     |  __dict__
+     |  
+     |  __suppress_context__
+     |  
+     |  __traceback__
+     |  
+     |  args
+    
+    class DoNotIndex(DbfWarning)
+     |  Returned by indexing functions to suppress a record from becoming part of the index
+     |  
+     |  Method resolution order:
+     |      DoNotIndex
+     |      DbfWarning
+     |      builtins.Exception
+     |      builtins.BaseException
+     |      builtins.object
+     |  
+     |  Methods defined here:
+     |  
+     |  __init__(self)
+     |      Initialize self.  See help(type(self)) for accurate signature.
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data and other attributes defined here:
+     |  
+     |  message = 'Not indexing record'
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data descriptors inherited from DbfWarning:
+     |  
+     |  __weakref__
+     |      list of weak references to the object (if defined)
+     |  
+     |  ----------------------------------------------------------------------
+     |  Methods inherited from builtins.Exception:
+     |  
+     |  __new__(*args, **kwargs) from builtins.type
+     |      Create and return a new object.  See help(type) for accurate signature.
+     |  
+     |  ----------------------------------------------------------------------
+     |  Methods inherited from builtins.BaseException:
+     |  
+     |  __delattr__(self, name, /)
+     |      Implement delattr(self, name).
+     |  
+     |  __getattribute__(self, name, /)
+     |      Return getattr(self, name).
+     |  
+     |  __reduce__(...)
+     |      helper for pickle
+     |  
+     |  __repr__(self, /)
+     |      Return repr(self).
+     |  
+     |  __setattr__(self, name, value, /)
+     |      Implement setattr(self, name, value).
+     |  
+     |  __setstate__(...)
+     |  
+     |  __str__(self, /)
+     |      Return str(self).
+     |  
+     |  with_traceback(...)
+     |      Exception.with_traceback(tb) --
+     |      set self.__traceback__ to tb and return self.
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data descriptors inherited from builtins.BaseException:
+     |  
+     |  __cause__
+     |      exception cause
+     |  
+     |  __context__
+     |      exception context
+     |  
+     |  __dict__
+     |  
+     |  __suppress_context__
+     |  
+     |  __traceback__
+     |  
+     |  args
+    
+    class Eof(DbfWarning, builtins.StopIteration)
+     |  End of file reached
+     |  
+     |  Method resolution order:
+     |      Eof
+     |      DbfWarning
+     |      builtins.StopIteration
+     |      builtins.Exception
+     |      builtins.BaseException
+     |      builtins.object
+     |  
+     |  Methods defined here:
+     |  
+     |  __init__(self)
+     |      Initialize self.  See help(type(self)) for accurate signature.
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data descriptors defined here:
+     |  
+     |  __weakref__
+     |      list of weak references to the object (if defined)
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data and other attributes defined here:
+     |  
+     |  message = 'End of file reached'
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data descriptors inherited from builtins.StopIteration:
+     |  
+     |  value
+     |      generator return value
+     |  
+     |  ----------------------------------------------------------------------
+     |  Methods inherited from builtins.Exception:
+     |  
+     |  __new__(*args, **kwargs) from builtins.type
+     |      Create and return a new object.  See help(type) for accurate signature.
+     |  
+     |  ----------------------------------------------------------------------
+     |  Methods inherited from builtins.BaseException:
+     |  
+     |  __delattr__(self, name, /)
+     |      Implement delattr(self, name).
+     |  
+     |  __getattribute__(self, name, /)
+     |      Return getattr(self, name).
+     |  
+     |  __reduce__(...)
+     |      helper for pickle
+     |  
+     |  __repr__(self, /)
+     |      Return repr(self).
+     |  
+     |  __setattr__(self, name, value, /)
+     |      Implement setattr(self, name, value).
+     |  
+     |  __setstate__(...)
+     |  
+     |  __str__(self, /)
+     |      Return str(self).
+     |  
+     |  with_traceback(...)
+     |      Exception.with_traceback(tb) --
+     |      set self.__traceback__ to tb and return self.
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data descriptors inherited from builtins.BaseException:
+     |  
+     |  __cause__
+     |      exception cause
+     |  
+     |  __context__
+     |      exception context
+     |  
+     |  __dict__
+     |  
+     |  __suppress_context__
+     |  
+     |  __traceback__
+     |  
+     |  args
+    
+    class ExitStack(builtins.object)
+     |  Context manager for dynamic management of a stack of exit callbacks
+     |  
+     |  For example:
+     |  
+     |      with ExitStack() as stack:
+     |          files = [stack.enter_context(open(fname)) for fname in filenames]
+     |          # All opened files will automatically be closed at the end of
+     |          # the with statement, even if attempts to open files later
+     |          # in the list raise an exception
+     |  
+     |  Methods defined here:
+     |  
+     |  __enter__(self)
+     |  
+     |  __exit__(self, *exc_details)
+     |  
+     |  __init__(self)
+     |      Initialize self.  See help(type(self)) for accurate signature.
+     |  
+     |  callback(self, callback, *args, **kwds)
+     |      Registers an arbitrary callback and arguments.
+     |      
+     |      Cannot suppress exceptions.
+     |  
+     |  close(self)
+     |      Immediately unwind the context stack
+     |  
+     |  enter_context(self, cm)
+     |      Enters the supplied context manager
+     |      
+     |      If successful, also pushes its __exit__ method as a callback and
+     |      returns the result of the __enter__ method.
+     |  
+     |  pop_all(self)
+     |      Preserve the context stack by transferring it to a new instance
+     |  
+     |  push(self, exit)
+     |      Registers a callback with the standard __exit__ method signature
+     |      
+     |      Can suppress exceptions the same way __exit__ methods can.
+     |      
+     |      Also accepts any object with an __exit__ method (registering a call
+     |      to the method instead of the object itself)
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data descriptors defined here:
+     |  
+     |  __dict__
+     |      dictionary for instance variables (if defined)
+     |  
+     |  __weakref__
+     |      list of weak references to the object (if defined)
+    
+    class Field(AutoEnum)
+     |  Automatically numbers enum members starting from __number__ (defaults to 0).
+     |  
+     |  Includes support for a custom docstring per member.
+     |  
+     |  Method resolution order:
+     |      Field
+     |      AutoEnum
+     |      aenum.IntEnum
+     |      builtins.int
+     |      aenum.Enum
+     |      enum.Enum
+     |      builtins.object
+     |  
+     |  Data and other attributes defined here:
+     |  
+     |  CLASS = <Field.CLASS: 6>
+     |  
+     |  DECIMALS = <Field.DECIMALS: 4>
+     |  
+     |  EMPTY = <Field.EMPTY: 7>
+     |  
+     |  END = <Field.END: 3>
+     |  
+     |  FLAGS = <Field.FLAGS: 5>
+     |  
+     |  LENGTH = <Field.LENGTH: 2>
+     |  
+     |  NUL = <Field.NUL: 8>
+     |  
+     |  START = <Field.START: 1>
+     |  
+     |  TYPE = <Field.TYPE: 0>
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data descriptors inherited from aenum.Enum:
+     |  
+     |  name
+     |      Route attribute access on a class to __getattr__.
+     |      
+     |      This is a descriptor, used to define attributes that act differently when
+     |      accessed through an instance and through a class.  Instance access remains
+     |      normal, but access to an attribute through a class will be routed to the
+     |      class's __getattr__ method; this is done by raising AttributeError.
+     |  
+     |  value
+     |      Route attribute access on a class to __getattr__.
+     |      
+     |      This is a descriptor, used to define attributes that act differently when
+     |      accessed through an instance and through a class.  Instance access remains
+     |      normal, but access to an attribute through a class will be routed to the
+     |      class's __getattr__ method; this is done by raising AttributeError.
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data descriptors inherited from aenum.EnumMeta:
+     |  
+     |  __members__
+     |      Returns a mapping of member name->value.
+     |      
+     |      This mapping lists all enum members, including aliases. Note that this
+     |      is a copy of the internal mapping.
+    
+    class FieldFlag(aenum.IntEnum)
+     |  Enum where members are also (and must be) ints
+     |  
+     |  Method resolution order:
+     |      FieldFlag
+     |      aenum.IntEnum
+     |      builtins.int
+     |      aenum.Enum
+     |      enum.Enum
+     |      builtins.object
+     |  
+     |  Data and other attributes defined here:
+     |  
+     |  BINARY = <FieldFlag.BINARY: 4>
+     |  
+     |  NULLABLE = <FieldFlag.NULLABLE: 2>
+     |  
+     |  SYSTEM = <FieldFlag.SYSTEM: 1>
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data descriptors inherited from aenum.Enum:
+     |  
+     |  name
+     |      Route attribute access on a class to __getattr__.
+     |      
+     |      This is a descriptor, used to define attributes that act differently when
+     |      accessed through an instance and through a class.  Instance access remains
+     |      normal, but access to an attribute through a class will be routed to the
+     |      class's __getattr__ method; this is done by raising AttributeError.
+     |  
+     |  value
+     |      Route attribute access on a class to __getattr__.
+     |      
+     |      This is a descriptor, used to define attributes that act differently when
+     |      accessed through an instance and through a class.  Instance access remains
+     |      normal, but access to an attribute through a class will be routed to the
+     |      class's __getattr__ method; this is done by raising AttributeError.
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data descriptors inherited from aenum.EnumMeta:
+     |  
+     |  __members__
+     |      Returns a mapping of member name->value.
+     |      
+     |      This mapping lists all enum members, including aliases. Note that this
+     |      is a copy of the internal mapping.
+    
+    class FieldInfo(builtins.tuple)
+     |  tuple with named attributes for representing a field's dbf type,
+     |  length, decimal portion, and python class
+     |  
+     |  Method resolution order:
+     |      FieldInfo
+     |      builtins.tuple
+     |      builtins.object
+     |  
+     |  Static methods defined here:
+     |  
+     |  __new__(cls, *args)
+     |      Create and return a new object.  See help(type) for accurate signature.
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data descriptors defined here:
+     |  
+     |  decimal
+     |  
+     |  field_type
+     |  
+     |  length
+     |  
+     |  py_type
+     |  
+     |  ----------------------------------------------------------------------
+     |  Methods inherited from builtins.tuple:
+     |  
+     |  __add__(self, value, /)
+     |      Return self+value.
+     |  
+     |  __contains__(self, key, /)
+     |      Return key in self.
+     |  
+     |  __eq__(self, value, /)
+     |      Return self==value.
+     |  
+     |  __ge__(self, value, /)
+     |      Return self>=value.
+     |  
+     |  __getattribute__(self, name, /)
+     |      Return getattr(self, name).
+     |  
+     |  __getitem__(self, key, /)
+     |      Return self[key].
+     |  
+     |  __getnewargs__(...)
+     |  
+     |  __gt__(self, value, /)
+     |      Return self>value.
+     |  
+     |  __hash__(self, /)
+     |      Return hash(self).
+     |  
+     |  __iter__(self, /)
+     |      Implement iter(self).
+     |  
+     |  __le__(self, value, /)
+     |      Return self<=value.
+     |  
+     |  __len__(self, /)
+     |      Return len(self).
+     |  
+     |  __lt__(self, value, /)
+     |      Return self<value.
+     |  
+     |  __mul__(self, value, /)
+     |      Return self*value.
+     |  
+     |  __ne__(self, value, /)
+     |      Return self!=value.
+     |  
+     |  __repr__(self, /)
+     |      Return repr(self).
+     |  
+     |  __rmul__(self, value, /)
+     |      Return value*self.
+     |  
+     |  count(...)
+     |      T.count(value) -> integer -- return number of occurrences of value
+     |  
+     |  index(...)
+     |      T.index(value, [start, [stop]]) -> integer -- return first index of value.
+     |      Raises ValueError if the value is not present.
+    
+    class FieldMissingError(builtins.KeyError, DbfError)
+     |  Field does not exist in table
+     |  
+     |  Method resolution order:
+     |      FieldMissingError
+     |      builtins.KeyError
+     |      builtins.LookupError
+     |      DbfError
+     |      builtins.Exception
+     |      builtins.BaseException
+     |      builtins.object
+     |  
+     |  Methods defined here:
+     |  
+     |  __init__(self, fieldname)
+     |      Initialize self.  See help(type(self)) for accurate signature.
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data descriptors defined here:
+     |  
+     |  __weakref__
+     |      list of weak references to the object (if defined)
+     |  
+     |  ----------------------------------------------------------------------
+     |  Methods inherited from builtins.KeyError:
+     |  
+     |  __str__(self, /)
+     |      Return str(self).
+     |  
+     |  ----------------------------------------------------------------------
+     |  Methods inherited from builtins.LookupError:
+     |  
+     |  __new__(*args, **kwargs) from builtins.type
+     |      Create and return a new object.  See help(type) for accurate signature.
+     |  
+     |  ----------------------------------------------------------------------
+     |  Methods inherited from DbfError:
+     |  
+     |  from_None(self)
+     |  
+     |  ----------------------------------------------------------------------
+     |  Methods inherited from builtins.BaseException:
+     |  
+     |  __delattr__(self, name, /)
+     |      Implement delattr(self, name).
+     |  
+     |  __getattribute__(self, name, /)
+     |      Return getattr(self, name).
+     |  
+     |  __reduce__(...)
+     |      helper for pickle
+     |  
+     |  __repr__(self, /)
+     |      Return repr(self).
+     |  
+     |  __setattr__(self, name, value, /)
+     |      Implement setattr(self, name, value).
+     |  
+     |  __setstate__(...)
+     |  
+     |  with_traceback(...)
+     |      Exception.with_traceback(tb) --
+     |      set self.__traceback__ to tb and return self.
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data descriptors inherited from builtins.BaseException:
+     |  
+     |  __cause__
+     |      exception cause
+     |  
+     |  __context__
+     |      exception context
+     |  
+     |  __dict__
+     |  
+     |  __suppress_context__
+     |  
+     |  __traceback__
+     |  
+     |  args
+    
+    class FieldSpecError(DbfError, builtins.ValueError)
+     |  invalid field specification
+     |  
+     |  Method resolution order:
+     |      FieldSpecError
+     |      DbfError
+     |      builtins.ValueError
+     |      builtins.Exception
+     |      builtins.BaseException
+     |      builtins.object
+     |  
+     |  Methods defined here:
+     |  
+     |  __init__(self, message)
+     |      Initialize self.  See help(type(self)) for accurate signature.
+     |  
+     |  ----------------------------------------------------------------------
+     |  Methods inherited from DbfError:
+     |  
+     |  from_None(self)
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data descriptors inherited from DbfError:
+     |  
+     |  __weakref__
+     |      list of weak references to the object (if defined)
+     |  
+     |  ----------------------------------------------------------------------
+     |  Methods inherited from builtins.ValueError:
+     |  
+     |  __new__(*args, **kwargs) from builtins.type
+     |      Create and return a new object.  See help(type) for accurate signature.
+     |  
+     |  ----------------------------------------------------------------------
+     |  Methods inherited from builtins.BaseException:
+     |  
+     |  __delattr__(self, name, /)
+     |      Implement delattr(self, name).
+     |  
+     |  __getattribute__(self, name, /)
+     |      Return getattr(self, name).
+     |  
+     |  __reduce__(...)
+     |      helper for pickle
+     |  
+     |  __repr__(self, /)
+     |      Return repr(self).
+     |  
+     |  __setattr__(self, name, value, /)
+     |      Implement setattr(self, name, value).
+     |  
+     |  __setstate__(...)
+     |  
+     |  __str__(self, /)
+     |      Return str(self).
+     |  
+     |  with_traceback(...)
+     |      Exception.with_traceback(tb) --
+     |      set self.__traceback__ to tb and return self.
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data descriptors inherited from builtins.BaseException:
+     |  
+     |  __cause__
+     |      exception cause
+     |  
+     |  __context__
+     |      exception context
+     |  
+     |  __dict__
+     |  
+     |  __suppress_context__
+     |  
+     |  __traceback__
+     |  
+     |  args
+    
+    class FieldType(aenum.IntEnum)
+     |  Enum where members are also (and must be) ints
+     |  
+     |  Method resolution order:
+     |      FieldType
+     |      aenum.IntEnum
+     |      builtins.int
+     |      aenum.Enum
+     |      enum.Enum
+     |      builtins.object
+     |  
+     |  Data and other attributes defined here:
+     |  
+     |  CHAR = <FieldType.CHAR: b'C'>
+     |  
+     |  CURRENCY = <FieldType.CURRENCY: b'Y'>
+     |  
+     |  DATE = <FieldType.DATE: b'D'>
+     |  
+     |  DATETIME = <FieldType.DATETIME: b'T'>
+     |  
+     |  DOUBLE = <FieldType.DOUBLE: b'B'>
+     |  
+     |  FLOAT = <FieldType.FLOAT: b'F'>
+     |  
+     |  GENERAL = <FieldType.GENERAL: b'G'>
+     |  
+     |  INTEGER = <FieldType.INTEGER: b'I'>
+     |  
+     |  LOGICAL = <FieldType.LOGICAL: b'L'>
+     |  
+     |  MEMO = <FieldType.MEMO: b'M'>
+     |  
+     |  NUMERIC = <FieldType.NUMERIC: b'N'>
+     |  
+     |  PICTURE = <FieldType.PICTURE: b'P'>
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data descriptors inherited from aenum.Enum:
+     |  
+     |  name
+     |      Route attribute access on a class to __getattr__.
+     |      
+     |      This is a descriptor, used to define attributes that act differently when
+     |      accessed through an instance and through a class.  Instance access remains
+     |      normal, but access to an attribute through a class will be routed to the
+     |      class's __getattr__ method; this is done by raising AttributeError.
+     |  
+     |  value
+     |      Route attribute access on a class to __getattr__.
+     |      
+     |      This is a descriptor, used to define attributes that act differently when
+     |      accessed through an instance and through a class.  Instance access remains
+     |      normal, but access to an attribute through a class will be routed to the
+     |      class's __getattr__ method; this is done by raising AttributeError.
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data descriptors inherited from aenum.EnumMeta:
+     |  
+     |  __members__
+     |      Returns a mapping of member name->value.
+     |      
+     |      This mapping lists all enum members, including aliases. Note that this
+     |      is a copy of the internal mapping.
+    
+    class FpTable(Table)
+     |  Provides an interface for working with FoxPro 2 tables
+     |  
+     |  Method resolution order:
+     |      FpTable
+     |      Table
+     |      _Navigation
+     |      builtins.object
+     |  
+     |  Methods inherited from Table:
+     |  
+     |  __bool__(self)
+     |      True if table has any records
+     |  
+     |  __contains__(self, data)
+     |      data can be a record, template, dict, or tuple
+     |  
+     |  __enter__(self)
+     |  
+     |  __exit__(self, *exc_info)
+     |  
+     |  __getattr__(self, name)
+     |  
+     |  __getitem__(self, value)
+     |  
+     |  __init__(self, filename, field_specs=None, memo_size=128, ignore_memos=False, codepage=None, default_data_types=None, field_data_types=None, dbf_type=None, on_disk=True, unicode_errors='strict')
+     |      open/create dbf file
+     |      filename should include path if needed
+     |      field_specs can be either a ;-delimited string or a list of strings
+     |      memo_size is always 512 for db3 memos
+     |      ignore_memos is useful if the memo file is missing or corrupt
+     |      read_only will load records into memory, then close the disk file
+     |      keep_memos will also load any memo fields into memory
+     |      meta_only will ignore all records, keeping only basic table information
+     |      codepage will override whatever is set in the table itself
+     |  
+     |  __iter__(self)
+     |      iterates over the table's records
+     |  
+     |  __len__(self)
+     |      returns number of records in table
+     |  
+     |  __repr__(self)
+     |      Return repr(self).
+     |  
+     |  __str__(self)
+     |      Return str(self).
+     |  
+     |  add_fields(self, field_specs)
+     |      adds field(s) to the table layout; format is Name Type(Length,Decimals)[; Name Type(Length,Decimals)[...]]
+     |      backup table is created with _backup appended to name
+     |      then zaps table, recreates current structure, and copies records back from the backup
+     |  
+     |  allow_nulls(self, fields)
+     |      set fields to allow null values -- NO LONGER ALLOWED, MUST BE SET AT TABLE CREATION
+     |  
+     |  append(self, data=b'', drop=False, multiple=1)
+     |      adds <multiple> blank records, and fills fields with dict/tuple values if present
+     |  
+     |  close(self)
+     |      closes disk files, flushing record data to disk
+     |      ensures table data is available if keep_table
+     |      ensures memo data is available if keep_memos
+     |  
+     |  create_backup(self, new_name=None, on_disk=None)
+     |      creates a backup table
+     |  
+     |  create_index(self, key)
+     |      creates an in-memory index using the function key
+     |  
+     |  create_template(self, record=None, defaults=None)
+     |      returns a record template that can be used like a record
+     |  
+     |  delete_fields(self, doomed)
+     |      removes field(s) from the table
+     |      creates backup files with _backup appended to the file name,
+     |      then modifies current structure
+     |  
+     |  disallow_nulls(self, fields)
+     |      set fields to not allow null values
+     |  
+     |  field_info(self, field)
+     |      returns (field type, size, dec, class) of field
+     |  
+     |  index(self, record, start=None, stop=None)
+     |      returns the index of record between start and stop
+     |      start and stop default to the first and last record
+     |  
+     |  new(self, filename, field_specs=None, memo_size=None, ignore_memos=None, codepage=None, default_data_types=None, field_data_types=None, on_disk=True)
+     |      returns a new table of the same type
+     |  
+     |  nullable_field(self, field)
+     |      returns True if field allows Nulls
+     |  
+     |  open(self, mode=<DbfStatus.READ_ONLY: 1>)
+     |      (re)opens disk table, (re)initializes data structures
+     |  
+     |  pack(self)
+     |      physically removes all deleted records
+     |  
+     |  query(self, criteria)
+     |      criteria is a string that will be converted into a function that returns
+     |      a List of all matching records
+     |  
+     |  reindex(self)
+     |      reprocess all indices for this table
+     |  
+     |  rename_field(self, oldname, newname)
+     |      renames an existing field
+     |  
+     |  resize_field(self, chosen, new_size)
+     |      resizes field (C only at this time)
+     |      creates backup file, then modifies current structure
+     |  
+     |  structure(self, fields=None)
+     |      return field specification list suitable for creating same table layout
+     |      fields should be a list of fields or None for all fields in table
+     |  
+     |  zap(self)
+     |      removes all records from table -- this cannot be undone!
+     |  
+     |  ----------------------------------------------------------------------
+     |  Static methods inherited from Table:
+     |  
+     |  __new__(cls, filename, field_specs=None, memo_size=128, ignore_memos=False, codepage=None, default_data_types=None, field_data_types=None, dbf_type=None, on_disk=True, unicode_errors='strict')
+     |      Create and return a new object.  See help(type) for accurate signature.
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data descriptors inherited from Table:
+     |  
+     |  codepage
+     |      code page used for text translation
+     |  
+     |  field_count
+     |      the number of user fields in the table
+     |  
+     |  field_names
+     |      a list of the user fields in the table
+     |  
+     |  filename
+     |      table's file name, including path (if specified on open)
+     |  
+     |  last_update
+     |      date of last update
+     |  
+     |  memoname
+     |      table's memo name (if path included in filename on open)
+     |  
+     |  record_length
+     |      number of bytes in a record (including deleted flag and null field size
+     |  
+     |  status
+     |      CLOSED, READ_ONLY, or READ_WRITE
+     |  
+     |  supported_tables
+     |      allowable table types
+     |  
+     |  version
+     |      returns the dbf type of the table
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data and other attributes inherited from Table:
+     |  
+     |  backup = None
+     |  
+     |  ----------------------------------------------------------------------
+     |  Methods inherited from _Navigation:
+     |  
+     |  bottom(self)
+     |      sets record index to bottom of table (end of table)
+     |  
+     |  goto(self, where)
+     |      changes the record pointer to the first matching (deleted) record
+     |      where should be either an integer, or 'top' or 'bottom'.
+     |      top    -> before first record
+     |      bottom -> after last record
+     |  
+     |  skip(self, n=1)
+     |      move index to the next nth available record
+     |  
+     |  top(self)
+     |      sets record index to top of table (beginning of table)
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data descriptors inherited from _Navigation:
+     |  
+     |  __dict__
+     |      dictionary for instance variables (if defined)
+     |  
+     |  __weakref__
+     |      list of weak references to the object (if defined)
+     |  
+     |  bof
+     |      returns True if no more usable records towards the beginning of the table
+     |  
+     |  current
+     |      returns current index
+     |  
+     |  current_record
+     |      returns current record (deleted or not)
+     |  
+     |  eof
+     |      returns True if no more usable records towards the end of the table
+     |  
+     |  first_record
+     |      returns first available record (does not move index)
+     |  
+     |  last_record
+     |      returns last available record (does not move index)
+     |  
+     |  next_record
+     |      returns next available record (does not move index)
+     |  
+     |  prev_record
+     |      returns previous available record (does not move index)
+    
+    class HexEnum(aenum.IntEnum)
+     |  repr is in hex
+     |  
+     |  Method resolution order:
+     |      HexEnum
+     |      aenum.IntEnum
+     |      builtins.int
+     |      aenum.Enum
+     |      enum.Enum
+     |      builtins.object
+     |  
+     |  Data descriptors inherited from aenum.Enum:
+     |  
+     |  name
+     |      Route attribute access on a class to __getattr__.
+     |      
+     |      This is a descriptor, used to define attributes that act differently when
+     |      accessed through an instance and through a class.  Instance access remains
+     |      normal, but access to an attribute through a class will be routed to the
+     |      class's __getattr__ method; this is done by raising AttributeError.
+     |  
+     |  value
+     |      Route attribute access on a class to __getattr__.
+     |      
+     |      This is a descriptor, used to define attributes that act differently when
+     |      accessed through an instance and through a class.  Instance access remains
+     |      normal, but access to an attribute through a class will be routed to the
+     |      class's __getattr__ method; this is done by raising AttributeError.
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data descriptors inherited from aenum.EnumMeta:
+     |  
+     |  __members__
+     |      Returns a mapping of member name->value.
+     |      
+     |      This mapping lists all enum members, including aliases. Note that this
+     |      is a copy of the internal mapping.
+    
+    class Idx(builtins.object)
+     |  Methods defined here:
+     |  
+     |  __init__(self, table, filename, size_limit=100)
+     |      Initialize self.  See help(type(self)) for accurate signature.
+     |  
+     |  __iter__(self)
+     |  
+     |  backward(self)
+     |  
+     |  forward = __iter__(self)
+     |  
+     |  read_node(self, offset)
+     |      reads the sector indicated, and returns a Node object
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data descriptors defined here:
+     |  
+     |  __dict__
+     |      dictionary for instance variables (if defined)
+     |  
+     |  __weakref__
+     |      list of weak references to the object (if defined)
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data and other attributes defined here:
+     |  
+     |  Header = <class 'dbf.Idx.Header'>
+     |  
+     |  
+     |  Node = <class 'dbf.Idx.Node'>
+    
+    class Index(_Navigation)
+     |  non-persistent index for a table
+     |  
+     |  Method resolution order:
+     |      Index
+     |      _Navigation
+     |      builtins.object
+     |  
+     |  Methods defined here:
+     |  
+     |  __call__(self, record)
+     |      Call self as a function.
+     |  
+     |  __contains__(self, data)
+     |  
+     |  __enter__(self)
+     |  
+     |  __exit__(self, *exc_info)
+     |  
+     |  __getitem__(self, key)
+     |      if key is an integer, returns the matching record;
+     |      if key is a [slice | string | tuple | record] returns a List;
+     |      raises NotFoundError on failure
+     |  
+     |  __init__(self, table, key)
+     |      Initialize self.  See help(type(self)) for accurate signature.
+     |  
+     |  __iter__(self)
+     |  
+     |  __len__(self)
+     |  
+     |  index(self, record, start=None, stop=None)
+     |      returns the index of record between start and stop
+     |      start and stop default to the first and last record
+     |  
+     |  index_search(self, match, start=None, stop=None, nearest=False, partial=False)
+     |      returns the index of match between start and stop
+     |      start and stop default to the first and last record.
+     |      if nearest is true returns the location of where the match should be
+     |      otherwise raises NotFoundError
+     |  
+     |  key(self, record)
+     |  
+     |  query(self, criteria)
+     |      criteria is a callback that returns a truthy value for matching record
+     |  
+     |  search(self, match, partial=False)
+     |      returns dbf.List of all (partially) matching records
+     |  
+     |  ----------------------------------------------------------------------
+     |  Methods inherited from _Navigation:
+     |  
+     |  bottom(self)
+     |      sets record index to bottom of table (end of table)
+     |  
+     |  goto(self, where)
+     |      changes the record pointer to the first matching (deleted) record
+     |      where should be either an integer, or 'top' or 'bottom'.
+     |      top    -> before first record
+     |      bottom -> after last record
+     |  
+     |  skip(self, n=1)
+     |      move index to the next nth available record
+     |  
+     |  top(self)
+     |      sets record index to top of table (beginning of table)
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data descriptors inherited from _Navigation:
+     |  
+     |  __dict__
+     |      dictionary for instance variables (if defined)
+     |  
+     |  __weakref__
+     |      list of weak references to the object (if defined)
+     |  
+     |  bof
+     |      returns True if no more usable records towards the beginning of the table
+     |  
+     |  current
+     |      returns current index
+     |  
+     |  current_record
+     |      returns current record (deleted or not)
+     |  
+     |  eof
+     |      returns True if no more usable records towards the end of the table
+     |  
+     |  first_record
+     |      returns first available record (does not move index)
+     |  
+     |  last_record
+     |      returns last available record (does not move index)
+     |  
+     |  next_record
+     |      returns next available record (does not move index)
+     |  
+     |  prev_record
+     |      returns previous available record (does not move index)
+    
+    class IndexFile(_Navigation)
+     |  Navigation base class that provides VPFish movement methods
+     |  
+     |  Method resolution order:
+     |      IndexFile
+     |      _Navigation
+     |      builtins.object
+     |  
+     |  Methods inherited from _Navigation:
+     |  
+     |  bottom(self)
+     |      sets record index to bottom of table (end of table)
+     |  
+     |  goto(self, where)
+     |      changes the record pointer to the first matching (deleted) record
+     |      where should be either an integer, or 'top' or 'bottom'.
+     |      top    -> before first record
+     |      bottom -> after last record
+     |  
+     |  skip(self, n=1)
+     |      move index to the next nth available record
+     |  
+     |  top(self)
+     |      sets record index to top of table (beginning of table)
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data descriptors inherited from _Navigation:
+     |  
+     |  __dict__
+     |      dictionary for instance variables (if defined)
+     |  
+     |  __weakref__
+     |      list of weak references to the object (if defined)
+     |  
+     |  bof
+     |      returns True if no more usable records towards the beginning of the table
+     |  
+     |  current
+     |      returns current index
+     |  
+     |  current_record
+     |      returns current record (deleted or not)
+     |  
+     |  eof
+     |      returns True if no more usable records towards the end of the table
+     |  
+     |  first_record
+     |      returns first available record (does not move index)
+     |  
+     |  last_record
+     |      returns last available record (does not move index)
+     |  
+     |  next_record
+     |      returns next available record (does not move index)
+     |  
+     |  prev_record
+     |      returns previous available record (does not move index)
+    
+    class IndexLocation(builtins.int)
+     |  Represents the index where the match criteria is if True,
+     |  or would be if False
+     |  
+     |  Used by Index.index_search
+     |  
+     |  Method resolution order:
+     |      IndexLocation
+     |      builtins.int
+     |      builtins.object
+     |  
+     |  Methods defined here:
+     |  
+     |  __bool__(self)
+     |      self != 0
+     |  
+     |  ----------------------------------------------------------------------
+     |  Static methods defined here:
+     |  
+     |  __new__(cls, value, found)
+     |      value is the number, found is True/False
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data descriptors defined here:
+     |  
+     |  __dict__
+     |      dictionary for instance variables (if defined)
+     |  
+     |  ----------------------------------------------------------------------
+     |  Methods inherited from builtins.int:
+     |  
+     |  __abs__(self, /)
+     |      abs(self)
+     |  
+     |  __add__(self, value, /)
+     |      Return self+value.
+     |  
+     |  __and__(self, value, /)
+     |      Return self&value.
+     |  
+     |  __ceil__(...)
+     |      Ceiling of an Integral returns itself.
+     |  
+     |  __divmod__(self, value, /)
+     |      Return divmod(self, value).
+     |  
+     |  __eq__(self, value, /)
+     |      Return self==value.
+     |  
+     |  __float__(self, /)
+     |      float(self)
+     |  
+     |  __floor__(...)
+     |      Flooring an Integral returns itself.
+     |  
+     |  __floordiv__(self, value, /)
+     |      Return self//value.
+     |  
+     |  __format__(...)
+     |      default object formatter
+     |  
+     |  __ge__(self, value, /)
+     |      Return self>=value.
+     |  
+     |  __getattribute__(self, name, /)
+     |      Return getattr(self, name).
+     |  
+     |  __getnewargs__(...)
+     |  
+     |  __gt__(self, value, /)
+     |      Return self>value.
+     |  
+     |  __hash__(self, /)
+     |      Return hash(self).
+     |  
+     |  __index__(self, /)
+     |      Return self converted to an integer, if self is suitable for use as an index into a list.
+     |  
+     |  __int__(self, /)
+     |      int(self)
+     |  
+     |  __invert__(self, /)
+     |      ~self
+     |  
+     |  __le__(self, value, /)
+     |      Return self<=value.
+     |  
+     |  __lshift__(self, value, /)
+     |      Return self<<value.
+     |  
+     |  __lt__(self, value, /)
+     |      Return self<value.
+     |  
+     |  __mod__(self, value, /)
+     |      Return self%value.
+     |  
+     |  __mul__(self, value, /)
+     |      Return self*value.
+     |  
+     |  __ne__(self, value, /)
+     |      Return self!=value.
+     |  
+     |  __neg__(self, /)
+     |      -self
+     |  
+     |  __or__(self, value, /)
+     |      Return self|value.
+     |  
+     |  __pos__(self, /)
+     |      +self
+     |  
+     |  __pow__(self, value, mod=None, /)
+     |      Return pow(self, value, mod).
+     |  
+     |  __radd__(self, value, /)
+     |      Return value+self.
+     |  
+     |  __rand__(self, value, /)
+     |      Return value&self.
+     |  
+     |  __rdivmod__(self, value, /)
+     |      Return divmod(value, self).
+     |  
+     |  __repr__(self, /)
+     |      Return repr(self).
+     |  
+     |  __rfloordiv__(self, value, /)
+     |      Return value//self.
+     |  
+     |  __rlshift__(self, value, /)
+     |      Return value<<self.
+     |  
+     |  __rmod__(self, value, /)
+     |      Return value%self.
+     |  
+     |  __rmul__(self, value, /)
+     |      Return value*self.
+     |  
+     |  __ror__(self, value, /)
+     |      Return value|self.
+     |  
+     |  __round__(...)
+     |      Rounding an Integral returns itself.
+     |      Rounding with an ndigits argument also returns an integer.
+     |  
+     |  __rpow__(self, value, mod=None, /)
+     |      Return pow(value, self, mod).
+     |  
+     |  __rrshift__(self, value, /)
+     |      Return value>>self.
+     |  
+     |  __rshift__(self, value, /)
+     |      Return self>>value.
+     |  
+     |  __rsub__(self, value, /)
+     |      Return value-self.
+     |  
+     |  __rtruediv__(self, value, /)
+     |      Return value/self.
+     |  
+     |  __rxor__(self, value, /)
+     |      Return value^self.
+     |  
+     |  __sizeof__(...)
+     |      Returns size in memory, in bytes
+     |  
+     |  __str__(self, /)
+     |      Return str(self).
+     |  
+     |  __sub__(self, value, /)
+     |      Return self-value.
+     |  
+     |  __truediv__(self, value, /)
+     |      Return self/value.
+     |  
+     |  __trunc__(...)
+     |      Truncating an Integral returns itself.
+     |  
+     |  __xor__(self, value, /)
+     |      Return self^value.
+     |  
+     |  bit_length(...)
+     |      int.bit_length() -> int
+     |      
+     |      Number of bits necessary to represent self in binary.
+     |      >>> bin(37)
+     |      '0b100101'
+     |      >>> (37).bit_length()
+     |      6
+     |  
+     |  conjugate(...)
+     |      Returns self, the complex conjugate of any int.
+     |  
+     |  from_bytes(...) from builtins.type
+     |      int.from_bytes(bytes, byteorder, *, signed=False) -> int
+     |      
+     |      Return the integer represented by the given array of bytes.
+     |      
+     |      The bytes argument must be a bytes-like object (e.g. bytes or bytearray).
+     |      
+     |      The byteorder argument determines the byte order used to represent the
+     |      integer.  If byteorder is 'big', the most significant byte is at the
+     |      beginning of the byte array.  If byteorder is 'little', the most
+     |      significant byte is at the end of the byte array.  To request the native
+     |      byte order of the host system, use `sys.byteorder' as the byte order value.
+     |      
+     |      The signed keyword-only argument indicates whether two's complement is
+     |      used to represent the integer.
+     |  
+     |  to_bytes(...)
+     |      int.to_bytes(length, byteorder, *, signed=False) -> bytes
+     |      
+     |      Return an array of bytes representing an integer.
+     |      
+     |      The integer is represented using length bytes.  An OverflowError is
+     |      raised if the integer is not representable with the given number of
+     |      bytes.
+     |      
+     |      The byteorder argument determines the byte order used to represent the
+     |      integer.  If byteorder is 'big', the most significant byte is at the
+     |      beginning of the byte array.  If byteorder is 'little', the most
+     |      significant byte is at the end of the byte array.  To request the native
+     |      byte order of the host system, use `sys.byteorder' as the byte order value.
+     |      
+     |      The signed keyword-only argument determines whether two's complement is
+     |      used to represent the integer.  If signed is False and a negative integer
+     |      is given, an OverflowError is raised.
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data descriptors inherited from builtins.int:
+     |  
+     |  denominator
+     |      the denominator of a rational number in lowest terms
+     |  
+     |  imag
+     |      the imaginary part of a complex number
+     |  
+     |  numerator
+     |      the numerator of a rational number in lowest terms
+     |  
+     |  real
+     |      the real part of a complex number
+    
+    class Int16(IntBytesType)
+     |  2-byte integer
+     |  
+     |  Method resolution order:
+     |      Int16
+     |      IntBytesType
+     |      BytesType
+     |      builtins.object
+     |  
+     |  Data and other attributes defined here:
+     |  
+     |  code = 'H'
+     |  
+     |  size = 2
+     |  
+     |  ----------------------------------------------------------------------
+     |  Methods inherited from IntBytesType:
+     |  
+     |  __init__(self, offset, big_endian=False, neg_one_is_none=False, one_based=False)
+     |      Initialize self.  See help(type(self)) for accurate signature.
+     |  
+     |  from_bytes(self, byte_data)
+     |  
+     |  to_bytes(self, value)
+     |  
+     |  ----------------------------------------------------------------------
+     |  Methods inherited from BytesType:
+     |  
+     |  __get__(self, inst, cls=None)
+     |  
+     |  __set__(self, inst, value)
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data descriptors inherited from BytesType:
+     |  
+     |  __dict__
+     |      dictionary for instance variables (if defined)
+     |  
+     |  __weakref__
+     |      list of weak references to the object (if defined)
+    
+    class Int32(IntBytesType)
+     |  4-byte integer
+     |  
+     |  Method resolution order:
+     |      Int32
+     |      IntBytesType
+     |      BytesType
+     |      builtins.object
+     |  
+     |  Data and other attributes defined here:
+     |  
+     |  code = 'L'
+     |  
+     |  size = 4
+     |  
+     |  ----------------------------------------------------------------------
+     |  Methods inherited from IntBytesType:
+     |  
+     |  __init__(self, offset, big_endian=False, neg_one_is_none=False, one_based=False)
+     |      Initialize self.  See help(type(self)) for accurate signature.
+     |  
+     |  from_bytes(self, byte_data)
+     |  
+     |  to_bytes(self, value)
+     |  
+     |  ----------------------------------------------------------------------
+     |  Methods inherited from BytesType:
+     |  
+     |  __get__(self, inst, cls=None)
+     |  
+     |  __set__(self, inst, value)
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data descriptors inherited from BytesType:
+     |  
+     |  __dict__
+     |      dictionary for instance variables (if defined)
+     |  
+     |  __weakref__
+     |      list of weak references to the object (if defined)
+    
+    class Int8(IntBytesType)
+     |  1-byte integer
+     |  
+     |  Method resolution order:
+     |      Int8
+     |      IntBytesType
+     |      BytesType
+     |      builtins.object
+     |  
+     |  Data and other attributes defined here:
+     |  
+     |  code = 'B'
+     |  
+     |  size = 1
+     |  
+     |  ----------------------------------------------------------------------
+     |  Methods inherited from IntBytesType:
+     |  
+     |  __init__(self, offset, big_endian=False, neg_one_is_none=False, one_based=False)
+     |      Initialize self.  See help(type(self)) for accurate signature.
+     |  
+     |  from_bytes(self, byte_data)
+     |  
+     |  to_bytes(self, value)
+     |  
+     |  ----------------------------------------------------------------------
+     |  Methods inherited from BytesType:
+     |  
+     |  __get__(self, inst, cls=None)
+     |  
+     |  __set__(self, inst, value)
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data descriptors inherited from BytesType:
+     |  
+     |  __dict__
+     |      dictionary for instance variables (if defined)
+     |  
+     |  __weakref__
+     |      list of weak references to the object (if defined)
+    
+    class IntBytesType(BytesType)
+     |  add big_endian and neg_one to __init__
+     |  
+     |  Method resolution order:
+     |      IntBytesType
+     |      BytesType
+     |      builtins.object
+     |  
+     |  Methods defined here:
+     |  
+     |  __init__(self, offset, big_endian=False, neg_one_is_none=False, one_based=False)
+     |      Initialize self.  See help(type(self)) for accurate signature.
+     |  
+     |  from_bytes(self, byte_data)
+     |  
+     |  to_bytes(self, value)
+     |  
+     |  ----------------------------------------------------------------------
+     |  Methods inherited from BytesType:
+     |  
+     |  __get__(self, inst, cls=None)
+     |  
+     |  __set__(self, inst, value)
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data descriptors inherited from BytesType:
+     |  
+     |  __dict__
+     |      dictionary for instance variables (if defined)
+     |  
+     |  __weakref__
+     |      list of weak references to the object (if defined)
+    
+    class IsoDay(aenum.IntEnum)
+     |  Enum where members are also (and must be) ints
+     |  
+     |  Method resolution order:
+     |      IsoDay
+     |      aenum.IntEnum
+     |      builtins.int
+     |      aenum.Enum
+     |      enum.Enum
+     |      builtins.object
+     |  
+     |  Data and other attributes defined here:
+     |  
+     |  FRIDAY = <IsoDay.FRIDAY: 5>
+     |  
+     |  MONDAY = <IsoDay.MONDAY: 1>
+     |  
+     |  SATURDAY = <IsoDay.SATURDAY: 6>
+     |  
+     |  SUNDAY = <IsoDay.SUNDAY: 7>
+     |  
+     |  THURSDAY = <IsoDay.THURSDAY: 4>
+     |  
+     |  TUESDAY = <IsoDay.TUESDAY: 2>
+     |  
+     |  WEDNESDAY = <IsoDay.WEDNESDAY: 3>
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data descriptors inherited from aenum.Enum:
+     |  
+     |  name
+     |      Route attribute access on a class to __getattr__.
+     |      
+     |      This is a descriptor, used to define attributes that act differently when
+     |      accessed through an instance and through a class.  Instance access remains
+     |      normal, but access to an attribute through a class will be routed to the
+     |      class's __getattr__ method; this is done by raising AttributeError.
+     |  
+     |  value
+     |      Route attribute access on a class to __getattr__.
+     |      
+     |      This is a descriptor, used to define attributes that act differently when
+     |      accessed through an instance and through a class.  Instance access remains
+     |      normal, but access to an attribute through a class will be routed to the
+     |      class's __getattr__ method; this is done by raising AttributeError.
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data descriptors inherited from aenum.EnumMeta:
+     |  
+     |  __members__
+     |      Returns a mapping of member name->value.
+     |      
+     |      This mapping lists all enum members, including aliases. Note that this
+     |      is a copy of the internal mapping.
+    
+    class IsoMonth(aenum.IntEnum)
+     |  Enum where members are also (and must be) ints
+     |  
+     |  Method resolution order:
+     |      IsoMonth
+     |      aenum.IntEnum
+     |      builtins.int
+     |      aenum.Enum
+     |      enum.Enum
+     |      builtins.object
+     |  
+     |  Data and other attributes defined here:
+     |  
+     |  APRIL = <IsoMonth.APRIL: 4>
+     |  
+     |  AUGUST = <IsoMonth.AUGUST: 8>
+     |  
+     |  DECEMBER = <IsoMonth.DECEMBER: 12>
+     |  
+     |  FEBRUARY = <IsoMonth.FEBRUARY: 2>
+     |  
+     |  JANUARY = <IsoMonth.JANUARY: 1>
+     |  
+     |  JULY = <IsoMonth.JULY: 7>
+     |  
+     |  JUNE = <IsoMonth.JUNE: 6>
+     |  
+     |  MARCH = <IsoMonth.MARCH: 3>
+     |  
+     |  MAY = <IsoMonth.MAY: 5>
+     |  
+     |  NOVEMBER = <IsoMonth.NOVEMBER: 11>
+     |  
+     |  OCTOBER = <IsoMonth.OCTOBER: 10>
+     |  
+     |  SEPTEMBER = <IsoMonth.SEPTEMBER: 9>
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data descriptors inherited from aenum.Enum:
+     |  
+     |  name
+     |      Route attribute access on a class to __getattr__.
+     |      
+     |      This is a descriptor, used to define attributes that act differently when
+     |      accessed through an instance and through a class.  Instance access remains
+     |      normal, but access to an attribute through a class will be routed to the
+     |      class's __getattr__ method; this is done by raising AttributeError.
+     |  
+     |  value
+     |      Route attribute access on a class to __getattr__.
+     |      
+     |      This is a descriptor, used to define attributes that act differently when
+     |      accessed through an instance and through a class.  Instance access remains
+     |      normal, but access to an attribute through a class will be routed to the
+     |      class's __getattr__ method; this is done by raising AttributeError.
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data descriptors inherited from aenum.EnumMeta:
+     |  
+     |  __members__
+     |      Returns a mapping of member name->value.
+     |      
+     |      This mapping lists all enum members, including aliases. Note that this
+     |      is a copy of the internal mapping.
+    
+    class Iter(_Navigation)
+     |  Provides iterable behavior for a table
+     |  
+     |  Method resolution order:
+     |      Iter
+     |      _Navigation
+     |      builtins.object
+     |  
+     |  Methods defined here:
+     |  
+     |  __init__(self, table, include_vapor=False)
+     |      Return a Vapor record as the last record in the iteration
+     |      if include_vapor is True
+     |  
+     |  __iter__(self)
+     |  
+     |  __next__(self)
+     |  
+     |  ----------------------------------------------------------------------
+     |  Methods inherited from _Navigation:
+     |  
+     |  bottom(self)
+     |      sets record index to bottom of table (end of table)
+     |  
+     |  goto(self, where)
+     |      changes the record pointer to the first matching (deleted) record
+     |      where should be either an integer, or 'top' or 'bottom'.
+     |      top    -> before first record
+     |      bottom -> after last record
+     |  
+     |  skip(self, n=1)
+     |      move index to the next nth available record
+     |  
+     |  top(self)
+     |      sets record index to top of table (beginning of table)
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data descriptors inherited from _Navigation:
+     |  
+     |  __dict__
+     |      dictionary for instance variables (if defined)
+     |  
+     |  __weakref__
+     |      list of weak references to the object (if defined)
+     |  
+     |  bof
+     |      returns True if no more usable records towards the beginning of the table
+     |  
+     |  current
+     |      returns current index
+     |  
+     |  current_record
+     |      returns current record (deleted or not)
+     |  
+     |  eof
+     |      returns True if no more usable records towards the end of the table
+     |  
+     |  first_record
+     |      returns first available record (does not move index)
+     |  
+     |  last_record
+     |      returns last available record (does not move index)
+     |  
+     |  next_record
+     |      returns next available record (does not move index)
+     |  
+     |  prev_record
+     |      returns previous available record (does not move index)
+    
+    class LatinByte(HexEnum)
+     |  repr is in hex
+     |  
+     |  Method resolution order:
+     |      LatinByte
+     |      HexEnum
+     |      aenum.IntEnum
+     |      builtins.int
+     |      aenum.Enum
+     |      enum.Enum
+     |      builtins.object
+     |  
+     |  Data and other attributes defined here:
+     |  
+     |  ACK = <LatinByte.ACK: 0x6>
+     |  
+     |  ASTERISK = <LatinByte.ASTERISK: 0x2a>
+     |  
+     |  BEL = <LatinByte.BEL: 0x7>
+     |  
+     |  BS = <LatinByte.BS: 0x8>
+     |  
+     |  CAN = <LatinByte.CAN: 0x18>
+     |  
+     |  CR = <LatinByte.CR: 0xd>
+     |  
+     |  DC1 = <LatinByte.DC1: 0x11>
+     |  
+     |  DC2 = <LatinByte.DC2: 0x12>
+     |  
+     |  DC3 = <LatinByte.DC3: 0x13>
+     |  
+     |  DC4 = <LatinByte.DC4: 0x14>
+     |  
+     |  DLE = <LatinByte.DLE: 0x10>
+     |  
+     |  EM = <LatinByte.EM: 0x19>
+     |  
+     |  ENQ = <LatinByte.ENQ: 0x5>
+     |  
+     |  EOF = <LatinByte.EOF: 0x1a>
+     |  
+     |  EOT = <LatinByte.EOT: 0x4>
+     |  
+     |  ESC = <LatinByte.ESC: 0x1b>
+     |  
+     |  ETB = <LatinByte.ETB: 0x17>
+     |  
+     |  ETX = <LatinByte.ETX: 0x3>
+     |  
+     |  FF = <LatinByte.FF: 0xc>
+     |  
+     |  FS = <LatinByte.FS: 0x1c>
+     |  
+     |  GS = <LatinByte.GS: 0x1d>
+     |  
+     |  LF = <LatinByte.LF: 0xa>
+     |  
+     |  NAK = <LatinByte.NAK: 0x15>
+     |  
+     |  NULL = <LatinByte.NULL: 0x0>
+     |  
+     |  RS = <LatinByte.RS: 0x1e>
+     |  
+     |  SI = <LatinByte.SI: 0xf>
+     |  
+     |  SO = <LatinByte.SO: 0xe>
+     |  
+     |  SOH = <LatinByte.SOH: 0x1>
+     |  
+     |  SPACE = <LatinByte.SPACE: 0x20>
+     |  
+     |  STX = <LatinByte.STX: 0x2>
+     |  
+     |  SYN = <LatinByte.SYN: 0x16>
+     |  
+     |  TAB = <LatinByte.TAB: 0x9>
+     |  
+     |  US = <LatinByte.US: 0x1f>
+     |  
+     |  VT = <LatinByte.VT: 0xb>
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data descriptors inherited from aenum.Enum:
+     |  
+     |  name
+     |      Route attribute access on a class to __getattr__.
+     |      
+     |      This is a descriptor, used to define attributes that act differently when
+     |      accessed through an instance and through a class.  Instance access remains
+     |      normal, but access to an attribute through a class will be routed to the
+     |      class's __getattr__ method; this is done by raising AttributeError.
+     |  
+     |  value
+     |      Route attribute access on a class to __getattr__.
+     |      
+     |      This is a descriptor, used to define attributes that act differently when
+     |      accessed through an instance and through a class.  Instance access remains
+     |      normal, but access to an attribute through a class will be routed to the
+     |      class's __getattr__ method; this is done by raising AttributeError.
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data descriptors inherited from aenum.EnumMeta:
+     |  
+     |  __members__
+     |      Returns a mapping of member name->value.
+     |      
+     |      This mapping lists all enum members, including aliases. Note that this
+     |      is a copy of the internal mapping.
+    
+    class LazyAttr(builtins.object)
+     |  doesn't create object until actually accessed
+     |  
+     |  Methods defined here:
+     |  
+     |  __call__(yo, func)
+     |      Call self as a function.
+     |  
+     |  __get__(yo, instance, owner)
+     |  
+     |  __init__(yo, func=None, doc=None)
+     |      Initialize self.  See help(type(self)) for accurate signature.
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data descriptors defined here:
+     |  
+     |  __dict__
+     |      dictionary for instance variables (if defined)
+     |  
+     |  __weakref__
+     |      list of weak references to the object (if defined)
+    
+    class List(_Navigation)
+     |  list of Dbf records, with set-like behavior
+     |  
+     |  Method resolution order:
+     |      List
+     |      _Navigation
+     |      builtins.object
+     |  
+     |  Methods defined here:
+     |  
+     |  __add__(self, other)
+     |  
+     |  __bool__(self)
+     |  
+     |  __contains__(self, data)
+     |  
+     |  __delitem__(self, key)
+     |  
+     |  __getitem__(self, key)
+     |  
+     |  __init__(self, records=None, desc=None, key=None)
+     |      Initialize self.  See help(type(self)) for accurate signature.
+     |  
+     |  __iter__(self)
+     |  
+     |  __len__(self)
+     |  
+     |  __radd__(self, other)
+     |  
+     |  __repr__(self)
+     |      Return repr(self).
+     |  
+     |  __rsub__(self, other)
+     |  
+     |  __sub__(self, other)
+     |  
+     |  append(self, record)
+     |  
+     |  clear(self)
+     |  
+     |  extend(self, records)
+     |  
+     |  index(self, record, start=None, stop=None)
+     |      returns the index of record between start and stop
+     |      start and stop default to the first and last record
+     |  
+     |  insert(self, i, record)
+     |  
+     |  key(self, record)
+     |      table_name, record_number
+     |  
+     |  pop(self, index=None)
+     |  
+     |  query(self, criteria)
+     |      criteria is a callback that returns a truthy value for matching record
+     |  
+     |  remove(self, data)
+     |  
+     |  reverse(self)
+     |  
+     |  sort(self, key=None, reverse=False)
+     |  
+     |  ----------------------------------------------------------------------
+     |  Methods inherited from _Navigation:
+     |  
+     |  bottom(self)
+     |      sets record index to bottom of table (end of table)
+     |  
+     |  goto(self, where)
+     |      changes the record pointer to the first matching (deleted) record
+     |      where should be either an integer, or 'top' or 'bottom'.
+     |      top    -> before first record
+     |      bottom -> after last record
+     |  
+     |  skip(self, n=1)
+     |      move index to the next nth available record
+     |  
+     |  top(self)
+     |      sets record index to top of table (beginning of table)
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data descriptors inherited from _Navigation:
+     |  
+     |  __dict__
+     |      dictionary for instance variables (if defined)
+     |  
+     |  __weakref__
+     |      list of weak references to the object (if defined)
+     |  
+     |  bof
+     |      returns True if no more usable records towards the beginning of the table
+     |  
+     |  current
+     |      returns current index
+     |  
+     |  current_record
+     |      returns current record (deleted or not)
+     |  
+     |  eof
+     |      returns True if no more usable records towards the end of the table
+     |  
+     |  first_record
+     |      returns first available record (does not move index)
+     |  
+     |  last_record
+     |      returns last available record (does not move index)
+     |  
+     |  next_record
+     |      returns next available record (does not move index)
+     |  
+     |  prev_record
+     |      returns previous available record (does not move index)
+    
+    class Logical(builtins.object)
+     |  Logical field return type.
+     |  
+     |  Accepts values of True, False, or None/Null.
+     |  boolean value of Unknown is False (use Quantum if you want an exception instead.
+     |  
+     |  Methods defined here:
+     |  
+     |  __abs__(x)
+     |  
+     |  __add__(x, y)
+     |  
+     |  __and__(x, y)
+     |      AND (conjunction) x & y:
+     |      True iff both x, y are True
+     |      False iff at least one of x, y is False
+     |      Unknown otherwise
+     |  
+     |  __bool__(x)
+     |      boolean value of Unknown is assumed False
+     |  
+     |  __complex__(x)
+     |  
+     |  __div__(x, y)
+     |  
+     |  __divmod__(x, y)
+     |  
+     |  __eq__(x, y)
+     |      Return self==value.
+     |  
+     |  __float__(x)
+     |  
+     |  __floordiv__(x, y)
+     |  
+     |  __ge__(x, y)
+     |      Return self>=value.
+     |  
+     |  __gt__(x, y)
+     |      Return self>value.
+     |  
+     |  __hash__(x)
+     |      Return hash(self).
+     |  
+     |  __iadd__ = __add__(x, y)
+     |  
+     |  __idiv__ = __div__(x, y)
+     |  
+     |  __ifloordiv__ = __floordiv__(x, y)
+     |  
+     |  __ilshift__ = __lshift__(x, y)
+     |  
+     |  __imod__ = __mod__(x, y)
+     |  
+     |  __imul__ = __mul__(x, y)
+     |  
+     |  __index__(x)
+     |  
+     |  __int__(x)
+     |  
+     |  __invert__(x)
+     |  
+     |  __ipow__ = __pow__(x, y)
+     |  
+     |  __irshift__ = __rshift__(x, y)
+     |  
+     |  __isub__ = __sub__(x, y)
+     |  
+     |  __itruediv__ = __truediv__(x, y)
+     |  
+     |  __le__(x, y)
+     |      Return self<=value.
+     |  
+     |  __lshift__(x, y)
+     |  
+     |  __lt__(x, y)
+     |      Return self<value.
+     |  
+     |  __mod__(x, y)
+     |  
+     |  __mul__(x, y)
+     |  
+     |  __ne__(x, y)
+     |      Return self!=value.
+     |  
+     |  __neg__(x)
+     |      NEG (negation)
+     |  
+     |  __or__(x, y)
+     |      OR (disjunction): x | y => True iff at least one of x, y is True
+     |  
+     |  __pos__(x)
+     |      POS (posation)
+     |  
+     |  __pow__(x, y)
+     |  
+     |  __radd__ = __add__(x, y)
+     |  
+     |  __rand__ = __and__(x, y)
+     |  
+     |  __rdiv__(y, x)
+     |  
+     |  __rdivmod__(y, x)
+     |  
+     |  __repr__(x)
+     |      Return repr(self).
+     |  
+     |  __rfloordiv__(y, x)
+     |  
+     |  __rlshift__(y, x)
+     |  
+     |  __rmod__(y, x)
+     |  
+     |  __rmul__ = __mul__(x, y)
+     |  
+     |  __ror__ = __or__(x, y)
+     |  
+     |  __rpow__(y, x)
+     |  
+     |  __rrshift__(y, x)
+     |  
+     |  __rshift__(x, y)
+     |  
+     |  __rsub__(y, x)
+     |  
+     |  __rtruediv__(y, x)
+     |  
+     |  __rxor__ = __xor__(x, y)
+     |  
+     |  __str__(x)
+     |      Return str(self).
+     |  
+     |  __sub__(x, y)
+     |  
+     |  __truediv__(x, y)
+     |  
+     |  __xor__(x, y)
+     |      XOR (parity) x ^ y: True iff only one of x,y is True
+     |  
+     |  ----------------------------------------------------------------------
+     |  Static methods defined here:
+     |  
+     |  __new__(cls, value=None)
+     |      Create and return a new object.  See help(type) for accurate signature.
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data descriptors defined here:
+     |  
+     |  __dict__
+     |      dictionary for instance variables (if defined)
+     |  
+     |  __weakref__
+     |      list of weak references to the object (if defined)
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data and other attributes defined here:
+     |  
+     |  false = Logical('F')
+     |  
+     |  true = Logical('T')
+     |  
+     |  unknown = Logical('?')
+    
+    class LruCache(builtins.object)
+     |  keep the most recent n items in the dict
+     |  
+     |  based on code from Raymond Hettinger: http://stackoverflow.com/a/8334739/208880
+     |  
+     |  Methods defined here:
+     |  
+     |  __call__(self, *func)
+     |      Call self as a function.
+     |  
+     |  __init__(self, maxsize, func=None)
+     |      Initialize self.  See help(type(self)) for accurate signature.
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data descriptors defined here:
+     |  
+     |  __dict__
+     |      dictionary for instance variables (if defined)
+     |  
+     |  __weakref__
+     |      list of weak references to the object (if defined)
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data and other attributes defined here:
+     |  
+     |  Link = <class 'dbf.LruCache.Link'>
+    
+    class MutableDefault(builtins.object)
+     |  Lives in the class, and on first access calls the supplied factory and
+     |  maps the result into the instance it was called on
+     |  
+     |  Methods defined here:
+     |  
+     |  __call__(self)
+     |      Call self as a function.
+     |  
+     |  __get__(self, instance, owner)
+     |  
+     |  __init__(self, func)
+     |      Initialize self.  See help(type(self)) for accurate signature.
+     |  
+     |  __repr__(self)
+     |      Return repr(self).
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data descriptors defined here:
+     |  
+     |  __dict__
+     |      dictionary for instance variables (if defined)
+     |  
+     |  __weakref__
+     |      list of weak references to the object (if defined)
+    
+    class NonUnicodeError(DbfError)
+     |  Data for table not in unicode
+     |  
+     |  Method resolution order:
+     |      NonUnicodeError
+     |      DbfError
+     |      builtins.Exception
+     |      builtins.BaseException
+     |      builtins.object
+     |  
+     |  Methods defined here:
+     |  
+     |  __init__(self, message=None)
+     |      Initialize self.  See help(type(self)) for accurate signature.
+     |  
+     |  ----------------------------------------------------------------------
+     |  Methods inherited from DbfError:
+     |  
+     |  from_None(self)
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data descriptors inherited from DbfError:
+     |  
+     |  __weakref__
+     |      list of weak references to the object (if defined)
+     |  
+     |  ----------------------------------------------------------------------
+     |  Methods inherited from builtins.Exception:
+     |  
+     |  __new__(*args, **kwargs) from builtins.type
+     |      Create and return a new object.  See help(type) for accurate signature.
+     |  
+     |  ----------------------------------------------------------------------
+     |  Methods inherited from builtins.BaseException:
+     |  
+     |  __delattr__(self, name, /)
+     |      Implement delattr(self, name).
+     |  
+     |  __getattribute__(self, name, /)
+     |      Return getattr(self, name).
+     |  
+     |  __reduce__(...)
+     |      helper for pickle
+     |  
+     |  __repr__(self, /)
+     |      Return repr(self).
+     |  
+     |  __setattr__(self, name, value, /)
+     |      Implement setattr(self, name, value).
+     |  
+     |  __setstate__(...)
+     |  
+     |  __str__(self, /)
+     |      Return str(self).
+     |  
+     |  with_traceback(...)
+     |      Exception.with_traceback(tb) --
+     |      set self.__traceback__ to tb and return self.
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data descriptors inherited from builtins.BaseException:
+     |  
+     |  __cause__
+     |      exception cause
+     |  
+     |  __context__
+     |      exception context
+     |  
+     |  __dict__
+     |  
+     |  __suppress_context__
+     |  
+     |  __traceback__
+     |  
+     |  args
+    
+    class NotFoundError(DbfError, builtins.ValueError, builtins.KeyError, builtins.IndexError)
+     |  record criteria not met
+     |  
+     |  Method resolution order:
+     |      NotFoundError
+     |      DbfError
+     |      builtins.ValueError
+     |      builtins.KeyError
+     |      builtins.IndexError
+     |      builtins.LookupError
+     |      builtins.Exception
+     |      builtins.BaseException
+     |      builtins.object
+     |  
+     |  Methods defined here:
+     |  
+     |  __init__(self, message=None, data=None)
+     |      Initialize self.  See help(type(self)) for accurate signature.
+     |  
+     |  ----------------------------------------------------------------------
+     |  Methods inherited from DbfError:
+     |  
+     |  from_None(self)
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data descriptors inherited from DbfError:
+     |  
+     |  __weakref__
+     |      list of weak references to the object (if defined)
+     |  
+     |  ----------------------------------------------------------------------
+     |  Methods inherited from builtins.ValueError:
+     |  
+     |  __new__(*args, **kwargs) from builtins.type
+     |      Create and return a new object.  See help(type) for accurate signature.
+     |  
+     |  ----------------------------------------------------------------------
+     |  Methods inherited from builtins.KeyError:
+     |  
+     |  __str__(self, /)
+     |      Return str(self).
+     |  
+     |  ----------------------------------------------------------------------
+     |  Methods inherited from builtins.BaseException:
+     |  
+     |  __delattr__(self, name, /)
+     |      Implement delattr(self, name).
+     |  
+     |  __getattribute__(self, name, /)
+     |      Return getattr(self, name).
+     |  
+     |  __reduce__(...)
+     |      helper for pickle
+     |  
+     |  __repr__(self, /)
+     |      Return repr(self).
+     |  
+     |  __setattr__(self, name, value, /)
+     |      Implement setattr(self, name, value).
+     |  
+     |  __setstate__(...)
+     |  
+     |  with_traceback(...)
+     |      Exception.with_traceback(tb) --
+     |      set self.__traceback__ to tb and return self.
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data descriptors inherited from builtins.BaseException:
+     |  
+     |  __cause__
+     |      exception cause
+     |  
+     |  __context__
+     |      exception context
+     |  
+     |  __dict__
+     |  
+     |  __suppress_context__
+     |  
+     |  __traceback__
+     |  
+     |  args
+    
+    class NullType(builtins.object)
+     |  Null object -- any interaction returns Null
+     |  
+     |  Methods defined here:
+     |  
+     |  __abs__ = _null(self, *args, **kwargs)
+     |  
+     |  __add__ = _null(self, *args, **kwargs)
+     |  
+     |  __and__ = _null(self, *args, **kwargs)
+     |  
+     |  __bool__(self)
+     |  
+     |  __call__ = _null(self, *args, **kwargs)
+     |  
+     |  __div__ = _null(self, *args, **kwargs)
+     |  
+     |  __divmod__(self, other)
+     |  
+     |  __eq__ = _null(self, *args, **kwargs)
+     |  
+     |  __floordiv__ = _null(self, *args, **kwargs)
+     |  
+     |  __ge__ = _null(self, *args, **kwargs)
+     |  
+     |  __getattr__ = _null(self, *args, **kwargs)
+     |  
+     |  __gt__ = _null(self, *args, **kwargs)
+     |  
+     |  __iadd__ = _null(self, *args, **kwargs)
+     |  
+     |  __iand__ = _null(self, *args, **kwargs)
+     |  
+     |  __idiv__ = _null(self, *args, **kwargs)
+     |  
+     |  __ifloordiv__ = _null(self, *args, **kwargs)
+     |  
+     |  __ilshift__ = _null(self, *args, **kwargs)
+     |  
+     |  __imod__ = _null(self, *args, **kwargs)
+     |  
+     |  __imul__ = _null(self, *args, **kwargs)
+     |  
+     |  __invert__ = _null(self, *args, **kwargs)
+     |  
+     |  __ior__ = _null(self, *args, **kwargs)
+     |  
+     |  __ipow__ = _null(self, *args, **kwargs)
+     |  
+     |  __irshift__ = _null(self, *args, **kwargs)
+     |  
+     |  __isub__ = _null(self, *args, **kwargs)
+     |  
+     |  __itruediv__ = _null(self, *args, **kwargs)
+     |  
+     |  __ixor__ = _null(self, *args, **kwargs)
+     |  
+     |  __le__ = _null(self, *args, **kwargs)
+     |  
+     |  __lshift__ = _null(self, *args, **kwargs)
+     |  
+     |  __lt__ = _null(self, *args, **kwargs)
+     |  
+     |  __mod__ = _null(self, *args, **kwargs)
+     |  
+     |  __mul__ = _null(self, *args, **kwargs)
+     |  
+     |  __ne__ = _null(self, *args, **kwargs)
+     |  
+     |  __neg__ = _null(self, *args, **kwargs)
+     |  
+     |  __or__ = _null(self, *args, **kwargs)
+     |  
+     |  __pos__ = _null(self, *args, **kwargs)
+     |  
+     |  __pow__ = _null(self, *args, **kwargs)
+     |  
+     |  __radd__ = _null(self, *args, **kwargs)
+     |  
+     |  __rand__ = _null(self, *args, **kwargs)
+     |  
+     |  __rdiv__ = _null(self, *args, **kwargs)
+     |  
+     |  __rdivmod__ = __divmod__(self, other)
+     |  
+     |  __repr__(self)
+     |      Return repr(self).
+     |  
+     |  __rfloordiv__ = _null(self, *args, **kwargs)
+     |  
+     |  __rlshift__ = _null(self, *args, **kwargs)
+     |  
+     |  __rmod__ = _null(self, *args, **kwargs)
+     |  
+     |  __rmul__ = _null(self, *args, **kwargs)
+     |  
+     |  __ror__ = _null(self, *args, **kwargs)
+     |  
+     |  __rpow__ = _null(self, *args, **kwargs)
+     |  
+     |  __rrshift__ = _null(self, *args, **kwargs)
+     |  
+     |  __rshift__ = _null(self, *args, **kwargs)
+     |  
+     |  __rsub__ = _null(self, *args, **kwargs)
+     |  
+     |  __rtruediv__ = _null(self, *args, **kwargs)
+     |  
+     |  __rxor__ = _null(self, *args, **kwargs)
+     |  
+     |  __setattr__(self, name, value)
+     |      Implement setattr(self, name, value).
+     |  
+     |  __setitem___(self, index, value)
+     |  
+     |  __str__(self)
+     |      Return str(self).
+     |  
+     |  __sub__ = _null(self, *args, **kwargs)
+     |  
+     |  __truediv__ = _null(self, *args, **kwargs)
+     |  
+     |  __xor__ = _null(self, *args, **kwargs)
+     |  
+     |  ----------------------------------------------------------------------
+     |  Static methods defined here:
+     |  
+     |  __new__(cls, *args)
+     |      Create and return a new object.  See help(type) for accurate signature.
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data descriptors defined here:
+     |  
+     |  __dict__
+     |      dictionary for instance variables (if defined)
+     |  
+     |  __weakref__
+     |      list of weak references to the object (if defined)
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data and other attributes defined here:
+     |  
+     |  __hash__ = None
+     |  
+     |  null = <null>
+     |      Null object -- any interaction returns Null
+    
+    class Period(builtins.object)
+     |  for matching various time ranges
+     |  
+     |  Methods defined here:
+     |  
+     |  __contains__(self, other)
+     |  
+     |  __init__(self, year=None, month=None, day=None, hour=None, minute=None, second=None, microsecond=None)
+     |      Initialize self.  See help(type(self)) for accurate signature.
+     |  
+     |  __repr__(self)
+     |      Return repr(self).
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data descriptors defined here:
+     |  
+     |  __dict__
+     |      dictionary for instance variables (if defined)
+     |  
+     |  __weakref__
+     |      list of weak references to the object (if defined)
+    
+    class Quantum(builtins.object)
+     |  Logical field return type that implements boolean algebra
+     |  
+     |  Accepts values of True/On, False/Off, or None/Null/Unknown/Other
+     |  
+     |  Methods defined here:
+     |  
+     |  A(x, y)
+     |      OR (disjunction): x | y => True iff at least one of x, y is True
+     |  
+     |  C = _C_material(x, y)
+     |  
+     |  D(x, y)
+     |      NAND (negative AND) x.D(y): False iff x and y are both True
+     |  
+     |  E(x, y)
+     |      EQV (equivalence) x.E(y): True iff x and y are the same
+     |  
+     |  J(x, y)
+     |      XOR (parity) x ^ y: True iff only one of x,y is True
+     |  
+     |  K(x, y)
+     |      AND (conjunction) x & y: True iff both x, y are True
+     |  
+     |  N(x)
+     |      NEG (negation) -x: True iff x = False
+     |  
+     |  __add__ = A(x, y)
+     |  
+     |  __and__ = K(x, y)
+     |  
+     |  __bool__(x)
+     |  
+     |  __eq__(x, y)
+     |      Return self==value.
+     |  
+     |  __hash__(x)
+     |      Return hash(self).
+     |  
+     |  __mul__ = K(x, y)
+     |  
+     |  __ne__(x, y)
+     |      Return self!=value.
+     |  
+     |  __neg__ = N(x)
+     |  
+     |  __or__ = A(x, y)
+     |  
+     |  __radd__ = A(x, y)
+     |  
+     |  __rand__ = K(x, y)
+     |  
+     |  __repr__(x)
+     |      Return repr(self).
+     |  
+     |  __rmul__ = K(x, y)
+     |  
+     |  __ror__ = A(x, y)
+     |  
+     |  __rrshift__ = _C_material_reversed(y, x)
+     |  
+     |  __rshift__ = _C_material(x, y)
+     |  
+     |  __rxor__ = J(x, y)
+     |  
+     |  __str__(x)
+     |      Return str(self).
+     |  
+     |  __xor__ = J(x, y)
+     |  
+     |  ----------------------------------------------------------------------
+     |  Class methods defined here:
+     |  
+     |  set_implication(method) from builtins.type
+     |      sets IMP to material or relevant
+     |  
+     |  ----------------------------------------------------------------------
+     |  Static methods defined here:
+     |  
+     |  __new__(cls, value=None)
+     |      Create and return a new object.  See help(type) for accurate signature.
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data descriptors defined here:
+     |  
+     |  __dict__
+     |      dictionary for instance variables (if defined)
+     |  
+     |  __weakref__
+     |      list of weak references to the object (if defined)
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data and other attributes defined here:
+     |  
+     |  false = Quantum('N')
+     |  
+     |  true = Quantum('Y')
+     |  
+     |  unknown = Quantum('?')
+    
+    class Record(builtins.object)
+     |  Provides routines to extract and save data within the fields of a
+     |  dbf record.
+     |  
+     |  Methods defined here:
+     |  
+     |  __contains__(self, value)
+     |  
+     |  __enter__(self)
+     |  
+     |  __eq__(self, other)
+     |      Return self==value.
+     |  
+     |  __exit__(self, *args)
+     |  
+     |  __getattr__(self, name)
+     |  
+     |  __getitem__(self, item)
+     |  
+     |  __iter__(self)
+     |  
+     |  __len__(self)
+     |  
+     |  __ne__(self, other)
+     |      Return self!=value.
+     |  
+     |  __repr__(self)
+     |      Return repr(self).
+     |  
+     |  __setattr__(self, name, value)
+     |      Implement setattr(self, name, value).
+     |  
+     |  __setitem__(self, name, value)
+     |  
+     |  __str__(self)
+     |      Return str(self).
+     |  
+     |  ----------------------------------------------------------------------
+     |  Static methods defined here:
+     |  
+     |  __new__(cls, recnum, layout, kamikaze=b'', _fromdisk=False)
+     |      record = ascii array of entire record;
+     |      layout=record specification;
+     |      memo = memo object for table
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data descriptors defined here:
+     |  
+     |  __weakref__
+     |      list of weak references to the object (if defined)
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data and other attributes defined here:
+     |  
+     |  __hash__ = None
+    
+    class RecordTemplate(builtins.object)
+     |  Provides routines to mimic a dbf record.
+     |  
+     |  Methods defined here:
+     |  
+     |  __contains__(self, key)
+     |  
+     |  __eq__(self, other)
+     |      Return self==value.
+     |  
+     |  __getattr__(self, name)
+     |  
+     |  __getitem__(self, item)
+     |  
+     |  __iter__(self)
+     |  
+     |  __len__(self)
+     |  
+     |  __ne__(self, other)
+     |      Return self!=value.
+     |  
+     |  __repr__(self)
+     |      Return repr(self).
+     |  
+     |  __setattr__(self, name, value)
+     |      Implement setattr(self, name, value).
+     |  
+     |  __setitem__(self, name, value)
+     |  
+     |  __str__(self)
+     |      Return str(self).
+     |  
+     |  ----------------------------------------------------------------------
+     |  Static methods defined here:
+     |  
+     |  __new__(cls, layout, original_record=None, defaults=None)
+     |      record = ascii array of entire record; layout=record specification
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data descriptors defined here:
+     |  
+     |  __weakref__
+     |      list of weak references to the object (if defined)
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data and other attributes defined here:
+     |  
+     |  __hash__ = None
+    
+    class RecordVaporWare(builtins.object)
+     |  Provides routines to mimic a dbf record, but all values are non-existent.
+     |  
+     |  Methods defined here:
+     |  
+     |  __bool__(self)
+     |      Vapor records are always False
+     |  
+     |  __contains__(self, key)
+     |  
+     |  __eq__(self, other)
+     |      Return self==value.
+     |  
+     |  __getattr__(self, name)
+     |  
+     |  __getitem__(self, item)
+     |  
+     |  __len__(self)
+     |  
+     |  __ne__(self, other)
+     |      Return self!=value.
+     |  
+     |  __repr__(self)
+     |      Return repr(self).
+     |  
+     |  __setattr__(self, name, value)
+     |      Implement setattr(self, name, value).
+     |  
+     |  __setitem__(self, name, value)
+     |  
+     |  __str__(self)
+     |      Return str(self).
+     |  
+     |  ----------------------------------------------------------------------
+     |  Static methods defined here:
+     |  
+     |  __new__(cls, position, sequence)
+     |      record = ascii array of entire record
+     |      layout=record specification
+     |      memo = memo object for table
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data and other attributes defined here:
+     |  
+     |  __hash__ = None
+    
+    class Relation(builtins.object)
+     |  establishes a relation between two dbf tables (not persistent)
+     |  
+     |  Methods defined here:
+     |  
+     |  __eq__(yo, other)
+     |      Return self==value.
+     |  
+     |  __getitem__(yo, record)
+     |      record should be from the source table
+     |  
+     |  __hash__(yo)
+     |      Return hash(self).
+     |  
+     |  __ne__(yo, other)
+     |      Return self!=value.
+     |  
+     |  __repr__(yo)
+     |      Return repr(self).
+     |  
+     |  __str__(yo)
+     |      Return str(self).
+     |  
+     |  index = <dbf.LazyAttr object>
+     |  one_or_many(yo, table)
+     |  
+     |  ----------------------------------------------------------------------
+     |  Static methods defined here:
+     |  
+     |  __new__(cls, src, tgt, src_names=None, tgt_names=None)
+     |      Create and return a new object.  See help(type) for accurate signature.
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data descriptors defined here:
+     |  
+     |  __dict__
+     |      dictionary for instance variables (if defined)
+     |  
+     |  __weakref__
+     |      list of weak references to the object (if defined)
+     |  
+     |  src_field
+     |      name of source field
+     |  
+     |  src_field_name
+     |  
+     |  src_table
+     |      name of source table
+     |  
+     |  src_table_name
+     |  
+     |  tgt_field
+     |      name of target field
+     |  
+     |  tgt_field_name
+     |  
+     |  tgt_table
+     |      name of target table
+     |  
+     |  tgt_table_name
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data and other attributes defined here:
+     |  
+     |  relations = {}
+    
+    class RelativeDay(aenum.Enum)
+     |  Generic enumeration.
+     |  
+     |  Derive from this class to define new enumerations.
+     |  
+     |  Method resolution order:
+     |      RelativeDay
+     |      aenum.Enum
+     |      enum.Enum
+     |      builtins.object
+     |  
+     |  Data and other attributes defined here:
+     |  
+     |  LAST_SUNDAY = <RelativeDay.LAST_SUNDAY: ()>
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data descriptors inherited from aenum.Enum:
+     |  
+     |  name
+     |      Route attribute access on a class to __getattr__.
+     |      
+     |      This is a descriptor, used to define attributes that act differently when
+     |      accessed through an instance and through a class.  Instance access remains
+     |      normal, but access to an attribute through a class will be routed to the
+     |      class's __getattr__ method; this is done by raising AttributeError.
+     |  
+     |  value
+     |      Route attribute access on a class to __getattr__.
+     |      
+     |      This is a descriptor, used to define attributes that act differently when
+     |      accessed through an instance and through a class.  Instance access remains
+     |      normal, but access to an attribute through a class will be routed to the
+     |      class's __getattr__ method; this is done by raising AttributeError.
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data descriptors inherited from aenum.EnumMeta:
+     |  
+     |  __members__
+     |      Returns a mapping of member name->value.
+     |      
+     |      This mapping lists all enum members, including aliases. Note that this
+     |      is a copy of the internal mapping.
+    
+    class RelativeMonth(aenum.Enum)
+     |  Generic enumeration.
+     |  
+     |  Derive from this class to define new enumerations.
+     |  
+     |  Method resolution order:
+     |      RelativeMonth
+     |      aenum.Enum
+     |      enum.Enum
+     |      builtins.object
+     |  
+     |  Data and other attributes defined here:
+     |  
+     |  LAST_DECEMBER = <RelativeMonth.LAST_DECEMBER: ()>
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data descriptors inherited from aenum.Enum:
+     |  
+     |  name
+     |      Route attribute access on a class to __getattr__.
+     |      
+     |      This is a descriptor, used to define attributes that act differently when
+     |      accessed through an instance and through a class.  Instance access remains
+     |      normal, but access to an attribute through a class will be routed to the
+     |      class's __getattr__ method; this is done by raising AttributeError.
+     |  
+     |  value
+     |      Route attribute access on a class to __getattr__.
+     |      
+     |      This is a descriptor, used to define attributes that act differently when
+     |      accessed through an instance and through a class.  Instance access remains
+     |      normal, but access to an attribute through a class will be routed to the
+     |      class's __getattr__ method; this is done by raising AttributeError.
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data descriptors inherited from aenum.EnumMeta:
+     |  
+     |  __members__
+     |      Returns a mapping of member name->value.
+     |      
+     |      This mapping lists all enum members, including aliases. Note that this
+     |      is a copy of the internal mapping.
+    
+    class Table(_Navigation)
+     |  Base class for dbf style tables
+     |  
+     |  Method resolution order:
+     |      Table
+     |      _Navigation
+     |      builtins.object
+     |  
+     |  Methods defined here:
+     |  
+     |  __bool__(self)
+     |      True if table has any records
+     |  
+     |  __contains__(self, data)
+     |      data can be a record, template, dict, or tuple
+     |  
+     |  __enter__(self)
+     |  
+     |  __exit__(self, *exc_info)
+     |  
+     |  __getattr__(self, name)
+     |  
+     |  __getitem__(self, value)
+     |  
+     |  __init__(self, filename, field_specs=None, memo_size=128, ignore_memos=False, codepage=None, default_data_types=None, field_data_types=None, dbf_type=None, on_disk=True, unicode_errors='strict')
+     |      open/create dbf file
+     |      filename should include path if needed
+     |      field_specs can be either a ;-delimited string or a list of strings
+     |      memo_size is always 512 for db3 memos
+     |      ignore_memos is useful if the memo file is missing or corrupt
+     |      read_only will load records into memory, then close the disk file
+     |      keep_memos will also load any memo fields into memory
+     |      meta_only will ignore all records, keeping only basic table information
+     |      codepage will override whatever is set in the table itself
+     |  
+     |  __iter__(self)
+     |      iterates over the table's records
+     |  
+     |  __len__(self)
+     |      returns number of records in table
+     |  
+     |  __repr__(self)
+     |      Return repr(self).
+     |  
+     |  __str__(self)
+     |      Return str(self).
+     |  
+     |  add_fields(self, field_specs)
+     |      adds field(s) to the table layout; format is Name Type(Length,Decimals)[; Name Type(Length,Decimals)[...]]
+     |      backup table is created with _backup appended to name
+     |      then zaps table, recreates current structure, and copies records back from the backup
+     |  
+     |  allow_nulls(self, fields)
+     |      set fields to allow null values -- NO LONGER ALLOWED, MUST BE SET AT TABLE CREATION
+     |  
+     |  append(self, data=b'', drop=False, multiple=1)
+     |      adds <multiple> blank records, and fills fields with dict/tuple values if present
+     |  
+     |  close(self)
+     |      closes disk files, flushing record data to disk
+     |      ensures table data is available if keep_table
+     |      ensures memo data is available if keep_memos
+     |  
+     |  create_backup(self, new_name=None, on_disk=None)
+     |      creates a backup table
+     |  
+     |  create_index(self, key)
+     |      creates an in-memory index using the function key
+     |  
+     |  create_template(self, record=None, defaults=None)
+     |      returns a record template that can be used like a record
+     |  
+     |  delete_fields(self, doomed)
+     |      removes field(s) from the table
+     |      creates backup files with _backup appended to the file name,
+     |      then modifies current structure
+     |  
+     |  disallow_nulls(self, fields)
+     |      set fields to not allow null values
+     |  
+     |  field_info(self, field)
+     |      returns (field type, size, dec, class) of field
+     |  
+     |  index(self, record, start=None, stop=None)
+     |      returns the index of record between start and stop
+     |      start and stop default to the first and last record
+     |  
+     |  new(self, filename, field_specs=None, memo_size=None, ignore_memos=None, codepage=None, default_data_types=None, field_data_types=None, on_disk=True)
+     |      returns a new table of the same type
+     |  
+     |  nullable_field(self, field)
+     |      returns True if field allows Nulls
+     |  
+     |  open(self, mode=<DbfStatus.READ_ONLY: 1>)
+     |      (re)opens disk table, (re)initializes data structures
+     |  
+     |  pack(self)
+     |      physically removes all deleted records
+     |  
+     |  query(self, criteria)
+     |      criteria is a string that will be converted into a function that returns
+     |      a List of all matching records
+     |  
+     |  reindex(self)
+     |      reprocess all indices for this table
+     |  
+     |  rename_field(self, oldname, newname)
+     |      renames an existing field
+     |  
+     |  resize_field(self, chosen, new_size)
+     |      resizes field (C only at this time)
+     |      creates backup file, then modifies current structure
+     |  
+     |  structure(self, fields=None)
+     |      return field specification list suitable for creating same table layout
+     |      fields should be a list of fields or None for all fields in table
+     |  
+     |  zap(self)
+     |      removes all records from table -- this cannot be undone!
+     |  
+     |  ----------------------------------------------------------------------
+     |  Static methods defined here:
+     |  
+     |  __new__(cls, filename, field_specs=None, memo_size=128, ignore_memos=False, codepage=None, default_data_types=None, field_data_types=None, dbf_type=None, on_disk=True, unicode_errors='strict')
+     |      Create and return a new object.  See help(type) for accurate signature.
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data descriptors defined here:
+     |  
+     |  codepage
+     |      code page used for text translation
+     |  
+     |  field_count
+     |      the number of user fields in the table
+     |  
+     |  field_names
+     |      a list of the user fields in the table
+     |  
+     |  filename
+     |      table's file name, including path (if specified on open)
+     |  
+     |  last_update
+     |      date of last update
+     |  
+     |  memoname
+     |      table's memo name (if path included in filename on open)
+     |  
+     |  record_length
+     |      number of bytes in a record (including deleted flag and null field size
+     |  
+     |  status
+     |      CLOSED, READ_ONLY, or READ_WRITE
+     |  
+     |  supported_tables
+     |      allowable table types
+     |  
+     |  version
+     |      returns the dbf type of the table
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data and other attributes defined here:
+     |  
+     |  backup = None
+     |  
+     |  ----------------------------------------------------------------------
+     |  Methods inherited from _Navigation:
+     |  
+     |  bottom(self)
+     |      sets record index to bottom of table (end of table)
+     |  
+     |  goto(self, where)
+     |      changes the record pointer to the first matching (deleted) record
+     |      where should be either an integer, or 'top' or 'bottom'.
+     |      top    -> before first record
+     |      bottom -> after last record
+     |  
+     |  skip(self, n=1)
+     |      move index to the next nth available record
+     |  
+     |  top(self)
+     |      sets record index to top of table (beginning of table)
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data descriptors inherited from _Navigation:
+     |  
+     |  __dict__
+     |      dictionary for instance variables (if defined)
+     |  
+     |  __weakref__
+     |      list of weak references to the object (if defined)
+     |  
+     |  bof
+     |      returns True if no more usable records towards the beginning of the table
+     |  
+     |  current
+     |      returns current index
+     |  
+     |  current_record
+     |      returns current record (deleted or not)
+     |  
+     |  eof
+     |      returns True if no more usable records towards the end of the table
+     |  
+     |  first_record
+     |      returns first available record (does not move index)
+     |  
+     |  last_record
+     |      returns last available record (does not move index)
+     |  
+     |  next_record
+     |      returns next available record (does not move index)
+     |  
+     |  prev_record
+     |      returns previous available record (does not move index)
+    
+    class Tables(builtins.object)
+     |  context manager for multiple tables and/or indices
+     |  
+     |  Methods defined here:
+     |  
+     |  __enter__(yo)
+     |  
+     |  __exit__(yo, *args)
+     |  
+     |  __init__(yo, *tables)
+     |      Initialize self.  See help(type(self)) for accurate signature.
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data descriptors defined here:
+     |  
+     |  __dict__
+     |      dictionary for instance variables (if defined)
+     |  
+     |  __weakref__
+     |      list of weak references to the object (if defined)
+    
+    class Time(builtins.object)
+     |  adds null capable datetime.time constructs
+     |  
+     |  Methods defined here:
+     |  
+     |  __add__(self, other)
+     |  
+     |  __bool__(self)
+     |  
+     |  __eq__(self, other)
+     |      Return self==value.
+     |  
+     |  __format__(self, spec)
+     |      default object formatter
+     |  
+     |  __ge__(self, other)
+     |      Return self>=value.
+     |  
+     |  __getattr__(self, name)
+     |  
+     |  __gt__(self, other)
+     |      Return self>value.
+     |  
+     |  __hash__(self)
+     |      Return hash(self).
+     |  
+     |  __le__(self, other)
+     |      Return self<=value.
+     |  
+     |  __lt__(self, other)
+     |      Return self<value.
+     |  
+     |  __ne__(self, other)
+     |      Return self!=value.
+     |  
+     |  __radd__ = __add__(self, other)
+     |  
+     |  __repr__(self)
+     |      Return repr(self).
+     |  
+     |  __rsub__(self, other)
+     |  
+     |  __str__(self)
+     |      Return str(self).
+     |  
+     |  __sub__(self, other)
+     |  
+     |  replace(self, hour=None, minute=None, second=None, microsecond=None, tzinfo=<null>, delta_hour=0, delta_minute=0, delta_second=0)
+     |  
+     |  strftime(self, format)
+     |  
+     |  time(self)
+     |  
+     |  tofloat(self)
+     |      returns Time as a float
+     |  
+     |  ----------------------------------------------------------------------
+     |  Class methods defined here:
+     |  
+     |  fromfloat(num) from builtins.type
+     |      2.5 == 2 hours, 30 minutes, 0 seconds, 0 microseconds
+     |  
+     |  strptime(time_string, format=None) from builtins.type
+     |  
+     |  ----------------------------------------------------------------------
+     |  Static methods defined here:
+     |  
+     |  __new__(cls, hour=None, minute=0, second=0, microsecond=0, tzinfo=<null>)
+     |      hour may be a datetime.time or a str(Time)
+     |  
+     |  now(tzinfo=None)
+     |      only accurate to milliseconds
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data and other attributes defined here:
+     |  
+     |  max = Time(23, 59, 59, 999000)
+     |  
+     |  min = Time(0, 0, 0, 0)
+    
+    class VfpTable(FpTable)
+     |  Provides an interface for working with Visual FoxPro 6 tables
+     |  
+     |  Method resolution order:
+     |      VfpTable
+     |      FpTable
+     |      Table
+     |      _Navigation
+     |      builtins.object
+     |  
+     |  Methods inherited from Table:
+     |  
+     |  __bool__(self)
+     |      True if table has any records
+     |  
+     |  __contains__(self, data)
+     |      data can be a record, template, dict, or tuple
+     |  
+     |  __enter__(self)
+     |  
+     |  __exit__(self, *exc_info)
+     |  
+     |  __getattr__(self, name)
+     |  
+     |  __getitem__(self, value)
+     |  
+     |  __init__(self, filename, field_specs=None, memo_size=128, ignore_memos=False, codepage=None, default_data_types=None, field_data_types=None, dbf_type=None, on_disk=True, unicode_errors='strict')
+     |      open/create dbf file
+     |      filename should include path if needed
+     |      field_specs can be either a ;-delimited string or a list of strings
+     |      memo_size is always 512 for db3 memos
+     |      ignore_memos is useful if the memo file is missing or corrupt
+     |      read_only will load records into memory, then close the disk file
+     |      keep_memos will also load any memo fields into memory
+     |      meta_only will ignore all records, keeping only basic table information
+     |      codepage will override whatever is set in the table itself
+     |  
+     |  __iter__(self)
+     |      iterates over the table's records
+     |  
+     |  __len__(self)
+     |      returns number of records in table
+     |  
+     |  __repr__(self)
+     |      Return repr(self).
+     |  
+     |  __str__(self)
+     |      Return str(self).
+     |  
+     |  add_fields(self, field_specs)
+     |      adds field(s) to the table layout; format is Name Type(Length,Decimals)[; Name Type(Length,Decimals)[...]]
+     |      backup table is created with _backup appended to name
+     |      then zaps table, recreates current structure, and copies records back from the backup
+     |  
+     |  allow_nulls(self, fields)
+     |      set fields to allow null values -- NO LONGER ALLOWED, MUST BE SET AT TABLE CREATION
+     |  
+     |  append(self, data=b'', drop=False, multiple=1)
+     |      adds <multiple> blank records, and fills fields with dict/tuple values if present
+     |  
+     |  close(self)
+     |      closes disk files, flushing record data to disk
+     |      ensures table data is available if keep_table
+     |      ensures memo data is available if keep_memos
+     |  
+     |  create_backup(self, new_name=None, on_disk=None)
+     |      creates a backup table
+     |  
+     |  create_index(self, key)
+     |      creates an in-memory index using the function key
+     |  
+     |  create_template(self, record=None, defaults=None)
+     |      returns a record template that can be used like a record
+     |  
+     |  delete_fields(self, doomed)
+     |      removes field(s) from the table
+     |      creates backup files with _backup appended to the file name,
+     |      then modifies current structure
+     |  
+     |  disallow_nulls(self, fields)
+     |      set fields to not allow null values
+     |  
+     |  field_info(self, field)
+     |      returns (field type, size, dec, class) of field
+     |  
+     |  index(self, record, start=None, stop=None)
+     |      returns the index of record between start and stop
+     |      start and stop default to the first and last record
+     |  
+     |  new(self, filename, field_specs=None, memo_size=None, ignore_memos=None, codepage=None, default_data_types=None, field_data_types=None, on_disk=True)
+     |      returns a new table of the same type
+     |  
+     |  nullable_field(self, field)
+     |      returns True if field allows Nulls
+     |  
+     |  open(self, mode=<DbfStatus.READ_ONLY: 1>)
+     |      (re)opens disk table, (re)initializes data structures
+     |  
+     |  pack(self)
+     |      physically removes all deleted records
+     |  
+     |  query(self, criteria)
+     |      criteria is a string that will be converted into a function that returns
+     |      a List of all matching records
+     |  
+     |  reindex(self)
+     |      reprocess all indices for this table
+     |  
+     |  rename_field(self, oldname, newname)
+     |      renames an existing field
+     |  
+     |  resize_field(self, chosen, new_size)
+     |      resizes field (C only at this time)
+     |      creates backup file, then modifies current structure
+     |  
+     |  structure(self, fields=None)
+     |      return field specification list suitable for creating same table layout
+     |      fields should be a list of fields or None for all fields in table
+     |  
+     |  zap(self)
+     |      removes all records from table -- this cannot be undone!
+     |  
+     |  ----------------------------------------------------------------------
+     |  Static methods inherited from Table:
+     |  
+     |  __new__(cls, filename, field_specs=None, memo_size=128, ignore_memos=False, codepage=None, default_data_types=None, field_data_types=None, dbf_type=None, on_disk=True, unicode_errors='strict')
+     |      Create and return a new object.  See help(type) for accurate signature.
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data descriptors inherited from Table:
+     |  
+     |  codepage
+     |      code page used for text translation
+     |  
+     |  field_count
+     |      the number of user fields in the table
+     |  
+     |  field_names
+     |      a list of the user fields in the table
+     |  
+     |  filename
+     |      table's file name, including path (if specified on open)
+     |  
+     |  last_update
+     |      date of last update
+     |  
+     |  memoname
+     |      table's memo name (if path included in filename on open)
+     |  
+     |  record_length
+     |      number of bytes in a record (including deleted flag and null field size
+     |  
+     |  status
+     |      CLOSED, READ_ONLY, or READ_WRITE
+     |  
+     |  supported_tables
+     |      allowable table types
+     |  
+     |  version
+     |      returns the dbf type of the table
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data and other attributes inherited from Table:
+     |  
+     |  backup = None
+     |  
+     |  ----------------------------------------------------------------------
+     |  Methods inherited from _Navigation:
+     |  
+     |  bottom(self)
+     |      sets record index to bottom of table (end of table)
+     |  
+     |  goto(self, where)
+     |      changes the record pointer to the first matching (deleted) record
+     |      where should be either an integer, or 'top' or 'bottom'.
+     |      top    -> before first record
+     |      bottom -> after last record
+     |  
+     |  skip(self, n=1)
+     |      move index to the next nth available record
+     |  
+     |  top(self)
+     |      sets record index to top of table (beginning of table)
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data descriptors inherited from _Navigation:
+     |  
+     |  __dict__
+     |      dictionary for instance variables (if defined)
+     |  
+     |  __weakref__
+     |      list of weak references to the object (if defined)
+     |  
+     |  bof
+     |      returns True if no more usable records towards the beginning of the table
+     |  
+     |  current
+     |      returns current index
+     |  
+     |  current_record
+     |      returns current record (deleted or not)
+     |  
+     |  eof
+     |      returns True if no more usable records towards the end of the table
+     |  
+     |  first_record
+     |      returns first available record (does not move index)
+     |  
+     |  last_record
+     |      returns last available record (does not move index)
+     |  
+     |  next_record
+     |      returns next available record (does not move index)
+     |  
+     |  prev_record
+     |      returns previous available record (does not move index)
+    
+    class fake_module(builtins.object)
+     |  Methods defined here:
+     |  
+     |  __init__(self, name, *args)
+     |      Initialize self.  See help(type(self)) for accurate signature.
+     |  
+     |  register(self)
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data descriptors defined here:
+     |  
+     |  __dict__
+     |      dictionary for instance variables (if defined)
+     |  
+     |  __weakref__
+     |      list of weak references to the object (if defined)
+
+FUNCTIONS
+    Process(records, start=0, stop=None, filter=None)
+        commits each record to disk before returning the next one; undoes all changes to that record if exception raised
+        if records is a table, it will be opened and closed if necessary
+        filter function should return True to skip record, False to keep
+    
+    Templates(records, start=0, stop=None, filter=None)
+        returns a template of each record instead of the record itself
+        if records is a table, it will be opened and closed if necessary
+    
+    add_binary_memo(format, flags)
+    
+    add_character(format, flags)
+    
+    add_clp_character(format, flags)
+    
+    add_date(format, flags)
+    
+    add_fields(table_name, field_specs)
+        adds fields to an existing table
+    
+    add_logical(format, flags)
+    
+    add_memo(format, flags)
+    
+    add_numeric(format, flags)
+    
+    add_vfp_binary_memo(format, flags)
+    
+    add_vfp_character(format, flags)
+    
+    add_vfp_currency(format, flags)
+    
+    add_vfp_datetime(format, flags)
+    
+    add_vfp_double(format, flags)
+    
+    add_vfp_integer(format, flags)
+    
+    add_vfp_memo(format, flags)
+    
+    add_vfp_numeric(format, flags)
+    
+    bi_ord = ord(c, /)
+        Return the Unicode code point for a one-character string.
+    
+    bisect_left(...)
+        bisect_left(a, x[, lo[, hi]]) -> index
+        
+        Return the index where to insert item x in list a, assuming a is sorted.
+        
+        The return value i is such that all e in a[:i] have e < x, and all e in
+        a[i:] have e >= x.  So if x already appears in the list, i points just
+        before the leftmost x already there.
+        
+        Optional args lo (default 0) and hi (default len(a)) bound the
+        slice of a to be searched.
+    
+    bisect_right(...)
+        bisect_right(a, x[, lo[, hi]]) -> index
+        
+        Return the index where to insert item x in list a, assuming a is sorted.
+        
+        The return value i is such that all e in a[:i] have e <= x, and all e in
+        a[i:] have e > x.  So if x already appears in the list, i points just
+        beyond the rightmost x already there
+        
+        Optional args lo (default 0) and hi (default len(a)) bound the
+        slice of a to be searched.
+    
+    create_template(table_or_record, defaults=None)
+    
+    delete(record)
+        marks record as deleted
+    
+    delete_fields(table_name, field_names)
+        deletes fields from an existing table
+    
+    execute(code, gbl=None, lcl=None)
+    
+    export(table_or_records, filename=None, field_names=None, format='csv', header=True, dialect='dbf', encoding=None)
+        writes the records using CSV or tab-delimited format, using the filename
+        given if specified, otherwise the table name
+        if table_or_records is a collection of records (not an actual table) they
+        should all be of the same format
+    
+    ezip(*iters)
+        extends all iters to longest one, using last value from each as necessary
+    
+    field_names(thing)
+        fields in table/record, keys in dict
+    
+    field_spec_error_text(format, flags)
+        generic routine for error text for the add...() functions
+    
+    first_record(table_name)
+        prints the first record of a table
+    
+    floor(...)
+        floor(x)
+        
+        Return the floor of x as an Integral.
+        This is the largest integer <= x.
+    
+    from_csv(csvfile, to_disk=False, filename=None, field_names=None, extra_fields=None, dbf_type='db3', memo_size=64, min_field_size=1, encoding=None, errors=None)
+        creates a Character table from a csv file
+        to_disk will create a table with the same name
+        filename will be used if provided
+        field_names default to f0, f1, f2, etc, unless specified (list)
+        extra_fields can be used to add additional fields -- should be normal field specifiers (list)
+    
+    gather(record, data, drop=False)
+        saves data into a record's fields; writes to disk if not in flux
+        keys with no matching field will raise a FieldMissingError
+        exception unless drop_missing == True;
+        if an Exception occurs the record is restored before reraising
+    
+    get_fields(table_name)
+        returns the list of field names of a table
+    
+    guess_table_type(filename)
+    
+    hex_dump(records)
+        just what it says ;)
+    
+    index(sequence)
+        returns integers 0 - len(sequence)
+    
+    info(table_name)
+        prints table info
+    
+    is_deleted(record)
+        marked for deletion?
+    
+    is_leapyear(year)
+    
+    none(*args, **kwargs)
+        because we can't do `NoneType(*args, **kwargs)`
+    
+    ord(int_or_char)
+    
+    pack_long_int(value, bigendian=False)
+        Returns a four-bye integer from the value, or raises DbfError
+    
+    pack_short_int(value, bigendian=False)
+        Returns a two-bye integer from the value, or raises DbfError
+    
+    pack_str(string)
+        Returns an 11 byte, upper-cased, null padded string suitable for field names;
+        raises DbfError if the string is bigger than 10 bytes
+    
+    pql(records, command)
+        recognized pql commands are SELECT, UPDATE | REPLACE, DELETE, RECALL, ADD, DROP
+    
+    pql_add(records, new_fields, condition, field_names)
+    
+    pql_cmd(command, field_names)
+        creates a function matching to apply command to each record in records
+    
+    pql_criteria(records, criteria)
+        creates a function matching the pql criteria
+    
+    pql_delete(records, dead_fields, condition, field_names)
+    
+    pql_drop(records, dead_fields, condition, field_names)
+    
+    pql_pack(records, command, condition, field_names)
+    
+    pql_recall(records, all_fields, condition, field_names)
+    
+    pql_resize(records, fieldname_newsize, condition, field_names)
+    
+    pql_select(records, chosen_fields, condition, field_names)
+    
+    pql_update(records, command, condition, field_names)
+    
+    recno(record)
+        physical record number
+    
+    rename_field(table_name, oldfield, newfield)
+        renames a field in a table
+    
+    reset(record, keep_fields=None)
+        sets record's fields back to blank values, except for fields in keep_fields
+    
+    retrieve_character(bytes, fielddef, memo, decoder)
+        Returns the string in bytes as fielddef[CLASS] or fielddef[EMPTY]
+    
+    retrieve_currency(bytes, fielddef, *ignore)
+        Returns the currency value in bytes
+    
+    retrieve_date(bytes, fielddef, *ignore)
+        Returns the ascii coded date as fielddef[CLASS] or fielddef[EMPTY]
+    
+    retrieve_double(bytes, fielddef, *ignore)
+        Returns the double in bytes as fielddef[CLASS] ('default' == float)
+    
+    retrieve_integer(bytes, fielddef, *ignore)
+        Returns the binary number stored in bytes in little-endian
+        format as fielddef[CLASS]
+    
+    retrieve_logical(bytes, fielddef, *ignore)
+        Returns True if bytes is 't', 'T', 'y', or 'Y'
+        None if '?'
+        False otherwise
+    
+    retrieve_memo(bytes, fielddef, memo, decoder)
+        Returns the block of data from a memo file
+    
+    retrieve_numeric(bytes, fielddef, *ignore)
+        Returns the number stored in bytes as integer if field spec for
+        decimals is 0, float otherwise
+    
+    retrieve_vfp_datetime(bytes, fielddef, *ignore)
+        returns the date/time stored in bytes; dates <= 01/01/1981 00:00:00
+        may not be accurate;  BC dates are nulled.
+    
+    retrieve_vfp_memo(bytes, fielddef, memo, decoder)
+        Returns the block of data from a memo file
+    
+    scan(table, direction='forward', filter=<function <lambda> at 0x1058b1510>)
+        moves record pointer forward 1; returns False if Eof/Bof reached
+        table must be derived from _Navigation or have skip() method
+    
+    scatter(record, as_type=<function create_template at 0x1058af620>, _mappings=<class 'collections.abc.Mapping'>)
+        returns as_type() of [fieldnames and] values.
+    
+    scinot(value, decimals)
+        return scientific notation with not more than decimals-1 decimal places
+    
+    source_table(thingie)
+        table associated with table | record | index
+    
+    string(text)
+    
+    structure(table_name, field=None)
+        returns the definition of a field (or all fields)
+    
+    table_type(filename)
+        returns text representation of a table's dbf version
+    
+    to_bytes(data)
+    
+    undelete(record)
+        marks record as active
+    
+    unicode_error_handler(decoder, encoder, errors)
+    
+    unpack_long_int(bytes, bigendian=False)
+        Returns the value in the four-byte integer passed in
+    
+    unpack_short_int(bytes, bigendian=False)
+        Returns the value in the two-byte integer passed in
+    
+    unpack_str(chars)
+        Returns a normal, lower-cased string from a null-padded byte string
+    
+    unsupported_type(something, *ignore)
+        called if a data type is not supported for that style of table
+    
+    update_character(string, fielddef, memo, decoder, encoder)
+        returns the string as bytes (not unicode) as fielddef[CLASS] or fielddef[EMPTY]
+    
+    update_currency(value, *ignore)
+        Returns the value to be stored in the record's disk data
+    
+    update_date(moment, *ignore)
+        Returns the Date or datetime.date object ascii-encoded (yyyymmdd)
+    
+    update_double(value, *ignore)
+        returns the value to be stored in the record's disk data
+    
+    update_integer(value, *ignore)
+        Returns value in little-endian binary format
+    
+    update_logical(data, *ignore)
+        Returns 'T' if logical is True, 'F' if False, '?' otherwise
+    
+    update_memo(string, fielddef, memo, decoder, encoder)
+        Writes string as a memo, returns the block number it was saved into
+    
+    update_numeric(value, fielddef, *ignore)
+        returns value as ascii representation, rounding decimal
+        portion as necessary
+    
+    update_vfp_datetime(moment, *ignore)
+        Sets the date/time stored in moment
+        moment must have fields:
+            year, month, day, hour, minute, second, microsecond
+    
+    update_vfp_memo(string, fielddef, memo, decoder, encoder)
+        Writes string as a memo, returns the block number it was saved into
+    
+    with_cause(exc, cause)
+    
+    write(record, **kwargs)
+        write record data to disk (updates indices)
+
+DATA
+    ACK = <LatinByte.ACK: 0x6>
+    ASTERISK = <LatinByte.ASTERISK: 0x2a>
+    BEL = <LatinByte.BEL: 0x7>
+    BINARY = <FieldFlag.BINARY: 4>
+    BS = <LatinByte.BS: 0x8>
+    CAN = <LatinByte.CAN: 0x18>
+    CHAR = <FieldType.CHAR: b'C'>
+    CLASS = <Field.CLASS: 6>
+    CLOSED = <DbfStatus.CLOSED: 0>
+    CR = <LatinByte.CR: 0xd>
+    CURRENCY = <FieldType.CURRENCY: b'Y'>
+    DATE = <FieldType.DATE: b'D'>
+    DATETIME = <FieldType.DATETIME: b'T'>
+    DC1 = <LatinByte.DC1: 0x11>
+    DC2 = <LatinByte.DC2: 0x12>
+    DC3 = <LatinByte.DC3: 0x13>
+    DC4 = <LatinByte.DC4: 0x14>
+    DECIMALS = <Field.DECIMALS: 4>
+    DLE = <LatinByte.DLE: 0x10>
+    DOUBLE = <FieldType.DOUBLE: b'B'>
+    EM = <LatinByte.EM: 0x19>
+    EMPTY = <Field.EMPTY: 7>
+    END = <Field.END: 3>
+    ENQ = <LatinByte.ENQ: 0x5>
+    EOF = <LatinByte.EOF: 0x1a>
+    EOT = <LatinByte.EOT: 0x4>
+    ESC = <LatinByte.ESC: 0x1b>
+    ETB = <LatinByte.ETB: 0x17>
+    ETX = <LatinByte.ETX: 0x3>
+    FF = <LatinByte.FF: 0xc>
+    FLAGS = <Field.FLAGS: 5>
+    FLOAT = <FieldType.FLOAT: b'F'>
+    FS = <LatinByte.FS: 0x1c>
+    Falsth = Logical('F')
+    GENERAL = <FieldType.GENERAL: b'G'>
+    GS = <LatinByte.GS: 0x1d>
+    INTEGER = <FieldType.INTEGER: b'I'>
+    IN_MEMORY = <DbfLocation.IN_MEMORY: 0>
+    LAST_APRIL = <RelativeMonth.LAST_DECEMBER: ()>
+    LAST_AUGUST = <RelativeMonth.LAST_DECEMBER: ()>
+    LAST_DECEMBER = <RelativeMonth.LAST_DECEMBER: ()>
+    LAST_FEBRUARY = <RelativeMonth.LAST_DECEMBER: ()>
+    LAST_FRIDAY = <RelativeDay.LAST_SUNDAY: ()>
+    LAST_JANUARY = <RelativeMonth.LAST_DECEMBER: ()>
+    LAST_JULY = <RelativeMonth.LAST_DECEMBER: ()>
+    LAST_JUNE = <RelativeMonth.LAST_DECEMBER: ()>
+    LAST_MARCH = <RelativeMonth.LAST_DECEMBER: ()>
+    LAST_MAY = <RelativeMonth.LAST_DECEMBER: ()>
+    LAST_MONDAY = <RelativeDay.LAST_SUNDAY: ()>
+    LAST_NOVEMBER = <RelativeMonth.LAST_DECEMBER: ()>
+    LAST_OCTOBER = <RelativeMonth.LAST_DECEMBER: ()>
+    LAST_SATURDAY = <RelativeDay.LAST_SUNDAY: ()>
+    LAST_SEPTEMBER = <RelativeMonth.LAST_DECEMBER: ()>
+    LAST_SUNDAY = <RelativeDay.LAST_SUNDAY: ()>
+    LAST_THURSDAY = <RelativeDay.LAST_SUNDAY: ()>
+    LAST_TUESDAY = <RelativeDay.LAST_SUNDAY: ()>
+    LAST_WEDNESDAY = <RelativeDay.LAST_SUNDAY: ()>
+    LENGTH = <Field.LENGTH: 2>
+    LF = <LatinByte.LF: 0xa>
+    LOGICAL = <FieldType.LOGICAL: b'L'>
+    LOGICAL_BAD_IS_NONE = True
+    MEMO = <FieldType.MEMO: b'M'>
+    NAK = <LatinByte.NAK: 0x15>
+    NEXT_APRIL = <RelativeMonth.LAST_DECEMBER: ()>
+    NEXT_AUGUST = <RelativeMonth.LAST_DECEMBER: ()>
+    NEXT_DECEMBER = <RelativeMonth.LAST_DECEMBER: ()>
+    NEXT_FEBRUARY = <RelativeMonth.LAST_DECEMBER: ()>
+    NEXT_FRIDAY = <RelativeDay.LAST_SUNDAY: ()>
+    NEXT_JANUARY = <RelativeMonth.LAST_DECEMBER: ()>
+    NEXT_JULY = <RelativeMonth.LAST_DECEMBER: ()>
+    NEXT_JUNE = <RelativeMonth.LAST_DECEMBER: ()>
+    NEXT_MARCH = <RelativeMonth.LAST_DECEMBER: ()>
+    NEXT_MAY = <RelativeMonth.LAST_DECEMBER: ()>
+    NEXT_MONDAY = <RelativeDay.LAST_SUNDAY: ()>
+    NEXT_NOVEMBER = <RelativeMonth.LAST_DECEMBER: ()>
+    NEXT_OCTOBER = <RelativeMonth.LAST_DECEMBER: ()>
+    NEXT_SATURDAY = <RelativeDay.LAST_SUNDAY: ()>
+    NEXT_SEPTEMBER = <RelativeMonth.LAST_DECEMBER: ()>
+    NEXT_SUNDAY = <RelativeDay.LAST_SUNDAY: ()>
+    NEXT_THURSDAY = <RelativeDay.LAST_SUNDAY: ()>
+    NEXT_TUESDAY = <RelativeDay.LAST_SUNDAY: ()>
+    NEXT_WEDNESDAY = <RelativeDay.LAST_SUNDAY: ()>
+    NOCPTRANS = <FieldFlag.BINARY: 4>
+    NUL = <Field.NUL: 8>
+    NULL = <LatinByte.NULL: 0x0>
+    NULLABLE = <FieldFlag.NULLABLE: 2>
+    NUMERIC = <FieldType.NUMERIC: b'N'>
+    Null = <null>
+    NullDate = Date()
+    NullDateTime = DateTime()
+    NullTime = Time()
+    ON_DISK = <DbfLocation.ON_DISK: 1>
+    Off = Quantum('N')
+    On = Quantum('Y')
+    Other = Quantum('?')
+    PICTURE = <FieldType.PICTURE: b'P'>
+    READ_ONLY = <DbfStatus.READ_ONLY: 1>
+    READ_WRITE = <DbfStatus.READ_WRITE: 2>
+    RS = <LatinByte.RS: 0x1e>
+    SEEK_END = 2
+    SI = <LatinByte.SI: 0xf>
+    SO = <LatinByte.SO: 0xe>
+    SOH = <LatinByte.SOH: 0x1>
+    SPACE = <LatinByte.SPACE: 0x20>
+    START = <Field.START: 1>
+    STX = <LatinByte.STX: 0x2>
+    SUB = <LatinByte.EOF: 0x1a>
+    SYN = <LatinByte.SYN: 0x16>
+    SYSTEM = <FieldFlag.SYSTEM: 1>
+    TAB = <LatinByte.TAB: 0x9>
+    TYPE = <Field.TYPE: 0>
+    Truth = Logical('T')
+    US = <LatinByte.US: 0x1f>
+    Unknown = Logical('?')
+    VFPTIME = 1721425
+    VT = <LatinByte.VT: 0xb>
+    Vapor = <dbf.Vapor object>
+    api = <dbf.fake_module object>
+    baseinteger = (<class 'int'>,)
+    basestring = (<class 'str'>, <class 'dbf.Char'>)
+    code_pages = {0: ('ascii', "plain ol' ascii"), 1: ('cp437', 'U.S. MS-D...
+    days_per_leap_month = [31, 31, 29, 31, 30, 31, 30, 31, 31, 30, 31, 30,...
+    days_per_month = [31, 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31, ...
+    default_codepage = 'ascii'
+    default_type = 'db3'
+    input_decoding = 'ascii'
+    module = {'ACK': <LatinByte.ACK: 0x6>, 'ASTERISK': <LatinByte.ASTERISK...
+    pql_functions = {'add': <function pql_add>, 'count': None, 'delete': <...
+    pql_user_functions = {}
+    py_ver = (3, 6)
+    table_types = {'clp': <class 'dbf.ClpTable'>, 'db3': <class 'dbf.Db3Ta...
+    temp_dir = ''
+    version = (0, 97, 11)
+    version_map = {2: 'FoxBASE', 3: 'dBase III Plus', 4: 'dBase IV', 5: 'd...
+    with_statement = _Feature((2, 5, 0, 'alpha', 1), (2, 6, 0, 'alpha', 0)...
+
+FILE
+    /Users/jack/miniconda2/envs/py37/lib/python3.6/site-packages/dbf/__init__.py
+
+

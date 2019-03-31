@@ -1,0 +1,83 @@
+Help on package requests:
+
+NAME
+    requests
+
+DESCRIPTION
+    Requests HTTP Library
+    ~~~~~~~~~~~~~~~~~~~~~
+    
+    Requests is an HTTP library, written in Python, for human beings. Basic GET
+    usage:
+    
+       >>> import requests
+       >>> r = requests.get('https://www.python.org')
+       >>> r.status_code
+       200
+       >>> 'Python is a programming language' in r.content
+       True
+    
+    ... or POST:
+    
+       >>> payload = dict(key1='value1', key2='value2')
+       >>> r = requests.post('http://httpbin.org/post', data=payload)
+       >>> print(r.text)
+       {
+         ...
+         "form": {
+           "key2": "value2",
+           "key1": "value1"
+         },
+         ...
+       }
+    
+    The other HTTP methods are supported - see `requests.api`. Full documentation
+    is at <http://python-requests.org>.
+    
+    :copyright: (c) 2017 by Kenneth Reitz.
+    :license: Apache 2.0, see LICENSE for more details.
+
+PACKAGE CONTENTS
+    __version__
+    _internal_utils
+    adapters
+    api
+    auth
+    certs
+    compat
+    cookies
+    exceptions
+    help
+    hooks
+    models
+    packages (package)
+    sessions
+    status_codes
+    structures
+    utils
+
+FUNCTIONS
+    check_compatibility(urllib3_version, chardet_version)
+
+DATA
+    __author_email__ = 'me@kennethreitz.org'
+    __build__ = 137473
+    __cake__ = '✨ 🍰 ✨'
+    __copyright__ = 'Copyright 2018 Kenneth Reitz'
+    __description__ = 'Python HTTP for Humans.'
+    __license__ = 'Apache 2.0'
+    __title__ = 'requests'
+    __url__ = 'http://python-requests.org'
+    codes = <lookup 'status_codes'>
+    cryptography_version = '2.5'
+
+VERSION
+    2.19.1
+
+AUTHOR
+    Kenneth Reitz
+
+FILE
+    /Users/jack/miniconda2/envs/py37/lib/python3.6/site-packages/requests/__init__.py
+
+

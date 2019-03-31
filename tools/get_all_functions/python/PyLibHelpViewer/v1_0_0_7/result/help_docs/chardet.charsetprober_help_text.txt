@@ -1,0 +1,100 @@
+Help on module chardet.charsetprober in chardet:
+
+NAME
+    chardet.charsetprober
+
+DESCRIPTION
+    ######################## BEGIN LICENSE BLOCK ########################
+    # The Original Code is Mozilla Universal charset detector code.
+    #
+    # The Initial Developer of the Original Code is
+    # Netscape Communications Corporation.
+    # Portions created by the Initial Developer are Copyright (C) 2001
+    # the Initial Developer. All Rights Reserved.
+    #
+    # Contributor(s):
+    #   Mark Pilgrim - port to Python
+    #   Shy Shalom - original C code
+    #
+    # This library is free software; you can redistribute it and/or
+    # modify it under the terms of the GNU Lesser General Public
+    # License as published by the Free Software Foundation; either
+    # version 2.1 of the License, or (at your option) any later version.
+    #
+    # This library is distributed in the hope that it will be useful,
+    # but WITHOUT ANY WARRANTY; without even the implied warranty of
+    # MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+    # Lesser General Public License for more details.
+    #
+    # You should have received a copy of the GNU Lesser General Public
+    # License along with this library; if not, write to the Free Software
+    # Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA
+    # 02110-1301  USA
+    ######################### END LICENSE BLOCK #########################
+
+CLASSES
+    builtins.object
+        CharSetProber
+    
+    class CharSetProber(builtins.object)
+     |  Methods defined here:
+     |  
+     |  __init__(self, lang_filter=None)
+     |      Initialize self.  See help(type(self)) for accurate signature.
+     |  
+     |  feed(self, buf)
+     |  
+     |  get_confidence(self)
+     |  
+     |  reset(self)
+     |  
+     |  ----------------------------------------------------------------------
+     |  Static methods defined here:
+     |  
+     |  filter_high_byte_only(buf)
+     |  
+     |  filter_international_words(buf)
+     |      We define three types of bytes:
+     |      alphabet: english alphabets [a-zA-Z]
+     |      international: international characters [-ÿ]
+     |      marker: everything else [^a-zA-Z-ÿ]
+     |      
+     |      The input buffer can be thought to contain a series of words delimited
+     |      by markers. This function works to filter all words that contain at
+     |      least one international character. All contiguous sequences of markers
+     |      are replaced by a single space ascii character.
+     |      
+     |      This filter applies to all scripts which do not use English characters.
+     |  
+     |  filter_with_english_letters(buf)
+     |      Returns a copy of ``buf`` that retains only the sequences of English
+     |      alphabet and high byte characters that are not between <> characters.
+     |      Also retains English alphabet and high byte characters immediately
+     |      before occurrences of >.
+     |      
+     |      This filter can be applied to all scripts which contain both English
+     |      characters and extended ASCII characters, but is currently only used by
+     |      ``Latin1Prober``.
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data descriptors defined here:
+     |  
+     |  __dict__
+     |      dictionary for instance variables (if defined)
+     |  
+     |  __weakref__
+     |      list of weak references to the object (if defined)
+     |  
+     |  charset_name
+     |  
+     |  state
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data and other attributes defined here:
+     |  
+     |  SHORTCUT_THRESHOLD = 0.95
+
+FILE
+    /Users/jack/miniconda2/envs/py37/lib/python3.6/site-packages/chardet/charsetprober.py
+
+

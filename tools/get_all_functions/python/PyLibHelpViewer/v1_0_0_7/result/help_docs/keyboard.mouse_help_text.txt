@@ -1,0 +1,112 @@
+Help on module keyboard.mouse in keyboard:
+
+NAME
+    keyboard.mouse - # -*- coding: utf-8 -*-
+
+FUNCTIONS
+    click(button='left')
+        Sends a click with the given button.
+    
+    double_click(button='left')
+        Sends a double click with the given button.
+    
+    drag(start_x, start_y, end_x, end_y, absolute=True, duration=0)
+        Holds the left mouse button, moving from start to end position, then
+        releases. `absolute` and `duration` are parameters regarding the mouse
+        movement.
+    
+    get_position()
+        Returns the (x, y) mouse position.
+    
+    hold = press(button='left')
+        Presses the given button (but doesn't release).
+    
+    hook(callback)
+        Installs a global listener on all available mouses, invoking `callback`
+        each time it is moved, a key status changes or the wheel is spun. A mouse
+        event is passed as argument, with type either `mouse.ButtonEvent`,
+        `mouse.WheelEvent` or `mouse.MoveEvent`.
+        
+        Returns the given callback for easier development.
+    
+    is_pressed(button='left')
+        Returns True if the given button is currently pressed.
+    
+    move(x, y, absolute=True, duration=0)
+        Moves the mouse. If `absolute`, to position (x, y), otherwise move relative
+        to the current position. If `duration` is non-zero, animates the movement.
+    
+    on_button(callback, args=(), buttons=('left', 'middle', 'right', 'x', 'x2'), types=('up', 'down', 'double'))
+        Invokes `callback` with `args` when the specified event happens.
+    
+    on_click(callback, args=())
+        Invokes `callback` with `args` when the left button is clicked.
+    
+    on_double_click(callback, args=())
+        Invokes `callback` with `args` when the left button is double clicked.
+    
+    on_middle_click(callback, args=())
+        Invokes `callback` with `args` when the middle button is clicked.
+    
+    on_right_click(callback, args=())
+        Invokes `callback` with `args` when the right button is clicked.
+    
+    play(events, speed_factor=1.0, include_clicks=True, include_moves=True, include_wheel=True)
+        Plays a sequence of recorded events, maintaining the relative time
+        intervals. If speed_factor is <= 0 then the actions are replayed as fast
+        as the OS allows. Pairs well with `record()`.
+        
+        The parameters `include_*` define if events of that type should be inluded
+        in the replay or ignored.
+    
+    press(button='left')
+        Presses the given button (but doesn't release).
+    
+    record(button='right', target_types=('down',))
+        Records all mouse events until the user presses the given button.
+        Then returns the list of events recorded. Pairs well with `play(events)`.
+        
+        Note: this is a blocking function.
+        Note: for more details on the mouse hook and events see `hook`.
+    
+    release(button='left')
+        Releases the given button.
+    
+    replay = play(events, speed_factor=1.0, include_clicks=True, include_moves=True, include_wheel=True)
+        Plays a sequence of recorded events, maintaining the relative time
+        intervals. If speed_factor is <= 0 then the actions are replayed as fast
+        as the OS allows. Pairs well with `record()`.
+        
+        The parameters `include_*` define if events of that type should be inluded
+        in the replay or ignored.
+    
+    right_click()
+        Sends a right click with the given button.
+    
+    unhook(callback)
+        Removes a previously installed hook.
+    
+    unhook_all()
+        Removes all hooks registered by this application. Note this may include
+        hooks installed by high level functions, such as `record`.
+    
+    wait(button='left', target_types=('up', 'down', 'double'))
+        Blocks program execution until the given button performs an event.
+    
+    wheel(delta=1)
+        Scrolls the wheel `delta` clicks. Sign indicates direction.
+
+DATA
+    DOUBLE = 'double'
+    DOWN = 'down'
+    LEFT = 'left'
+    MIDDLE = 'middle'
+    RIGHT = 'right'
+    UP = 'up'
+    X = 'x'
+    X2 = 'x2'
+
+FILE
+    /Users/jack/miniconda2/envs/py37/lib/python3.6/site-packages/keyboard/mouse.py
+
+

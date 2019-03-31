@@ -1,0 +1,930 @@
+Help on package parsl:
+
+NAME
+    parsl - Parsl is a Parallel Scripting Library, designed to enable efficient workflow execution.
+
+DESCRIPTION
+    Importing
+    ---------
+    
+    To get all the required functionality, we suggest importing the library as follows:
+    
+    >>> import parsl
+    >>> from parsl import *
+    
+    Logging
+    -------
+    
+    Following the general logging philosophy of python libraries, by default
+    `Parsl <https://github.com/swift-lang/swift-e-lab/>`_ doesn't log anything.
+    However the following helper functions are provided for logging:
+    
+    1. set_stream_logger
+        This sets the logger to the StreamHandler. This is quite useful when working from
+        a Jupyter notebook.
+    
+    2. set_file_logger
+        This sets the logging to a file. This is ideal for reporting issues to the dev team.
+
+PACKAGE CONTENTS
+    app (package)
+    configs (package)
+    data_provider (package)
+    dataflow (package)
+    execution_provider (package)
+    executors (package)
+    tests (package)
+    utils
+    version
+
+CLASSES
+    builtins.object
+        parsl.dataflow.dflow.DataFlowKernel
+    builtins.str(builtins.object)
+        parsl.data_provider.files.File
+    parsl.executors.base.ParslExecutor(builtins.object)
+        parsl.executors.ipp.IPyParallelExecutor
+        parsl.executors.threads.ThreadPoolExecutor
+    
+    class DataFlowKernel(builtins.object)
+     |  The DataFlowKernel adds dependency awareness to an existing executor.
+     |  
+     |  It is responsible for managing futures, such that when dependencies are resolved,
+     |  pending tasks move to the runnable state.
+     |  
+     |  Here's a simplified diagram of what happens internally::
+     |  
+     |       User             |        DFK         |    Executor
+     |      ----------------------------------------------------------
+     |                        |                    |
+     |             Task-------+> +Submit           |
+     |           App_Fu<------+--|                 |
+     |                        |  Dependencies met  |
+     |                        |         task-------+--> +Submit
+     |                        |        Ex_Fu<------+----|
+     |  
+     |  Methods defined here:
+     |  
+     |  __init__(self, config=None, executors=None, lazyErrors=True, appCache=True, rundir=None, retries=0, checkpointFiles=None, checkpointMode=None, data_manager=None)
+     |      Initialize the DataFlowKernel.
+     |      
+     |      Please note that keyword args passed to the DFK here will always override
+     |      options passed in via the config.
+     |      
+     |      KWargs:
+     |          - config (dict): A single data object encapsulating all config attributes
+     |          - executors (list of Executor objs): Optional, kept for (somewhat) backward compatibility with 0.2.0
+     |          - lazyErrors(bool): Default=True, allow workflow to continue on app failures.
+     |          - appCache (bool): Enable caching of apps
+     |          - rundir (str): Path to run directory. Defaults to ./runinfo/runNNN
+     |          - retries(int): Default=0, Set the number of retry attempts in case of failure
+     |          - checkpointFiles (list of str): List of filepaths to checkpoint files
+     |          - checkpointMode (None, 'dfk_exit', 'task_exit', 'periodic'): Method to use.
+     |          - data_manager (DataManager): User created DataManager
+     |      Returns:
+     |          DataFlowKernel object
+     |  
+     |  checkpoint(self, tasks=None)
+     |      Checkpoint the dfk incrementally to a checkpoint file.
+     |      
+     |      When called, every task that has been completed yet not
+     |      checkpointed is checkpointed to a file.
+     |      
+     |      Kwargs:
+     |          - tasks (List of task ids) : List of task ids to checkpoint. Default=None
+     |                                       if set to None, we iterate over all tasks held by the DFK.
+     |      
+     |      .. note::
+     |          Checkpointing only works if memoization is enabled
+     |      
+     |      Returns:
+     |          Checkpoint dir if checkpoints were written successfully.
+     |          By default the checkpoints are written to the RUNDIR of the current
+     |          run under RUNDIR/checkpoints/{tasks.pkl, dfk.pkl}
+     |  
+     |  cleanup(self)
+     |      DataFlowKernel cleanup.
+     |      
+     |      This involves killing resources explicitly and sending die messages to IPP workers.
+     |      
+     |      If the executors are managed, i.e created by the DFK
+     |          then : we scale_in each of the executors and call executor.shutdown
+     |          else : we do nothing. Executor cleanup is left to the user.
+     |  
+     |  handle_update(self, task_id, future, memo_cbk=False)
+     |      This function is called only as a callback from a task being done.
+     |      
+     |      Move done task from runnable -> done
+     |      Move newly doable tasks from pending -> runnable , and launch
+     |      
+     |      Args:
+     |           task_id (string) : Task id which is a uuid string
+     |           future (Future) : The future object corresponding to the task which
+     |           makes this callback
+     |      
+     |      KWargs:
+     |           memo_cbk(Bool) : Indicates that the call is coming from a memo update,
+     |           that does not require additional memo updates.
+     |  
+     |  launch_task(self, task_id, executable, *args, **kwargs)
+     |      Handle the actual submission of the task to the executor layer.
+     |      
+     |      If the app task has the sites attributes not set (default=='all')
+     |      the task is launched on a randomly selected executor from the
+     |      list of executors. This behavior could later be updates to support
+     |      binding to sites based on user specified criteria.
+     |      
+     |      If the app task specifies a particular set of sites, it will be
+     |      targetted at those specific sites.
+     |      
+     |      Args:
+     |          task_id (uuid string) : A uuid string that uniquely identifies the task
+     |          executable (callable) : A callable object
+     |          args (list of positional args)
+     |          kwargs (arbitrary keyword arguments)
+     |      
+     |      
+     |      Returns:
+     |          Future that tracks the execution of the submitted executable
+     |  
+     |  load_checkpoints(self, checkpointDirs)
+     |      Load checkpoints from the checkpoint files into a dictionary.
+     |      
+     |      The results are used to pre-populate the memoizer's lookup_table
+     |      
+     |      Kwargs:
+     |           - checkpointDirs (list) : List of run folder to use as checkpoints
+     |             Eg. ['runinfo/001', 'runinfo/002']
+     |      
+     |      Returns:
+     |           - dict containing, hashed -> future mappings
+     |  
+     |  submit(self, func, *args, parsl_sites='all', fn_hash=None, cache=False, **kwargs)
+     |      Add task to the dataflow system.
+     |      
+     |      >>> IF all deps are met:
+     |      >>>   send to the runnable queue and launch the task
+     |      >>> ELSE:
+     |      >>>   post the task in the pending queue
+     |      
+     |      Args:
+     |          - func : A function object
+     |          - *args : Args to the function
+     |      
+     |      KWargs :
+     |          - parsl_sites (List|String) : List of sites this call could go to.
+     |                  Default='all'
+     |          - fn_hash (Str) : Hash of the function and inputs
+     |                  Default=None
+     |          - cache (Bool) : To enable memoization or not
+     |          - kwargs (dict) : Rest of the kwargs to the fn passed as dict.
+     |      
+     |      Returns:
+     |             (AppFuture) [DataFutures,]
+     |  
+     |  ----------------------------------------------------------------------
+     |  Static methods defined here:
+     |  
+     |  sanitize_and_wrap(task_id, args, kwargs)
+     |      This function should be called **ONLY** when all the futures we track have been resolved.
+     |      
+     |      If the user hid futures a level below, we will not catch
+     |      it, and will (most likely) result in a type error .
+     |      
+     |      Args:
+     |           task_id (uuid str) : Task id
+     |           func (Function) : App function
+     |           args (List) : Positional args to app function
+     |           kwargs (Dict) : Kwargs to app function
+     |      
+     |      Return:
+     |           partial Function evaluated with all dependencies in  args, kwargs and kwargs['inputs'] evaluated.
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data descriptors defined here:
+     |  
+     |  __dict__
+     |      dictionary for instance variables (if defined)
+     |  
+     |  __weakref__
+     |      list of weak references to the object (if defined)
+     |  
+     |  config
+     |      Returns the fully initialized config that the DFK is actively using.
+     |      
+     |      DO *NOT* update.
+     |      
+     |      Returns:
+     |           - config (dict)
+    
+    class File(builtins.str)
+     |  The Parsl File Class.
+     |  
+     |  This is planned to be a very simple class that simply
+     |  captures various attributes of a file, and relies on client-side and worker-side
+     |  systems to enable to appropriate transfer of files.
+     |  
+     |  Method resolution order:
+     |      File
+     |      builtins.str
+     |      builtins.object
+     |  
+     |  Methods defined here:
+     |  
+     |  __fspath__(self)
+     |  
+     |  __getstate__(self)
+     |      Overriding the default pickling method.
+     |      
+     |      The File object get's pickled and transmitted to remote sites during app
+     |      execution. This enables pickling while retaining the lockable resources
+     |      to the DFK/Client side.
+     |  
+     |  __init__(self, url, dman=None, cache=False, caching_dir='.', staging='direct')
+     |      Construct a File object from a url string.
+     |      
+     |      Args:
+     |         - url (string) : url string of the file e.g.
+     |            - 'input.txt'
+     |            - 'file:///scratch/proj101/input.txt'
+     |            - 'globus://go#ep1/~/data/input.txt'
+     |            - 'globus://ddb59aef-6d04-11e5-ba46-22000b92c6ec/home/johndoe/data/input.txt'
+     |         - dman (DataManager) : data manager
+     |  
+     |  __repr__(self)
+     |      Return repr(self).
+     |  
+     |  __setstate__(self, state)
+     |      Overloading the default pickle method to reconstruct a File from serialized form
+     |      
+     |      This might require knowledge of whethere a DataManager is already present in the context.
+     |  
+     |  __str__(self)
+     |      Return str(self).
+     |  
+     |  get_data_future(self, site)
+     |  
+     |  set_data_future(self, df, site=None)
+     |  
+     |  stage_in(self, site=None)
+     |      Transport file from the site of origin to local site.
+     |  
+     |  stage_out(self)
+     |      Transport file from local filesystem to origin site.
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data descriptors defined here:
+     |  
+     |  __dict__
+     |      dictionary for instance variables (if defined)
+     |  
+     |  __weakref__
+     |      list of weak references to the object (if defined)
+     |  
+     |  filepath
+     |      Return the resolved filepath on the side where it is called from.
+     |      
+     |      The appropriate filepath will be returned when called from within
+     |      an app running remotely as well as regular python on the client side.
+     |      
+     |      Args:
+     |          - self
+     |      Returns:
+     |           - filepath (string)
+     |  
+     |  ----------------------------------------------------------------------
+     |  Methods inherited from builtins.str:
+     |  
+     |  __add__(self, value, /)
+     |      Return self+value.
+     |  
+     |  __contains__(self, key, /)
+     |      Return key in self.
+     |  
+     |  __eq__(self, value, /)
+     |      Return self==value.
+     |  
+     |  __format__(...)
+     |      S.__format__(format_spec) -> str
+     |      
+     |      Return a formatted version of S as described by format_spec.
+     |  
+     |  __ge__(self, value, /)
+     |      Return self>=value.
+     |  
+     |  __getattribute__(self, name, /)
+     |      Return getattr(self, name).
+     |  
+     |  __getitem__(self, key, /)
+     |      Return self[key].
+     |  
+     |  __getnewargs__(...)
+     |  
+     |  __gt__(self, value, /)
+     |      Return self>value.
+     |  
+     |  __hash__(self, /)
+     |      Return hash(self).
+     |  
+     |  __iter__(self, /)
+     |      Implement iter(self).
+     |  
+     |  __le__(self, value, /)
+     |      Return self<=value.
+     |  
+     |  __len__(self, /)
+     |      Return len(self).
+     |  
+     |  __lt__(self, value, /)
+     |      Return self<value.
+     |  
+     |  __mod__(self, value, /)
+     |      Return self%value.
+     |  
+     |  __mul__(self, value, /)
+     |      Return self*value.
+     |  
+     |  __ne__(self, value, /)
+     |      Return self!=value.
+     |  
+     |  __new__(*args, **kwargs) from builtins.type
+     |      Create and return a new object.  See help(type) for accurate signature.
+     |  
+     |  __rmod__(self, value, /)
+     |      Return value%self.
+     |  
+     |  __rmul__(self, value, /)
+     |      Return value*self.
+     |  
+     |  __sizeof__(...)
+     |      S.__sizeof__() -> size of S in memory, in bytes
+     |  
+     |  capitalize(...)
+     |      S.capitalize() -> str
+     |      
+     |      Return a capitalized version of S, i.e. make the first character
+     |      have upper case and the rest lower case.
+     |  
+     |  casefold(...)
+     |      S.casefold() -> str
+     |      
+     |      Return a version of S suitable for caseless comparisons.
+     |  
+     |  center(...)
+     |      S.center(width[, fillchar]) -> str
+     |      
+     |      Return S centered in a string of length width. Padding is
+     |      done using the specified fill character (default is a space)
+     |  
+     |  count(...)
+     |      S.count(sub[, start[, end]]) -> int
+     |      
+     |      Return the number of non-overlapping occurrences of substring sub in
+     |      string S[start:end].  Optional arguments start and end are
+     |      interpreted as in slice notation.
+     |  
+     |  encode(...)
+     |      S.encode(encoding='utf-8', errors='strict') -> bytes
+     |      
+     |      Encode S using the codec registered for encoding. Default encoding
+     |      is 'utf-8'. errors may be given to set a different error
+     |      handling scheme. Default is 'strict' meaning that encoding errors raise
+     |      a UnicodeEncodeError. Other possible values are 'ignore', 'replace' and
+     |      'xmlcharrefreplace' as well as any other name registered with
+     |      codecs.register_error that can handle UnicodeEncodeErrors.
+     |  
+     |  endswith(...)
+     |      S.endswith(suffix[, start[, end]]) -> bool
+     |      
+     |      Return True if S ends with the specified suffix, False otherwise.
+     |      With optional start, test S beginning at that position.
+     |      With optional end, stop comparing S at that position.
+     |      suffix can also be a tuple of strings to try.
+     |  
+     |  expandtabs(...)
+     |      S.expandtabs(tabsize=8) -> str
+     |      
+     |      Return a copy of S where all tab characters are expanded using spaces.
+     |      If tabsize is not given, a tab size of 8 characters is assumed.
+     |  
+     |  find(...)
+     |      S.find(sub[, start[, end]]) -> int
+     |      
+     |      Return the lowest index in S where substring sub is found,
+     |      such that sub is contained within S[start:end].  Optional
+     |      arguments start and end are interpreted as in slice notation.
+     |      
+     |      Return -1 on failure.
+     |  
+     |  format(...)
+     |      S.format(*args, **kwargs) -> str
+     |      
+     |      Return a formatted version of S, using substitutions from args and kwargs.
+     |      The substitutions are identified by braces ('{' and '}').
+     |  
+     |  format_map(...)
+     |      S.format_map(mapping) -> str
+     |      
+     |      Return a formatted version of S, using substitutions from mapping.
+     |      The substitutions are identified by braces ('{' and '}').
+     |  
+     |  index(...)
+     |      S.index(sub[, start[, end]]) -> int
+     |      
+     |      Return the lowest index in S where substring sub is found, 
+     |      such that sub is contained within S[start:end].  Optional
+     |      arguments start and end are interpreted as in slice notation.
+     |      
+     |      Raises ValueError when the substring is not found.
+     |  
+     |  isalnum(...)
+     |      S.isalnum() -> bool
+     |      
+     |      Return True if all characters in S are alphanumeric
+     |      and there is at least one character in S, False otherwise.
+     |  
+     |  isalpha(...)
+     |      S.isalpha() -> bool
+     |      
+     |      Return True if all characters in S are alphabetic
+     |      and there is at least one character in S, False otherwise.
+     |  
+     |  isdecimal(...)
+     |      S.isdecimal() -> bool
+     |      
+     |      Return True if there are only decimal characters in S,
+     |      False otherwise.
+     |  
+     |  isdigit(...)
+     |      S.isdigit() -> bool
+     |      
+     |      Return True if all characters in S are digits
+     |      and there is at least one character in S, False otherwise.
+     |  
+     |  isidentifier(...)
+     |      S.isidentifier() -> bool
+     |      
+     |      Return True if S is a valid identifier according
+     |      to the language definition.
+     |      
+     |      Use keyword.iskeyword() to test for reserved identifiers
+     |      such as "def" and "class".
+     |  
+     |  islower(...)
+     |      S.islower() -> bool
+     |      
+     |      Return True if all cased characters in S are lowercase and there is
+     |      at least one cased character in S, False otherwise.
+     |  
+     |  isnumeric(...)
+     |      S.isnumeric() -> bool
+     |      
+     |      Return True if there are only numeric characters in S,
+     |      False otherwise.
+     |  
+     |  isprintable(...)
+     |      S.isprintable() -> bool
+     |      
+     |      Return True if all characters in S are considered
+     |      printable in repr() or S is empty, False otherwise.
+     |  
+     |  isspace(...)
+     |      S.isspace() -> bool
+     |      
+     |      Return True if all characters in S are whitespace
+     |      and there is at least one character in S, False otherwise.
+     |  
+     |  istitle(...)
+     |      S.istitle() -> bool
+     |      
+     |      Return True if S is a titlecased string and there is at least one
+     |      character in S, i.e. upper- and titlecase characters may only
+     |      follow uncased characters and lowercase characters only cased ones.
+     |      Return False otherwise.
+     |  
+     |  isupper(...)
+     |      S.isupper() -> bool
+     |      
+     |      Return True if all cased characters in S are uppercase and there is
+     |      at least one cased character in S, False otherwise.
+     |  
+     |  join(...)
+     |      S.join(iterable) -> str
+     |      
+     |      Return a string which is the concatenation of the strings in the
+     |      iterable.  The separator between elements is S.
+     |  
+     |  ljust(...)
+     |      S.ljust(width[, fillchar]) -> str
+     |      
+     |      Return S left-justified in a Unicode string of length width. Padding is
+     |      done using the specified fill character (default is a space).
+     |  
+     |  lower(...)
+     |      S.lower() -> str
+     |      
+     |      Return a copy of the string S converted to lowercase.
+     |  
+     |  lstrip(...)
+     |      S.lstrip([chars]) -> str
+     |      
+     |      Return a copy of the string S with leading whitespace removed.
+     |      If chars is given and not None, remove characters in chars instead.
+     |  
+     |  partition(...)
+     |      S.partition(sep) -> (head, sep, tail)
+     |      
+     |      Search for the separator sep in S, and return the part before it,
+     |      the separator itself, and the part after it.  If the separator is not
+     |      found, return S and two empty strings.
+     |  
+     |  replace(...)
+     |      S.replace(old, new[, count]) -> str
+     |      
+     |      Return a copy of S with all occurrences of substring
+     |      old replaced by new.  If the optional argument count is
+     |      given, only the first count occurrences are replaced.
+     |  
+     |  rfind(...)
+     |      S.rfind(sub[, start[, end]]) -> int
+     |      
+     |      Return the highest index in S where substring sub is found,
+     |      such that sub is contained within S[start:end].  Optional
+     |      arguments start and end are interpreted as in slice notation.
+     |      
+     |      Return -1 on failure.
+     |  
+     |  rindex(...)
+     |      S.rindex(sub[, start[, end]]) -> int
+     |      
+     |      Return the highest index in S where substring sub is found,
+     |      such that sub is contained within S[start:end].  Optional
+     |      arguments start and end are interpreted as in slice notation.
+     |      
+     |      Raises ValueError when the substring is not found.
+     |  
+     |  rjust(...)
+     |      S.rjust(width[, fillchar]) -> str
+     |      
+     |      Return S right-justified in a string of length width. Padding is
+     |      done using the specified fill character (default is a space).
+     |  
+     |  rpartition(...)
+     |      S.rpartition(sep) -> (head, sep, tail)
+     |      
+     |      Search for the separator sep in S, starting at the end of S, and return
+     |      the part before it, the separator itself, and the part after it.  If the
+     |      separator is not found, return two empty strings and S.
+     |  
+     |  rsplit(...)
+     |      S.rsplit(sep=None, maxsplit=-1) -> list of strings
+     |      
+     |      Return a list of the words in S, using sep as the
+     |      delimiter string, starting at the end of the string and
+     |      working to the front.  If maxsplit is given, at most maxsplit
+     |      splits are done. If sep is not specified, any whitespace string
+     |      is a separator.
+     |  
+     |  rstrip(...)
+     |      S.rstrip([chars]) -> str
+     |      
+     |      Return a copy of the string S with trailing whitespace removed.
+     |      If chars is given and not None, remove characters in chars instead.
+     |  
+     |  split(...)
+     |      S.split(sep=None, maxsplit=-1) -> list of strings
+     |      
+     |      Return a list of the words in S, using sep as the
+     |      delimiter string.  If maxsplit is given, at most maxsplit
+     |      splits are done. If sep is not specified or is None, any
+     |      whitespace string is a separator and empty strings are
+     |      removed from the result.
+     |  
+     |  splitlines(...)
+     |      S.splitlines([keepends]) -> list of strings
+     |      
+     |      Return a list of the lines in S, breaking at line boundaries.
+     |      Line breaks are not included in the resulting list unless keepends
+     |      is given and true.
+     |  
+     |  startswith(...)
+     |      S.startswith(prefix[, start[, end]]) -> bool
+     |      
+     |      Return True if S starts with the specified prefix, False otherwise.
+     |      With optional start, test S beginning at that position.
+     |      With optional end, stop comparing S at that position.
+     |      prefix can also be a tuple of strings to try.
+     |  
+     |  strip(...)
+     |      S.strip([chars]) -> str
+     |      
+     |      Return a copy of the string S with leading and trailing
+     |      whitespace removed.
+     |      If chars is given and not None, remove characters in chars instead.
+     |  
+     |  swapcase(...)
+     |      S.swapcase() -> str
+     |      
+     |      Return a copy of S with uppercase characters converted to lowercase
+     |      and vice versa.
+     |  
+     |  title(...)
+     |      S.title() -> str
+     |      
+     |      Return a titlecased version of S, i.e. words start with title case
+     |      characters, all remaining cased characters have lower case.
+     |  
+     |  translate(...)
+     |      S.translate(table) -> str
+     |      
+     |      Return a copy of the string S in which each character has been mapped
+     |      through the given translation table. The table must implement
+     |      lookup/indexing via __getitem__, for instance a dictionary or list,
+     |      mapping Unicode ordinals to Unicode ordinals, strings, or None. If
+     |      this operation raises LookupError, the character is left untouched.
+     |      Characters mapped to None are deleted.
+     |  
+     |  upper(...)
+     |      S.upper() -> str
+     |      
+     |      Return a copy of S converted to uppercase.
+     |  
+     |  zfill(...)
+     |      S.zfill(width) -> str
+     |      
+     |      Pad a numeric string S with zeros on the left, to fill a field
+     |      of the specified width. The string S is never truncated.
+     |  
+     |  ----------------------------------------------------------------------
+     |  Static methods inherited from builtins.str:
+     |  
+     |  maketrans(x, y=None, z=None, /)
+     |      Return a translation table usable for str.translate().
+     |      
+     |      If there is only one argument, it must be a dictionary mapping Unicode
+     |      ordinals (integers) or characters to Unicode ordinals, strings or None.
+     |      Character keys will be then converted to ordinals.
+     |      If there are two arguments, they must be strings of equal length, and
+     |      in the resulting dictionary, each character in x will be mapped to the
+     |      character at the same position in y. If there is a third argument, it
+     |      must be a string, whose characters will be mapped to None in the result.
+    
+    class IPyParallelExecutor(parsl.executors.base.ParslExecutor)
+     |  The IPython Parallel executor.
+     |  
+     |  This executor allows us to take advantage of multiple processes running locally
+     |  or remotely via  IPythonParallel's pilot execution system.
+     |  
+     |  .. note::
+     |         Some deficiencies with this executor are:
+     |  
+     |             1. Ipengine's execute one task at a time. This means one engine per core
+     |                is necessary to exploit the full parallelism of a node.
+     |             2. No notion of remaining walltime.
+     |             3. Lack of throttling means tasks could be queued up on a worker.
+     |  
+     |  Method resolution order:
+     |      IPyParallelExecutor
+     |      parsl.executors.base.ParslExecutor
+     |      builtins.object
+     |  
+     |  Methods defined here:
+     |  
+     |  __init__(self, execution_provider=None, reuse_controller=True, engine_json_file='~/.ipython/profile_default/security/ipcontroller-engine.json', engine_dir='.', controller=None, config=None)
+     |      Initialize the IPyParallel pool. The initialization takes all relevant parameters via KWargs.
+     |      
+     |      .. note::
+     |      
+     |            If initBlocks > 0, and a scalable execution_provider is attached, then the provider
+     |            will be initialized here.
+     |      
+     |      Args:
+     |           - self
+     |      
+     |      KWargs:
+     |           - execution_provider (ExecutionProvider object)
+     |           - reuse_controller (Bool) : If True ipp executor will attempt to connect to an available
+     |             controller. Default: True
+     |           - engine_json_file (str): Path to json engine file that will be used to compose ipp launch
+     |             commands at scaling events. Default : '~/.ipython/profile_default/security/ipcontroller-engine.json'
+     |           - engine_dir (str) : Alternative to above, specify the engine_dir
+     |           - config (dict). Default: '.'
+     |  
+     |  __repr__(self)
+     |      Return repr(self).
+     |  
+     |  compose_containerized_launch_cmd(self, filepath, engine_dir, container_image)
+     |      Reads the json contents from filepath and uses that to compose the engine launch command.
+     |      
+     |      Notes: Add this to the ipengine launch for debug logs :
+     |                        --log-to-file --debug
+     |      Args:
+     |          filepath (str): Path to the engine file
+     |          engine_dir (str): CWD for the engines .
+     |          container_image (str): The container to be used to launch workers
+     |  
+     |  compose_launch_cmd(self, filepath, engine_dir, container_image)
+     |      Reads the json contents from filepath and uses that to compose the engine launch command.
+     |      
+     |      Args:
+     |          filepath: Path to the engine file
+     |          engine_dir : CWD for the engines .
+     |  
+     |  scale_in(self, blocks, *args, **kwargs)
+     |      Scale in the number of active workers by 1.
+     |      
+     |      This method is notImplemented for threads and will raise the error if called.
+     |      
+     |      Raises:
+     |           NotImplemented exception
+     |  
+     |  scale_out(self, *args, **kwargs)
+     |      Scales out the number of active workers by 1.
+     |      
+     |      This method is notImplemented for threads and will raise the error if called.
+     |  
+     |  shutdown(self, hub=True, targets='all', block=False)
+     |      Shutdown the executor, including all workers and controllers.
+     |      
+     |      The interface documentation for IPP is `here <http://ipyparallel.readthedocs.io/en/latest/api/ipyparallel.html#ipyparallel.Client.shutdown>`_
+     |      
+     |      Kwargs:
+     |          - hub (Bool): Whether the hub should be shutdown, Default:True,
+     |          - targets (list of ints| 'all'): List of engine id's to kill, Default:'all'
+     |          - block (Bool): To block for confirmations or not
+     |      
+     |      Raises:
+     |           NotImplementedError
+     |  
+     |  status(self)
+     |      Returns the status of the executor via probing the execution providers.
+     |  
+     |  submit(self, *args, **kwargs)
+     |      Submits work to the thread pool.
+     |      
+     |      This method is simply pass through and behaves like a submit call as described
+     |      here `Python docs: <https://docs.python.org/3/library/concurrent.futures.html#concurrent.futures.ThreadPoolExecutor>`_
+     |      
+     |      Returns:
+     |            Future
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data descriptors defined here:
+     |  
+     |  scaling_enabled
+     |      Specify if scaling is enabled.
+     |      
+     |      The callers of ParslExecutors need to differentiate between Executors
+     |      and Executors wrapped in a resource provider
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data and other attributes defined here:
+     |  
+     |  __abstractmethods__ = frozenset()
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data descriptors inherited from parsl.executors.base.ParslExecutor:
+     |  
+     |  __dict__
+     |      dictionary for instance variables (if defined)
+     |  
+     |  __weakref__
+     |      list of weak references to the object (if defined)
+    
+    class ThreadPoolExecutor(parsl.executors.base.ParslExecutor)
+     |  The thread pool executor.
+     |  
+     |  Method resolution order:
+     |      ThreadPoolExecutor
+     |      parsl.executors.base.ParslExecutor
+     |      builtins.object
+     |  
+     |  Methods defined here:
+     |  
+     |  __init__(self, max_workers=2, thread_name_prefix='', execution_provider=None, config=None, **kwargs)
+     |      Initialize the thread pool.
+     |      
+     |      Config options that are really used are :
+     |      
+     |      config.sites.site.execution.options = {"maxThreads" : <int>,
+     |                                             "threadNamePrefix" : <string>}
+     |      
+     |      Kwargs:
+     |         - max_workers (int) : Number of threads (Default=2) (keeping name workers/threads for backward compatibility)
+     |         - thread_name_prefix (string) : Thread name prefix (Only supported in python v3.6+
+     |         - execution_provider (ep object) : This is ignored here
+     |         - config (dict): The config dict object for the site:
+     |  
+     |  scale_in(self, workers=1)
+     |      Scale in the number of active workers by 1.
+     |      
+     |      This method is notImplemented for threads and will raise the error if called.
+     |      
+     |      Raises:
+     |           NotImplemented exception
+     |  
+     |  scale_out(self, workers=1)
+     |      Scales out the number of active workers by 1.
+     |      
+     |      This method is notImplemented for threads and will raise the error if called.
+     |      
+     |      Raises:
+     |           NotImplemented exception
+     |  
+     |  shutdown(self, block=False)
+     |      Shutdown the ThreadPool.
+     |      
+     |      This method is notImplemented for threads and will raise the error if called.
+     |      The interface documentation for IPP is `here <http://ipyparallel.readthedocs.io/en/latest/api/ipyparallel.html#ipyparallel.Client.shutdown>`_
+     |      
+     |      Kwargs:
+     |          - block (Bool): To block for confirmations or not
+     |  
+     |  submit(self, *args, **kwargs)
+     |      Submits work to the thread pool.
+     |      
+     |      This method is simply pass through and behaves like a submit call as described
+     |      here `Python docs: <https://docs.python.org/3/library/concurrent.futures.html#concurrent.futures.ThreadPoolExecutor>`_
+     |      
+     |      Returns:
+     |            Future
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data descriptors defined here:
+     |  
+     |  scaling_enabled
+     |      Specify if scaling is enabled.
+     |      
+     |      The callers of ParslExecutors need to differentiate between Executors
+     |      and Executors wrapped in a resource provider
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data and other attributes defined here:
+     |  
+     |  __abstractmethods__ = frozenset()
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data descriptors inherited from parsl.executors.base.ParslExecutor:
+     |  
+     |  __dict__
+     |      dictionary for instance variables (if defined)
+     |  
+     |  __weakref__
+     |      list of weak references to the object (if defined)
+
+FUNCTIONS
+    App(apptype, executor=None, walltime=60, cache=False, sites='all')
+        The App decorator function.
+        
+        Args:
+            - apptype (string) : Apptype can be bash|python
+        
+        Kwargs:
+            - executor (Executor): Executor for the execution resource. This can be omitted only
+              after calling :meth:`parsl.dataflow.dflow.DataFlowKernelLoader.load`.
+            - walltime (int) : Walltime for app in seconds,
+                 default=60
+            - sites (str|List) : List of site names on which the app could execute
+                 default='all'
+            - cache (Bool) : Enable caching of the app call
+                 default=False
+        
+        Returns:
+             An AppFactory object, which when called runs the apps through the executor.
+    
+    set_file_logger(filename, name='parsl', level=10, format_string=None)
+        Add a stream log handler.
+        
+        Args:
+            - filename (string): Name of the file to write logs to
+            - name (string): Logger name
+            - level (logging.LEVEL): Set the logging level.
+            - format_string (string): Set the format string
+        
+        Returns:
+           -  None
+    
+    set_stream_logger(name='parsl', level=10, format_string=None)
+        Add a stream log handler.
+        
+        Args:
+             - name (string) : Set the logger name.
+             - level (logging.LEVEL) : Set to logging.DEBUG by default.
+             - format_string (sting) : Set to None by default.
+        
+        Returns:
+             - None
+
+DATA
+    __all__ = ['App', 'DataFlowKernel', 'File', 'ThreadPoolExecutor', 'IPy...
+
+VERSION
+    0.5.2
+
+AUTHOR
+    Yadu Nand Babuji
+
+FILE
+    /Users/jack/miniconda2/envs/py37/lib/python3.6/site-packages/parsl/__init__.py
+
+

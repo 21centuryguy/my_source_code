@@ -1,0 +1,17 @@
+Help on function tgos in module geocoder.api:
+
+tgos(location, **kwargs)
+    TGOS Provider
+    
+    :param ``location``: Your search location you want geocoded.
+    :param ``language``: (default=taiwan) Use the following:
+        > taiwan
+        > english
+        > chinese
+    :param ``method``: (default=geocode) Use the following:
+        > geocode
+    
+    API Reference
+    -------------
+    http://api.tgos.nat.gov.tw/TGOS_MAP_API/Web/Default.aspx
+

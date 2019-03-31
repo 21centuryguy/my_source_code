@@ -1,0 +1,13 @@
+Help on package py2app.apptemplate in py2app:
+
+NAME
+    py2app.apptemplate
+
+PACKAGE CONTENTS
+    plist_template
+    setup
+
+FILE
+    /Users/jack/miniconda2/envs/py37/lib/python3.6/site-packages/py2app/apptemplate/__init__.py
+
+

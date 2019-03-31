@@ -1,0 +1,12 @@
+Help on package spyder.workers in spyder:
+
+NAME
+    spyder.workers
+
+PACKAGE CONTENTS
+    updates
+
+FILE
+    /Users/jack/miniconda2/envs/py37/lib/python3.6/site-packages/spyder/workers/__init__.py
+
+

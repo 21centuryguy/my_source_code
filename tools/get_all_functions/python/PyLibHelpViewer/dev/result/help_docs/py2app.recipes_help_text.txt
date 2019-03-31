@@ -1,0 +1,43 @@
+Help on package py2app.recipes in py2app:
+
+NAME
+    py2app.recipes
+
+PACKAGE CONTENTS
+    PIL (package)
+    cjkcodecs
+    ctypes
+    docutils
+    ftplib
+    importlib
+    lxml
+    matplotlib
+    matplotlib_prescript
+    mimetypes
+    numpy
+    os_module
+    pydoc
+    pyenchant
+    pygame
+    pyopengl
+    pyside
+    pyside2
+    pyzmq
+    qt5
+    re
+    scipy
+    setuptools
+    sip
+    six
+    subprocess
+    sysconfig_module
+    tkinter
+    uuid
+    virtualenv
+    wx
+    xml
+
+FILE
+    /Users/jack/miniconda2/envs/py37/lib/python3.6/site-packages/py2app/recipes/__init__.py
+
+

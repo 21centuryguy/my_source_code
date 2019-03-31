@@ -1,0 +1,16 @@
+Help on package plyer.platforms in plyer:
+
+NAME
+    plyer.platforms
+
+PACKAGE CONTENTS
+    android (package)
+    ios (package)
+    linux (package)
+    macosx (package)
+    win (package)
+
+FILE
+    /Users/jack/miniconda2/envs/py37/lib/python3.6/site-packages/plyer/platforms/__init__.py
+
+

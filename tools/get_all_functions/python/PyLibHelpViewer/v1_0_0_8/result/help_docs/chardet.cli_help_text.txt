@@ -1,0 +1,12 @@
+Help on package chardet.cli in chardet:
+
+NAME
+    chardet.cli
+
+PACKAGE CONTENTS
+    chardetect
+
+FILE
+    /Users/jack/miniconda2/envs/py37/lib/python3.6/site-packages/chardet/cli/__init__.py
+
+

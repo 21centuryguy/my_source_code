@@ -1,0 +1,209 @@
+Help on module markdown.preprocessors in markdown:
+
+NAME
+    markdown.preprocessors - Python Markdown
+
+DESCRIPTION
+    A Python implementation of John Gruber's Markdown.
+    
+    Documentation: https://python-markdown.github.io/
+    GitHub: https://github.com/Python-Markdown/markdown/
+    PyPI: https://pypi.org/project/Markdown/
+    
+    Started by Manfred Stienstra (http://www.dwerg.net/).
+    Maintained for a few years by Yuri Takhteyev (http://www.freewisdom.org).
+    Currently maintained by Waylan Limberg (https://github.com/waylan),
+    Dmitry Shachnev (https://github.com/mitya57) and Isaac Muse (https://github.com/facelessuser).
+    
+    Copyright 2007-2018 The Python Markdown Project (v. 1.7 and later)
+    Copyright 2004, 2005, 2006 Yuri Takhteyev (v. 0.2-1.6b)
+    Copyright 2004 Manfred Stienstra (the original version)
+    
+    License: BSD (see LICENSE.md for details).
+    
+    PRE-PROCESSORS
+    =============================================================================
+    
+    Preprocessors work on source text before we start doing anything too
+    complicated.
+
+CLASSES
+    markdown.util.Processor(builtins.object)
+        Preprocessor
+            HtmlBlockPreprocessor
+            NormalizeWhitespace
+            ReferencePreprocessor
+    
+    class HtmlBlockPreprocessor(Preprocessor)
+     |  Remove html blocks from the text and store them for later retrieval.
+     |  
+     |  Method resolution order:
+     |      HtmlBlockPreprocessor
+     |      Preprocessor
+     |      markdown.util.Processor
+     |      builtins.object
+     |  
+     |  Methods defined here:
+     |  
+     |  run(self, lines)
+     |      Each subclass of Preprocessor should override the `run` method, which
+     |      takes the document as a list of strings split by newlines and returns
+     |      the (possibly modified) list of lines.
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data and other attributes defined here:
+     |  
+     |  attrs_pattern = '\n        \\s+(?P<attr>[^>"\'/= ]+)=(?P<q>[\'"])(?P<....
+     |  
+     |  attrs_re = re.compile('\n        \\s+(?P<attr>[^>"\'/= ]+)=...\\s+(?P<...
+     |  
+     |  left_tag_pattern = '^\\<(?P<tag>[^> ]+)(?P<attrs>(\n        \\s+(?P<at...
+     |  
+     |  left_tag_re = re.compile('^\\<(?P<tag>[^> ]+)(?P<attrs>(\n    ...     ...
+     |  
+     |  markdown_in_raw = False
+     |  
+     |  right_tag_patterns = ['</%s>', '%s>']
+     |  
+     |  ----------------------------------------------------------------------
+     |  Methods inherited from markdown.util.Processor:
+     |  
+     |  __init__(self, md=None)
+     |      Initialize self.  See help(type(self)) for accurate signature.
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data descriptors inherited from markdown.util.Processor:
+     |  
+     |  __dict__
+     |      dictionary for instance variables (if defined)
+     |  
+     |  __weakref__
+     |      list of weak references to the object (if defined)
+     |  
+     |  markdown
+    
+    class NormalizeWhitespace(Preprocessor)
+     |  Normalize whitespace for consistent parsing.
+     |  
+     |  Method resolution order:
+     |      NormalizeWhitespace
+     |      Preprocessor
+     |      markdown.util.Processor
+     |      builtins.object
+     |  
+     |  Methods defined here:
+     |  
+     |  run(self, lines)
+     |      Each subclass of Preprocessor should override the `run` method, which
+     |      takes the document as a list of strings split by newlines and returns
+     |      the (possibly modified) list of lines.
+     |  
+     |  ----------------------------------------------------------------------
+     |  Methods inherited from markdown.util.Processor:
+     |  
+     |  __init__(self, md=None)
+     |      Initialize self.  See help(type(self)) for accurate signature.
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data descriptors inherited from markdown.util.Processor:
+     |  
+     |  __dict__
+     |      dictionary for instance variables (if defined)
+     |  
+     |  __weakref__
+     |      list of weak references to the object (if defined)
+     |  
+     |  markdown
+    
+    class Preprocessor(markdown.util.Processor)
+     |  Preprocessors are run after the text is broken into lines.
+     |  
+     |  Each preprocessor implements a "run" method that takes a pointer to a
+     |  list of lines of the document, modifies it as necessary and returns
+     |  either the same pointer or a pointer to a new list.
+     |  
+     |  Preprocessors must extend markdown.Preprocessor.
+     |  
+     |  Method resolution order:
+     |      Preprocessor
+     |      markdown.util.Processor
+     |      builtins.object
+     |  
+     |  Methods defined here:
+     |  
+     |  run(self, lines)
+     |      Each subclass of Preprocessor should override the `run` method, which
+     |      takes the document as a list of strings split by newlines and returns
+     |      the (possibly modified) list of lines.
+     |  
+     |  ----------------------------------------------------------------------
+     |  Methods inherited from markdown.util.Processor:
+     |  
+     |  __init__(self, md=None)
+     |      Initialize self.  See help(type(self)) for accurate signature.
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data descriptors inherited from markdown.util.Processor:
+     |  
+     |  __dict__
+     |      dictionary for instance variables (if defined)
+     |  
+     |  __weakref__
+     |      list of weak references to the object (if defined)
+     |  
+     |  markdown
+    
+    class ReferencePreprocessor(Preprocessor)
+     |  Remove reference definitions from text and store for later use.
+     |  
+     |  Method resolution order:
+     |      ReferencePreprocessor
+     |      Preprocessor
+     |      markdown.util.Processor
+     |      builtins.object
+     |  
+     |  Methods defined here:
+     |  
+     |  run(self, lines)
+     |      Each subclass of Preprocessor should override the `run` method, which
+     |      takes the document as a list of strings split by newlines and returns
+     |      the (possibly modified) list of lines.
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data and other attributes defined here:
+     |  
+     |  RE = re.compile('^[ ]{0,3}\\[([^\\]]*)\\]:\\s*([^ ]*)...)\\"|\\\'(.*)\...
+     |  
+     |  TITLE = '[ ]*(\\"(.*)\\"|\\\'(.*)\\\'|\\((.*)\\))[ ]*'
+     |  
+     |  TITLE_RE = re.compile('^[ ]*(\\"(.*)\\"|\\\'(.*)\\\'|\\((.*)\\))[ ]*$'...
+     |  
+     |  ----------------------------------------------------------------------
+     |  Methods inherited from markdown.util.Processor:
+     |  
+     |  __init__(self, md=None)
+     |      Initialize self.  See help(type(self)) for accurate signature.
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data descriptors inherited from markdown.util.Processor:
+     |  
+     |  __dict__
+     |      dictionary for instance variables (if defined)
+     |  
+     |  __weakref__
+     |      list of weak references to the object (if defined)
+     |  
+     |  markdown
+
+FUNCTIONS
+    build_preprocessors(md, **kwargs)
+        Build the default set of preprocessors used by Markdown.
+
+DATA
+    absolute_import = _Feature((2, 5, 0, 'alpha', 1), (3, 0, 0, 'alpha', 0...
+    unicode_literals = _Feature((2, 6, 0, 'alpha', 2), (3, 0, 0, 'alpha', ...
+
+FILE
+    /usr/local/lib/python3.6/site-packages/markdown/preprocessors.py
+
+

@@ -1,0 +1,65 @@
+Help on module plaster.uri in plaster:
+
+NAME
+    plaster.uri
+
+CLASSES
+    builtins.object
+        PlasterURL
+    
+    class PlasterURL(builtins.object)
+     |  Represents the components of a URL used to locate a
+     |  :class:`plaster.ILoader`.
+     |  
+     |  :ivar scheme: The name of the loader backend.
+     |  
+     |  :ivar path: The loader-specific path string.
+     |      This is the entirety of the ``config_uri`` passed to
+     |      :func:`plaster.parse_uri` without the scheme, fragment and options.
+     |      If this value is falsey it is replaced with an empty string.
+     |  
+     |  :ivar options: A dictionary of options parsed from the query string as
+     |      url-encoded key=value pairs.
+     |  
+     |  :ivar fragment: A loader-specific default section name.
+     |      This parameter may be used by loaders in scenarios where they provide
+     |      APIs that support a default name. For example, a loader that provides
+     |      ``get_wsgi_app`` may use the fragment to determine the name of the
+     |      section containing the WSGI app if none was explicitly defined.
+     |      If this value is falsey it is replaced with an empty string.
+     |  
+     |  Methods defined here:
+     |  
+     |  __init__(self, scheme, path='', options=None, fragment='')
+     |      Initialize self.  See help(type(self)) for accurate signature.
+     |  
+     |  __repr__(self)
+     |      Return repr(self).
+     |  
+     |  __str__(self)
+     |      Return str(self).
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data descriptors defined here:
+     |  
+     |  __dict__
+     |      dictionary for instance variables (if defined)
+     |  
+     |  __weakref__
+     |      list of weak references to the object (if defined)
+
+FUNCTIONS
+    parse_uri(config_uri)
+        Parse the ``config_uri`` into a :class:`plaster.PlasterURL` object.
+        
+        ``config_uri`` can be a relative or absolute file path such as
+        ``development.ini`` or ``/path/to/development.ini``. The file must have
+        an extension that can be handled by a :class:`plaster.ILoader`
+        registered with the system.
+        
+        Alternatively, ``config_uri`` may be a :rfc:`1738`-style string.
+
+FILE
+    /Users/jack/miniconda2/envs/py37/lib/python3.6/site-packages/plaster/uri.py
+
+

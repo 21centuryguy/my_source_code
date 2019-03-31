@@ -1,0 +1,336 @@
+Help on package docutils:
+
+NAME
+    docutils - This is the Docutils (Python Documentation Utilities) package.
+
+DESCRIPTION
+    Package Structure
+    =================
+    
+    Modules:
+    
+    - __init__.py: Contains component base classes, exception classes, and
+      Docutils version information.
+    
+    - core.py: Contains the ``Publisher`` class and ``publish_*()`` convenience
+      functions.
+    
+    - frontend.py: Runtime settings (command-line interface, configuration files)
+      processing, for Docutils front-ends.
+    
+    - io.py: Provides a uniform API for low-level input and output.
+    
+    - nodes.py: Docutils document tree (doctree) node class library.
+    
+    - statemachine.py: A finite state machine specialized for
+      regular-expression-based text filters.
+    
+    Subpackages:
+    
+    - languages: Language-specific mappings of terms.
+    
+    - parsers: Syntax-specific input parser modules or packages.
+    
+    - readers: Context-specific input handlers which understand the data
+      source and manage a parser.
+    
+    - transforms: Modules used by readers and writers to modify DPS
+      doctrees.
+    
+    - utils: Contains the ``Reporter`` system warning class and miscellaneous
+      utilities used by readers, writers, and transforms.
+    
+      utils/urischemes.py: Contains a complete mapping of known URI addressing
+      scheme names to descriptions.
+    
+    - utils/math: Contains functions for conversion of mathematical notation
+      between different formats (LaTeX, MathML, text, ...).
+    
+    - writers: Format-specific output translators.
+
+PACKAGE CONTENTS
+    _compat
+    core
+    examples
+    frontend
+    io
+    languages (package)
+    nodes
+    parsers (package)
+    readers (package)
+    statemachine
+    transforms (package)
+    utils (package)
+    writers (package)
+
+CLASSES
+    builtins.Exception(builtins.BaseException)
+        ApplicationError
+            DataError
+    builtins.object
+        SettingsSpec
+            Component(SettingsSpec, TransformSpec)
+        TransformSpec
+    
+    class ApplicationError(builtins.Exception)
+     |  Common base class for all non-exit exceptions.
+     |  
+     |  Method resolution order:
+     |      ApplicationError
+     |      builtins.Exception
+     |      builtins.BaseException
+     |      builtins.object
+     |  
+     |  Data descriptors defined here:
+     |  
+     |  __weakref__
+     |      list of weak references to the object (if defined)
+     |  
+     |  ----------------------------------------------------------------------
+     |  Methods inherited from builtins.Exception:
+     |  
+     |  __init__(self, /, *args, **kwargs)
+     |      Initialize self.  See help(type(self)) for accurate signature.
+     |  
+     |  __new__(*args, **kwargs) from builtins.type
+     |      Create and return a new object.  See help(type) for accurate signature.
+     |  
+     |  ----------------------------------------------------------------------
+     |  Methods inherited from builtins.BaseException:
+     |  
+     |  __delattr__(self, name, /)
+     |      Implement delattr(self, name).
+     |  
+     |  __getattribute__(self, name, /)
+     |      Return getattr(self, name).
+     |  
+     |  __reduce__(...)
+     |      helper for pickle
+     |  
+     |  __repr__(self, /)
+     |      Return repr(self).
+     |  
+     |  __setattr__(self, name, value, /)
+     |      Implement setattr(self, name, value).
+     |  
+     |  __setstate__(...)
+     |  
+     |  __str__(self, /)
+     |      Return str(self).
+     |  
+     |  with_traceback(...)
+     |      Exception.with_traceback(tb) --
+     |      set self.__traceback__ to tb and return self.
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data descriptors inherited from builtins.BaseException:
+     |  
+     |  __cause__
+     |      exception cause
+     |  
+     |  __context__
+     |      exception context
+     |  
+     |  __dict__
+     |  
+     |  __suppress_context__
+     |  
+     |  __traceback__
+     |  
+     |  args
+    
+    class Component(SettingsSpec, TransformSpec)
+     |  Base class for Docutils components.
+     |  
+     |  Method resolution order:
+     |      Component
+     |      SettingsSpec
+     |      TransformSpec
+     |      builtins.object
+     |  
+     |  Methods defined here:
+     |  
+     |  supports(self, format)
+     |      Is `format` supported by this component?
+     |      
+     |      To be used by transforms to ask the dependent component if it supports
+     |      a certain input context or output format.
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data and other attributes defined here:
+     |  
+     |  component_type = None
+     |  
+     |  supported = ()
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data descriptors inherited from SettingsSpec:
+     |  
+     |  __dict__
+     |      dictionary for instance variables (if defined)
+     |  
+     |  __weakref__
+     |      list of weak references to the object (if defined)
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data and other attributes inherited from SettingsSpec:
+     |  
+     |  config_section = None
+     |  
+     |  config_section_dependencies = None
+     |  
+     |  relative_path_settings = ()
+     |  
+     |  settings_default_overrides = None
+     |  
+     |  settings_defaults = None
+     |  
+     |  settings_spec = ()
+     |  
+     |  ----------------------------------------------------------------------
+     |  Methods inherited from TransformSpec:
+     |  
+     |  get_transforms(self)
+     |      Transforms required by this class.  Override in subclasses.
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data and other attributes inherited from TransformSpec:
+     |  
+     |  default_transforms = ()
+     |  
+     |  unknown_reference_resolvers = ()
+    
+    class DataError(ApplicationError)
+     |  Common base class for all non-exit exceptions.
+     |  
+     |  Method resolution order:
+     |      DataError
+     |      ApplicationError
+     |      builtins.Exception
+     |      builtins.BaseException
+     |      builtins.object
+     |  
+     |  Data descriptors inherited from ApplicationError:
+     |  
+     |  __weakref__
+     |      list of weak references to the object (if defined)
+     |  
+     |  ----------------------------------------------------------------------
+     |  Methods inherited from builtins.Exception:
+     |  
+     |  __init__(self, /, *args, **kwargs)
+     |      Initialize self.  See help(type(self)) for accurate signature.
+     |  
+     |  __new__(*args, **kwargs) from builtins.type
+     |      Create and return a new object.  See help(type) for accurate signature.
+     |  
+     |  ----------------------------------------------------------------------
+     |  Methods inherited from builtins.BaseException:
+     |  
+     |  __delattr__(self, name, /)
+     |      Implement delattr(self, name).
+     |  
+     |  __getattribute__(self, name, /)
+     |      Return getattr(self, name).
+     |  
+     |  __reduce__(...)
+     |      helper for pickle
+     |  
+     |  __repr__(self, /)
+     |      Return repr(self).
+     |  
+     |  __setattr__(self, name, value, /)
+     |      Implement setattr(self, name, value).
+     |  
+     |  __setstate__(...)
+     |  
+     |  __str__(self, /)
+     |      Return str(self).
+     |  
+     |  with_traceback(...)
+     |      Exception.with_traceback(tb) --
+     |      set self.__traceback__ to tb and return self.
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data descriptors inherited from builtins.BaseException:
+     |  
+     |  __cause__
+     |      exception cause
+     |  
+     |  __context__
+     |      exception context
+     |  
+     |  __dict__
+     |  
+     |  __suppress_context__
+     |  
+     |  __traceback__
+     |  
+     |  args
+    
+    class SettingsSpec(builtins.object)
+     |  Runtime setting specification base class.
+     |  
+     |  SettingsSpec subclass objects used by `docutils.frontend.OptionParser`.
+     |  
+     |  Data descriptors defined here:
+     |  
+     |  __dict__
+     |      dictionary for instance variables (if defined)
+     |  
+     |  __weakref__
+     |      list of weak references to the object (if defined)
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data and other attributes defined here:
+     |  
+     |  config_section = None
+     |  
+     |  config_section_dependencies = None
+     |  
+     |  relative_path_settings = ()
+     |  
+     |  settings_default_overrides = None
+     |  
+     |  settings_defaults = None
+     |  
+     |  settings_spec = ()
+    
+    class TransformSpec(builtins.object)
+     |  Runtime transform specification base class.
+     |  
+     |  TransformSpec subclass objects used by `docutils.transforms.Transformer`.
+     |  
+     |  Methods defined here:
+     |  
+     |  get_transforms(self)
+     |      Transforms required by this class.  Override in subclasses.
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data descriptors defined here:
+     |  
+     |  __dict__
+     |      dictionary for instance variables (if defined)
+     |  
+     |  __weakref__
+     |      list of weak references to the object (if defined)
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data and other attributes defined here:
+     |  
+     |  default_transforms = ()
+     |  
+     |  unknown_reference_resolvers = ()
+
+DATA
+    __docformat__ = 'reStructuredText'
+    __version_details__ = ''
+    __version_info__ = (0, 14, 0, 'final', 0, True)
+
+VERSION
+    0.14
+
+FILE
+    /Users/jack/miniconda2/envs/py37/lib/python3.6/site-packages/docutils/__init__.py
+
+

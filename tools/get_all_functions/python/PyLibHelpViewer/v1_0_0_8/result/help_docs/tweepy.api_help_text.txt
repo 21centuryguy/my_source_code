@@ -1,0 +1,399 @@
+Help on API in module tweepy.api object:
+
+class API(builtins.object)
+ |  Twitter API
+ |  
+ |  Methods defined here:
+ |  
+ |  __init__(self, auth_handler=None, host='api.twitter.com', search_host='search.twitter.com', upload_host='upload.twitter.com', cache=None, api_root='/1.1', search_root='', upload_root='/1.1', retry_count=0, retry_delay=0, retry_errors=None, timeout=60, parser=None, compression=False, wait_on_rate_limit=False, wait_on_rate_limit_notify=False, proxy='')
+ |      Api instance Constructor
+ |      
+ |      :param auth_handler:
+ |      :param host:  url of the server of the rest api, default:'api.twitter.com'
+ |      :param search_host: url of the search server, default:'search.twitter.com'
+ |      :param upload_host: url of the upload server, default:'upload.twitter.com'
+ |      :param cache: Cache to query if a GET method is used, default:None
+ |      :param api_root: suffix of the api version, default:'/1.1'
+ |      :param search_root: suffix of the search version, default:''
+ |      :param upload_root: suffix of the upload version, default:'/1.1'
+ |      :param retry_count: number of allowed retries, default:0
+ |      :param retry_delay: delay in second between retries, default:0
+ |      :param retry_errors: default:None
+ |      :param timeout: delay before to consider the request as timed out in seconds, default:60
+ |      :param parser: ModelParser instance to parse the responses, default:None
+ |      :param compression: If the response is compressed, default:False
+ |      :param wait_on_rate_limit: If the api wait when it hits the rate limit, default:False
+ |      :param wait_on_rate_limit_notify: If the api print a notification when the rate limit is hit, default:False
+ |      :param proxy: Url to use as proxy during the HTTP request, default:''
+ |      
+ |      :raise TypeError: If the given parser is not a ModelParser instance.
+ |  
+ |  add_list_members(self, screen_name=None, user_id=None, slug=None, list_id=None, owner_id=None, owner_screen_name=None)
+ |      Perform bulk add of list members from user ID or screenname
+ |  
+ |  lookup_friendships(self, user_ids=None, screen_names=None)
+ |      Perform bulk look up of friendships from user ID or screenname
+ |  
+ |  lookup_users(self, user_ids=None, screen_names=None, include_entities=None, tweet_mode=None)
+ |      Perform bulk look up of users from user ID or screen_name
+ |  
+ |  me(self)
+ |      Get the authenticated user
+ |  
+ |  media_upload(self, filename, *args, **kwargs)
+ |      :reference: https://dev.twitter.com/rest/reference/post/media/upload
+ |      :allowed_param:
+ |  
+ |  remove_list_members(self, screen_name=None, user_id=None, slug=None, list_id=None, owner_id=None, owner_screen_name=None)
+ |      Perform bulk remove of list members from user ID or screenname
+ |  
+ |  statuses_lookup(self, id_, include_entities=None, trim_user=None, map_=None, tweet_mode=None)
+ |  
+ |  update_profile_background_image(self, filename, **kargs)
+ |      :reference: https://dev.twitter.com/rest/reference/post/account/update_profile_background_image
+ |      :allowed_param:'tile', 'include_entities', 'skip_status', 'use'
+ |  
+ |  update_profile_banner(self, filename, **kargs)
+ |      :reference: https://dev.twitter.com/rest/reference/post/account/update_profile_banner
+ |      :allowed_param:'width', 'height', 'offset_left', 'offset_right'
+ |  
+ |  update_profile_image(self, filename, file_=None)
+ |      :reference: https://dev.twitter.com/rest/reference/post/account/update_profile_image
+ |      :allowed_param:'include_entities', 'skip_status'
+ |  
+ |  update_status(self, *args, **kwargs)
+ |      :reference: https://dev.twitter.com/rest/reference/post/statuses/update
+ |      :allowed_param:'status', 'in_reply_to_status_id', 'in_reply_to_status_id_str', 'auto_populate_reply_metadata', 'lat', 'long', 'source', 'place_id', 'display_coordinates', 'media_ids'
+ |  
+ |  update_with_media(self, filename, *args, **kwargs)
+ |      :reference: https://dev.twitter.com/rest/reference/post/statuses/update_with_media
+ |      :allowed_param:'status', 'possibly_sensitive', 'in_reply_to_status_id', 'in_reply_to_status_id_str', 'auto_populate_reply_metadata', 'lat', 'long', 'place_id', 'display_coordinates'
+ |  
+ |  verify_credentials(self, **kargs)
+ |      :reference: https://dev.twitter.com/rest/reference/get/account/verify_credentials
+ |      :allowed_param:'include_entities', 'skip_status', 'include_email'
+ |  
+ |  ----------------------------------------------------------------------
+ |  Data descriptors defined here:
+ |  
+ |  __dict__
+ |      dictionary for instance variables (if defined)
+ |  
+ |  __weakref__
+ |      list of weak references to the object (if defined)
+ |  
+ |  add_list_member
+ |      :reference: https://dev.twitter.com/docs/api/1.1/post/lists/members/create
+ |      :allowed_param:'screen_name', 'user_id', 'owner_screen_name',
+ |       'owner_id', 'slug', 'list_id'
+ |  
+ |  blocks
+ |      :reference: https://dev.twitter.com/rest/reference/get/blocks/list
+ |      :allowed_param:'cursor'
+ |  
+ |  blocks_ids
+ |      :reference: https://dev.twitter.com/rest/reference/get/blocks/ids
+ |  
+ |  configuration
+ |      :reference: https://dev.twitter.com/rest/reference/get/help/configuration
+ |  
+ |  create_block
+ |      :reference: https://dev.twitter.com/rest/reference/post/blocks/create
+ |      :allowed_param:'id', 'user_id', 'screen_name'
+ |  
+ |  create_favorite
+ |      :reference:https://dev.twitter.com/rest/reference/post/favorites/create
+ |      :allowed_param:'id'
+ |  
+ |  create_friendship
+ |      :reference: https://dev.twitter.com/rest/reference/post/friendships/create
+ |      :allowed_param:'id', 'user_id', 'screen_name', 'follow'
+ |  
+ |  create_list
+ |      :reference: https://dev.twitter.com/rest/reference/post/lists/create
+ |      :allowed_param:'name', 'mode', 'description'
+ |  
+ |  create_mute
+ |      :reference: https://dev.twitter.com/rest/reference/post/mutes/users/create
+ |      :allowed_param:'id', 'user_id', 'screen_name'
+ |  
+ |  create_saved_search
+ |      :reference: https://dev.twitter.com/rest/reference/post/saved_searches/create
+ |      :allowed_param:'query'
+ |  
+ |  destroy_block
+ |      :reference: https://dev.twitter.com/rest/reference/post/blocks/destroy
+ |      :allowed_param:'id', 'user_id', 'screen_name'
+ |  
+ |  destroy_direct_message
+ |      :reference: https://dev.twitter.com/rest/reference/post/direct_messages/destroy
+ |      :allowed_param:'id'
+ |  
+ |  destroy_favorite
+ |      :reference: https://dev.twitter.com/rest/reference/post/favorites/destroy
+ |      :allowed_param:'id'
+ |  
+ |  destroy_friendship
+ |      :reference: https://dev.twitter.com/rest/reference/post/friendships/destroy
+ |      :allowed_param:'id', 'user_id', 'screen_name'
+ |  
+ |  destroy_list
+ |      :reference: https://dev.twitter.com/rest/reference/post/lists/destroy
+ |      :allowed_param:'owner_screen_name', 'owner_id', 'list_id', 'slug'
+ |  
+ |  destroy_mute
+ |      :reference: https://dev.twitter.com/rest/reference/post/mutes/users/destroy
+ |      :allowed_param:'id', 'user_id', 'screen_name'
+ |  
+ |  destroy_saved_search
+ |      :reference: https://dev.twitter.com/rest/reference/post/saved_searches/destroy/%3Aid
+ |      :allowed_param:'id'
+ |  
+ |  destroy_status
+ |      :reference: https://dev.twitter.com/rest/reference/post/statuses/destroy/%3Aid
+ |      :allowed_param:'id'
+ |  
+ |  direct_messages
+ |      :reference: https://dev.twitter.com/rest/reference/get/direct_messages
+ |      :allowed_param:'since_id', 'max_id', 'count', 'full_text'
+ |  
+ |  favorites
+ |      :reference: https://dev.twitter.com/rest/reference/get/favorites/list
+ |      :allowed_param:'screen_name', 'user_id', 'max_id', 'count', 'since_id', 'max_id'
+ |  
+ |  followers
+ |      :reference: https://dev.twitter.com/rest/reference/get/followers/list
+ |      :allowed_param:'id', 'user_id', 'screen_name', 'cursor', 'count', 'skip_status', 'include_user_entities'
+ |  
+ |  followers_ids
+ |      :reference: https://dev.twitter.com/rest/reference/get/followers/ids
+ |      :allowed_param:'id', 'user_id', 'screen_name', 'cursor', 'count'
+ |  
+ |  friends
+ |      :reference: https://dev.twitter.com/rest/reference/get/friends/list
+ |      :allowed_param:'id', 'user_id', 'screen_name', 'cursor', 'skip_status', 'include_user_entities'
+ |  
+ |  friends_ids
+ |      :reference: https://dev.twitter.com/rest/reference/get/friends/ids
+ |      :allowed_param:'id', 'user_id', 'screen_name', 'cursor'
+ |  
+ |  friendships_incoming
+ |      :reference: https://dev.twitter.com/rest/reference/get/friendships/incoming
+ |      :allowed_param:'cursor'
+ |  
+ |  friendships_outgoing
+ |      :reference: https://dev.twitter.com/rest/reference/get/friendships/outgoing
+ |      :allowed_param:'cursor'
+ |  
+ |  geo_id
+ |      :reference: https://dev.twitter.com/rest/reference/get/geo/id/%3Aplace_id
+ |      :allowed_param:'id'
+ |  
+ |  geo_search
+ |      :reference: https://dev.twitter.com/docs/api/1.1/get/geo/search
+ |      :allowed_param:'lat', 'long', 'query', 'ip', 'granularity',
+ |       'accuracy', 'max_results', 'contained_within
+ |  
+ |  geo_similar_places
+ |      :reference: https://dev.twitter.com/rest/reference/get/geo/similar_places
+ |      :allowed_param:'lat', 'long', 'name', 'contained_within'
+ |  
+ |  get_direct_message
+ |      :reference: https://dev.twitter.com/rest/reference/get/direct_messages/show
+ |      :allowed_param:'id', 'full_text'
+ |  
+ |  get_list
+ |      :reference: https://dev.twitter.com/rest/reference/get/lists/show
+ |      :allowed_param:'owner_screen_name', 'owner_id', 'slug', 'list_id'
+ |  
+ |  get_oembed
+ |      :reference: https://dev.twitter.com/rest/reference/get/statuses/oembed
+ |      :allowed_param:'id', 'url', 'maxwidth', 'hide_media', 'omit_script', 'align', 'related', 'lang'
+ |  
+ |  get_saved_search
+ |      :reference: https://dev.twitter.com/rest/reference/get/saved_searches/show/%3Aid
+ |      :allowed_param:'id'
+ |  
+ |  get_settings
+ |      :reference: https://dev.twitter.com/rest/reference/get/account/settings
+ |  
+ |  get_status
+ |      :reference: https://dev.twitter.com/rest/reference/get/statuses/show/%3Aid
+ |      :allowed_param:'id'
+ |  
+ |  get_user
+ |      :reference: https://dev.twitter.com/rest/reference/get/users/show
+ |      :allowed_param:'id', 'user_id', 'screen_name'
+ |  
+ |  home_timeline
+ |      :reference: https://dev.twitter.com/rest/reference/get/statuses/home_timeline
+ |      :allowed_param:'since_id', 'max_id', 'count'
+ |  
+ |  list_members
+ |      :reference: https://dev.twitter.com/docs/api/1.1/get/lists/members
+ |      :allowed_param:'owner_screen_name', 'slug', 'list_id',
+ |       'owner_id', 'cursor
+ |  
+ |  list_subscribers
+ |      :reference: https://dev.twitter.com/docs/api/1.1/get/lists/subscribers
+ |      :allowed_param:'owner_screen_name', 'slug', 'owner_id',
+ |       'list_id', 'cursor
+ |  
+ |  list_timeline
+ |      :reference: https://dev.twitter.com/docs/api/1.1/get/lists/statuses
+ |      :allowed_param:'owner_screen_name', 'slug', 'owner_id', 'list_id',
+ |       'since_id', 'max_id', 'count', 'include_rts
+ |  
+ |  lists_all
+ |      :reference: https://dev.twitter.com/rest/reference/get/lists/list
+ |      :allowed_param:'screen_name', 'user_id'
+ |  
+ |  lists_memberships
+ |      :reference: https://dev.twitter.com/rest/reference/get/lists/memberships
+ |      :allowed_param:'screen_name', 'user_id', 'filter_to_owned_lists', 'cursor'
+ |  
+ |  lists_subscriptions
+ |      :reference: https://dev.twitter.com/rest/reference/get/lists/subscriptions
+ |      :allowed_param:'screen_name', 'user_id', 'cursor'
+ |  
+ |  mentions_timeline
+ |      :reference: https://dev.twitter.com/rest/reference/get/statuses/mentions_timeline
+ |      :allowed_param:'since_id', 'max_id', 'count'
+ |  
+ |  mutes_ids
+ |      :reference: https://dev.twitter.com/rest/reference/get/mutes/users/ids
+ |  
+ |  rate_limit_status
+ |      :reference: https://dev.twitter.com/rest/reference/get/application/rate_limit_status
+ |      :allowed_param:'resources'
+ |  
+ |  related_results
+ |      :reference: https://dev.twitter.com/docs/api/1.1/get/related_results/show/%3id.format
+ |      :allowed_param:'id'
+ |  
+ |  remove_list_member
+ |      :reference: https://dev.twitter.com/docs/api/1.1/post/lists/members/destroy
+ |      :allowed_param:'screen_name', 'user_id', 'owner_screen_name',
+ |       'owner_id', 'slug', 'list_id'
+ |  
+ |  report_spam
+ |      :reference: https://dev.twitter.com/rest/reference/post/users/report_spam
+ |      :allowed_param:'user_id', 'screen_name'
+ |  
+ |  retweet
+ |      :reference: https://dev.twitter.com/rest/reference/post/statuses/retweet/%3Aid
+ |      :allowed_param:'id'
+ |  
+ |  retweeters
+ |      :reference: https://dev.twitter.com/rest/reference/get/statuses/retweeters/ids
+ |      :allowed_param:'id', 'cursor', 'stringify_ids
+ |  
+ |  retweets
+ |      :reference: https://dev.twitter.com/rest/reference/get/statuses/retweets/%3Aid
+ |      :allowed_param:'id', 'count'
+ |  
+ |  retweets_of_me
+ |      :reference: https://dev.twitter.com/rest/reference/get/statuses/retweets_of_me
+ |      :allowed_param:'since_id', 'max_id', 'count'
+ |  
+ |  reverse_geocode
+ |      :reference: https://dev.twitter.com/rest/reference/get/geo/reverse_geocode
+ |      :allowed_param:'lat', 'long', 'accuracy', 'granularity', 'max_results'
+ |  
+ |  saved_searches
+ |      :reference: https://dev.twitter.com/rest/reference/get/saved_searches/show/%3Aid
+ |  
+ |  search
+ |      :reference: https://dev.twitter.com/rest/reference/get/search/tweets
+ |      :allowed_param:'q', 'lang', 'locale', 'since_id', 'geocode',
+ |       'max_id', 'since', 'until', 'result_type', 'count',
+ |        'include_entities', 'from', 'to', 'source'
+ |  
+ |  search_users
+ |      :reference: https://dev.twitter.com/rest/reference/get/users/search
+ |      :allowed_param:'q', 'count', 'page'
+ |  
+ |  send_direct_message
+ |      :reference: https://dev.twitter.com/rest/reference/post/direct_messages/new
+ |      :allowed_param:'user', 'screen_name', 'user_id', 'text'
+ |  
+ |  sent_direct_messages
+ |      :reference: https://dev.twitter.com/rest/reference/get/direct_messages/sent
+ |      :allowed_param:'since_id', 'max_id', 'count', 'page', 'full_text'
+ |  
+ |  set_delivery_device
+ |      :reference: https://dev.twitter.com/rest/reference/post/account/update_delivery_device
+ |      :allowed_param:'device'
+ |  
+ |  set_settings
+ |      :reference: https://dev.twitter.com/rest/reference/post/account/settings
+ |      :allowed_param:'sleep_time_enabled', 'start_sleep_time',
+ |      'end_sleep_time', 'time_zone', 'trend_location_woeid',
+ |      'allow_contributor_request', 'lang'
+ |  
+ |  show_friendship
+ |      :reference: https://dev.twitter.com/rest/reference/get/friendships/show
+ |      :allowed_param:'source_id', 'source_screen_name', 'target_id', 'target_screen_name'
+ |  
+ |  show_list_member
+ |      :reference: https://dev.twitter.com/docs/api/1.1/get/lists/members/show
+ |      :allowed_param:'list_id', 'slug', 'user_id', 'screen_name',
+ |       'owner_screen_name', 'owner_id
+ |  
+ |  show_list_subscriber
+ |      :reference: https://dev.twitter.com/docs/api/1.1/get/lists/subscribers/show
+ |      :allowed_param:'owner_screen_name', 'slug', 'screen_name',
+ |       'owner_id', 'list_id', 'user_id
+ |  
+ |  subscribe_list
+ |      :reference: https://dev.twitter.com/docs/api/1.1/post/lists/subscribers/create
+ |      :allowed_param:'owner_screen_name', 'slug', 'owner_id',
+ |      'list_id'
+ |  
+ |  suggested_categories
+ |      :reference: https://dev.twitter.com/rest/reference/get/users/suggestions
+ |      :allowed_param:'lang'
+ |  
+ |  suggested_users
+ |      :reference: https://dev.twitter.com/rest/reference/get/users/suggestions/%3Aslug
+ |      :allowed_param:'slug', 'lang'
+ |  
+ |  suggested_users_tweets
+ |      :reference: https://dev.twitter.com/rest/reference/get/users/suggestions/%3Aslug/members
+ |      :allowed_param:'slug'
+ |  
+ |  supported_languages
+ |      :reference: https://dev.twitter.com/rest/reference/get/help/languages
+ |  
+ |  trends_available
+ |      :reference: https://dev.twitter.com/rest/reference/get/trends/available
+ |  
+ |  trends_closest
+ |      :reference: https://dev.twitter.com/rest/reference/get/trends/closest
+ |      :allowed_param:'lat', 'long'
+ |  
+ |  trends_place
+ |      :reference: https://dev.twitter.com/rest/reference/get/trends/place
+ |      :allowed_param:'id', 'exclude'
+ |  
+ |  unretweet
+ |      :reference: https://dev.twitter.com/rest/reference/post/statuses/unretweet/%3Aid
+ |      :allowed_param:'id'
+ |  
+ |  unsubscribe_list
+ |      :reference: https://dev.twitter.com/docs/api/1.1/post/lists/subscribers/destroy
+ |      :allowed_param:'owner_screen_name', 'slug', 'owner_id',
+ |      'list_id'
+ |  
+ |  update_list
+ |      :reference: https://dev.twitter.com/rest/reference/post/lists/update
+ |      :allowed_param: list_id', 'slug', 'name', 'mode', 'description', 'owner_screen_name', 'owner_id'
+ |  
+ |  update_profile
+ |      :reference: https://dev.twitter.com/rest/reference/post/account/update_profile
+ |      :allowed_param:'name', 'url', 'location', 'description', 'profile_link_color'
+ |  
+ |  user_timeline
+ |      :reference: https://dev.twitter.com/rest/reference/get/statuses/user_timeline
+ |      :allowed_param:'id', 'user_id', 'screen_name', 'since_id', 'max_id', 'count', 'include_rts', 'trim_user', 'exclude_replies'
+

@@ -1,0 +1,78 @@
+Help on module cython:
+
+NAME
+    cython
+
+DESCRIPTION
+    #   Cython -- Main Program, generic
+    #
+
+FUNCTIONS
+    to_repr = get(...) method of builtins.dict instance
+        D.get(k[,d]) -> D[k] if k in D, else d.  d defaults to None.
+
+DATA
+    NULL = void *
+    Py_UCS4 = Py_UCS4
+    Py_UNICODE = Py_UNICODE
+    Py_ssize_t = Py_ssize_t
+    Py_tss_t = Py_tss_t
+    absolute_import = _Feature((2, 5, 0, 'alpha', 1), (3, 0, 0, 'alpha', 0...
+    bint = bint
+    ccall = <Cython.Shadow._EmptyDecoratorAndManager object>
+    cclass = <Cython.Shadow._EmptyDecoratorAndManager object>
+    cfunc = <Cython.Shadow._EmptyDecoratorAndManager object>
+    char = char
+    compiled = False
+    complex = complex
+    complex_types = ['longdoublecomplex', 'doublecomplex', 'floatcomplex',...
+    double = double
+    doublecomplex = double complex
+    float = float
+    float_types = ['longdouble', 'double', 'float']
+    floatcomplex = float complex
+    floating = <Cython.Shadow._FusedType object>
+    gil = <Cython.Shadow._nogil object>
+    gs = {'ArrayType': <class 'Cython.Shadow.ArrayType'>, 'CythonDotParall...
+    i = 3
+    int = int
+    int_types = ['char', 'short', 'Py_UNICODE', 'int', 'Py_UCS4', 'long', ...
+    integral = <Cython.Shadow._FusedType object>
+    long = long
+    longdouble = long double
+    longdoublecomplex = long double complex
+    longlong = long long
+    name = 'complex'
+    nogil = <Cython.Shadow._nogil object>
+    numeric = <Cython.Shadow._FusedType object>
+    optimization = <Cython.Shadow._Optimization object>
+    other_types = ['bint', 'void', 'Py_tss_t']
+    py_complex = double complex
+    py_float = float
+    py_int = int
+    py_long = long
+    reprname = 'size_t'
+    schar = signed char
+    short = short
+    sint = signed int
+    size_t = size_t
+    slong = signed long
+    slonglong = signed long long
+    sshort = signed short
+    t = 'Py_tss_t'
+    type_ordering = [int, long, float, double complex]
+    uchar = unsigned char
+    uint = unsigned int
+    ulong = unsigned long
+    ulonglong = unsigned long long
+    unicode = unicode
+    ushort = unsigned short
+    void = void
+
+VERSION
+    0.29.3
+
+FILE
+    /Users/jack/miniconda2/envs/py37/lib/python3.6/site-packages/cython.py
+
+

@@ -1,0 +1,25 @@
+[ set python path ]
+#!/usr/bin/python
+
+[ set encoding as utf-8 ( for source code ) ]
+# -*- Coding: utf-8 -*-
+
+[ set encoding as utf-8 ( for read data ) ]
+import sys; reload(sys); sys.setdefaultencoding('utf8')
+
+[ call func by name ]
+if __name__ == '__main__':
+
+[ py2app build ]
+python setup.py py2app -A
+
+[ update combobox ]
+listbox.delete(0, 'end')
+data = sorted(data, key=str.lower)
+for item in data:
+listbox.insert('end', item)
+
+[ gui file select ]
+root = tkinter.Tk()
+root.withdraw()
+target_buitin_lib_path = tkinter.filedialog.askdirectory(parent=root,initialdir="/Users/jack/miniconda2/envs/",title='Please select a directory')

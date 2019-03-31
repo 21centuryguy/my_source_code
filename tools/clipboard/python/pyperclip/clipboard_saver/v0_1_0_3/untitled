@@ -1,0 +1,138 @@
+2019-03-30 20:39:28
+line
+The 1st line.
+
+
+The 2nd line.
+The 3th line.
+The 4th line.
+The 5th line.
+The 6th line.
+The 7th line.
+The 8th line.
+The 9th line.
+The 10th line.
+The 11st line.
+The 12nd line.
+The 13th line.
+The 14th line.
+The 15th line.
+The 16th line.
+The 17th line.
+The 18th line.
+The 19th line.
+The 20th line.
+The 31st line.
+The 32nd line.
+The 33th line.
+The 34th line.
+The 35th line.
+The 36th line.
+The 37th line.
+The 38th line.
+The 39th line.
+The 40th line.
+That's not exactly what Republicans and administration policy aides had in mind when it was announced last weekend the Mueller probe was over. Many hoped the investigation's end might lead to an era of newly effective governing, a turning point for a President no longer preoccupied with an encroaching investigator.
+Exuberant officials and a buoyant President spent the week cheering the initial results of Mueller's investigation, as laid out in a letter from Attorney General William Barr. In a late-afternoon gathering last Sunday, aides convened in press secretary Sarah Sanders' office for a champagne toast after the attorney general's chief of staff phoned Emmet Flood, in Palm Beach with the President, to brief him on the report.
+The intimate gathering of White House staffers was a sign of the relief that flooded through the West Wing after the stress of an investigation that loomed for years was lifted.
+But the days that followed Sunday's champagne-clinking in Sanders' office came as a surprise to multiple people in the West Wing, according to interviews with half a dozen officials and Trump associates. There was no Rose Garden celebration ceremony. Trump gave no speech declaring vindication in the East Room. Instead, he made brief remarks before he climbed the steps of Air Force One and was whisked away to Washington.
+Washington (CNN)For some in the White House, Sunday seemed like the first day of the rest of Donald Trump's presidency. By Friday, it was clear that while the cloud of Robert Mueller's special counsel investigation had lifted, the pervasive disarray that marked most of Trump's time in office was not going anywhere.
+A sudden health care decision made after heated Oval Office disagreements -- along with a reversal on education funding, a confusing sanctions mystery and still-unfilled Cabinet posts -- revealed the chaotic practices and decision-making that have colored Trump's term until this point are still ever-present.
+Instead of clearing the decks, the end of the Mueller probe has only thrown a fractious West Wing policy and messaging operation into sharper relief. That's left some White House aides expressing regret the investigation's end wasn't matched with a more effective strategy to harness the momentum into advancing Trump's agenda. And GOP lawmakers are scratching their heads at a health care push few believe makes political sense.
+[0] CopyList
+- get the stuff from os copy board
+- refresh combobox list
+- build app with multi py files
+[0] Python libary help viwer
+- add init setup lib path ( save to config file ) 
+[1]
+https://ko.wikipedia.org/wiki/미적분학
+https://ko.wikipedia.org/wiki/미적분학의_기본정리
+https://ko.wikipedia.org/wiki/미분
+https://ko.wikipedia.org/wiki/적분
+https://ko.wikipedia.org/wiki/벡터_미적분학
+[2]
+https://www.google.com/search?client=safari&rls=en&q=python+ssh&ie=UTF-8&oe=UTF-8
+https://github.com/paramiko/paramiko
+http://www.paramiko.org
+https://techacademy.jp/magazine/18882
+https://www.tutorialspoint.com/What-is-the-simplest-way-to-SSH-using-Python
+https://www.tutorialspoint.com/python/python_ssh.htm
+https://wiki.python.org/moin/SecureShell
+https://www.quora.com/What-is-the-best-SSH-library-for-Python
+https://www.pythonforbeginners.com/code-snippets-source-code/ssh-connection-with-python
+http://www.fabfile.org
+[3]
+https://www.google.com/search?client=safari&rls=en&q=python+docker&ie=UTF-8&oe=UTF-8
+https://hub.docker.com/_/python/
+https://djangostars.com/blog/what-is-docker-and-how-to-use-it-with-python/
+https://github.com/docker/docker-py
+https://docker-py.readthedocs.io/en/stable/
+https://runnable.com/docker/python/dockerize-your-python-application
+https://www.fullstackpython.com/docker.html
+http://www.mwsoft.jp/programming/numpy/docker.html
+https://hackernoon.com/building-python-data-science-container-using-docker-c8e346295669
+https://dev.classmethod.jp/cloud/aws/win10_docker_python_ecs_cfn/
+https://realpython.com/tutorials/docker/
+[4]
+https://www.google.com/search?client=safari&rls=en&q=python+package+diy&ie=UTF-8&oe=UTF-8
+https://www.hackster.io/projects/tags/python
+https://medium.mybridge.co/30-amazing-python-projects-for-the-past-year-v-2018-9c310b04cdb3
+[5]
+https://packaging.python.org
+https://www.digitalocean.com/community/tutorials/how-to-write-modules-in-python-3
+https://docs.python-guide.org/shipping/packaging/
+https://www.google.com/search?client=safari&rls=en&q=how+to+make+python+installer&ie=UTF-8&oe=UTF-8
+https://www.youtube.com/watch?v=KRMs9z6KoEU
+[6]
+https://www.raspberrypi.org/help/
+[7]
+https://www.google.com/search?client=safari&rls=en&q=pypi+aws&ie=UTF-8&oe=UTF-8
+https://pypi.org/project/aws/
+https://pypi.org/project/awscli/
+https://pypi.org/project/aws-with/
+https://pypicloud.readthedocs.io/en/latest/
+https://news.ycombinator.com/item?id=13711347
+https://libraries.io/search?keywords=aws&platforms=Pypi
+[8]
+https://www.google.com/search?client=safari&rls=en&q=python+what+does+six.py+do&ie=UTF-8&oe=UTF-8
+https://github.com/benjaminp/six
+https://www.google.com/search?client=safari&rls=en&q=python+six+how+it+works&ie=UTF-8&oe=UTF-8
+https://pythonhosted.org/six/
+https://cheat.readthedocs.io/en/latest/python/six.html
+https://python-future.org/compatible_idioms.html
+http://astrofrog.github.io/blog/2016/01/12/stop-writing-python-4-incompatible-code/
+https://books.google.co.jp/books?id=uTVCDwAAQBAJ&pg=PA114&lpg=PA114&dq=python+six+how+it+works&source=bl&ots=ydvBuxG641&sig=ACfU3U3kFBw82II6EpIWmuY4s1b5Z4i7Cg&hl=en&sa=X&ved=2ahUKEwizuPyyz4LhAhWHS7wKHfWNDZQQ6AEwE3oECFIQAQ#v=onepage&q=python%20six%20how%20it%20works&f=false
+https://pybit.es/python-porting.html
+[9]
+https://www.google.com/search?newwindow=1&client=safari&rls=en&biw=2258&bih=1337&ei=yY6JXO-GIYTy8QXJ_7-AAw&q=python+github+api&oq=python+github+api&gs_l=psy-ab.3...0.0..136...0.0..0.0.0.......0......gws-wiz.PdaxNe3FDWw
+https://stackoverflow.com/questions/10625190/most-suitable-python-library-for-github-api-v3
+https://github.com/PyGithub/PyGithub
+https://pypi.org/project/PyGithub/
+https://github3.readthedocs.io/en/master/
+[10]
+http://effbot.org/tkinterbook/tkinter-index.htm
+http://effbot.org/tkinterbook/tkinter-classes.htm
+http://effbot.org/tkinterbook/button.htm
+http://effbot.org/tkinterbook/checkbutton.htm
+http://effbot.org/tkinterbook/radiobutton.htm
+https://www.google.com/search?newwindow=1&client=safari&rls=en&ei=AtaNXJW_IMb08gXN0rqYDg&q=python+tkinter+master+width+height&oq=python+tkinter+master+width&gs_l=psy-ab.1.0.33i22i29i30l3.45104.54712..57626...4.0..0.131.1132.8j4......0....1..gws-wiz.......0i71j0i7i30j0j0i30j0i8i30j0i22i30.5seV5qXYyV0
+python string.set
+tkinter Combobox refresh
+https://www.programcreek.com/python/example/81908/ttk.Combobox
+https://stackoverflow.com/questions/6797984/how-do-i-lowercase-a-string-in-python
+tkinter iconify
+https://stackoverflow.com/questions/22834150/difference-between-iconify-and-withdraw-in-python-tkinter
+python frame two button same line
+python tkinter grid position
+https://effbot.org/tkinterbook/grid.htm
+http://www.java2s.com/Code/Python/GUI-Tk/FrameactionIconify.htm
+https://stackoverflow.com/questions/26902034/how-to-center-a-tkinter-widget-in-a-sticky-frame
+[11]
+pypi absl-py
+https://github.com/abseil/abseil-py/blob/master/smoke_tests/sample_app.py
+[12]
+python     asn1crypto
+https://github.com/wbond/asn1crypto#readme
+what is ASN.1
+https://ja.wikipedia.org/wiki/Abstract_Syntax_Notation_One
