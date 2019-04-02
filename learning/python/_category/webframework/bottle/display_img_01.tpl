@@ -7,6 +7,6 @@
 <body>
     <h1>Initial Home page</h1>
     <p>My image:</p>
-    <img src="/static/image_1.png">
+    <img src="/static/image_1.png"> <!-- 실제 이미지의 패스와 상관 없이 "/static/image_1.png"로 항상 고정 -->
 </body>
 </html>
