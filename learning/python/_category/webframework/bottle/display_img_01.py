@@ -5,7 +5,7 @@ https://www.bogotobogo.com/python/Bottle/Python_Bottle_Framework_static_files.ph
 import os
 from bottle import route, run, static_file, template
 
-root_path = os.getcwd() # current directory
+root_path = os.getcwd() + 'images' # directory path of target file
 
 @route('/static/<filepath:path>')
 def server_static(filepath):
