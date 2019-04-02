@@ -2,13 +2,14 @@
 https://www.bogotobogo.com/python/Bottle/Python_Bottle_Framework_static_files.php
 """
 
+import os
 from bottle import route, run, static_file, template
 
-HOST = 'localhost'
+root_path = os.getcwd() # current directory
 
 @route('/static/<filepath:path>')
 def server_static(filepath):
-    return static_file(filepath, root='images/')
+    return static_file(filepath, root=root_path)
 
 @route('/')
 def serve_homepage():
