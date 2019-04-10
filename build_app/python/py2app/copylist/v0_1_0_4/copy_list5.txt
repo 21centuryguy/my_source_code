@@ -1,184 +1,1104 @@
 
-2019-04-01 06:10:23.556101 Start
+2019-04-08 06:35:01.887371 Start
 
-2019-04-01 06:10:23.560432 [ 30 ] >>> All copy list has been delete.
+2019-04-08 06:35:01.887676 [ 30 ] >>> All copy list has been delete.
 
-2019-04-01 06:19:59.090619 [ 22 ] >>> 	# root = tkinter.Tk()
+2019-04-08 06:37:51.500160 [ 22 ] >>> 	def damm_move_donw():
 
-2019-04-01 06:19:59.196237 [ 18 ] >>> 	# root.withdraw()
+2019-04-08 06:37:51.607553 [ 27 ] >>> 		# pyautogui.press('down')
 
-2019-04-01 06:19:59.298110 [ 148 ] >>> 	# target_buitin_lib_path = tkinter.filedialog.askdirectory(parent=root,initialdir="/Users/jack/miniconda2/envs/",title='Please select a directory')
+2019-04-08 06:37:51.709421 [ 32 ] >>> 		actions = ActionChains(driver)
 
-2019-04-01 06:20:42.562447 [ 19 ] >>> [ gui file select ]
+2019-04-08 06:37:51.811368 [ 45 ] >>> 		actions.send_keys(Keys.PAGE_DOWN).perform()
 
-2019-04-01 06:21:01.422949 [ 19 ] >>> [ update combobox ]
+2019-04-08 06:38:09.428214 [ 16 ] >>> import pyautogui
 
-2019-04-01 06:22:03.556963 [ 21 ] >>> set encoding as utf-8
+2019-04-08 06:38:09.545378 [ 64 ] >>> from selenium.webdriver.common.action_chains import ActionChains
 
-2019-04-01 06:22:08.127085 [ 25 ] >>> [ set encoding as utf-8 ]
+2019-04-08 06:38:33.195337 [ 25 ] >>> # pyautogui.press('down')
 
-2019-04-01 06:22:20.520996 [ 21 ] >>>  ( for source code ) 
+2019-04-08 06:38:58.378361 [ 23 ] >>> pyautogui.press('down')
 
-2019-04-01 06:23:01.761354 [ 45 ] >>> [ set encoding as utf-8 ( for source code ) ]
+2019-04-08 06:39:03.570738 [ 18 ] >>> [ press down key ]
 
-2019-04-01 06:23:01.867038 [ 23 ] >>> # -*- Coding: utf-8 -*-
+2019-04-08 06:40:16.450541 [ 0 ] >>> 
 
-2019-04-01 06:25:37.380934 [ 31 ] >>> target_buitin_lib_path_list = [
+2019-04-08 06:40:16.558146 [ 43 ] >>> [ press down key ( kind of mouse scroll ) ]
 
-2019-04-01 06:34:22.762951 [ 32 ] >>> target_buitin_lib_path_list = []
+2019-04-08 06:40:16.964186 [ 16 ] >>> def move_donw():
 
-2019-04-01 06:34:22.870381 [ 0 ] >>> 
+2019-04-08 06:40:17.071921 [ 31 ] >>> 	actions = ActionChains(driver)
 
-2019-04-01 06:34:22.972329 [ 19 ] >>> root = tkinter.Tk()
+2019-04-08 06:40:17.175552 [ 44 ] >>> 	actions.send_keys(Keys.PAGE_DOWN).perform()
 
-2019-04-01 06:34:23.074076 [ 15 ] >>> root.withdraw()
+2019-04-08 06:40:17.381440 [ 5 ] >>> -----
 
-2019-04-01 06:34:23.175391 [ 145 ] >>> target_buitin_lib_path = tkinter.filedialog.askdirectory(parent=root,initialdir="/Users/jack/miniconda2/envs/",title='Please select a directory')
+2019-04-08 06:40:17.586426 [ 54 ] >>> [ press down key ( exactly equal to press down key ) ]
 
-2019-04-01 06:34:23.480236 [ 59 ] >>> 								"/Users/jack/miniconda2/envs/py27/lib/python2.7/", 
+2019-04-08 06:41:35.309962 [ 15 ] >>> import datetime
 
-2019-04-01 06:34:23.583305 [ 59 ] >>> 								"/Users/jack/miniconda2/envs/py36/lib/python3.6/", 
+2019-04-08 06:41:35.411633 [ 36 ] >>> from time import localtime, strftime
 
-2019-04-01 06:34:23.686617 [ 57 ] >>> 								"/Users/jack/miniconda2/envs/py37/lib/python3.6/"
+2019-04-08 06:41:56.411517 [ 31 ] >>> [ date time with microseconds ]
 
-2019-04-01 06:34:23.789955 [ 8 ] >>> 							]
+2019-04-08 06:41:56.619021 [ 10 ] >>> - python -
 
-2019-04-01 06:34:56.306696 [ 3 ] >>> ---
+2019-04-08 06:41:56.822290 [ 29 ] >>> from datetime import datetime
 
-2019-04-01 06:35:47.983336 [ 19 ] >>> get_buitin_lib_list
+2019-04-08 06:41:56.924774 [ 38 ] >>> datetime.now().strftime("%H:%M:%S.%f")
 
-2019-04-01 06:44:10.861405 [ 22 ] >>> target_buitin_lib_path
+2019-04-08 06:45:36.801294 [ 16 ] >>> webhoster_closer
 
-2019-04-01 06:44:35.062032 [ 27 ] >>> target_buitin_lib_path_list
+2019-04-08 06:49:12.114971 [ 28 ] >>> from threading import Thread
 
-2019-04-01 06:47:17.822146 [ 26 ] >>> get_target_buitin_lib_path
+2019-04-08 06:49:46.618231 [ 26 ] >>> if __name__ == "__main__":
 
-2019-04-01 06:47:33.774730 [ 34 ] >>> import tkinter, tkinter.filedialog
+2019-04-08 06:49:46.724090 [ 80 ] >>> 	log_file = semi_log_path+'abnormal_many_user_same_time_test_group_semi_log.txt'
 
-2019-04-01 06:48:15.666271 [ 4 ] >>> ----
+2019-04-08 06:49:46.826435 [ 21 ] >>> 	exec(write_semi_log)
 
-2019-04-01 06:48:25.933485 [ 16 ] >>> ----------------
+2019-04-08 06:49:46.930927 [ 31 ] >>> 	f.write(test_info_description)
 
-2019-04-01 06:48:31.319273 [ 34 ] >>> # --------------------------------
+2019-04-08 06:49:47.035761 [ 24 ] >>> 	f.write("Test End :\n")
 
-2019-04-01 06:48:31.422553 [ 21 ] >>> # --- func definition
+2019-04-08 06:49:47.139454 [ 52 ] >>> 	f.write(strftime("%Y-%m-%d %H:%M:%S", localtime()))
 
-2019-04-01 06:50:30.544302 [ 3 ] >>> """
+2019-04-08 06:49:47.345762 [ 36 ] >>> 	Thread(target = test_func1).start()
 
-2019-04-01 06:50:30.752235 [ 33 ] >>> # --- target_buitin_lib_path_list
+2019-04-08 06:49:53.248728 [ 36 ] >>> 	Thread(target = test_func2).start()
 
-2019-04-01 06:50:59.814085 [ 47 ] >>> /Users/jack/miniconda2/envs/py27/lib/python2.7/
+2019-04-08 06:49:53.355073 [ 36 ] >>> 	Thread(target = test_func3).start()
 
-2019-04-01 06:52:18.733058 [ 81 ] >>> target_buitin_lib_path_list = ["/Users/jack/miniconda2/envs/py27/lib/python2.7/"]
+2019-04-08 06:51:08.053888 [ 15 ] >>> def main(mode):
 
-2019-04-01 06:53:39.215513 [ 59 ] >>> 	for target_buitin_lib_path in target_buitin_lib_path_list:
+2019-04-08 06:51:08.260787 [ 13 ] >>> if mode == 1:
 
-2019-04-01 06:53:39.322032 [ 50 ] >>> 		get_buitin_lib_list(target_buitin_lib_path_list)
+2019-04-08 06:51:16.591295 [ 11 ] >>> webhoster()
 
-2019-04-01 06:53:51.386211 [ 28 ] >>> get_target_buitin_lib_path()
+2019-04-08 06:51:38.059158 [ 18 ] >>> webhoster_closer()
 
-2019-04-01 07:02:17.668543 [ 146 ] >>> 	target_buitin_lib_path = tkinter.filedialog.askdirectory(parent=root,initialdir="/Users/jack/miniconda2/envs/",title='Please select a directory')
+2019-04-08 06:51:52.183134 [ 23 ] >>> pass_host_port_from_gui
 
-2019-04-01 07:02:17.876148 [ 59 ] >>> 	target_buitin_lib_path_list.append(target_buitin_lib_path)
+2019-04-08 06:52:02.250891 [ 27 ] >>>     pass_host_port_from_gui
 
-2019-04-01 07:02:18.078987 [ 35 ] >>> 	return target_buitin_lib_path_list
+2019-04-08 06:54:14.388041 [ 10 ] >>> main(mode)
 
-2019-04-01 07:03:31.979915 [ 60 ] >>> 	for target_buitin_lib_path in get_target_buitin_lib_path():
+2019-04-08 06:54:18.768910 [ 12 ] >>> def func1():
 
-2019-04-01 07:03:45.814268 [ 41 ] >>> print("directory selection is canceled.")
+2019-04-08 06:54:18.875695 [ 11 ] >>>     main(1)
 
-2019-04-01 07:03:56.788988 [ 9 ] >>> Exception
+2019-04-08 06:54:23.360482 [ 11 ] >>>     main(2)
 
-2019-04-01 07:04:11.355045 [ 32 ] >>> print("Exception Message : ", e)
+2019-04-08 06:58:40.795060 [ 5 ] >>> 59231
 
-2019-04-01 07:06:51.053386 [ 11 ] >>> root = Tk()
+2019-04-08 06:58:59.454332 [ 26 ] >>> ps -ef | grep -e webhoster
 
-2019-04-01 07:09:30.342935 [ 35 ] >>> check_if_you_want_to_add_lib_path()
+2019-04-08 06:59:08.332287 [ 5 ] >>> 95422
 
-2019-04-01 07:10:47.559617 [ 15 ] >>> 		if mode == 1:
+2019-04-08 06:59:42.741037 [ 5 ] >>> 94604
 
-2019-04-01 07:11:09.121050 [ 40 ] >>> root.title("Python Library Help Viewer")
+2019-04-08 07:00:49.285648 [ 5 ] >>> 96020
 
-2019-04-01 07:11:09.227461 [ 34 ] >>> frame = ttk.Frame(root, padding=8)
+2019-04-08 07:02:13.821485 [ 5 ] >>> 96629
 
-2019-04-01 07:12:34.610350 [ 36 ] >>> 	check_if_you_want_to_add_lib_path()
+2019-04-08 07:04:20.209627 [ 12 ] >>> daemon_run()
 
-2019-04-01 07:15:50.751777 [ 88 ] >>> 	b1 = Button(frame, text="New Wideget", command=lambda:[root2.iconify(), new_widget2()])
+2019-04-08 07:04:28.473001 [ 35 ] >>> from bottledaemon import daemon_run
 
-2019-04-01 07:15:50.859099 [ 76 ] >>> 	b2 = Button(frame, text="Namespace Checker", command=edit_namepace_checker)
+2019-04-08 07:05:04.287516 [ 18 ] >>>       daemon_run()
 
-2019-04-01 07:15:50.962020 [ 75 ] >>> 	b3 = Button(frame, text="Help Docs Folder", command=open_help_text_folder)
+2019-04-08 07:05:47.649553 [ 13 ] >>> # webhoster()
 
-2019-04-01 07:15:51.063544 [ 57 ] >>> 	# b4 = Button(frame, text="Close Wideget", command=quit)
+2019-04-08 07:06:27.761251 [ 41 ] >>> # ---------------------------------------
 
-2019-04-01 07:15:51.166307 [ 66 ] >>> 	b4 = Button(frame, text="Close Wideget", command=lambda:[quit()])
+2019-04-08 07:06:27.867060 [ 41 ] >>> # -------- webhoster launcher  ----------
 
-2019-04-01 07:15:51.270025 [ 25 ] >>> 	b1.grid(row=0, sticky=E)
+2019-04-08 07:06:27.968726 [ 26 ] >>> # ------------------------
 
-2019-04-01 07:15:51.373447 [ 25 ] >>> 	b2.grid(row=0, sticky=W)
+2019-04-08 07:06:28.171183 [ 30 ] >>> def pass_host_port_from_gui():
 
-2019-04-01 07:15:51.477268 [ 25 ] >>> 	b3.grid(row=1, sticky=W)
+2019-04-08 07:06:28.375961 [ 30 ] >>>     select_host_port_list = []
 
-2019-04-01 07:15:51.581163 [ 25 ] >>> 	b4.grid(row=1, sticky=E)
+2019-04-08 07:06:28.582513 [ 28 ] >>>     # --- set root and frame
 
-2019-04-01 07:17:22.421854 [ 13 ] >>> new_widget2()
+2019-04-08 07:06:28.685009 [ 15 ] >>>     root = Tk()
 
-2019-04-01 07:17:47.783706 [ 14 ] >>> root.iconify()
+2019-04-08 07:06:28.788132 [ 36 ] >>>     root.title("WebHoster Launcher")
 
-2019-04-01 07:18:32.079931 [ 50 ] >>> , command=lambda:[cancel_add_path(), root.quit()])
+2019-04-08 07:06:28.891484 [ 38 ] >>>     frame = ttk.Frame(root, padding=8)
 
-2019-04-01 07:19:28.978912 [ 84 ] >>> 		b1 = Button(frame, text="Cancel", command=lambda:[cancel_add_path(), root.quit()])
+2019-04-08 07:06:29.096645 [ 27 ] >>>     # --- select host combo
 
-2019-04-01 07:20:39.129718 [ 77 ] >>> lb1 = Label(frame, text="Copylist 1", bg="mistyrose", font=("Helvetica 14" ))
+2019-04-08 07:06:29.199478 [ 23 ] >>>     # - set combo itmes
 
-2019-04-01 07:20:47.885640 [ 2 ] >>> 		
+2019-04-08 07:06:29.302391 [ 56 ] >>>     items = ['localhost', '172.20.10.2', '192.168.11.8']
 
-2019-04-01 07:20:55.816217 [ 39 ] >>> frame.grid(); lb1.grid(row=0, sticky=W)
+2019-04-08 07:06:29.405654 [ 26 ] >>>     # - pass_selected_host
 
-2019-04-01 07:21:20.562748 [ 14 ] >>> frame.grid(); 
+2019-04-08 07:06:29.509697 [ 52 ] >>>     def pass_selected_host(list, selected_item_num):
 
-2019-04-01 07:21:55.711026 [ 14 ] >>> 		frame.grid()
+2019-04-08 07:06:29.612741 [ 48 ] >>>         selected_host = items[selected_item_num]
 
-2019-04-01 07:23:19.236369 [ 8 ] >>> add_path
+2019-04-08 07:06:29.715301 [ 28 ] >>>         print(selected_host)
 
-2019-04-01 07:23:25.851569 [ 17 ] >>> 		def add_path():
+2019-04-08 07:06:29.819172 [ 51 ] >>>         select_host_port_list.append(selected_host)
 
-2019-04-01 07:23:25.958328 [ 6 ] >>> 			xxx
+2019-04-08 07:06:29.922115 [ 18 ] >>>     # - combo box1
 
-2019-04-01 07:23:26.060040 [ 13 ] >>> 			return xxx
+2019-04-08 07:06:30.024428 [ 24 ] >>>     cb_val = StringVar()
 
-2019-04-01 07:23:34.088971 [ 15 ] >>> cancel_add_path
+2019-04-08 07:06:30.128304 [ 29 ] >>>     cb_val.set("Select Host")
 
-2019-04-01 07:28:40.716843 [ 1 ] >>> 	
+2019-04-08 07:06:30.230813 [ 70 ] >>>     cb = ttk.Combobox(frame, textvariable=cb_val, height=10, width=25)
 
-2019-04-01 07:29:06.100281 [ 62 ] >>> 			for target_buitin_lib_path in get_target_buitin_lib_path():
+2019-04-08 07:06:30.332703 [ 24 ] >>>     cb['values'] = items
 
-2019-04-01 07:29:06.208279 [ 52 ] >>> 				get_buitin_lib_list(target_buitin_lib_path_list)
+2019-04-08 07:06:30.435311 [ 16 ] >>>     frame.grid()
 
-2019-04-01 07:29:37.024031 [ 44 ] >>> 			print("directory selection is canceled.")
+2019-04-08 07:06:30.537407 [ 28 ] >>>     cb.grid(row=1, sticky=W)
 
-2019-04-01 07:29:37.130442 [ 35 ] >>> 			print("Exception Message : ", e)
+2019-04-08 07:06:30.641234 [ 92 ] >>>     cb.bind('<<ComboboxSelected>>', lambda e:[pass_selected_host(items, int(cb.current()))])
 
-2019-04-01 07:32:08.889051 [ 24 ] >>> 		def cancel_add_path():
+2019-04-08 07:06:30.846618 [ 27 ] >>>     # --- select port combo
 
-2019-04-01 07:35:11.909967 [ 6 ] >>> buitin
+2019-04-08 07:06:31.052251 [ 93 ] >>>     items2 = ['1977', '1996', '1998', '2002', '2005', '2008', '2013', '2015', '2017', '2019']
 
-2019-04-01 07:36:49.954973 [ 23 ] >>> target_builtin_lib_path
+2019-04-08 07:06:31.258968 [ 52 ] >>>     def pass_selected_port(list, selected_item_num):
 
-2019-04-01 07:38:27.799853 [ 27 ] >>> get_target_builtin_lib_path
+2019-04-08 07:06:31.361812 [ 49 ] >>>         selected_port = items2[selected_item_num]
 
-2019-04-01 07:41:24.341439 [ 28 ] >>> target_builtin_lib_path_list
+2019-04-08 07:06:31.464427 [ 28 ] >>>         print(selected_port)
 
-2019-04-01 07:41:55.239187 [ 26 ] >>> if __name__ == '__main__':
+2019-04-08 07:06:31.567652 [ 51 ] >>>         select_host_port_list.append(selected_port)
 
-2019-04-01 07:42:06.541473 [ 29 ] >>> get_target_builtin_lib_path()
+2019-04-08 07:06:31.670433 [ 18 ] >>>     # - combo box2
 
-2019-04-01 07:42:18.048950 [ 33 ] >>> target_builtin_lib_path_list = []
+2019-04-08 07:06:31.773682 [ 25 ] >>>     cb_val2 = StringVar()
 
-2019-04-01 07:44:38.129173 [ 57 ] >>> get_target_builtin_lib_path(target_builtin_lib_path_list)
+2019-04-08 07:06:31.877596 [ 30 ] >>>     cb_val2.set("Select Port")
 
-2019-04-01 07:57:20.811357 [ 5 ] >>> # ---
+2019-04-08 07:06:31.980675 [ 72 ] >>>     cb2 = ttk.Combobox(frame, textvariable=cb_val2, height=10, width=25)
 
-2019-04-01 07:59:25.502729 [ 27 ] >>> from config.config import *
+2019-04-08 07:06:32.083293 [ 26 ] >>>     cb2['values'] = items2
 
-2019-04-01 07:59:33.451205 [ 36 ] >>> # import tkinter, tkinter.filedialog
+2019-04-08 07:06:32.287870 [ 29 ] >>>     cb2.grid(row=2, sticky=W)
+
+2019-04-08 07:06:32.391799 [ 95 ] >>>     cb2.bind('<<ComboboxSelected>>', lambda e:[pass_selected_port(items2, int(cb2.current()))])
+
+2019-04-08 07:06:32.598754 [ 38 ] >>>     # --- button for calling main func
+
+2019-04-08 07:06:32.701655 [ 23 ] >>>     # -- func by button
+
+2019-04-08 07:06:32.805384 [ 25 ] >>>     def save_selection():
+
+2019-04-08 07:06:32.908314 [ 38 ] >>>         with open("tmp.py", "w") as f:
+
+2019-04-08 07:06:33.011696 [ 49 ] >>>             f.write("select_host_port_list = ['")
+
+2019-04-08 07:06:33.114182 [ 45 ] >>>             f.write(select_host_port_list[0])
+
+2019-04-08 07:06:33.216613 [ 26 ] >>>             f.write("', ")
+
+2019-04-08 07:06:33.319581 [ 24 ] >>>             f.write("'")
+
+2019-04-08 07:06:33.422813 [ 45 ] >>>             f.write(select_host_port_list[1])
+
+2019-04-08 07:06:33.527350 [ 25 ] >>>             f.write("']")
+
+2019-04-08 07:06:33.734357 [ 14 ] >>>     # - button
+
+2019-04-08 07:06:33.838291 [ 80 ] >>>     b1 = Button(frame, text="Submit", command=lambda:[save_selection(), quit()])
+
+2019-04-08 07:06:33.942934 [ 43 ] >>>     frame.grid(); b1.grid(row=3, sticky=E);
+
+2019-04-08 07:06:40.381907 [ 38 ] >>> # -------- webhoster close  ----------
+
+2019-04-08 07:06:42.131378 [ 15 ] >>> root.mainloop()
+
+2019-04-08 07:07:51.059759 [ 24 ] >>> pip install BottleDaemon
+
+2019-04-08 07:10:47.101735 [ 13 ] >>> selected_host
+
+2019-04-08 07:10:59.889193 [ 44 ] >>>     print("selected_host : ", selected_host)
+
+2019-04-08 07:11:03.364067 [ 13 ] >>> selected_port
+
+2019-04-08 07:12:50.695187 [ 5 ] >>> 97827
+
+2019-04-08 07:13:20.912199 [ 50 ] >>> host=selected_host, port=selected_port, debug=True
+
+2019-04-08 07:18:22.862873 [ 11 ] >>> 172.20.10.2
+
+2019-04-08 07:20:08.455898 [ 50 ] >>> daemon_run(host=selected_host, port=selected_port)
+
+2019-04-08 07:21:17.285018 [ 39 ] >>>     from bottledaemon import daemon_run
+
+2019-04-08 07:21:17.392131 [ 28 ] >>>     from bottle import route
+
+2019-04-08 07:21:17.595973 [ 20 ] >>>     @route("/hello")
+
+2019-04-08 07:21:17.698314 [ 16 ] >>>     def hello():
+
+2019-04-08 07:21:17.801811 [ 26 ] >>>       return "Hello World"
+
+2019-04-08 07:21:18.007918 [ 98 ] >>>     # The following lines will call the BottleDaemon script and launch a daemon in the background.
+
+2019-04-08 07:21:18.111491 [ 30 ] >>>     if __name__ == "__main__":
+
+2019-04-08 07:22:07.377157 [ 12 ] >>> bottledaemon
+
+2019-04-08 07:24:47.351159 [ 41 ] >>> daemon_run(host="localhost", port="9999")
+
+2019-04-08 07:28:21.451602 [ 42 ] >>> 	daemon_run(host="localhost", port="9999")
+
+2019-04-08 07:29:14.430803 [ 8 ] >>> # -- run
+
+2019-04-08 07:29:14.537587 [ 64 ] >>> # run(host=selected_host, port=selected_port, debug=True) # home
+
+2019-04-08 07:29:30.368967 [ 29 ] >>> host="localhost", port="9999"
+
+2019-04-08 07:30:51.127752 [ 10 ] >>> debug=True
+
+2019-04-08 07:32:47.812095 [ 42 ] >>> from multiprocessing import Queue, Process
+
+2019-04-08 07:32:48.017119 [ 16 ] >>> def processor():
+
+2019-04-08 07:32:48.119199 [ 49 ] >>>     setproctitle('%s - processor ' % (__file__,))
+
+2019-04-08 07:32:48.324161 [ 15 ] >>>     while True:
+
+2019-04-08 07:32:48.428982 [ 21 ] >>>         time.sleep(1)
+
+2019-04-08 07:32:48.532977 [ 18 ] >>>         do_stuff()
+
+2019-04-08 07:32:48.739731 [ 40 ] >>> my_processor = Process(target=processor)
+
+2019-04-08 07:33:55.349621 [ 10 ] >>> webhoster2
+
+2019-04-08 07:36:24.353278 [ 54 ] >>> run(host="localhost", port="9999", debug=False) # home
+
+2019-04-08 07:38:09.190800 [ 169 ] >>> https://www.google.com/search?newwindow=1&client=safari&rls=en&q=bottle+how+to+run+background&spell=1&sa=X&ved=0ahUKEwjRgZKo_r7hAhUc8bwKHcorBGgQBQgrKAA&biw=1122&bih=1367
+
+2019-04-08 07:38:44.596732 [ 15 ] >>> multiprocessing
+
+2019-04-08 07:42:51.026646 [ 12 ] >>> BottleDaemon
+
+2019-04-08 07:48:58.959244 [ 27 ] >>> http://localhost:9999/hello
+
+2019-04-08 07:50:02.034082 [ 16 ] >>> @route("/hello")
+
+2019-04-08 07:50:02.141222 [ 12 ] >>> def hello():
+
+2019-04-08 07:50:02.244243 [ 21 ] >>> 	return "Hello World"
+
+2019-04-08 07:51:29.643271 [ 2 ] >>> ('
+
+2019-04-08 07:51:55.983548 [ 2 ] >>> ')
+
+2019-04-08 07:54:23.016513 [ 13 ] >>> webhoster.tpl
+
+2019-04-08 07:55:36.598308 [ 24 ] >>>     return "Hello World"
+
+2019-04-08 07:57:35.276747 [ 14 ] >>> serve_homepage
+
+2019-04-08 07:57:49.931545 [ 7 ] >>> pageone
+
+2019-04-08 07:58:07.876419 [ 11 ] >>> @route("/")
+
+2019-04-08 07:58:07.983919 [ 21 ] >>> def serve_homepage():
+
+2019-04-08 07:58:08.087217 [ 36 ] >>>     return template("webhoster.tpl")
+
+2019-04-08 07:59:31.971671 [ 72 ] >>> /Users/jack/Documents/GitHub/local/build_app/python/py2app/webhoster/dev
+
+2019-04-08 08:00:17.774116 [ 9 ] >>> root_path
+
+2019-04-08 08:00:34.168865 [ 12 ] >>> root_path + 
+
+2019-04-08 08:01:57.160776 [ 1 ] >>> /
+
+2019-04-08 08:04:05.736648 [ 41 ] >>> daemon_run(host="localhost", port="8888")
+
+2019-04-08 08:04:18.341517 [ 62 ] >>> run(host=selected_host, port=selected_port, debug=True) # home
+
+2019-04-08 08:04:49.581651 [ 25 ] >>> pass_host_port_from_gui()
+
+2019-04-08 08:09:00.767133 [ 3 ] >>> """
+
+2019-04-08 08:09:00.874633 [ 81 ] >>> https://www.bogotobogo.com/python/Bottle/Python_Bottle_Framework_static_files.php
+
+2019-04-08 08:09:01.179651 [ 21 ] >>> from tkinter import *
+
+2019-04-08 08:09:01.282776 [ 23 ] >>> from tkinter import ttk
+
+2019-04-08 08:09:01.386488 [ 9 ] >>> import os
+
+2019-04-08 08:09:01.593671 [ 52 ] >>> from bottle import route, run, static_file, template
+
+2019-04-08 08:09:08.357157 [ 19 ] >>>     root.mainloop()
+
+2019-04-08 08:09:08.585023 [ 51 ] >>> # -------------------------------------------------
+
+2019-04-08 08:09:08.694870 [ 39 ] >>> # -------------------------------------
+
+2019-04-08 08:09:08.798265 [ 27 ] >>> # -------------------------
+
+2019-04-08 08:09:08.903447 [ 21 ] >>> # --------- webhoster
+
+2019-04-08 08:09:09.109571 [ 16 ] >>> def webhoster():
+
+2019-04-08 08:09:09.317547 [ 76 ] >>>     # root_path = os.getcwd() +"/"+ 'images' # directory path of target file
+
+2019-04-08 08:09:09.422518 [ 76 ] >>>     # root_path = os.getcwd() +"/"+ 'static' # directory path of target file
+
+2019-04-08 08:09:09.526232 [ 27 ] >>>     root_path = os.getcwd()
+
+2019-04-08 08:09:09.734520 [ 39 ] >>>     # --------------------------- pages
+
+2019-04-08 08:09:09.837856 [ 15 ] >>>     @route('/')
+
+2019-04-08 08:09:09.940939 [ 25 ] >>>     def serve_homepage():
+
+2019-04-08 08:09:10.045443 [ 40 ] >>>         return template('webhoster.tpl')
+
+2019-04-08 08:09:10.252081 [ 20 ] >>>     @route('/page2')
+
+2019-04-08 08:09:10.460575 [ 42 ] >>>         return template('webhoster_2.tpl')
+
+2019-04-08 08:09:10.668261 [ 20 ] >>>     @route('/page3')
+
+2019-04-08 08:09:10.876074 [ 42 ] >>>         return template('webhoster_3.tpl')
+
+2019-04-08 08:09:11.083719 [ 20 ] >>>     @route('/page4')
+
+2019-04-08 08:09:11.289019 [ 42 ] >>>         return template('webhoster_4.tpl')
+
+2019-04-08 08:09:11.497138 [ 20 ] >>>     @route('/page5')
+
+2019-04-08 08:09:11.703984 [ 42 ] >>>         return template('webhoster_5.tpl')
+
+2019-04-08 08:09:11.910427 [ 20 ] >>>     @route('/page6')
+
+2019-04-08 08:09:12.118857 [ 42 ] >>>         return template('webhoster_6.tpl')
+
+2019-04-08 08:09:12.327059 [ 20 ] >>>     @route('/page7')
+
+2019-04-08 08:09:12.533112 [ 42 ] >>>         return template('webhoster_7.tpl')
+
+2019-04-08 08:09:12.739276 [ 20 ] >>>     @route('/page8')
+
+2019-04-08 08:09:12.947182 [ 42 ] >>>         return template('webhoster_8.tpl')
+
+2019-04-08 08:09:13.154288 [ 20 ] >>>     @route('/page9')
+
+2019-04-08 08:09:13.361750 [ 42 ] >>>         return template('webhoster_9.tpl')
+
+2019-04-08 08:09:13.568891 [ 21 ] >>>     @route('/page10')
+
+2019-04-08 08:09:13.776630 [ 43 ] >>>         return template('webhoster_10.tpl')
+
+2019-04-08 08:09:13.984072 [ 40 ] >>>     # --------------------------- static
+
+2019-04-08 08:09:14.088667 [ 37 ] >>>     @route('/static/<filepath:path>')
+
+2019-04-08 08:09:14.191400 [ 32 ] >>>     def server_static(filepath):
+
+2019-04-08 08:09:14.293924 [ 52 ] >>>         return static_file(filepath, root=root_path)
+
+2019-04-08 08:09:14.500494 [ 37 ] >>>     # -------------------------------
+
+2019-04-08 08:09:14.604449 [ 19 ] >>>     # - call hoster
+
+2019-04-08 08:09:15.016310 [ 41 ] >>>     from tmp import select_host_port_list
+
+2019-04-08 08:09:15.125793 [ 44 ] >>>     selected_host = select_host_port_list[0]
+
+2019-04-08 08:09:15.229937 [ 44 ] >>>     selected_port = select_host_port_list[1]
+
+2019-04-08 08:09:15.438221 [ 4 ] >>>     
+
+2019-04-08 08:09:15.644725 [ 12 ] >>>     # -- run
+
+2019-04-08 08:09:15.749257 [ 68 ] >>>     # run(host=selected_host, port=selected_port, debug=True) # home
+
+2019-04-08 08:09:15.854333 [ 3 ] >>>    
+
+2019-04-08 08:09:15.958800 [ 23 ] >>>     # -- run as deamon 
+
+2019-04-08 08:09:16.062593 [ 16 ] >>>     daemon_run()
+
+2019-04-08 08:09:16.882850 [ 23 ] >>> def webhoster_closer():
+
+2019-04-08 08:09:17.197399 [ 16 ] >>>     root2 = Tk()
+
+2019-04-08 08:09:17.302220 [ 35 ] >>>     root2.title("WebHoster Closer")
+
+2019-04-08 08:09:17.407192 [ 39 ] >>>     frame = ttk.Frame(root2, padding=8)
+
+2019-04-08 08:09:17.818907 [ 62 ] >>>     b1 = Button(frame, text="Submit", command=lambda:[quit()])
+
+2019-04-08 08:09:17.927496 [ 43 ] >>>     frame.grid(); b1.grid(row=1, sticky=E);
+
+2019-04-08 08:09:18.135383 [ 20 ] >>>     root2.mainloop()
+
+2019-04-08 08:09:19.159754 [ 20 ] >>> # webhoster_closer()
+
+2019-04-08 08:10:14.862498 [ 66 ] >>>     run(host=selected_host, port=selected_port, debug=True) # home
+
+2019-04-08 08:11:12.904536 [ 39 ] >>> (host=selected_host, port=selected_port
+
+2019-04-08 08:11:46.177298 [ 29 ] >>> root_path = os.getcwd() + "/"
+
+2019-04-08 08:11:46.388893 [ 35 ] >>> # --------------------------- pages
+
+2019-04-08 08:11:46.799273 [ 48 ] >>>     return template(root_path + "webhoster.tpl")
+
+2019-04-08 08:11:47.011624 [ 16 ] >>> @route("/page2")
+
+2019-04-08 08:11:47.219760 [ 50 ] >>>     return template(root_path + "webhoster_2.tpl")
+
+2019-04-08 08:11:47.425964 [ 16 ] >>> @route("/page3")
+
+2019-04-08 08:11:47.631447 [ 50 ] >>>     return template(root_path + "webhoster_3.tpl")
+
+2019-04-08 08:11:47.837289 [ 16 ] >>> @route("/page4")
+
+2019-04-08 08:11:48.045038 [ 50 ] >>>     return template(root_path + "webhoster_4.tpl")
+
+2019-04-08 08:11:48.251429 [ 16 ] >>> @route("/page5")
+
+2019-04-08 08:11:48.459830 [ 50 ] >>>     return template(root_path + "webhoster_5.tpl")
+
+2019-04-08 08:11:48.668452 [ 16 ] >>> @route("/page6")
+
+2019-04-08 08:11:48.875605 [ 50 ] >>>     return template(root_path + "webhoster_6.tpl")
+
+2019-04-08 08:11:49.084717 [ 16 ] >>> @route("/page7")
+
+2019-04-08 08:11:49.292443 [ 50 ] >>>     return template(root_path + "webhoster_7.tpl")
+
+2019-04-08 08:11:49.500077 [ 16 ] >>> @route("/page8")
+
+2019-04-08 08:11:49.707324 [ 50 ] >>>     return template(root_path + "webhoster_8.tpl")
+
+2019-04-08 08:11:49.915241 [ 16 ] >>> @route("/page9")
+
+2019-04-08 08:11:50.124021 [ 50 ] >>>     return template(root_path + "webhoster_9.tpl")
+
+2019-04-08 08:11:50.331387 [ 17 ] >>> @route("/page10")
+
+2019-04-08 08:11:50.539100 [ 51 ] >>>     return template(root_path + "webhoster_10.tpl")
+
+2019-04-08 08:22:04.115829 [ 33 ] >>>     root_path = os.getcwd() + "/"
+
+2019-04-08 08:22:04.532498 [ 15 ] >>>     @route("/")
+
+2019-04-08 08:22:04.737881 [ 52 ] >>>         return template(root_path + "webhoster.tpl")
+
+2019-04-08 08:22:04.944366 [ 20 ] >>>     @route("/page2")
+
+2019-04-08 08:22:05.150032 [ 54 ] >>>         return template(root_path + "webhoster_2.tpl")
+
+2019-04-08 08:22:05.357583 [ 20 ] >>>     @route("/page3")
+
+2019-04-08 08:22:05.566064 [ 54 ] >>>         return template(root_path + "webhoster_3.tpl")
+
+2019-04-08 08:22:05.773211 [ 20 ] >>>     @route("/page4")
+
+2019-04-08 08:22:05.980191 [ 54 ] >>>         return template(root_path + "webhoster_4.tpl")
+
+2019-04-08 08:22:06.188459 [ 20 ] >>>     @route("/page5")
+
+2019-04-08 08:22:06.394630 [ 54 ] >>>         return template(root_path + "webhoster_5.tpl")
+
+2019-04-08 08:22:06.601684 [ 20 ] >>>     @route("/page6")
+
+2019-04-08 08:22:06.806951 [ 54 ] >>>         return template(root_path + "webhoster_6.tpl")
+
+2019-04-08 08:22:07.013987 [ 20 ] >>>     @route("/page7")
+
+2019-04-08 08:22:07.222015 [ 54 ] >>>         return template(root_path + "webhoster_7.tpl")
+
+2019-04-08 08:22:07.430111 [ 20 ] >>>     @route("/page8")
+
+2019-04-08 08:22:07.638897 [ 54 ] >>>         return template(root_path + "webhoster_8.tpl")
+
+2019-04-08 08:22:07.848742 [ 20 ] >>>     @route("/page9")
+
+2019-04-08 08:22:08.057421 [ 54 ] >>>         return template(root_path + "webhoster_9.tpl")
+
+2019-04-08 08:22:08.267380 [ 21 ] >>>     @route("/page10")
+
+2019-04-08 08:22:08.476830 [ 55 ] >>>         return template(root_path + "webhoster_10.tpl")
+
+2019-04-08 08:22:10.132521 [ 54 ] >>>     daemon_run(host=selected_host, port=selected_port)
+
+2019-04-09 06:09:54.458435 [ 48 ] >>> https://mysnippets.slack.com/messages/CH744BV6D/
+
+2019-04-09 06:11:49.639615 [ 5 ] >>> start
+
+2019-04-09 06:21:07.284300 [ 9 ] >>> brew link
+
+2019-04-09 06:21:16.420628 [ 12 ] >>> i386-elf-gdb
+
+2019-04-09 06:21:37.896720 [ 29 ] >>> brew unlink i386-elf-binutils
+
+2019-04-09 06:22:07.580320 [ 36 ] >>> brew link --overwrite --dry-run node
+
+2019-04-10 08:02:55.265908 [ 77 ] >>> /Users/jack/Documents/GitHub/local/tools/messaging_app/slack/python/slack_api
+
+2019-04-10 08:03:10.037658 [ 24 ] >>> [[[   retropi game   ]]]
+
+2019-04-10 08:03:13.425694 [ 33 ] >>>    1) retropi game setup and play
+
+2019-04-10 08:03:13.635327 [ 12 ] >>> ------------
+
+2019-04-10 08:03:48.113085 [ 54 ] >>>    1) wiki를 제대로 사용하려면, 일단 먼저,  AWS volume size를 늘려야 돼!
+
+2019-04-10 08:05:06.393600 [ 23 ] >>> 		--> 어떤게 적합한지 효율직인지 확인
+
+2019-04-10 08:06:06.562168 [ 18 ] >>> [[[   py2app   ]]]
+
+2019-04-10 08:06:06.774700 [ 41 ] >>>    1) py2app => p27말고  py3 대에서 빌드 되도록 할 것
+
+2019-04-10 08:06:06.982232 [ 38 ] >>>    2) py2app => .py 2개 이상으로 빌드 되도록 할 것
+
+2019-04-10 08:06:59.073939 [ 40 ] >>>    1) build용 폴더를 따로 만드어서 path 변동 없도록 할 것
+
+2019-04-10 08:10:36.241274 [ 11 ] >>> slackclient
+
+2019-04-10 08:20:46.045227 [ 38 ] >>> Screen Shot 2019-02-08 at 07.51.38.png
+
+2019-04-10 08:22:44.937131 [ 15 ] >>>    1) add token
+
+2019-04-10 08:27:49.659236 [ 36 ] >>>  ( all / by channel / by keyword ..)
+
+2019-04-10 08:28:02.186556 [ 13 ] >>>    10) delete
+
+2019-04-10 08:28:39.695397 [ 39 ] >>> handling messages ( delete, share ... )
+
+2019-04-11 06:16:57.347740 [ 18 ] >>> ClipboardSaver.app
+
+2019-04-11 06:17:53.149621 [ 10 ] >>> checkitout
+
+2019-04-11 06:17:53.258204 [ 5 ] >>> 0_NOW
+
+2019-04-11 06:17:53.366074 [ 18 ] >>> memo_about_tkinter
+
+2019-04-11 06:17:53.475042 [ 7 ] >>> retropi
+
+2019-04-11 06:19:53.662340 [ 26 ] >>> retropie-4.4-rpi2_rpi3.img
+
+2019-04-11 06:20:14.764117 [ 4 ] >>> Airy
+
+2019-04-11 06:20:14.870731 [ 5 ] >>> _done
+
+2019-04-11 06:20:14.979146 [ 15 ] >>> 0_done_learning
+
+2019-04-11 06:20:15.083438 [ 11 ] >>> 0_done_yule
+
+2019-04-11 06:20:26.059700 [ 57 ] >>> Immediate - Electric Romeo (Extended FX Edited Remix).mp3
+
+2019-04-11 06:20:26.172870 [ 60 ] >>> Helloween ( The best,the rest, the rare ) full album \m_.mp3
+
+2019-04-11 06:20:26.281718 [ 44 ] >>> Electric Romeo (Choir) - Immediate Music.mp3
+
+2019-04-11 06:20:26.386286 [ 27 ] >>> Coldplay - Viva La Vida.mp3
+
+2019-04-11 06:23:36.333839 [ 63 ] >>> AttributeError: 'NoneType' object has no attribute 'splitlines'
+
+2019-04-11 06:24:02.861762 [ 4 ] >>> SWIG
+
+2019-04-11 06:24:02.965851 [ 37 ] >>> From Wikipedia, the free encyclopedia
+
+2019-04-11 06:24:03.069672 [ 32 ] >>> Jump to navigationJump to search
+
+2019-04-11 06:24:03.173753 [ 25 ] >>> For other uses, see Swig.
+
+2019-04-11 06:24:03.379826 [ 262 ] >>> This article includes a list of references, but its sources remain unclear because it has insufficient inline citations. Please help to improve this article by introducing more precise citations. (August 2017) (Learn how and when to remove this template message)
+
+2019-04-11 06:24:03.587889 [ 181 ] >>> This article needs additional citations for verification. Please help improve this article by adding citations to reliable sources. Unsourced material may be challenged and removed.
+
+2019-04-11 06:24:03.691874 [ 133 ] >>> Find sources: "SWIG" – news · newspapers · books · scholar · JSTOR (August 2017) (Learn how and when to remove this template message)
+
+2019-04-11 06:24:03.900409 [ 35 ] >>> Original author(s)	David M. Beazley
+
+2019-04-11 06:24:04.004222 [ 28 ] >>> Developer(s)	SWIG developers
+
+2019-04-11 06:24:04.108917 [ 46 ] >>> Initial release	February 1996; 23 years ago[1]
+
+2019-04-11 06:24:04.213863 [ 15 ] >>> Stable release	
+
+2019-04-11 06:24:04.317692 [ 38 ] >>> 3.0.12 / January 27, 2017; 2 years ago
+
+2019-04-11 06:24:04.421545 [ 11 ] >>> Repository	
+
+2019-04-11 06:24:04.525263 [ 20 ] >>> github.com/swig/swig
+
+2019-04-11 06:24:04.629225 [ 21 ] >>> Edit this at Wikidata
+
+2019-04-11 06:24:04.734782 [ 17 ] >>> Written in	C, C++
+
+2019-04-11 06:24:04.839266 [ 11 ] >>> License	GPL
+
+2019-04-11 06:24:04.943782 [ 16 ] >>> Website	swig.org
+
+2019-04-11 06:24:05.048253 [ 379 ] >>> The Simplified Wrapper and Interface Generator (SWIG) is an open-source software tool used to connect computer programs or libraries written in C or C++ with scripting languages such as Lua, Perl, PHP, Python, R, Ruby, Tcl, and other languages like C#, Java, JavaScript, Go, Modula-3, OCaml, Octave, Scilab and Scheme. Output can also be in the form of XML or Lisp S-expressions.
+
+2019-04-11 06:24:05.255956 [ 8 ] >>> Contents
+
+2019-04-11 06:24:05.360082 [ 10 ] >>> 1	Function
+
+2019-04-11 06:24:05.464440 [ 9 ] >>> 2	Example
+
+2019-04-11 06:24:05.568800 [ 9 ] >>> 3	Purpose
+
+2019-04-11 06:24:05.674525 [ 9 ] >>> 4	History
+
+2019-04-11 06:24:05.780151 [ 23 ] >>> 5	Google Summer of Code
+
+2019-04-11 06:24:05.886256 [ 14 ] >>> 6	Alternatives
+
+2019-04-11 06:24:05.991310 [ 21 ] >>> 7	Projects Using SWIG
+
+2019-04-11 06:24:06.096547 [ 10 ] >>> 8	See also
+
+2019-04-11 06:24:06.201243 [ 12 ] >>> 9	References
+
+2019-04-11 06:24:06.305570 [ 18 ] >>> 10	Further reading
+
+2019-04-11 06:24:06.410319 [ 17 ] >>> 11	External links
+
+2019-04-11 06:24:06.513859 [ 14 ] >>> Function[edit]
+
+2019-04-11 06:24:06.617747 [ 791 ] >>> The aim is to allow the calling of native functions (that were written in C or C++) by other programming languages, passing complex data types to those functions, keeping memory from being inappropriately freed, inheriting object classes across languages, etc. The programmer writes an interface file containing a list of C/C++ functions to be made visible to an interpreter. SWIG will compile the interface file and generate code in regular C/C++ and the target programming language. SWIG will generate conversion code for functions with simple arguments; conversion code for complex types of arguments must be written by the programmer. The SWIG tool creates source code that provides the glue between C/C++ and the target language. Depending on the language, this glue comes in two forms:
+
+2019-04-11 06:24:06.724758 [ 92 ] >>> a shared library that an extant interpreter can link to as some form of extension module, or
+
+2019-04-11 06:24:06.829325 [ 143 ] >>> a shared library that can be linked to other programs compiled in the target language (for example, using Java Native Interface (JNI) in Java).
+
+2019-04-11 06:24:06.933223 [ 112 ] >>> SWIG is not used for calling interpreted functions by native code; this must be done by the programmer manually.
+
+2019-04-11 06:24:07.037177 [ 13 ] >>> Example[edit]
+
+2019-04-11 06:24:07.141035 [ 197 ] >>> SWIG wraps simple C declarations by creating an interface that closely matches the way in which the declarations would be used in a C program. For example, consider the following interface file:[2]
+
+2019-04-11 06:24:07.245965 [ 15 ] >>> %module example
+
+2019-04-11 06:24:07.452054 [ 10 ] >>> %inline %{
+
+2019-04-11 06:24:07.556081 [ 28 ] >>> extern double sin(double x);
+
+2019-04-11 06:24:07.660518 [ 46 ] >>> extern int strcmp(const char *, const char *);
+
+2019-04-11 06:24:07.764142 [ 15 ] >>> extern int Foo;
+
+2019-04-11 06:24:07.868936 [ 2 ] >>> %}
+
+2019-04-11 06:24:07.974263 [ 17 ] >>> #define STATUS 50
+
+2019-04-11 06:24:08.079269 [ 21 ] >>> #define VERSION "1.1"
+
+2019-04-11 06:24:08.184250 [ 274 ] >>> In this file, there are two functions sin() and strcmp(), a global variable Foo, and two constants STATUS and VERSION. When SWIG creates an extension module, these declarations are accessible as scripting language functions, variables, and constants respectively. In Python:
+
+2019-04-11 06:24:08.289253 [ 18 ] >>> >>> example.sin(3)
+
+2019-04-11 06:24:08.392868 [ 11 ] >>> 0.141120008
+
+2019-04-11 06:24:08.497231 [ 33 ] >>> >>> example.strcmp('Dave','Mike')
+
+2019-04-11 06:24:08.602690 [ 2 ] >>> -1
+
+2019-04-11 06:24:08.706696 [ 26 ] >>> >>> print example.cvar.Foo
+
+2019-04-11 06:24:08.811185 [ 2 ] >>> 42
+
+2019-04-11 06:24:08.914950 [ 24 ] >>> >>> print example.STATUS
+
+2019-04-11 06:24:09.018390 [ 2 ] >>> 50
+
+2019-04-11 06:24:09.123351 [ 25 ] >>> >>> print example.VERSION
+
+2019-04-11 06:24:09.228871 [ 3 ] >>> 1.1
+
+2019-04-11 06:24:09.333607 [ 13 ] >>> Purpose[edit]
+
+2019-04-11 06:24:09.439020 [ 84 ] >>> There are two main reasons to embed a scripting engine in an existing C/C++ program:
+
+2019-04-11 06:24:09.544372 [ 206 ] >>> The program can then be customized far faster, via a scripting language instead of C/C++. The scripting engine may even be exposed to the end user, so that they can automate common tasks by writing scripts.
+
+2019-04-11 06:24:09.649355 [ 126 ] >>> Even if the final product is not to contain the scripting engine, it may nevertheless be very useful for writing test scripts.
+
+2019-04-11 06:24:09.753936 [ 109 ] >>> There are several reasons to create dynamic libraries that can be loaded into extant interpreters, including:
+
+2019-04-11 06:24:09.859938 [ 84 ] >>> Provide access to a C/C++ library which has no equivalent in the scripting language.
+
+2019-04-11 06:24:09.965346 [ 124 ] >>> Write the whole program in the scripting language first, and after profiling, rewrite performance critical code in C or C++.
+
+2019-04-11 06:24:10.071346 [ 13 ] >>> History[edit]
+
+2019-04-11 06:24:10.177531 [ 461 ] >>> SWIG is written in C and C++ and has been publicly available since February 1996. The initial author and main developer was David M. Beazley who developed SWIG while working as a graduate student at Los Alamos National Laboratory and the University of Utah and while on the faculty at the University of Chicago. Development is currently supported by an active group of volunteers led by William Fulton. SWIG has been released under a GNU General Public License.
+
+2019-04-11 06:24:10.282615 [ 27 ] >>> Google Summer of Code[edit]
+
+2019-04-11 06:24:10.388766 [ 612 ] >>> SWIG was a successful participant of Google Summer of Code in 2008, 2009, 2012. In 2008, SWIG got four slots. Haoyu Bai spent his summers on SWIG's Python 3.0 Backend, Jan Jezabek worked on Support for generating COM wrappers, Cheryl Foil spent her time on Comment 'Translator' for SWIG, and Maciej Drwal worked on a C backend. In 2009, SWIG again participated in Google Summer of Code. This time four students participated. Baozeng Ding worked on a Scilab module. Matevz Jekovec spent time on C++0x features. Ashish Sharma spent his summer on an Objective-C module, Miklos Vajna spent his time on PHP directors.
+
+2019-04-11 06:24:10.494787 [ 346 ] >>> In 2012, SWIG participated in Google Summer of Code. This time four out of five students successfully completed the project. Leif Middelschulte worked on a C target language module. Swati Sharma enhanced the Objective-C module. Neha Narang added the new module on JavaScript. Dmitry Kabak worked on source code documentation and Doxygen comments.
+
+2019-04-11 06:24:10.600735 [ 18 ] >>> Alternatives[edit]
+
+2019-04-11 06:24:10.706815 [ 85 ] >>> For Python, similar functionality is offered by SIP and Boost's Boost.python library.
+
+2019-04-11 06:24:10.812556 [ 25 ] >>> Projects Using SWIG[edit]
+
+2019-04-11 06:24:10.917618 [ 34 ] >>> ZXID (Apache License, Version 2.0)
+
+2019-04-11 06:24:11.021385 [ 25 ] >>> Symlabs SFIS (commercial)
+
+2019-04-11 06:24:11.125775 [ 4 ] >>> LLDB
+
+2019-04-11 06:24:11.231771 [ 9 ] >>> GNU Radio
+
+2019-04-11 06:24:11.336148 [ 6 ] >>> Xapian
+
+2019-04-11 06:24:11.441940 [ 10 ] >>> TensorFlow
+
+2019-04-11 06:24:11.546894 [ 12 ] >>> Apache SINGA
+
+2019-04-11 06:24:11.652150 [ 8 ] >>> QuantLib
+
+2019-04-11 06:24:11.758405 [ 10 ] >>> Babeltrace
+
+2019-04-11 06:24:11.863912 [ 14 ] >>> See also[edit]
+
+2019-04-11 06:24:11.969016 [ 37 ] >>> 	Free and open-source software portal
+
+2019-04-11 06:24:12.074666 [ 16 ] >>> Language binding
+
+2019-04-11 06:24:12.179742 [ 26 ] >>> Foreign function interface
+
+2019-04-11 06:24:12.285605 [ 18 ] >>> Calling convention
+
+2019-04-11 06:24:12.390292 [ 13 ] >>> Name mangling
+
+2019-04-11 06:24:12.494234 [ 33 ] >>> Application programming interface
+
+2019-04-11 06:24:12.598803 [ 28 ] >>> Application binary interface
+
+2019-04-11 06:24:12.703221 [ 42 ] >>> Comparison of application virtual machines
+
+2019-04-11 06:24:12.807956 [ 16 ] >>> Wrapper function
+
+2019-04-11 06:24:12.912805 [ 54 ] >>> GIWS for the opposite of SWIG: calling Java from C/C++
+
+2019-04-11 06:24:13.018908 [ 16 ] >>> References[edit]
+
+2019-04-11 06:24:13.123533 [ 34 ] >>> ^ http://www.swig.org/history.html
+
+2019-04-11 06:24:13.228968 [ 47 ] >>> ^ http://www.swig.org/Doc3.0/SWIG.html#SWIG_nn9
+
+2019-04-11 06:24:13.333934 [ 21 ] >>> Further reading[edit]
+
+2019-04-11 06:24:13.439471 [ 86 ] >>> Article "Expose Your C/C++ Program's Internal API with a Quick SWIG" by Victor Volkman
+
+2019-04-11 06:24:13.545725 [ 63 ] >>> Article "Python Extensions In C++ Using SWIG" by Michael Fötsch
+
+2019-04-11 06:24:13.652098 [ 63 ] >>> Presentation "Application overview for openSUSE" by Klaus Kämpf
+
+2019-04-11 06:24:13.757701 [ 20 ] >>> External links[edit]
+
+2019-04-11 06:24:13.862154 [ 38 ] >>> Official website Edit this at Wikidata
+
+2019-04-11 06:24:13.967606 [ 111 ] >>> Categories: Computer programming toolsCross-platform softwareFree computer programming toolsScripting languages
+
+2019-04-11 06:24:14.072755 [ 15 ] >>> Navigation menu
+
+2019-04-11 06:24:14.177775 [ 50 ] >>> Not logged inTalkContributionsCreate accountLog in
+
+2019-04-11 06:24:14.282794 [ 37 ] >>> ArticleTalkReadEditView historySearch
+
+2019-04-11 06:24:14.491911 [ 9 ] >>> Main page
+
+2019-04-11 06:24:14.699205 [ 16 ] >>> Featured content
+
+2019-04-11 06:24:14.804437 [ 14 ] >>> Current events
+
+2019-04-11 06:24:14.909360 [ 14 ] >>> Random article
+
+2019-04-11 06:24:15.014243 [ 19 ] >>> Donate to Wikipedia
+
+2019-04-11 06:24:15.118904 [ 15 ] >>> Wikipedia store
+
+2019-04-11 06:24:15.224442 [ 11 ] >>> Interaction
+
+2019-04-11 06:24:15.329642 [ 4 ] >>> Help
+
+2019-04-11 06:24:15.434126 [ 15 ] >>> About Wikipedia
+
+2019-04-11 06:24:15.539535 [ 16 ] >>> Community portal
+
+2019-04-11 06:24:15.645456 [ 14 ] >>> Recent changes
+
+2019-04-11 06:24:15.751929 [ 12 ] >>> Contact page
+
+2019-04-11 06:24:15.856811 [ 5 ] >>> Tools
+
+2019-04-11 06:24:15.961972 [ 15 ] >>> What links here
+
+2019-04-11 06:24:16.068242 [ 15 ] >>> Related changes
+
+2019-04-11 06:24:16.173151 [ 11 ] >>> Upload file
+
+2019-04-11 06:24:16.279527 [ 13 ] >>> Special pages
+
+2019-04-11 06:24:16.385829 [ 14 ] >>> Permanent link
+
+2019-04-11 06:24:16.492350 [ 16 ] >>> Page information
+
+2019-04-11 06:24:16.597718 [ 13 ] >>> Wikidata item
+
+2019-04-11 06:24:16.703719 [ 14 ] >>> Cite this page
+
+2019-04-11 06:24:16.810094 [ 12 ] >>> Print/export
+
+2019-04-11 06:24:16.915547 [ 13 ] >>> Create a book
+
+2019-04-11 06:24:17.022165 [ 15 ] >>> Download as PDF
+
+2019-04-11 06:24:17.128342 [ 17 ] >>> Printable version
+
+2019-04-11 06:24:17.337370 [ 9 ] >>> Languages
+
+2019-04-11 06:24:17.443823 [ 7 ] >>> Deutsch
+
+2019-04-11 06:24:17.549218 [ 8 ] >>> Français
+
+2019-04-11 06:24:17.654471 [ 3 ] >>> 한국어
+
+2019-04-11 06:24:17.761279 [ 8 ] >>> Italiano
+
+2019-04-11 06:24:17.866305 [ 3 ] >>> 日本語
+
+2019-04-11 06:24:17.972738 [ 6 ] >>> Polski
+
+2019-04-11 06:24:18.078682 [ 7 ] >>> Русский
+
+2019-04-11 06:24:18.185151 [ 10 ] >>> Українська
+
+2019-04-11 06:24:18.290647 [ 10 ] >>> Edit links
+
+2019-04-11 06:24:18.396017 [ 62 ] >>> This page was last edited on 23 December 2018, at 23:03 (UTC).
+
+2019-04-11 06:24:18.500867 [ 273 ] >>> Text is available under the Creative Commons Attribution-ShareAlike License; additional terms may apply. By using this site, you agree to the Terms of Use and Privacy Policy. Wikipedia® is a registered trademark of the Wikimedia Foundation, Inc., a non-profit organization.
+
+2019-04-11 06:24:18.606886 [ 94 ] >>> Privacy policyAbout WikipediaDisclaimersContact WikipediaDevelopersCookie statementMobile view
+
+2019-04-11 06:24:18.713361 [ 41 ] >>> Wikimedia Foundation Powered by MediaWiki
+
+2019-04-11 06:24:34.778106 [ 31 ] >>> 出典: フリー百科事典『ウィキペディア（Wikipedia）』
+
+2019-04-11 06:24:34.888360 [ 15 ] >>> ナビゲーションに移動検索に移動
+
+2019-04-11 06:24:35.095465 [ 19 ] >>> 開発元	SWIG developers
+
+2019-04-11 06:24:35.200241 [ 31 ] >>> 最新版	3.0.12 / 2017年1月28日（2年前）[1]
+
+2019-04-11 06:24:35.305584 [ 26 ] >>> リポジトリ	github.com/swig/swig
+
+2019-04-11 06:24:35.411131 [ 16 ] >>> 対応OS	クロスプラットフォーム
+
+2019-04-11 06:24:35.516276 [ 9 ] >>> ライセンス	GPL
+
+2019-04-11 06:24:35.620871 [ 19 ] >>> 公式サイト	www.swig.org/
+
+2019-04-11 06:24:35.726317 [ 9 ] >>> テンプレートを表示
+
+2019-04-11 06:24:35.831051 [ 186 ] >>> SWIG (Simplified Wrapper and Interface Generator) は、C/C++ で書かれたプログラムやライブラリを、Tcl/Tk、Perl、Python、Ruby、PHP、Luaなどのスクリプト言語や、Java、C#、Common Lisp、Scheme、Ocamlなどのプログラミング言語に接続するためのオープンソースのツールである。
+
+2019-04-11 06:24:36.039026 [ 2 ] >>> 目次
+
+2019-04-11 06:24:36.144819 [ 5 ] >>> 1	仕組み
+
+2019-04-11 06:24:36.249310 [ 4 ] >>> 2	用途
+
+2019-04-11 06:24:36.353470 [ 4 ] >>> 3	歴史
+
+2019-04-11 06:24:36.458333 [ 4 ] >>> 4	脚注
+
+2019-04-11 06:24:36.562749 [ 6 ] >>> 5	関連項目
+
+2019-04-11 06:24:36.666583 [ 7 ] >>> 6	外部リンク
+
+2019-04-11 06:24:36.772518 [ 7 ] >>> 仕組み[編集]
+
+2019-04-11 06:24:36.878821 [ 133 ] >>> SWIGの目的は、プログラムとスクリプト言語間の接続を最小限の作業で達成することである。ヘッダファイルにわずかな数の特殊なコマンドを記述すると、SWIGはC/C++と対象の言語とを橋渡しするグルーコードを生成する。言語によって、グルーコードは以下の三つの形態となる。
+
+2019-04-11 06:24:36.983243 [ 46 ] >>> もともとのプログラムと同様に振舞うが、スクリプト言語のインタプリタが埋め込まれた実行ファイル
+
+2019-04-11 06:24:37.088412 [ 40 ] >>> 既存のインタプリタの何らかの拡張モジュールとしてリンクできるような共有ライブラリ
+
+2019-04-11 06:24:37.193408 [ 63 ] >>> 対象の言語でコンパイルされ、他のプログラムにリンクできる形態の共有ライブラリ（例えば、Javaにおいて JNI を用いたもの)
+
+2019-04-11 06:24:37.298238 [ 6 ] >>> 用途[編集]
+
+2019-04-11 06:24:37.403426 [ 47 ] >>> 既存のC/C++プログラムにスクリプト言語のエンジンを埋め込むことは、大きく二つの用途がある。
+
+2019-04-11 06:24:37.508581 [ 102 ] >>> C/C++ではなくスクリプト言語を用いることで、プログラムを手早くカスタマイズすることができる。ユーザーがスクリプトを書いてよくある仕事を自動化できるよう、スクリプトのエンジンはユーザーに公開しても良い。
+
+2019-04-11 06:24:37.614917 [ 51 ] >>> 最終的な製品がスクリプト言語のエンジンを含まなくても、テスト用のスクリプトを書くことは非常に役に立つ。
+
+2019-04-11 06:24:37.720337 [ 40 ] >>> 既存のインタプリタからロードできる動的なライブラリを作成する理由はいくつもある。
+
+2019-04-11 06:24:37.826017 [ 46 ] >>> スクリプト言語で等価なものがない C/C++ライブラリに対してアクセスできる方法を提供する。
+
+2019-04-11 06:24:37.930063 [ 55 ] >>> まずスクリプト言語でプログラム全体を書き、性能解析後、パフォーマンスに決定的な部分のコードをCやC++で書く。
+
+2019-04-11 06:24:38.035267 [ 6 ] >>> 歴史[編集]
+
+2019-04-11 06:24:38.139502 [ 276 ] >>> SWIGはCとC++で書かれ、1996年2月から広く公開されている。最初の作者で主要な開発者であったのは、ロスアラモス国立研究所とユタ大学の大学院生でシカゴ大学で教員として働きながらSWIGを開発したDave Beazleyであった。現在の開発は活発なボランティアのグループによってサポートされている。SWIG はGPL（2010年6月にリリースされたver2.0.00より前はBSD型のライセンス）でリリースされており、すなわち、使用、コピー、改変、再配布は商用でも非商用でもGPLに基づいてソースコードを配布する限りにおいて自由に行うことができる。
+
+2019-04-11 06:24:38.245120 [ 6 ] >>> 脚注[編集]
+
+2019-04-11 06:24:38.350638 [ 52 ] >>> ^ “SWIG / News: SWIG-3.0.12 released”. 2018年4月13日閲覧。
+
+2019-04-11 06:24:38.455880 [ 8 ] >>> 関連項目[編集]
+
+2019-04-11 06:24:38.561466 [ 10 ] >>> ポータル FLOSS
+
+2019-04-11 06:24:38.667771 [ 22 ] >>> Open Source Initiative
+
+2019-04-11 06:24:38.772929 [ 9 ] >>> 外部リンク[編集]
+
+2019-04-11 06:24:38.878339 [ 17 ] >>> Project home page
+
+2019-04-11 06:24:38.984571 [ 34 ] >>> SwigWiki - SWIG を使用する際の情報を収集したWiki
+
+2019-04-11 06:24:39.191781 [ 63 ] >>> Article "Python Extensions In C++ Using SWIG" by Michael Fotsch
+
+2019-04-11 06:24:39.320240 [ 23 ] >>> Citations from CiteSeer
+
+2019-04-11 06:24:39.426668 [ 32 ] >>> sKWash: the open source SWIG GUI
+
+2019-04-11 06:24:39.532813 [ 53 ] >>> Py++ - Boost.Python ライブラリのためのコードを生成するオブジェクト指向のフレームワーク
+
+2019-04-11 06:24:39.638216 [ 37 ] >>> カテゴリ: ソフトウェア開発ツールスクリプト言語オープンソースソフトウェア
+
+2019-04-11 06:24:39.744006 [ 6 ] >>> 案内メニュー
+
+2019-04-11 06:24:39.848618 [ 28 ] >>> ログインしていませんトーク投稿記録アカウント作成ログイン
+
+2019-04-11 06:24:39.953487 [ 16 ] >>> ページノート閲覧編集履歴表示検索
+
+2019-04-11 06:24:40.162663 [ 6 ] >>> メインページ
+
+2019-04-11 06:24:40.268058 [ 11 ] >>> コミュニティ・ポータル
+
+2019-04-11 06:24:40.375339 [ 6 ] >>> 最近の出来事
+
+2019-04-11 06:24:40.480997 [ 6 ] >>> 新しいページ
+
+2019-04-11 06:24:40.587528 [ 5 ] >>> 最近の更新
+
+2019-04-11 06:24:40.694405 [ 6 ] >>> おまかせ表示
+
+2019-04-11 06:24:40.800997 [ 6 ] >>> 練習用ページ
+
+2019-04-11 06:24:40.907721 [ 21 ] >>> アップロード (ウィキメディア・コモンズ)
+
+2019-04-11 06:24:41.013710 [ 3 ] >>> ヘルプ
+
+2019-04-11 06:24:41.225320 [ 3 ] >>> 井戸端
+
+2019-04-11 06:24:41.331111 [ 4 ] >>> お知らせ
+
+2019-04-11 06:24:41.437031 [ 5 ] >>> バグの報告
+
+2019-04-11 06:24:41.542837 [ 2 ] >>> 寄付
+
+2019-04-11 06:24:41.649305 [ 17 ] >>> ウィキペディアに関するお問い合わせ
+
+2019-04-11 06:24:41.756384 [ 3 ] >>> ツール
+
+2019-04-11 06:24:41.862619 [ 4 ] >>> リンク元
+
+2019-04-11 06:24:41.968749 [ 10 ] >>> 関連ページの更新状況
+
+2019-04-11 06:24:42.075260 [ 11 ] >>> ファイルをアップロード
+
+2019-04-11 06:24:42.181709 [ 5 ] >>> 特別ページ
+
+2019-04-11 06:24:42.289479 [ 10 ] >>> この版への固定リンク
+
+2019-04-11 06:24:42.397075 [ 5 ] >>> ページ情報
+
+2019-04-11 06:24:42.503904 [ 8 ] >>> ウィキデータ項目
+
+2019-04-11 06:24:42.610906 [ 8 ] >>> このページを引用
+
+2019-04-11 06:24:42.716107 [ 7 ] >>> 印刷/書き出し
+
+2019-04-11 06:24:42.823018 [ 8 ] >>> ブックの新規作成
+
+2019-04-11 06:24:42.929013 [ 13 ] >>> PDF 形式でダウンロード
+
+2019-04-11 06:24:43.035084 [ 8 ] >>> 印刷用バージョン
+
+2019-04-11 06:24:43.243613 [ 4 ] >>> 他言語版
+
+2019-04-11 06:24:43.454120 [ 7 ] >>> English
+
+2019-04-11 06:24:44.185311 [ 6 ] >>> リンクを編集
+
+2019-04-11 06:24:44.295789 [ 46 ] >>> 最終更新 2018年4月13日 (金) 05:28 （日時は個人設定で未設定ならばUTC）。
+
+2019-04-11 06:24:44.401146 [ 74 ] >>> テキストはクリエイティブ・コモンズ 表示-継承ライセンスの下で利用可能です。追加の条件が適用される場合があります。詳細は利用規約を参照してください。
+
+2019-04-11 06:24:44.508015 [ 48 ] >>> プライバシー・ポリシーウィキペディアについて免責事項開発者Cookieに関する声明モバイルビュー
+
+2019-04-11 06:32:47.990338 [ 5 ] >>> 29565
+
+2019-04-11 06:55:22.113620 [ 31 ] >>> type(current_text_on_clipboard)
+
+2019-04-11 06:55:53.491158 [ 5 ] >>> 소장
+
+2019-04-11 06:55:53.605856 [ 4 ] >>> done
+
+2019-04-11 06:55:53.712016 [ 35 ] >>> 보고_분류_삭제_또는_편집_소장
+
+2019-04-11 06:58:01.572284 [ 8 ] >>> v0_1_0_4
+
+2019-04-11 06:58:53.312326 [ 44 ] >>> channel name [ 204 ] :  py_os_get-screenshot
+
+2019-04-11 06:58:53.421772 [ 38 ] >>> channel name [ 205 ] :  py_os_handling
+
+2019-04-11 06:58:53.529946 [ 31 ] >>> channel name [ 206 ] :  py_pptx
+
+2019-04-11 06:58:53.638495 [ 43 ] >>> channel name [ 207 ] :  python-float-to-int
+
+2019-04-11 06:58:53.747586 [ 38 ] >>> channel name [ 208 ] :  python_essence
+
+2019-04-11 06:58:53.855560 [ 44 ] >>> channel name [ 209 ] :  python_get_help_text
+
+2019-04-11 06:58:53.965919 [ 37 ] >>> channel name [ 210 ] :  python_import
+
+2019-04-11 06:58:54.073300 [ 36 ] >>> channel name [ 211 ] :  r_tensorflow
+
+2019-04-11 06:59:23.722675 [ 41 ] >>> channel name [ 198 ] :  py_handling_image
+
+2019-04-11 06:59:23.837100 [ 44 ] >>> channel name [ 199 ] :  py_implement_cpython
+
+2019-04-11 06:59:23.946702 [ 41 ] >>> channel name [ 200 ] :  py_implement_pypy
+
+2019-04-11 06:59:24.056406 [ 38 ] >>> channel name [ 201 ] :  py_kernel_xeus
+
+2019-04-11 06:59:24.166265 [ 40 ] >>> channel name [ 202 ] :  py_module_future
+
+2019-04-11 06:59:24.277382 [ 38 ] >>> channel name [ 203 ] :  py_multithread
+
+2019-04-11 07:01:28.871220 [ 74 ] >>> /Users/jack/Documents/GitHub/local/build_app/python/py2app/copylist/master
+
+2019-04-11 07:04:16.765753 [ 89 ] >>> /Users/jack/Documents/GitHub/local/build_app/python/py2app/copylist/master/copy_list5.txt
+
+2019-04-11 07:04:33.881561 [ 14 ] >>> copy_list5.txt
+
+2019-04-11 07:05:21.483840 [ 27 ] >>> copylist_ref_file_full_path

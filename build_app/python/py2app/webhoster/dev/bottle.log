@@ -1,0 +1,13 @@
+Bottle v0.12.13 server starting up (using WSGIRefServer())...
+Listening on http://172.20.10.2:2019/
+Hit Ctrl-C to quit.
+
+172.20.10.2 - - [08/Apr/2019 08:24:41] "GET / HTTP/1.1" 200 991
+172.20.10.2 - - [08/Apr/2019 08:24:41] "GET /static/image_6.png HTTP/1.1" 200 58130
+172.20.10.2 - - [08/Apr/2019 08:24:41] "GET /static/image_5.png HTTP/1.1" 200 250251
+172.20.10.2 - - [08/Apr/2019 08:24:41] "GET /static/image_3.png HTTP/1.1" 200 3233465
+172.20.10.2 - - [08/Apr/2019 08:24:41] "GET /static/image_2.png HTTP/1.1" 200 3666798
+172.20.10.2 - - [08/Apr/2019 08:24:41] "GET /static/image.png HTTP/1.1" 200 3844418
+172.20.10.2 - - [08/Apr/2019 08:24:41] "GET /static/image_4.png HTTP/1.1" 200 83103
+172.20.10.2 - - [08/Apr/2019 08:24:42] "GET / HTTP/1.1" 200 991
+Terminating on signal 15

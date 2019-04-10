@@ -1,0 +1,1128 @@
+
+2019-04-11 07:20:04.995364 Start
+
+2019-04-11 07:20:04.995843 [ 30 ] >>> All copy list has been delete.
+
+2019-04-11 07:20:41.805962 [ 4 ] >>> Airy
+
+2019-04-11 07:20:41.918071 [ 15 ] >>> 0_done_learning
+
+2019-04-11 07:20:42.022462 [ 11 ] >>> 0_done_yule
+
+2019-04-11 07:20:42.127207 [ 5 ] >>> _done
+
+2019-04-11 07:20:55.958990 [ 5 ] >>> 소장
+
+2019-04-11 07:20:56.068954 [ 35 ] >>> 보고_분류_삭제_또는_편집_소장
+
+2019-04-11 07:20:56.172744 [ 4 ] >>> done
+
+2019-04-11 07:21:07.128222 [ 40 ] >>> Zf9kfpZB_Moebius_8-Mississippi_River.cbr
+
+2019-04-11 07:21:07.238244 [ 49 ] >>> The Black Diamond Detective Agency (Restored).cbz
+
+2019-04-11 07:21:07.342334 [ 13 ] >>> The_Fixer.cbr
+
+2019-04-11 07:21:07.445625 [ 68 ] >>> Love and Capes - What to Expect 01 (2012) (c2c) (GreenGiant-DCP).cbr
+
+2019-04-11 07:21:07.552691 [ 29 ] >>> Money Talks 01 (Restored).cbz
+
+2019-04-11 07:21:07.656849 [ 75 ] >>> Lex Luthor - The Unauthorized Biography (1989) OGN (DobisP.R.-Novus-HD).cbz
+
+2019-04-11 07:21:07.763972 [ 38 ] >>> Lost At Sea (2003) (Minutemen-DTs).cbr
+
+2019-04-11 07:21:17.344187 [ 16 ] >>> My Accounts!.txt
+
+2019-04-11 07:21:17.456423 [ 14 ] >>> CleanMyMac.dmg
+
+2019-04-11 07:21:17.558809 [ 8 ] >>> __MACOSX
+
+2019-04-11 07:21:21.390607 [ 11 ] >>> jacks_video
+
+2019-04-11 07:21:21.500337 [ 17 ] >>> jacks_music alias
+
+2019-04-11 07:21:21.605784 [ 12 ] >>> handled_data
+
+2019-04-11 07:21:32.600815 [ 24 ] >>> 편집이_필요한_것들
+
+2019-04-11 07:21:32.712943 [ 29 ] >>> 아는와이프_축소판_만들어
+
+2019-04-11 07:21:32.822455 [ 6 ] >>> travel
+
+2019-04-11 07:21:32.928658 [ 4 ] >>> 시사
+
+2019-04-11 07:21:33.037379 [ 5 ] >>> tools
+
+2019-04-11 07:21:33.145476 [ 5 ] >>> music
+
+2019-04-11 07:21:33.254363 [ 4 ] >>> game
+
+2019-04-11 07:21:33.359832 [ 5 ] >>> movie
+
+2019-04-11 07:21:33.464958 [ 5 ] >>> comic
+
+2019-04-11 07:21:33.572322 [ 4 ] >>> docu
+
+2019-04-11 07:21:33.680940 [ 9 ] >>> education
+
+2019-04-11 07:21:33.787188 [ 10 ] >>> cheatsheet
+
+2019-04-11 07:21:33.897196 [ 4 ] >>> book
+
+2019-04-11 07:21:34.003760 [ 8 ] >>> bookmark
+
+2019-04-11 07:21:52.221196 [ 57 ] >>> Immediate - Electric Romeo (Extended FX Edited Remix).mp3
+
+2019-04-11 07:21:52.329289 [ 60 ] >>> Helloween ( The best,the rest, the rare ) full album \m_.mp3
+
+2019-04-11 07:21:52.433988 [ 44 ] >>> Electric Romeo (Choir) - Immediate Music.mp3
+
+2019-04-11 07:21:52.537306 [ 27 ] >>> Coldplay - Viva La Vida.mp3
+
+2019-04-11 07:22:21.688668 [ 30 ] >>> 내웹사이트페이지에추할것들
+
+2019-04-11 07:22:21.800631 [ 7 ] >>> udacity
+
+2019-04-11 07:22:21.907473 [ 18 ] >>> twitter_link_check
+
+2019-04-11 07:22:22.014990 [ 11 ] >>> real_python
+
+2019-04-11 07:22:22.120161 [ 13 ] >>> selenium_work
+
+2019-04-11 07:22:22.229616 [ 15 ] >>> python_encoding
+
+2019-04-11 07:22:22.338018 [ 30 ] >>> phpMyAdmin-4.8.3-all-languages
+
+2019-04-11 07:22:22.446963 [ 7 ] >>> project
+
+2019-04-11 07:22:22.553990 [ 44 ] >>> Python Crash Course.pdf ( PDFDrive.com ).pdf
+
+2019-04-11 07:22:22.658414 [ 76 ] >>> ECMA-376, Fifth Edition, Part 1 - Fundamentals And Markup Language Reference
+
+2019-04-11 07:22:22.763512 [ 44 ] >>> Learning the bash Shell ( PDFDrive.com ).pdf
+
+2019-04-11 07:22:22.869956 [ 14 ] >>> links_to_check
+
+2019-04-11 07:22:22.975420 [ 22 ] >>> officedissector-master
+
+2019-04-11 07:22:23.081280 [ 9 ] >>> codeop.py
+
+2019-04-11 07:22:27.720374 [ 12 ] >>> chromedriver
+
+2019-04-11 07:22:27.831106 [ 4 ] >>> docs
+
+2019-04-11 07:22:27.944084 [ 6 ] >>> images
+
+2019-04-11 07:22:28.052919 [ 7 ] >>> mindmap
+
+2019-04-11 07:22:28.165554 [ 11 ] >>> pingplotter
+
+2019-04-11 07:22:28.273868 [ 8 ] >>> run_file
+
+2019-04-11 07:22:28.386117 [ 8 ] >>> scan_pdf
+
+2019-04-11 07:22:28.494704 [ 64 ] >>> Scraping Wikipedia with Python – This Time Is Different – Medium
+
+2019-04-11 07:22:28.603776 [ 34 ] >>> Screen Shot 2018-11-06 at 06.41.01
+
+2019-04-11 07:22:28.712722 [ 34 ] >>> Screen Shot 2018-11-12 at 07.31.55
+
+2019-04-11 07:22:28.822284 [ 34 ] >>> Screen Shot 2018-11-12 at 07.38.16
+
+2019-04-11 07:22:28.934847 [ 34 ] >>> Screen Shot 2018-11-14 at 01.40.10
+
+2019-04-11 07:22:29.043537 [ 10 ] >>> screenshot
+
+2019-04-11 07:22:29.150220 [ 34 ] >>> sublime_text_package_control_error
+
+2019-04-11 07:22:29.260331 [ 29 ] >>> udacity_git관련 _정리할거
+
+2019-04-11 07:22:29.371069 [ 14 ] >>> UserManual.pdf
+
+2019-04-11 07:22:29.477697 [ 25 ] >>> VirtualBox_Uninstall.tool
+
+2019-04-11 07:22:29.589932 [ 85 ] >>> Visualising Related Entries in Wikipedia Using Gephi – OUseful.Info, the blog….webloc
+
+2019-04-11 07:22:29.697669 [ 9 ] >>> web_pages
+
+2019-04-11 07:22:29.807134 [ 21 ] >>> 검색_정리할것들
+
+2019-04-11 07:22:29.917278 [ 12 ] >>> 내_동영상
+
+2019-04-11 07:22:30.027290 [ 9 ] >>> 내_명함
+
+2019-04-11 07:22:30.139590 [ 8 ] >>> 내_사진
+
+2019-04-11 07:22:30.251427 [ 18 ] >>> 내_아이디어_스케치
+
+2019-04-11 07:22:30.362363 [ 18 ] >>> 내사진첩사진들
+
+2019-04-11 07:22:30.472960 [ 38 ] >>> 네이버 부위별 근력 운동 동영상
+
+2019-04-11 07:22:30.582050 [ 27 ] >>> 맥도널드_매일새벽혁명
+
+2019-04-11 07:22:30.690799 [ 14 ] >>> 무료_트라이얼
+
+2019-04-11 07:22:30.799491 [ 8 ] >>> 설명서
+
+2019-04-11 07:22:30.907655 [ 24 ] >>> 유료_다운로드_한것들
+
+2019-04-11 07:22:47.716393 [ 7 ] >>> 마인드
+
+2019-04-11 07:22:47.823337 [ 8 ] >>> whatidid
+
+2019-04-11 07:22:47.930318 [ 2 ] >>> GN
+
+2019-04-11 07:22:51.180749 [ 5 ] >>> Novel
+
+2019-04-11 07:22:51.294387 [ 4 ] >>> sbsm
+
+2019-04-11 07:22:51.401034 [ 10 ] >>> shumadashi
+
+2019-04-11 07:22:51.506894 [ 16 ] >>> what_I_have_done
+
+2019-04-11 07:22:51.613030 [ 6 ] >>> 명상
+
+2019-04-11 07:22:51.719367 [ 5 ] >>> 물리
+
+2019-04-11 07:22:51.825200 [ 5 ] >>> 미술
+
+2019-04-11 07:22:51.931508 [ 9 ] >>> 생물학
+
+2019-04-11 07:22:52.040934 [ 5 ] >>> 수학
+
+2019-04-11 07:22:52.147562 [ 5 ] >>> 시간
+
+2019-04-11 07:22:52.253187 [ 5 ] >>> 어학
+
+2019-04-11 07:22:52.359411 [ 8 ] >>> 언어학
+
+2019-04-11 07:22:52.468222 [ 5 ] >>> 역사
+
+2019-04-11 07:22:52.576800 [ 6 ] >>> 음악
+
+2019-04-11 07:22:52.683418 [ 9 ] >>> 지구과학
+
+2019-04-11 07:22:52.791280 [ 5 ] >>> 화학
+
+2019-04-11 07:23:30.457273 [ 8 ] >>> .Trashes
+
+2019-04-11 07:23:30.570240 [ 13 ] >>> .bash_profile
+
+2019-04-11 07:23:30.682546 [ 21 ] >>> .bash_profile.udacity
+
+2019-04-11 07:23:30.792731 [ 23 ] >>> .DocumentRevisions-V100
+
+2019-04-11 07:23:30.901009 [ 5 ] >>> .file
+
+2019-04-11 07:23:31.008663 [ 10 ] >>> .fseventsd
+
+2019-04-11 07:23:31.118555 [ 29 ] >>> .HFS+ Private Directory Data?
+
+2019-04-11 07:23:31.230591 [ 20 ] >>> .OSInstallerMessages
+
+2019-04-11 07:23:31.341601 [ 39 ] >>> .PKInstallSandboxManager-SystemSoftware
+
+2019-04-11 07:23:31.453717 [ 15 ] >>> .Spotlight-V100
+
+2019-04-11 07:23:31.563492 [ 24 ] >>> .udacity-terminal-config
+
+2019-04-11 07:23:31.674213 [ 4 ] >>> .vol
+
+2019-04-11 07:23:31.787356 [ 12 ] >>> Applications
+
+2019-04-11 07:23:31.898137 [ 3 ] >>> bin
+
+2019-04-11 07:23:32.007000 [ 5 ] >>> cores
+
+2019-04-11 07:23:32.116062 [ 4 ] >>> data
+
+2019-04-11 07:23:32.238987 [ 4 ] >>> demo
+
+2019-04-11 07:23:32.348897 [ 3 ] >>> etc
+
+2019-04-11 07:23:32.462414 [ 4 ] >>> home
+
+2019-04-11 07:23:32.573399 [ 25 ] >>> installer.failurerequests
+
+2019-04-11 07:23:32.684457 [ 7 ] >>> Library
+
+2019-04-11 07:23:32.794589 [ 3 ] >>> net
+
+2019-04-11 07:23:32.902926 [ 7 ] >>> Network
+
+2019-04-11 07:23:33.015645 [ 3 ] >>> opt
+
+2019-04-11 07:23:33.125140 [ 7 ] >>> private
+
+2019-04-11 07:23:33.236603 [ 4 ] >>> sbin
+
+2019-04-11 07:23:33.349949 [ 6 ] >>> System
+
+2019-04-11 07:23:33.460840 [ 3 ] >>> tmp
+
+2019-04-11 07:23:33.577571 [ 5 ] >>> Users
+
+2019-04-11 07:23:33.693119 [ 3 ] >>> usr
+
+2019-04-11 07:23:33.810919 [ 3 ] >>> var
+
+2019-04-11 07:23:33.927705 [ 7 ] >>> Volumes
+
+2019-04-11 07:23:51.589465 [ 0 ] >>> 
+
+2019-04-11 07:23:52.016983 [ 8 ] >>> jack dev
+
+2019-04-11 07:23:52.124042 [ 22 ] >>> $ source activate py27
+
+2019-04-11 07:23:52.230119 [ 15 ] >>> (py27) jack dev
+
+2019-04-11 07:23:52.336281 [ 4 ] >>> $ ls
+
+2019-04-11 07:23:52.444309 [ 56 ] >>> copy_list1.txt	copy_list3.txt	copy_list5.txt	copylist.py
+
+2019-04-11 07:23:52.546977 [ 52 ] >>> copy_list2.txt	copy_list4.txt	copylist.icns	setup.py
+
+2019-04-11 07:23:52.758153 [ 5 ] >>> $ pwd
+
+2019-04-11 07:23:52.862446 [ 71 ] >>> /Users/jack/Documents/GitHub/local/build_app/python/py2app/copylist/dev
+
+2019-04-11 07:23:53.069387 [ 21 ] >>> $ python copylist.py 
+
+2019-04-11 07:24:47.419443 [ 46 ] >>> 	current_text_on_clipboard = pyperclip.paste()
+
+2019-04-11 07:24:51.346232 [ 68 ] >>> 		current_text_on_clipboard = current_text_on_clipboard.splitlines()
+
+2019-04-11 07:24:51.449899 [ 61 ] >>> 		for current_text_on_clipboard in current_text_on_clipboard:
+
+2019-04-11 07:24:51.558071 [ 40 ] >>> 			if current_text_on_clipboard != None:
+
+2019-04-11 07:24:51.661388 [ 58 ] >>> 				check_new_copy_on_clipboard(current_text_on_clipboard)
+
+2019-04-11 07:24:51.766382 [ 8 ] >>> 			else:
+
+2019-04-11 07:24:51.869328 [ 8 ] >>> 				pass
+
+2019-04-11 07:24:51.973895 [ 48 ] >>> 			current_text_on_clipboard = pyperclip.paste()
+
+2019-04-11 07:24:52.079353 [ 18 ] >>> 			time.sleep(0.1)
+
+2019-04-11 07:25:03.777557 [ 12 ] >>> 	while True:
+
+2019-04-11 07:25:52.164190 [ 19 ] >>> 				time.sleep(0.1)
+
+2019-04-11 07:26:07.823143 [ 9 ] >>> Exception
+
+2019-04-11 07:26:41.574382 [ 74 ] >>> str(datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S.%f")) + " >>> " + 
+
+2019-04-11 07:28:13.650470 [ 43 ] >>> 			with open("log/err_log.txt", "a+") as f:
+
+2019-04-11 07:28:13.763837 [ 123 ] >>> 				f.write(str(datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S.%f")) + " >>> " + str(type(current_text_on_clipboard)))
+
+2019-04-11 07:28:13.868673 [ 17 ] >>> 				f.write("\n")
+
+2019-04-11 07:29:09.532172 [ 3 ] >>> $$$
+
+2019-04-11 07:29:20.432081 [ 18 ] >>> Anaconda-Navigator
+
+2019-04-11 07:29:20.453117 [ 14 ] >>> Android Studio
+
+2019-04-11 07:29:20.471820 [ 9 ] >>> App Store
+
+2019-04-11 07:29:20.488949 [ 20 ] >>> Apple Configurator 2
+
+2019-04-11 07:29:20.505654 [ 13 ] >>> ApplePi-Baker
+
+2019-04-11 07:29:20.523998 [ 4 ] >>> Atom
+
+2019-04-11 07:29:20.543993 [ 9 ] >>> Automator
+
+2019-04-11 07:29:20.565714 [ 12 ] >>> balenaEtcher
+
+2019-04-11 07:29:20.584652 [ 10 ] >>> BitTorrent
+
+2019-04-11 07:29:20.603169 [ 11 ] >>> BlueJ 4.1.2
+
+2019-04-11 07:29:20.622592 [ 5 ] >>> Books
+
+2019-04-11 07:29:20.644408 [ 8 ] >>> Brackets
+
+2019-04-11 07:29:20.667290 [ 10 ] >>> Calculator
+
+2019-04-11 07:29:20.685497 [ 8 ] >>> Calendar
+
+2019-04-11 07:29:20.702180 [ 5 ] >>> Chess
+
+2019-04-11 07:29:20.720939 [ 10 ] >>> CHM Reader
+
+2019-04-11 07:29:20.741403 [ 38 ] >>> Chrome Remote Desktop Host Uninstaller
+
+2019-04-11 07:29:20.761316 [ 12 ] >>> CleanMyMac 3
+
+2019-04-11 07:29:20.777972 [ 14 ] >>> ClipboardSaver
+
+2019-04-11 07:29:20.796131 [ 10 ] >>> CodeBlocks
+
+2019-04-11 07:29:20.813986 [ 8 ] >>> Contacts
+
+2019-04-11 07:29:20.830505 [ 8 ] >>> CopyList
+
+2019-04-11 07:29:20.847466 [ 9 ] >>> Dashboard
+
+2019-04-11 07:29:20.868575 [ 10 ] >>> Dictionary
+
+2019-04-11 07:29:20.891961 [ 14 ] >>> Epson Software
+
+2019-04-11 07:29:20.910854 [ 8 ] >>> EULA.rtf
+
+2019-04-11 07:29:20.928453 [ 8 ] >>> FaceTime
+
+2019-04-11 07:29:20.945321 [ 9 ] >>> FileZilla
+
+2019-04-11 07:29:20.966293 [ 7 ] >>> Firefox
+
+2019-04-11 07:29:20.983211 [ 9 ] >>> Font Book
+
+2019-04-11 07:29:20.999987 [ 13 ] >>> gfxCardStatus
+
+2019-04-11 07:29:21.019395 [ 14 ] >>> GitHub Desktop
+
+2019-04-11 07:29:21.036240 [ 5 ] >>> GitUp
+
+2019-04-11 07:29:21.055931 [ 13 ] >>> Google Chrome
+
+2019-04-11 07:29:21.075547 [ 32 ] >>> Hancom Office HWP 2014 VP Viewer
+
+2019-04-11 07:29:21.095420 [ 4 ] >>> Home
+
+2019-04-11 07:29:21.114473 [ 39 ] >>> Icecream Screen Recorder (Free Version)
+
+2019-04-11 07:29:21.132221 [ 13 ] >>> Image Capture
+
+2019-04-11 07:29:21.154805 [ 10 ] >>> Image2Icon
+
+2019-04-11 07:29:21.172355 [ 16 ] >>> IntelliJ IDEA CE
+
+2019-04-11 07:29:21.191455 [ 5 ] >>> iTerm
+
+2019-04-11 07:29:21.210155 [ 6 ] >>> iTunes
+
+2019-04-11 07:29:21.226883 [ 9 ] >>> KakaoTalk
+
+2019-04-11 07:29:21.243579 [ 7 ] >>> Keynote
+
+2019-04-11 07:29:21.263093 [ 6 ] >>> Kindle
+
+2019-04-11 07:29:21.279749 [ 9 ] >>> Launchpad
+
+2019-04-11 07:29:21.296306 [ 4 ] >>> LINE
+
+2019-04-11 07:29:21.315194 [ 4 ] >>> Mail
+
+2019-04-11 07:29:21.332231 [ 4 ] >>> Maps
+
+2019-04-11 07:29:21.351577 [ 8 ] >>> Messages
+
+2019-04-11 07:29:21.373502 [ 24 ] >>> Microsoft Remote Desktop
+
+2019-04-11 07:29:21.410052 [ 15 ] >>> Mission Control
+
+2019-04-11 07:29:21.427902 [ 13 ] >>> NASNavigator2
+
+2019-04-11 07:29:21.444848 [ 8 ] >>> NetBeans
+
+2019-04-11 07:29:21.463866 [ 4 ] >>> News
+
+2019-04-11 07:29:21.482273 [ 5 ] >>> Notes
+
+2019-04-11 07:29:21.500667 [ 19 ] >>> NXPowerLite Desktop
+
+2019-04-11 07:29:21.519769 [ 8 ] >>> OmniPlan
+
+2019-04-11 07:29:21.541555 [ 5 ] >>> Pages
+
+2019-04-11 07:29:21.561018 [ 23 ] >>> Paragon NTFS for Mac 15
+
+2019-04-11 07:29:21.578620 [ 11 ] >>> Photo Booth
+
+2019-04-11 07:29:21.595615 [ 6 ] >>> Photos
+
+2019-04-11 07:29:21.614914 [ 11 ] >>> PingPlotter
+
+2019-04-11 07:29:21.634442 [ 7 ] >>> plugins
+
+2019-04-11 07:29:21.651588 [ 7 ] >>> Preview
+
+2019-04-11 07:29:21.668908 [ 10 ] >>> PyCharm CE
+
+2019-04-11 07:29:21.687633 [ 10 ] >>> Python 3.7
+
+2019-04-11 07:29:21.705746 [ 16 ] >>> QuickTime Player
+
+2019-04-11 07:29:21.725172 [ 9 ] >>> Reminders
+
+2019-04-11 07:29:21.743012 [ 6 ] >>> Safari
+
+2019-04-11 07:29:21.762667 [ 17 ] >>> SD Card Formatter
+
+2019-04-11 07:29:21.781578 [ 18 ] >>> Seagate Media Sync
+
+2019-04-11 07:29:21.799798 [ 12 ] >>> SG Project 5
+
+2019-04-11 07:29:21.818475 [ 15 ] >>> SimpleMind Lite
+
+2019-04-11 07:29:21.835998 [ 4 ] >>> Siri
+
+2019-04-11 07:29:21.853497 [ 5 ] >>> Slack
+
+2019-04-11 07:29:21.873776 [ 8 ] >>> SmartGit
+
+2019-04-11 07:29:21.891641 [ 26 ] >>> smartgit-macosx-18_1_0.dmg
+
+2019-04-11 07:29:21.909384 [ 8 ] >>> Snippets
+
+2019-04-11 07:29:21.927556 [ 11 ] >>> sourcetrail
+
+2019-04-11 07:29:21.945871 [ 11 ] >>> Sourcetrail
+
+2019-04-11 07:29:21.965903 [ 10 ] >>> Sourcetree
+
+2019-04-11 07:29:21.984968 [ 18 ] >>> Splashtop Personal
+
+2019-04-11 07:29:22.002035 [ 8 ] >>> Stickies
+
+2019-04-11 07:29:22.019481 [ 6 ] >>> Stocks
+
+2019-04-11 07:29:22.037815 [ 12 ] >>> Sublime Text
+
+2019-04-11 07:29:22.055861 [ 7 ] >>> Syncios
+
+2019-04-11 07:29:22.075600 [ 18 ] >>> System Preferences
+
+2019-04-11 07:29:22.092600 [ 10 ] >>> TeamViewer
+
+2019-04-11 07:29:22.116674 [ 8 ] >>> Telegram
+
+2019-04-11 07:29:22.134260 [ 27 ] >>> Tex-Edit Plus 4.9.16 Folder
+
+2019-04-11 07:29:22.151323 [ 8 ] >>> TextEdit
+
+2019-04-11 07:29:22.171159 [ 14 ] >>> The Unarchiver
+
+2019-04-11 07:29:22.187923 [ 12 ] >>> Time Machine
+
+2019-04-11 07:29:22.206799 [ 7 ] >>> Toolkit
+
+2019-04-11 07:29:22.225070 [ 20 ] >>> Turbo Boost Switcher
+
+2019-04-11 07:29:22.241643 [ 9 ] >>> Utilities
+
+2019-04-11 07:29:22.258679 [ 23 ] >>> VideoConvert for iPhone
+
+2019-04-11 07:29:22.278651 [ 21 ] >>> VideoConvert for iPod
+
+2019-04-11 07:29:22.298861 [ 10 ] >>> VirtualBox
+
+2019-04-11 07:29:22.316181 [ 3 ] >>> VLC
+
+2019-04-11 07:29:22.334707 [ 11 ] >>> Voice Memos
+
+2019-04-11 07:29:22.354712 [ 4 ] >>> vSSH
+
+2019-04-11 07:29:22.377673 [ 9 ] >>> WebHoster
+
+2019-04-11 07:29:22.395772 [ 19 ] >>> Wondershare TunesGo
+
+2019-04-11 07:29:22.416520 [ 14 ] >>> world_of_tanks
+
+2019-04-11 07:29:22.436679 [ 5 ] >>> Xcode
+
+2019-04-11 07:29:50.929651 [ 23 ] >>> # -*- coding: utf-8 -*-
+
+2019-04-11 07:29:50.933461 [ 55 ] >>> import sys; reload(sys); sys.setdefaultencoding('utf8')
+
+2019-04-11 07:29:50.938747 [ 16 ] >>> import pyperclip
+
+2019-04-11 07:29:50.941755 [ 11 ] >>> import time
+
+2019-04-11 07:29:50.945829 [ 13 ] >>> import shutil
+
+2019-04-11 07:29:50.948848 [ 9 ] >>> import os
+
+2019-04-11 07:29:50.954963 [ 15 ] >>> import datetime
+
+2019-04-11 07:29:50.958353 [ 36 ] >>> from time import localtime, strftime
+
+2019-04-11 07:29:50.963580 [ 73 ] >>> # -----------------------------------------------------------------------
+
+2019-04-11 07:29:50.970813 [ 23 ] >>> # ---------- global var
+
+2019-04-11 07:29:50.976984 [ 12 ] >>> # ----- path
+
+2019-04-11 07:29:50.979905 [ 3 ] >>> # -
+
+2019-04-11 07:29:50.982756 [ 58 ] >>> clipboard_history_file_full_path = "clipboard_history.txt"
+
+2019-04-11 07:29:50.987866 [ 118 ] >>> copylist_ref_file_full_path = "/Users/jack/Documents/GitHub/local/build_app/python/py2app/copylist/dev/copy_list5.txt"
+
+2019-04-11 07:29:50.993210 [ 32 ] >>> # ---------- function definition
+
+2019-04-11 07:29:50.996411 [ 74 ] >>> # ----------------------------------------------------------------------- 
+
+2019-04-11 07:29:50.998663 [ 38 ] >>> def remove_dup_in_copylist_ref_file():
+
+2019-04-11 07:29:51.000906 [ 33 ] >>> 	copylist_ref_file_line_list = []
+
+2019-04-11 07:29:51.003163 [ 50 ] >>> 	with open(copylist_ref_file_full_path, "r") as f:
+
+2019-04-11 07:29:51.005390 [ 16 ] >>> 		for line in f:
+
+2019-04-11 07:29:51.007876 [ 43 ] >>> 			copylist_ref_file_line_list.append(line)
+
+2019-04-11 07:29:51.011169 [ 69 ] >>> 	copylist_ref_file_line_list = list(set(copylist_ref_file_line_list))
+
+2019-04-11 07:29:51.013400 [ 35 ] >>> 	copylist_ref_file_line_list.sort()
+
+2019-04-11 07:29:51.016781 [ 50 ] >>> 	with open(copylist_ref_file_full_path, "w") as f:
+
+2019-04-11 07:29:51.018983 [ 42 ] >>> 		for line in copylist_ref_file_line_list:
+
+2019-04-11 07:29:51.021141 [ 16 ] >>> 			f.write("\n")
+
+2019-04-11 07:29:51.023625 [ 16 ] >>> 			f.write(line)
+
+2019-04-11 07:29:51.028070 [ 63 ] >>> def write_to_clipboard_history_file(current_text_on_clipboard):
+
+2019-04-11 07:29:51.030460 [ 4 ] >>> 	"""
+
+2019-04-11 07:29:51.032835 [ 32 ] >>> 	write to clipboard hisotry file
+
+2019-04-11 07:29:51.036084 [ 56 ] >>> 	with open(clipboard_history_file_full_path, "a+") as f:
+
+2019-04-11 07:29:51.038436 [ 15 ] >>> 		f.write('\n')
+
+2019-04-11 07:29:51.041769 [ 36 ] >>> 		f.write(current_text_on_clipboard)
+
+2019-04-11 07:29:51.044200 [ 28 ] >>> 	copy_to_copylist_ref_file()
+
+2019-04-11 07:29:51.046457 [ 34 ] >>> 	remove_dup_in_copylist_ref_file()
+
+2019-04-11 07:29:51.052592 [ 32 ] >>> def copy_to_copylist_ref_file():
+
+2019-04-11 07:29:51.055151 [ 75 ] >>> 	shutil.copy(clipboard_history_file_full_path, copylist_ref_file_full_path)
+
+2019-04-11 07:29:51.057424 [ 40 ] >>> 	# print("Copylist ref file is updated")
+
+2019-04-11 07:29:51.063139 [ 59 ] >>> def check_new_copy_on_clipboard(current_text_on_clipboard):
+
+2019-04-11 07:29:51.066613 [ 28 ] >>> 	check new copy on clipboard
+
+2019-04-11 07:29:51.071912 [ 61 ] >>> 		if os.path.getsize(clipboard_history_file_full_path) == 0: 
+
+2019-04-11 07:29:51.074426 [ 68 ] >>> 			f.write(datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S.%f"))
+
+2019-04-11 07:29:51.078944 [ 20 ] >>> 			f.write(" Start")
+
+2019-04-11 07:29:51.082802 [ 55 ] >>> 	with open(clipboard_history_file_full_path, "r") as f:
+
+2019-04-11 07:29:51.087322 [ 39 ] >>> 		clipboard_history_file_line_list = []
+
+2019-04-11 07:29:51.090025 [ 39 ] >>> 		for clipboard_history_file_line in f:
+
+2019-04-11 07:29:51.094328 [ 78 ] >>> 			clipboard_history_file_line = clipboard_history_file_line.replace("\n", "")
+
+2019-04-11 07:29:51.096809 [ 70 ] >>> 			# print("text on clipboard history : ",clipboard_history_file_line)
+
+2019-04-11 07:29:51.099188 [ 71 ] >>> 			clipboard_history_file_line_list.append(clipboard_history_file_line)
+
+2019-04-11 07:29:51.103649 [ 24 ] >>> 	# --- check check check
+
+2019-04-11 07:29:51.105997 [ 80 ] >>> 	# print("===> clipboard_history_file_line :", clipboard_history_file_line_list)
+
+2019-04-11 07:29:51.108404 [ 71 ] >>> 	# print("===> current_text_on_clipboard :", current_text_on_clipboard)
+
+2019-04-11 07:29:51.111775 [ 9 ] >>> 	tmp = []
+
+2019-04-11 07:29:51.114259 [ 69 ] >>> 	for clipboard_history_file_line in clipboard_history_file_line_list:
+
+2019-04-11 07:29:51.116740 [ 58 ] >>> 		check_position = clipboard_history_file_line.find(">>>")
+
+2019-04-11 07:29:51.119119 [ 78 ] >>> 		clipboard_history_file_line = clipboard_history_file_line[check_position+4:]
+
+2019-04-11 07:29:51.121437 [ 62 ] >>> 		if current_text_on_clipboard == clipboard_history_file_line:
+
+2019-04-11 07:29:51.123871 [ 40 ] >>> 			tmp.append(current_text_on_clipboard)
+
+2019-04-11 07:29:51.126181 [ 7 ] >>> 		else:
+
+2019-04-11 07:29:51.128636 [ 76 ] >>> 			# print("Current_text_on_clipboard is already in clipboard history file")
+
+2019-04-11 07:29:51.130996 [ 7 ] >>> 			pass
+
+2019-04-11 07:29:51.133625 [ 18 ] >>> 	if len(tmp) != 0:
+
+2019-04-11 07:29:51.136093 [ 6 ] >>> 		pass
+
+2019-04-11 07:29:51.138535 [ 6 ] >>> 	else:
+
+2019-04-11 07:29:51.140989 [ 28 ] >>> 		# print("It's new copy !")
+
+2019-04-11 07:29:51.143521 [ 172 ] >>> 		current_text_on_clipboard = datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S.%f") + " [ " + str(len(current_text_on_clipboard)) + " ] >>> " + current_text_on_clipboard
+
+2019-04-11 07:29:51.146031 [ 2 ] >>> 		
+
+2019-04-11 07:29:51.148492 [ 60 ] >>> 		write_to_clipboard_history_file(current_text_on_clipboard)
+
+2019-04-11 07:29:51.153411 [ 12 ] >>> 	# f.close()
+
+2019-04-11 07:29:51.158349 [ 11 ] >>> def main():
+
+2019-04-11 07:29:51.166530 [ 6 ] >>> 		try:
+
+2019-04-11 07:29:51.168980 [ 69 ] >>> 			current_text_on_clipboard = current_text_on_clipboard.splitlines()
+
+2019-04-11 07:29:51.171519 [ 62 ] >>> 			for current_text_on_clipboard in current_text_on_clipboard:
+
+2019-04-11 07:29:51.174233 [ 41 ] >>> 				if current_text_on_clipboard != None:
+
+2019-04-11 07:29:51.177173 [ 59 ] >>> 					check_new_copy_on_clipboard(current_text_on_clipboard)
+
+2019-04-11 07:29:51.181988 [ 9 ] >>> 				else:
+
+2019-04-11 07:29:51.186309 [ 9 ] >>> 					pass
+
+2019-04-11 07:29:51.191153 [ 49 ] >>> 				current_text_on_clipboard = pyperclip.paste()
+
+2019-04-11 07:29:51.197140 [ 24 ] >>> 		except Exception as e:
+
+2019-04-11 07:29:51.199756 [ 109 ] >>> 			print("[ " + str(datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S.%f")) + " ] Exception Message : ", e)
+
+2019-04-11 07:29:51.208316 [ 17 ] >>> 		time.sleep(0.1)
+
+2019-04-11 07:29:51.212199 [ 5 ] >>> 		"""
+
+2019-04-11 07:29:51.215647 [ 51 ] >>> 		if "str" in str(type(current_text_on_clipboard)):
+
+2019-04-11 07:29:51.230303 [ 73 ] >>> 			print("current_text_on_clipboard : ", type(current_text_on_clipboard))
+
+2019-04-11 07:29:51.233651 [ 19 ] >>> 			print("skipped")
+
+2019-04-11 07:29:51.245206 [ 28 ] >>> # ---------- call definition
+
+2019-04-11 07:29:51.247793 [ 26 ] >>> if __name__ == "__main__":
+
+2019-04-11 07:29:51.250355 [ 7 ] >>> 	main()
+
+2019-04-11 07:29:54.421675 [ 21 ] >>> from tkinter import *
+
+2019-04-11 07:29:54.429521 [ 23 ] >>> from tkinter import ttk
+
+2019-04-11 07:29:54.432641 [ 35 ] >>> from subprocess import check_output
+
+2019-04-11 07:29:54.438131 [ 41 ] >>> # ---------------------------------------
+
+2019-04-11 07:29:54.441949 [ 24 ] >>> # --- generate item lsit
+
+2019-04-11 07:29:54.445820 [ 15 ] >>> # - item lsit 1
+
+2019-04-11 07:29:54.448348 [ 31 ] >>> f = open("copy_list1.txt", "r")
+
+2019-04-11 07:29:54.450881 [ 10 ] >>> items = []
+
+2019-04-11 07:29:54.453579 [ 14 ] >>> for line in f:
+
+2019-04-11 07:29:54.456186 [ 22 ] >>>     items.append(line)
+
+2019-04-11 07:29:54.458778 [ 9 ] >>> f.close()
+
+2019-04-11 07:29:54.462548 [ 15 ] >>> # - item lsit 2
+
+2019-04-11 07:29:54.465172 [ 31 ] >>> f = open("copy_list2.txt", "r")
+
+2019-04-11 07:29:54.468047 [ 11 ] >>> items2 = []
+
+2019-04-11 07:29:54.473776 [ 23 ] >>>     items2.append(line)
+
+2019-04-11 07:29:54.480166 [ 15 ] >>> # - item lsit 3
+
+2019-04-11 07:29:54.482906 [ 31 ] >>> f = open("copy_list3.txt", "r")
+
+2019-04-11 07:29:54.485572 [ 11 ] >>> items3 = []
+
+2019-04-11 07:29:54.489626 [ 23 ] >>>     items3.append(line)
+
+2019-04-11 07:29:54.494911 [ 15 ] >>> # - item lsit 4
+
+2019-04-11 07:29:54.497699 [ 31 ] >>> f = open("copy_list4.txt", "r")
+
+2019-04-11 07:29:54.500322 [ 11 ] >>> items4 = []
+
+2019-04-11 07:29:54.504366 [ 23 ] >>>     items4.append(line)
+
+2019-04-11 07:29:54.509763 [ 15 ] >>> # - item lsit 5
+
+2019-04-11 07:29:54.513952 [ 42 ] >>> f = open(copylist_ref_file_full_path, "r")
+
+2019-04-11 07:29:54.516581 [ 11 ] >>> items5 = []
+
+2019-04-11 07:29:54.520680 [ 23 ] >>>     items5.append(line)
+
+2019-04-11 07:29:54.529384 [ 21 ] >>> # --- func definition
+
+2019-04-11 07:29:54.534794 [ 24 ] >>> # ----------------------
+
+2019-04-11 07:29:54.537906 [ 19 ] >>> # --- edit funciton
+
+2019-04-11 07:29:54.549219 [ 10 ] >>> # - func 1
+
+2019-04-11 07:29:54.558095 [ 22 ] >>> def edit_item_list1():
+
+2019-04-11 07:29:54.561312 [ 51 ] >>>     check_output("open copy_list1.txt", shell=True)
+
+2019-04-11 07:29:54.568561 [ 10 ] >>> # - func 2
+
+2019-04-11 07:29:54.573976 [ 22 ] >>> def edit_item_list2():
+
+2019-04-11 07:29:54.579753 [ 51 ] >>>     check_output("open copy_list2.txt", shell=True)
+
+2019-04-11 07:29:54.587903 [ 10 ] >>> # - func 3
+
+2019-04-11 07:29:54.595149 [ 22 ] >>> def edit_item_list3():
+
+2019-04-11 07:29:54.600630 [ 51 ] >>>     check_output("open copy_list3.txt", shell=True)
+
+2019-04-11 07:29:54.604861 [ 10 ] >>> # - func 4
+
+2019-04-11 07:29:54.607670 [ 22 ] >>> def edit_item_list4():
+
+2019-04-11 07:29:54.610639 [ 51 ] >>>     check_output("open copy_list4.txt", shell=True)
+
+2019-04-11 07:29:54.615306 [ 10 ] >>> # - func 5
+
+2019-04-11 07:29:54.618204 [ 22 ] >>> def edit_item_list5():
+
+2019-04-11 07:29:54.621045 [ 136 ] >>>     clipboard_history_file_path = "/Users/jack/Documents/GitHub/local/build_app/python/py2app/clipboard_saver/dev/clipboard_history.txt"
+
+2019-04-11 07:29:54.623991 [ 67 ] >>>     check_output("open " + clipboard_history_file_path, shell=True)
+
+2019-04-11 07:29:54.631128 [ 24 ] >>> # --- pyperclip funciton
+
+2019-04-11 07:29:54.635654 [ 10 ] >>> # - func 6
+
+2019-04-11 07:29:54.641166 [ 48 ] >>> def copy_selected_item(list, selected_item_num):
+
+2019-04-11 07:29:54.647136 [ 43 ] >>>     selected_item = list[selected_item_num]
+
+2019-04-11 07:29:54.653063 [ 33 ] >>>     pyperclip.copy(selected_item)
+
+2019-04-11 07:29:54.659854 [ 26 ] >>>     # print(selected_item)
+
+2019-04-11 07:29:54.664222 [ 10 ] >>> # - func 7
+
+2019-04-11 07:29:54.667149 [ 61 ] >>> def copy_selected_item_no_linebreak(list, selected_item_num):
+
+2019-04-11 07:29:54.671432 [ 51 ] >>>     selected_item = selected_item.replace("\n", "")
+
+2019-04-11 07:29:54.682653 [ 27 ] >>> # --- cmbbx update funciton
+
+2019-04-11 07:29:54.687053 [ 10 ] >>> # - func 8
+
+2019-04-11 07:29:54.689989 [ 19 ] >>> def cmbbx_update():
+
+2019-04-11 07:29:54.693089 [ 26 ] >>>     # delete previous data
+
+2019-04-11 07:29:54.696020 [ 23 ] >>>     cb.delete(0, 'end')
+
+2019-04-11 07:29:54.700213 [ 29 ] >>>     # load updated data again
+
+2019-04-11 07:29:54.703185 [ 35 ] >>>     f = open("copy_list1.txt", "r")
+
+2019-04-11 07:29:54.706157 [ 14 ] >>>     items = []
+
+2019-04-11 07:29:54.709054 [ 18 ] >>>     for line in f:
+
+2019-04-11 07:29:54.711935 [ 26 ] >>>         items.append(line)
+
+2019-04-11 07:29:54.714884 [ 13 ] >>>     f.close()
+
+2019-04-11 07:29:54.719236 [ 42 ] >>>     cb_val.set("Copyitmes with linebreak")
+
+2019-04-11 07:29:54.722173 [ 73 ] >>>     # cb = ttk.Combobox(frame, textvariable=cb_val5, height=10, width=50)
+
+2019-04-11 07:29:54.725151 [ 24 ] >>>     cb['values'] = items
+
+2019-04-11 07:29:54.728096 [ 16 ] >>>     frame.grid()
+
+2019-04-11 07:29:54.730995 [ 18 ] >>>     cb.grid(row=1)
+
+2019-04-11 07:29:54.734238 [ 105 ] >>>     cb.bind('<<ComboboxSelected>>', lambda e:[copy_selected_item_no_linebreak(items, int(cb.current()))])
+
+2019-04-11 07:29:54.741101 [ 10 ] >>> # - func 9
+
+2019-04-11 07:29:54.748854 [ 20 ] >>> def cmbbx_update2():
+
+2019-04-11 07:29:54.757929 [ 24 ] >>>     cb2.delete(0, 'end')
+
+2019-04-11 07:29:54.766040 [ 35 ] >>>     f = open("copy_list2.txt", "r")
+
+2019-04-11 07:29:54.769066 [ 15 ] >>>     items2 = []
+
+2019-04-11 07:29:54.773506 [ 27 ] >>>         items2.append(line)
+
+2019-04-11 07:29:54.779433 [ 46 ] >>>     cb_val2.set("Copyitmes without linebreak")
+
+2019-04-11 07:29:54.782426 [ 75 ] >>>     # cb2 = ttk.Combobox(frame2, textvariable=cb_val2, height=10, width=50)
+
+2019-04-11 07:29:54.785519 [ 26 ] >>>     cb2['values'] = items2
+
+2019-04-11 07:29:54.788512 [ 17 ] >>>     frame2.grid()
+
+2019-04-11 07:29:54.791537 [ 19 ] >>>     cb2.grid(row=1)
+
+2019-04-11 07:29:54.794650 [ 108 ] >>>     cb2.bind('<<ComboboxSelected>>', lambda e:[copy_selected_item_no_linebreak(items2, int(cb2.current()))])
+
+2019-04-11 07:29:54.799250 [ 11 ] >>> # - func 10
+
+2019-04-11 07:29:54.802233 [ 20 ] >>> def cmbbx_update3():
+
+2019-04-11 07:29:54.806628 [ 24 ] >>>     cb3.delete(0, 'end')
+
+2019-04-11 07:29:54.822610 [ 35 ] >>>     f = open("copy_list3.txt", "r")
+
+2019-04-11 07:29:54.830285 [ 15 ] >>>     items3 = []
+
+2019-04-11 07:29:54.842073 [ 27 ] >>>         items3.append(line)
+
+2019-04-11 07:29:54.858831 [ 26 ] >>>     cb_val3.set("Snippet")
+
+2019-04-11 07:29:54.866664 [ 75 ] >>>     # cb3 = ttk.Combobox(frame3, textvariable=cb_val3, height=10, width=50)
+
+2019-04-11 07:29:54.873546 [ 26 ] >>>     cb3['values'] = items3
+
+2019-04-11 07:29:54.879858 [ 17 ] >>>     frame3.grid()
+
+2019-04-11 07:29:54.886081 [ 19 ] >>>     cb3.grid(row=1)
+
+2019-04-11 07:29:54.892207 [ 108 ] >>>     cb3.bind('<<ComboboxSelected>>', lambda e:[copy_selected_item_no_linebreak(items3, int(cb3.current()))])
+
+2019-04-11 07:29:54.901126 [ 11 ] >>> # - func 11
+
+2019-04-11 07:29:54.907167 [ 20 ] >>> def cmbbx_update4():
+
+2019-04-11 07:29:54.915589 [ 24 ] >>>     cb4.delete(0, 'end')
+
+2019-04-11 07:29:54.926498 [ 35 ] >>>     f = open("copy_list4.txt", "r")
+
+2019-04-11 07:29:54.933569 [ 15 ] >>>     items4 = []
+
+2019-04-11 07:29:54.942572 [ 27 ] >>>         items4.append(line)
+
+2019-04-11 07:29:54.955829 [ 38 ] >>>     cb_val4.set("===  Todo List  ===")
+
+2019-04-11 07:29:54.961210 [ 75 ] >>>     # cb4 = ttk.Combobox(frame4, textvariable=cb_val4, height=10, width=50)
+
+2019-04-11 07:29:54.965943 [ 26 ] >>>     cb4['values'] = items4
+
+2019-04-11 07:29:54.970878 [ 17 ] >>>     frame4.grid()
+
+2019-04-11 07:29:54.975646 [ 19 ] >>>     cb4.grid(row=1)
+
+2019-04-11 07:29:54.980419 [ 108 ] >>>     cb4.bind('<<ComboboxSelected>>', lambda e:[copy_selected_item_no_linebreak(items4, int(cb4.current()))])
+
+2019-04-11 07:29:54.990201 [ 11 ] >>> # - func 12
+
+2019-04-11 07:29:54.994706 [ 20 ] >>> def cmbbx_update5():
+
+2019-04-11 07:29:55.001645 [ 24 ] >>>     cb5.delete(0, 'end')
+
+2019-04-11 07:29:55.010592 [ 46 ] >>>     f = open(copylist_ref_file_full_path, "r")
+
+2019-04-11 07:29:55.015032 [ 15 ] >>>     items5 = []
+
+2019-04-11 07:29:55.021366 [ 27 ] >>>         items5.append(line)
+
+2019-04-11 07:29:55.031134 [ 46 ] >>>     cb_val5.set("===  Clipboard History  ===")
+
+2019-04-11 07:29:55.038070 [ 75 ] >>>     # cb5 = ttk.Combobox(frame5, textvariable=cb_val5, height=10, width=50)
+
+2019-04-11 07:29:55.044836 [ 26 ] >>>     cb5['values'] = items5
+
+2019-04-11 07:29:55.051101 [ 17 ] >>>     frame5.grid()
+
+2019-04-11 07:29:55.056367 [ 19 ] >>>     cb5.grid(row=1)
+
+2019-04-11 07:29:55.064621 [ 108 ] >>>     cb5.bind('<<ComboboxSelected>>', lambda e:[copy_selected_item_no_linebreak(items5, int(cb5.current()))])
+
+2019-04-11 07:29:55.075612 [ 11 ] >>> # - func 13
+
+2019-04-11 07:29:55.080073 [ 36 ] >>> def clipboard_history_file_clear5():
+
+2019-04-11 07:29:55.089696 [ 53 ] >>>     with open(clipboard_history_file_path, "w") as f:
+
+2019-04-11 07:29:55.093590 [ 48 ] >>>         #print("All copy list has been delete.")
+
+2019-04-11 07:29:55.099373 [ 12 ] >>>         pass
+
+2019-04-11 07:29:55.106098 [ 52 ] >>>     pyperclip.copy('All copy list has been delete.')
+
+2019-04-11 07:29:55.118294 [ 10 ] >>> # --- root
+
+2019-04-11 07:29:55.123719 [ 11 ] >>> root = Tk()
+
+2019-04-11 07:29:55.127628 [ 22 ] >>> root.title("CopyList")
+
+2019-04-11 07:29:55.157136 [ 11 ] >>> # --- frame
+
+2019-04-11 07:29:55.169453 [ 12 ] >>> # -- frame 1
+
+2019-04-11 07:29:55.175774 [ 34 ] >>> frame = ttk.Frame(root, padding=8)
+
+2019-04-11 07:29:55.184886 [ 12 ] >>> # -- frame 2
+
+2019-04-11 07:29:55.193709 [ 35 ] >>> frame2 = ttk.Frame(root, padding=8)
+
+2019-04-11 07:29:55.203359 [ 12 ] >>> # -- frame 3
+
+2019-04-11 07:29:55.210177 [ 35 ] >>> frame3 = ttk.Frame(root, padding=8)
+
+2019-04-11 07:29:55.217101 [ 12 ] >>> # -- frame 4
+
+2019-04-11 07:29:55.220499 [ 35 ] >>> frame4 = ttk.Frame(root, padding=8)
+
+2019-04-11 07:29:55.225690 [ 12 ] >>> # -- frame 5
+
+2019-04-11 07:29:55.228971 [ 35 ] >>> frame5 = ttk.Frame(root, padding=8)
+
+2019-04-11 07:29:55.239364 [ 15 ] >>> # --- combo box
+
+2019-04-11 07:29:55.249442 [ 17 ] >>> # --- combo box 1
+
+2019-04-11 07:29:55.257853 [ 20 ] >>> cb_val = StringVar()
+
+2019-04-11 07:29:55.263390 [ 38 ] >>> cb_val.set("Copyitmes with linebreak")
+
+2019-04-11 07:29:55.266720 [ 66 ] >>> cb = ttk.Combobox(frame, textvariable=cb_val, height=10, width=50)
+
+2019-04-11 07:29:55.269933 [ 20 ] >>> cb['values'] = items
+
+2019-04-11 07:29:55.274020 [ 12 ] >>> frame.grid()
+
+2019-04-11 07:29:55.277328 [ 14 ] >>> cb.grid(row=1)
+
+2019-04-11 07:29:55.280897 [ 88 ] >>> cb.bind('<<ComboboxSelected>>', lambda e:[copy_selected_item(items, int(cb.current()))])
+
+2019-04-11 07:29:55.287698 [ 17 ] >>> # --- combo box 2
+
+2019-04-11 07:29:55.291061 [ 21 ] >>> cb_val2 = StringVar()
+
+2019-04-11 07:29:55.294305 [ 42 ] >>> cb_val2.set("Copyitmes without linebreak")
+
+2019-04-11 07:29:55.297654 [ 69 ] >>> cb2 = ttk.Combobox(frame2, textvariable=cb_val2, height=10, width=50)
+
+2019-04-11 07:29:55.300978 [ 22 ] >>> cb2['values'] = items2
+
+2019-04-11 07:29:55.304238 [ 13 ] >>> frame2.grid()
+
+2019-04-11 07:29:55.307478 [ 15 ] >>> cb2.grid(row=1)
+
+2019-04-11 07:29:55.311028 [ 104 ] >>> cb2.bind('<<ComboboxSelected>>', lambda e:[copy_selected_item_no_linebreak(items2, int(cb2.current()))])
+
+2019-04-11 07:29:55.317824 [ 17 ] >>> # --- combo box 3
+
+2019-04-11 07:29:55.321171 [ 21 ] >>> cb_val3 = StringVar()
+
+2019-04-11 07:29:55.324751 [ 22 ] >>> cb_val3.set("Snippet")
+
+2019-04-11 07:29:55.328268 [ 69 ] >>> cb3 = ttk.Combobox(frame3, textvariable=cb_val3, height=10, width=50)
+
+2019-04-11 07:29:55.331656 [ 22 ] >>> cb3['values'] = items3
+
+2019-04-11 07:29:55.335042 [ 13 ] >>> frame3.grid()
+
+2019-04-11 07:29:55.338669 [ 15 ] >>> cb3.grid(row=1)
+
+2019-04-11 07:29:55.347171 [ 104 ] >>> cb3.bind('<<ComboboxSelected>>', lambda e:[copy_selected_item_no_linebreak(items3, int(cb3.current()))])
+
+2019-04-11 07:29:55.360613 [ 17 ] >>> # --- combo box 4
+
+2019-04-11 07:29:55.368238 [ 21 ] >>> cb_val4 = StringVar()
+
+2019-04-11 07:29:55.375209 [ 34 ] >>> cb_val4.set("===  Todo List  ===")
+
+2019-04-11 07:29:55.379754 [ 69 ] >>> cb4 = ttk.Combobox(frame4, textvariable=cb_val4, height=10, width=50)
+
+2019-04-11 07:29:55.383705 [ 22 ] >>> cb4['values'] = items4
+
+2019-04-11 07:29:55.387163 [ 13 ] >>> frame4.grid()
+
+2019-04-11 07:29:55.390547 [ 15 ] >>> cb4.grid(row=1)
+
+2019-04-11 07:29:55.394261 [ 104 ] >>> cb4.bind('<<ComboboxSelected>>', lambda e:[copy_selected_item_no_linebreak(items4, int(cb4.current()))])
+
+2019-04-11 07:29:55.401110 [ 17 ] >>> # --- combo box 5
+
+2019-04-11 07:29:55.404610 [ 21 ] >>> cb_val5 = StringVar()
+
+2019-04-11 07:29:55.408239 [ 42 ] >>> cb_val5.set("===  Clipboard History  ===")
+
+2019-04-11 07:29:55.411786 [ 69 ] >>> cb5 = ttk.Combobox(frame5, textvariable=cb_val5, height=10, width=50)
+
+2019-04-11 07:29:55.415212 [ 22 ] >>> cb5['values'] = items5
+
+2019-04-11 07:29:55.418980 [ 13 ] >>> frame5.grid()
+
+2019-04-11 07:29:55.422520 [ 15 ] >>> cb5.grid(row=1)
+
+2019-04-11 07:29:55.426025 [ 104 ] >>> cb5.bind('<<ComboboxSelected>>', lambda e:[copy_selected_item_no_linebreak(items5, int(cb5.current()))])
+
+2019-04-11 07:29:55.436702 [ 11 ] >>> # --- label
+
+2019-04-11 07:29:55.444130 [ 77 ] >>> lb1 = Label(frame, text="Copylist 1", bg="mistyrose", font=("Helvetica 14" ))
+
+2019-04-11 07:29:55.452552 [ 77 ] >>> lb2 = Label(frame2, text="Copylist 2", bg="mistyrose", font=("Helvetica 14"))
+
+2019-04-11 07:29:55.460427 [ 77 ] >>> lb3 = Label(frame3, text="Copylist 3", bg="mistyrose", font=("Helvetica 14"))
+
+2019-04-11 07:29:55.466910 [ 76 ] >>> lb4 = Label(frame4, text="Todo List", bg="mistyrose", font=("Helvetica 14"))
+
+2019-04-11 07:29:55.474963 [ 79 ] >>> lb5 = Label(frame5, text="OS Clipboard", bg="mistyrose", font=("Helvetica 14"))
+
+2019-04-11 07:29:55.484389 [ 39 ] >>> frame.grid(); lb1.grid(row=0, sticky=W)
+
+2019-04-11 07:29:55.488184 [ 40 ] >>> frame2.grid(); lb2.grid(row=0, sticky=W)
+
+2019-04-11 07:29:55.491670 [ 40 ] >>> frame3.grid(); lb3.grid(row=0, sticky=W)
+
+2019-04-11 07:29:55.495251 [ 40 ] >>> frame4.grid(); lb4.grid(row=0, sticky=W)
+
+2019-04-11 07:29:55.498891 [ 40 ] >>> frame5.grid(); lb5.grid(row=0, sticky=W)
+
+2019-04-11 07:29:55.510465 [ 12 ] >>> # --- button
+
+2019-04-11 07:29:55.517891 [ 135 ] >>> b1 = Button(frame, text="Edit", command=lambda:[edit_item_list1()]); b6 = Button(frame, text="Update", command=lambda:[cmbbx_update()])
+
+2019-04-11 07:29:55.522699 [ 138 ] >>> b2 = Button(frame2, text="Edit", command=lambda:[edit_item_list2()]); b7 = Button(frame2, text="Update", command=lambda:[cmbbx_update2()])
+
+2019-04-11 07:29:55.527394 [ 138 ] >>> b3 = Button(frame3, text="Edit", command=lambda:[edit_item_list3()]); b8 = Button(frame3, text="Update", command=lambda:[cmbbx_update3()])
+
+2019-04-11 07:29:55.531235 [ 138 ] >>> b4 = Button(frame4, text="Edit", command=lambda:[edit_item_list4()]); b9 = Button(frame4, text="Update", command=lambda:[cmbbx_update4()])
+
+2019-04-11 07:29:55.536060 [ 70 ] >>> b5 = Button(frame5, text="Edit", command=lambda:[edit_item_list5()]); 
+
+2019-04-11 07:29:55.540168 [ 84 ] >>> b10 = Button(frame5, text="Clear", command=lambda:[clipboard_history_file_clear5()])
+
+2019-04-11 07:29:55.548316 [ 69 ] >>> b11 = Button(frame5, text="Update", command=lambda:[cmbbx_update5()])
+
+2019-04-11 07:29:55.558790 [ 78 ] >>> frame.grid(); b1.grid(row=2, sticky=W); frame.grid(); b6.grid(row=2, sticky=E)
+
+2019-04-11 07:29:55.567057 [ 80 ] >>> frame2.grid(); b2.grid(row=2, sticky=W); frame2.grid(); b7.grid(row=2, sticky=E)
+
+2019-04-11 07:29:55.573981 [ 80 ] >>> frame3.grid(); b3.grid(row=2, sticky=W); frame3.grid(); b8.grid(row=2, sticky=E)
+
+2019-04-11 07:29:55.580810 [ 80 ] >>> frame4.grid(); b4.grid(row=2, sticky=W); frame4.grid(); b9.grid(row=2, sticky=E)
+
+2019-04-11 07:29:55.588596 [ 123 ] >>> frame5.grid(); b5.grid(row=2, sticky=W); frame5.grid(); b11.grid(row=2, sticky=E); frame5.grid(); b10.grid(row=2, sticky=N)
+
+2019-04-11 07:29:55.601998 [ 15 ] >>> # --- call root
+
+2019-04-11 07:29:55.608536 [ 15 ] >>> root.mainloop()
