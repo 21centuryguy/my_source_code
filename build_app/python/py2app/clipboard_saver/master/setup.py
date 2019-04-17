@@ -8,7 +8,7 @@ Usage:
 from setuptools import setup
 
 APP = ['save_clipboard.py']
-DATA_FILES = ['clipboard_history.txt']
+DATA_FILES = ['clipboard_history.txt', 'err_log.txt']
 OPTIONS = {
 	'iconfile': 'ClipboardSaver.icns',
 	'plist': {

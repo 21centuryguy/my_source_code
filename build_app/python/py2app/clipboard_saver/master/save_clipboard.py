@@ -113,9 +113,11 @@ def main():
 				current_text_on_clipboard = pyperclip.paste()
 
 		except Exception as e:
-			with open("log/err_log.txt", "a+") as f:
-				f.write("[ " + str(datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S.%f")) + " ] Exception Message : ", e)
+			with open("err_log.txt", "a+") as f:
+				print("[ " + str(datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S.%f")) +" ] " + str(e))
+				f.write("[ " + str(datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S.%f")) +" ] " + str(e))
 				f.write("\n")
+				current_text_on_clipboard = str(e)
 
 		time.sleep(0.1)
 
